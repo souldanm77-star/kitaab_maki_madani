@@ -65,8 +65,17 @@ Work Log:
 - Vérification visuelle dars2 : frame t=226 s → page 10 à droite, rectangle jaune sur « لازم » ✓ (premier mot réellement détecté).
 - TEST RENDU : 240 s rendus en 62 s (3,9× temps réel) sur 2 cœurs. Les processus nohup SURVIVENT entre les appels d'outils dans cette session (contrairement à l'observation antérieure) → rendus séquentiels en arrière-plan.
 - Rendus complets lancés en séquence arrière-plan : dars2.mp4 OK (45,9 min, 80,5 Mo, 2752,2 s), puis dars1 (80,3 min), dars3 (63,9 min), dars4 (150,2 min).
+- Vérifications finales sur les vidéos rendues (extraction de frames + détection de pixels jaunes) :
+    dars1 t=2,5 s → ونعوذ surligné p1 ✓ ; t=906,0 s → المكيَّ surligné p2 ✓ (une fausse alerte « pas de surlignage » à 906 s était un artefact d'extraction : frame exactement à la frontière t=start où t<end échoue — confirmé par séquence fps=2 : 906,0 → 1128 px jaunes).
+    dars2 t=226 s → لازم surligné p10 ✓ (première vidéo dars2 jamais surlignée).
+    dars3 t=3414 s → وضعَ surligné p13 ✓ (1713 px).
+    dars4 t=4681 s → surlignage actif p23 ✓ (1313 px).
+- Vérifié aussi la CONTIGUÏTÉ intra-run dars1 : run 1 (khutba) couvre les positions livre 2→57 sans trou (3 mots interpolés seulement).
+- Push GitHub : `d02e925..3111ee0` (transcriptions + timings + CSV des 4 dars).
 
 Stage Summary:
 - CAUSE RACINE dars2 identifiée et corrigée (transcription incomplète).
-- dars1 re-vérifié : v3 plus couvrant que v2 (355→410 mots) avec interpolation intra-run ; runs p10/p23 de v2 jugés faux positifs (formules hors lecture) rejetés par les gates v3.
-- Les 4 dars ont transcription + timing + CSV de contrôle ; vidéos régénérées dans sortie/.
+- LIVRABLES FINAUX dans download/video-recitation/sortie/ : dars1.mp4 (80,3 min, 140 Mo), dars2.mp4 (45,9 min, 80 Mo), dars3.mp4 (63,9 min, 112 Mo), dars4.mp4 (150,2 min, 274 Mo) — 1920×1080 H.264+AAC, cheikh à gauche / page réelle à droite, surlignage mot à mot uniquement sur la lecture réelle du livre.
+- Statistiques de surlignage : dars1 = 410 mots (40 runs, pages 1-6), dars2 = 141 mots (10 runs, pages 10-23), dars3 = 558 mots (38 runs, pages 2-13), dars4 = 239 mots (21 runs, pages 20-23).
+- CSV de contrôle pour vérification humaine : sortie/darsN_segments.csv (chronologie lecture/somali/hors_livre) et sortie/darsN_synchronisation.csv (mots surlignés horodatés).
+- Piège documenté : l'extraction d'une frame EXACTEMENT à t=start d'un événement ASS peut rater le rectangle (frontière flottante) — toujours vérifier avec une séquence fps≥2.

@@ -1,0 +1,702 @@
+     1→#!/usr/bin/env python3
+     2→# -*- coding: utf-8 -*-
+     3→"""
+     4→ÉTAPE 3 — Détection des passages lus + alignement MOT À MOT (v3)
+     5→=================================================================
+     6→
+     7→L'audio d'un dars contient TROIS types de parole :
+     8→  🔵 lecture      : l'arabe récité correspond au texte du livre → SURLIGNAGE
+     9→  ⚪ somali       : explication en somali                       → rien
+    10→  ⚪ hors_livre   : arabe (intro, explication) sans correspondance → rien
+    11→
+    12→Style réel d'un dars : le cheikh lit UNE PHRASE arabe, puis l'explique en
+    13→somali, puis lit la phrase suivante… Whisper transcrit donc des blocs
+    14→MIXTES (arabe + somali déguisé en arabe), ce qui fragmente les
+    15→appariements. D'où la stratégie en DEUX PASSES :
+    16→
+    17→  PASS 1 (stricte)  — ancrages exacts chaînés (LIS pondéré) + DP locales
+    18→                      + filtre de qualité exigeant → runs haute confiance.
+    19→  PASS 2 (rattrapage) — chaque « trou » entre deux runs actifs est un
+    20→                      candidat CONTINUE DE LECTURE : le cheikh a relu le
+    21→                      texte juste après l'endroit où il s'était arrêté.
+    22→                      On re-DS le trou contre la PLAGE DU LIVRE qui suit
+    23→                      le run précédent (et précède le suivant), avec un
+    24→                      seuil RELÂCHÉ + garde-fous anti-somali :
+    25→                        * p80 : au moins 25 % de mots appariés à ≥ 0.80
+    26→                          (une vraie lecture est bien transcrite en
+    27→                          majorité ; le somali déguisé plafonne à ~0.6) ;
+    28→                        * ancre_forte : un mot long (≥ 4 lettres)
+    29→                          apparié solidement.
+    30→
+    31→Ensuite : interpolation des mots sautés, lissage, classification des
+    32→segments, timing.json + CSV (formats inchangés pour l'étape 4).
+    33→"""
+    34→import argparse
+    35→import csv
+    36→from pathlib import Path
+    37→
+    38→from commun import (normaliser, similarite, est_recitable, charger_json,
+    39→                    sauver_json, charger_config, chemin_projet, duree_media)
+    40→
+    41→# ------------------------------ PASS 1 (stricte, comme avant mais souple) --
+    42→SEUIL = 0.45           # similarité minimale d'un appariement DP
+    43→GAP = -0.28            # pénalité de saut (mot non apparié)
+    44→MIN_MOTS_RUN = 3
+    45→MIN_DUREE_RUN = 1.5
+    46→QUEUE = 0.6            # maintien du surlignage après le dernier mot (s)
+    47→EXT_MAX = 2.5          # extension max d'un mot jusqu'au suivant (s)
+    48→BANDE = 90             # demi-largeur de bande du DP local
+    49→
+    50→# ------------------------------ PASS 2 (rattrapage des continuations) ------
+    51→SEUIL2 = 0.36          # seuil DP relâché
+    52→MEAN1 = 0.62           # filtre pass 1 : moyenne des similarités
+    53→MEAN2 = 0.55           # filtre pass 2 : moyenne des similarités
+    54→P80_MIN = 0.25         # part de mots appariés à ≥ 0.80 (garde anti-somali)
+    55→ANCRE_SC = 0.80        # score d'un appariement « solide »
+    56→LONGS1 = 0.50          # part de mots longs (≥3 lettres) — pass 1
+    57→LONGS2 = 0.42          # pass 2
+    58→SPAN1 = 1.45           # contiguïté max span/n — pass 1
+    59→SPAN2 = 1.75           # pass 2
+    60→MIN_MOTS2 = 3
+    61→MIN_DUREE2 = 1.2
+    62→TROU_WHISPER = 4       # mots Whisper non appariés tolérés dans un run
+    63→TROU_LIVRE = 3         # mots du livre sautés tolérés dans un run
+    64→MARGE_PLAGE = 60       # marge autour de la plage du livre pour la passe 2
+    65→
+    66→
+    67→# ------------------------------------------------------------ ancrages ---
+    68→def chercher_ancrages(w_norms, b_norms):
+    69→    """Chaîne monotone optimale de mots identiques (i↑, j↑).
+    70→    Renvoie [(i, j), …] triée par i. LIS pondéré (poids = 1 + longueur)."""
+    71→    pos_livre = {}
+    72→    for j, n in enumerate(b_norms):
+    73→        if len(n) >= 3:          # évite les fragments courts du somali déformé
+    74→            pos_livre.setdefault(n, []).append(j)
+    75→
+    76→    candidats = []
+    77→    for i, n in enumerate(w_norms):
+    78→        if n and len(n) >= 3:
+    79→            for j in pos_livre.get(n, ()):
+    80→                candidats.append((i, j))
+    81→    candidats.sort()
+    82→    if not candidats:
+    83→        return []
+    84→
+    85→    M = len(b_norms)
+    86→    fen_val = [0.0] * (M + 1)
+    87→    fen_idx = [None] * (M + 1)
+    88→
+    89→    def query(j):                      # max poids avec j' <= j
+    90→        s, idx = 0.0, None
+    91→        k = j + 1
+    92→        while k > 0:
+    93→            if fen_val[k] > s:
+    94→                s, idx = fen_val[k], fen_idx[k]
+    95→            k -= k & (-k)
+    96→        return s, idx
+    97→
+    98→    def maj(j, val, idx):
+    99→        k = j + 1
+   100→        while k <= M:
+   101→            if val > fen_val[k]:
+   102→                fen_val[k], fen_idx[k] = val, idx
+   103→            k += k & (-k)
+   104→
+   105→    total = {}                          # idx_candidat -> (poids, prev_idx)
+   106→    n_c = len(candidats)
+   107→    debut = 0
+   108→    while debut < n_c:
+   109→        fin = debut
+   110→        while fin < n_c and candidats[fin][0] == candidats[debut][0]:
+   111→            fin += 1
+   112→        # 1) évaluer tout le groupe i avec l'état Fenwick courant
+   113→        for c in range(debut, fin):
+   114→            i, j = candidats[c]
+   115→            poids, prev = query(j - 1)
+   116→            total[c] = (poids + 1 + len(w_norms[i]), prev)
+   117→        # 2) puis injecter le groupe dans le Fenwick
+   118→        for c in range(debut, fin):
+   119→            i, j = candidats[c]
+   120→            maj(j, total[c][0], c)
+   121→        debut = fin
+   122→
+   123→    # reconstruction de la meilleure chaîne
+   124→    best_c, best_w = None, 0.0
+   125→    for c, (w, _p) in total.items():
+   126→        if w > best_w:
+   127→            best_w, best_c = w, c
+   128→    chaine = []
+   129→    while best_c is not None:
+   130→        i, j = candidats[best_c]
+   131→        chaine.append((i, j))
+   132→        best_c = total[best_c][1]
+   133→    chaine.reverse()
+   134→    return chaine
+   135→
+   136→
+   137→# ---------------------------------------------------------- DP locale ----
+   138→def dp_locale(wmots, bmots, seuil=SEUIL, gap=GAP, bande=None):
+   139→    """Alignement local (Needleman-Wunsch sous bande).
+   140→    Renvoie des opérations : ('M', wi_local, bj_local) / ('IW', wi) /
+   141→    ('IB', bj). Les indices sont LOCAUX (0-based dans les sous-listes)."""
+   142→    n, m = len(wmots), len(bmots)
+   143→    if n == 0 or m == 0:
+   144→        return [('IW', i) for i in range(n)] + [('IB', j) for j in range(m)]
+   145→    if bande is None:
+   146→        bande = max(BANDE, int(0.4 * max(n, m)))
+   147→
+   148→    NEG = float('-inf')
+   149→    dp = [[NEG] * (m + 1) for _ in range(n + 1)]
+   150→    bt = [[None] * (m + 1) for _ in range(n + 1)]
+   151→    dp[0][0] = 0.0
+   152→    for j in range(1, min(m, bande) + 1):
+   153→        dp[0][j] = dp[0][j - 1] + gap
+   154→        bt[0][j] = 'IB'
+   155→    for i in range(1, n + 1):
+   156→        dp[i][0] = dp[i - 1][0] + gap
+   157→        bt[i][0] = 'IW'
+   158→
+   159→    for i in range(1, n + 1):
+   160→        j0 = max(1, i - bande)
+   161→        j1 = min(m, i + bande)
+   162→        for j in range(j0, j1 + 1):
+   163→            best, choix = NEG, None
+   164→            if dp[i - 1][j - 1] > NEG:
+   165→                s = similarite(wmots[i - 1], bmots[j - 1])
+   166→                if s >= seuil:
+   167→                    v = dp[i - 1][j - 1] + s
+   168→                    if v > best:
+   169→                        best, choix = v, 'M'
+   170→            if dp[i - 1][j] > NEG:
+   171→                v = dp[i - 1][j] + gap
+   172→                if v > best:
+   173→                    best, choix = v, 'IW'
+   174→            if dp[i][j - 1] > NEG:
+   175→                v = dp[i][j - 1] + gap
+   176→                if v > best:
+   177→                    best, choix = v, 'IB'
+   178→            dp[i][j] = best
+   179→            bt[i][j] = choix
+   180→
+   181→    if dp[n][m] == NEG:
+   182→        bande2 = max(n, m) + 2
+   183→        if bande2 > bande:
+   184→            return dp_locale(wmots, bmots, seuil, gap, bande2)
+   185→
+   186→    ops, i, j = [], n, m
+   187→    while i > 0 or j > 0:
+   188→        c = bt[i][j]
+   189→        if c == 'M':
+   190→            ops.append(('M', i - 1, j - 1)); i -= 1; j -= 1
+   191→        elif c == 'IW':
+   192→            ops.append(('IW', i - 1)); i -= 1
+   193→        elif c == 'IB':
+   194→            ops.append(('IB', j - 1)); j -= 1
+   195→        else:
+   196→            if i > 0:
+   197→                ops.append(('IW', i - 1)); i -= 1
+   198→            else:
+   199→                ops.append(('IB', j - 1)); j -= 1
+   200→    ops.reverse()
+   201→    return ops
+   202→
+   203→
+   204→def repartir(a, b, c, longueurs):
+   205→    """Répartit [b, c] sur `a` mots proportionnellement à leurs longueurs."""
+   206→    if a <= 0:
+   207→        return []
+   208→    if c - b < 0.06 * a:
+   209→        c = b + 0.06 * a
+   210→    total = sum(longueurs) or a
+   211→    out, cur = [], b
+   212→    for L in longueurs:
+   213→        d = (c - b) * (L / total)
+   214→        out.append((cur, cur + d))
+   215→        cur += d
+   216→    return out
+   217→
+   218→
+   219→def lisser(times):
+   220→    """Monotonie : debut >= fin du précédent, fin > debut."""
+   221→    prev_fin = 0.0
+   222→    for idx, t in enumerate(times):
+   223→        if not t:
+   224→            continue
+   225→        b, c = t[0], t[1]
+   226→        if b < prev_fin:
+   227→            decal = prev_fin - b
+   228→            b, c = b + decal, max(c + decal, b + 0.06)
+   229→        if c <= b:
+   230→            c = b + 0.06
+   231→        times[idx] = (b, c) + tuple(t[2:])
+   232→        prev_fin = c
+   233→
+   234→
+   235→# -------------------------------------------------- qualité d'un run -----
+   236→def qualite_run(ps, w_mots, b_norms):
+   237→    """ps = [(wi, bj, sc)] trié par wi. Renvoie le dictionnaire de mesures."""
+   238→    n = len(ps)
+   239→    d0 = w_mots[ps[0][0]]['debut']
+   240→    d1 = w_mots[ps[-1][0]]['fin']
+   241→    mean = sum(sc for _w, _b, sc in ps) / n
+   242→    p80 = sum(1 for _w, _b, sc in ps if sc >= 0.80) / n
+   243→    dur = d1 - d0
+   244→    j0, j1 = ps[0][1], ps[-1][1]
+   245→    span = j1 - j0 + 1
+   246→    longs = sum(1 for _w, bj, _s in ps if len(b_norms[bj]) >= 3) / n
+   247→    ancre_forte = any(len(b_norms[bj]) >= 4 and sc >= ANCRE_SC
+   248→                      for _w, bj, sc in ps)
+   249→    return {'n': n, 'debut': d0, 'fin': d1, 'mean': mean, 'p80': p80,
+   250→            'dur': dur, 'span': span, 'longs': longs,
+   251→            'ancre_forte': ancre_forte}
+   252→
+   253→
+   254→def filtre_strict(q):
+   255→    """PASS 1 : critères exigeants (coïncidences isolées jamais activées)."""
+   256→    return ((q['n'] >= 4 and q['mean'] >= MEAN1 and q['dur'] >= 2.0
+   257→             and q['span'] / q['n'] <= SPAN1 and q['longs'] >= LONGS1
+   258→             and q['ancre_forte'])
+   259→            or
+   260→            (q['n'] == 3 and q['mean'] >= 0.90 and q['p80'] >= 0.66
+   261→             and q['dur'] >= 1.5 and q['span'] / q['n'] <= SPAN1
+   262→             and q['longs'] >= LONGS1 and q['ancre_forte']))
+   263→
+   264→
+   265→def filtre_souple(q):
+   266→    """PASS 2 : relâché MAIS protégé contre le somali déguisé en arabe.
+   267→    Une vraie lecture = la majorité des mots bien transcrits (p80 élevé),
+   268→    un faux positif somali = quelques coïncidences noyées dans du bruit."""
+   269→    return (q['n'] >= MIN_MOTS2 and q['mean'] >= MEAN2
+   270→            and q['dur'] >= MIN_DUREE2
+   271→            and q['span'] / q['n'] <= SPAN2
+   272→            and q['longs'] >= LONGS2
+   273→            and q['p80'] >= P80_MIN
+   274→            and q['ancre_forte'])
+   275→
+   276→
+   277→# ------------------------------------------------- runs par temps --------
+   278→def construire_runs(paires_dict, w_mots):
+   279→    """Regroupe les appariements en runs par CONTINUITÉ TEMPORELLE et
+   280→    monotonie dans le livre — pas par comptage de trous.
+   281→    Deux appariements (w1,b1) → (w2,b2) restent dans le même run si :
+   282→      * dt = w2.début − w1.fin ≤ 6 s   (la récitation continue) ;
+   283→      * le livre avance : b2 ≥ b1 − 2 (léger bruit d'ordre toléré) ;
+   284→      * la vitesse de progression est plausible : b2 − b1 ≤ dt/0.15 + 5
+   285→        (lecture rapide ≈ 6–7 mots/s max).
+   286→    Un mot « poubelle » de Whisper (somali déguisé) entre deux mots lus ne
+   287→    casse PLUS le run — c'est ce qui fragmentait tout en n=1."""
+   288→    runs = []
+   289→    for wi, (bj, sc) in sorted(paires_dict.items()):
+   290→        if runs:
+   291→            pw, pb, _psc = runs[-1][-1]
+   292→            dt = w_mots[wi]['debut'] - w_mots[pw]['fin']
+   293→            dj = bj - pb
+   294→            if dt <= 6.0 and dj >= -2 and dj <= dt / 0.15 + 5:
+   295→                runs[-1].append((wi, bj, sc))
+   296→                continue
+   297→        runs.append([(wi, bj, sc)])
+   298→    return runs
+   299→
+   300→
+   301→def fusionner_runs_proches(runs, w_mots):
+   302→    """Fusionne les runs voisins (gap temporel ≤ 6 s, avance du livre ≤ 20
+   303→    mots, pas de retour en arrière) : réassemble les fragments d'une même
+   304→    phrase séparés par quelques mots non transcrits."""
+   305→    out = []
+   306→    for r in runs:
+   307→        if out:
+   308→            dern = out[-1][-1]
+   309→            prem = r[0]
+   310→            dt = w_mots[prem[0]]['debut'] - w_mots[dern[0]]['fin']
+   311→            dj = prem[1] - dern[1]
+   312→            if dt <= 6.0 and 0 <= dj <= 20:
+   313→                out[-1] += r
+   314→                continue
+   315→        out.append(list(r))
+   316→    return out
+   317→
+   318→
+   319→# ------------------------------------------------------------- main ------
+   320→def main():
+   321→    ap = argparse.ArgumentParser(
+   322→        description="Détection des lectures + alignement (étape 3)")
+   323→    ap.add_argument('--config', default='config.json')
+   324→    ap.add_argument('--dars', required=True)
+   325→    ap.add_argument('--travail', default=None)
+   326→    args = ap.parse_args()
+   327→
+   328→    cfg = charger_config(args.config)
+   329→    travail = chemin_projet(cfg, args.travail or cfg.get('travail', 'travail'))
+   330→    a_cfg = cfg.get('alignement', {})
+   331→    global SEUIL, GAP, MIN_MOTS_RUN, MIN_DUREE_RUN, QUEUE
+   332→    global SEUIL2, MEAN1, MEAN2, P80_MIN, ANCRE_SC
+   333→    SEUIL = a_cfg.get('seuil', SEUIL)
+   334→    GAP = a_cfg.get('gap', GAP)
+   335→    MIN_MOTS_RUN = a_cfg.get('min_mots_run', MIN_MOTS_RUN)
+   336→    MIN_DUREE_RUN = a_cfg.get('min_duree_run', MIN_DUREE_RUN)
+   337→    QUEUE = a_cfg.get('queue', QUEUE)
+   338→    SEUIL2 = a_cfg.get('seuil2', SEUIL2)
+   339→    MEAN1 = a_cfg.get('mean1', MEAN1)
+   340→    MEAN2 = a_cfg.get('mean2', MEAN2)
+   341→    P80_MIN = a_cfg.get('p80_min', P80_MIN)
+   342→    ANCRE_SC = a_cfg.get('ancre_sc', ANCRE_SC)
+   343→
+   344→    pages = charger_json(Path(travail) / 'pages.json')
+   345→    trans = charger_json(Path(travail) / args.dars / 'transcription.json')
+   346→
+   347→    dars = cfg['darses'][args.dars]
+   348→    p1, p2 = dars['pages']
+   349→    duree = trans.get('duree') or duree_media(trans.get('audio', ''))
+   350→
+   351→    # ---- mots du livre sur la plage de la section ------------------------
+   352→    mots = []
+   353→    for p in pages['pages']:
+   354→        if not (p1 <= p['numero'] <= p2):
+   355→            continue
+   356→        for m in p['mots']:
+   357→            m['page'] = p['numero']
+   358→            mots.append(m)
+   359→    parle_idx = [i for i, m in enumerate(mots)
+   360→                 if est_recitable(m['texte']) and normaliser(m['texte'])]
+   361→    b_norms = [normaliser(mots[i]['texte']) for i in parle_idx]
+   362→    parle_pos = {idx_book: q for q, idx_book in enumerate(parle_idx)}
+   363→    parle_set = set(parle_idx)
+   364→
+   365→    # ---- mots Whisper ------------------------------------------------------
+   366→    w_mots = trans['mots']
+   367→    w_norms = []
+   368→    for w in w_mots:
+   369→        n = normaliser(w['mot'])
+   370→        w_norms.append(n if (n and est_recitable(w['mot'])) else None)
+   371→    N, M = len(w_norms), len(b_norms)
+   372→    print(f"« {args.dars} » : {M} mots du livre (pages {p1}–{p2}) ⟷ "
+   373→          f"{N} mots Whisper ({duree / 60:.1f} min)")
+   374→
+   375→    # =========================== PASS 1 =====================================
+   376→    ancrages = chercher_ancrages(w_norms, b_norms)
+   377→    print(f"[P1] ancrages exacts chaînés : {len(ancrages)}")
+   378→
+   379→    paires = {}                     # wi -> (bj, score)
+   380→    bornes = [(-1, -1)] + [tuple(a) for a in ancrages] + [(N, M)]
+   381→    for (i1, j1), (i2, j2) in zip(bornes, bornes[1:]):
+   382→        w_r = list(range(i1 + 1, i2))
+   383→        b_r = list(range(j1 + 1, j2))
+   384→        if not w_r or not b_r:
+   385→            continue
+   386→        n_r = len(w_r)
+   387→        if (i1, j1) == (-1, -1):            # tête : garder la FIN
+   388→            b_r = b_r[-(n_r + 400):] if len(b_r) > n_r + 400 else b_r
+   389→        else:                               # intervalle / queue : garder le DÉBUT
+   390→            b_r = b_r[:n_r + 400] if len(b_r) > n_r + 400 else b_r
+   391→        sous_w = [w_norms[i] for i in w_r]
+   392→        sous_b = [b_norms[j] for j in b_r]
+   393→        ops = dp_locale(sous_w, sous_b, seuil=SEUIL)
+   394→        for op in ops:
+   395→            if op[0] == 'M':
+   396→                paires[w_r[op[1]]] = (b_r[op[2]],
+   397→                                      similarite(sous_w[op[1]],
+   398→                                                 sous_b[op[2]]))
+   399→    for i, j in ancrages:
+   400→        paires[i] = (j, 1.0)
+   401→    print(f"[P1] appariements totaux : {len(paires)}")
+   402→
+   403→    # ---- runs de pass 1 (continuité temporelle + fusion des fragments) ----
+   404→    runs = construire_runs(paires, w_mots)
+   405→    runs = fusionner_runs_proches(runs, w_mots)
+   406→
+   407→    actifs = []
+   408→    for r in runs:
+   409→        ps = sorted(r, key=lambda x: x[0])
+   410→        q = qualite_run(ps, w_mots, b_norms)
+   411→        r_dict = {'paires': ps, **q}
+   412→        r_dict['actif'] = filtre_strict(q)
+   413→        if r_dict['actif']:
+   414→            actifs.append(r_dict)
+   415→    print(f"[P1] runs : {len(runs)} au total, {len(actifs)} ACTIVÉS")
+   416→
+   417→    # =========================== PASS 2 =====================================
+   418→    # Chaque trou Whisper entre deux runs actifs (ou avant le 1er / après
+   419→    # le dernier) est re-DSé contre la plage du livre qui suit/précède.
+   420→    paires2 = {}
+   421→    ancres_actifs = sorted(
+   422→        [(min(w for w, _b, _s in r['paires']),
+   423→          max(w for w, _b, _s in r['paires']),
+   424→          min(b for _w, b, _s in r['paires']),
+   425→          max(b for _w, b, _s in r['paires'])) for r in actifs])
+   426→
+   427→    zones = []                       # (wi_a, wi_b, bj_a, bj_b) candidats
+   428→    if ancres_actifs:
+   429→        # tête
+   430→        w0 = ancres_actifs[0][0]
+   431→        if w0 > 0:
+   432→            zones.append((0, w0 - 1, 0, max(0, ancres_actifs[0][2] - 1)))
+   433→        # intervalles
+   434→        for (wa0, wa1, ba0, ba1), (wb0, wb1, bb0, bb1) in \
+   435→                zip(ancres_actifs, ancres_actifs[1:]):
+   436→            if wb0 - wa1 - 1 > 0:
+   437→                zones.append((wa1 + 1, wb0 - 1, min(M - 1, ba1 + 1),
+   438→                              max(0, bb0 - 1)))
+   439→        # queue
+   440→        wL = ancres_actifs[-1][1]
+   441→        if wL < N - 1:
+   442→            zones.append((wL + 1, N - 1, min(M - 1, ancres_actifs[-1][3] + 1),
+   443→                          M - 1))
+   444→
+   445→    n_new = 0
+   446→    for wi_a, wi_b, bj_a, bj_b in zones:
+   447→        if bj_b < bj_a:
+   448→            continue
+   449→        # plage du livre élargie (le cheikh peut avoir sauté quelques lignes)
+   450→        bj_a2 = max(0, bj_a - MARGE_PLAGE)
+   451→        bj_b2 = min(M - 1, bj_b + MARGE_PLAGE)
+   452→        w_r = list(range(wi_a, wi_b + 1))
+   453→        b_r = list(range(bj_a2, bj_b2 + 1))
+   454→        if len(b_r) > len(w_r) + 600:      # borne le coût
+   455→            if wi_a == 0:                  # tête : le début du dars est près
+   456→                b_r = b_r[-(len(w_r) + 600):]   # du 1er run (position finale)
+   457→            else:                          # intervalle / queue : près du run
+   458→                b_r = b_r[:len(w_r) + 600]      # précédent (position initiale)
+   459→        sous_w = [w_norms[i] for i in w_r]
+   460→        sous_b = [b_norms[j] for j in b_r]
+   461→        ops = dp_locale(sous_w, sous_b, seuil=SEUIL2)
+   462→        loc = {}
+   463→        for op in ops:
+   464→            if op[0] == 'M':
+   465→                loc[w_r[op[1]]] = (b_r[op[2]],
+   466→                                   similarite(sous_w[op[1]], sous_b[op[2]]))
+   467→        if not loc:
+   468→            continue
+   469→        ps = sorted([(wi, bj, sc) for wi, (bj, sc) in loc.items()])
+   470→        # découpe + fusion par continuité temporelle
+   471→        sous_runs = construire_runs({wi: (bj, sc) for wi, bj, sc in ps},
+   472→                                    w_mots)
+   473→        sous_runs = fusionner_runs_proches(sous_runs, w_mots)
+   474→        for psr in sous_runs:
+   475→            q = qualite_run(psr, w_mots, b_norms)
+   476→            if filtre_souple(q):
+   477→                actifs.append({'paires': psr, **q, 'actif': True,
+   478→                               'passe': 2})
+   479→                paires2.update({wi: (bj, sc) for wi, bj, sc in psr})
+   480→                n_new += 1
+   481→    if n_new:
+   482→        actifs.sort(key=lambda r: r['debut'])
+   483→    print(f"[P2] continuations récupérées : {n_new} runs supplémentaires")
+   484→
+   485→    # ---- fusion des runs voisins (pass 1 + pass 2) --------------------------
+   486→    tous = [list(r['paires']) for r in actifs]
+   487→    fusionnes = fusionner_runs_proches(tous, w_mots)
+   488→    # re-évalue la qualité après fusion
+   489→    actifs = []
+   490→    for r in fusionnes:
+   491→        ps = sorted(r, key=lambda x: x[0])
+   492→        q = qualite_run(ps, w_mots, b_norms)
+   493→        r_dict = {'paires': ps, **q}
+   494→        r_dict['actif'] = filtre_strict(q) or filtre_souple(q)
+   495→        if r_dict['actif']:
+   496→            actifs.append(r_dict)
+   497→    print(f"[F] runs ACTIVÉS après fusion : {len(actifs)}")
+   498→    total_lecture = sum(r['dur'] for r in actifs)
+   499→    print(f"[F] temps de lecture détecté : {total_lecture:.0f}s "
+   500→          f"({100 * total_lecture / max(duree, 1):.1f} % de {duree / 60:.0f} min)")
+   501→    for k, r in enumerate(actifs):
+   502→        j0, j1 = r['paires'][0][1], r['paires'][-1][1]
+   503→        pg0 = mots[parle_idx[j0]]['page']
+   504→        pg1 = mots[parle_idx[j1]]['page']
+   505→        print(f"   🔵 run {k + 1}: {r['debut']:7.1f}s → {r['fin']:7.1f}s  "
+   506→              f"pages {pg0}–{pg1}  ({r['n']} mots, moy {r['mean']:.2f}, "
+   507→              f"p80 {r['p80']:.2f})")
+   508→
+   509→    # ---- 4) timing des mots à l'intérieur des runs actifs -----------------
+   510→    times = [None] * M
+   511→    run_of = [None] * M
+   512→    for k, r in enumerate(actifs):
+   513→        ps = sorted(r['paires'], key=lambda x: x[1])
+   514→        for wi, bj, sc in ps:
+   515→            times[bj] = (w_mots[wi]['debut'], w_mots[wi]['fin'], sc, 'whisper')
+   516→            run_of[bj] = k
+   517→        # interpolation des mots du livre sautés à l'intérieur du run
+   518→        for (wia, bja, _), (wib, bjb, _) in zip(ps, ps[1:]):
+   519→            trou = bjb - bja - 1
+   520→            if trou > 0:
+   521→                t0 = w_mots[wia]['fin']
+   522→                t1 = w_mots[wib]['debut']
+   523→                seg = range(bja + 1, bjb)
+   524→                L = [len(b_norms[j]) + 1 for j in seg]
+   525→                for y, (b, c) in enumerate(repartir(trou, t0, t1, L)):
+   526→                    j = bja + 1 + y
+   527→                    if times[j] is None:
+   528→                        times[j] = (b, c, 0.0, 'interpole')
+   529→                        run_of[j] = k
+   530→        # lissage dans l'ordre du livre
+   531→        idxs = [bj for _wi, bj, _ in ps]
+   532→        for j in range(idxs[0], idxs[-1] + 1):
+   533→            if run_of[j] == k and times[j] is None:
+   534→                times[j] = (times[j - 1][1], times[j - 1][1] + 0.06,
+   535→                            0.0, 'interpole')
+   536→                run_of[j] = k
+   537→        bloc = [times[j] for j in range(idxs[0], idxs[-1] + 1)
+   538→                if run_of[j] == k]
+   539→        lisser(bloc)
+   540→        z = 0
+   541→        for j in range(idxs[0], idxs[-1] + 1):
+   542→            if run_of[j] == k:
+   543→                times[j] = bloc[z]
+   544→                z += 1
+   545→
+   546→    # extension : chaque mot tient jusqu'au suivant (pas de clignotement)
+   547→    for k, r in enumerate(actifs):
+   548→        ps = sorted(r['paires'], key=lambda x: x[1])
+   549→        j0, j1 = ps[0][1], ps[-1][1]
+   550→        seq = [j for j in range(j0, j1 + 1) if run_of[j] == k]
+   551→        for a, b in zip(seq, seq[1:]):
+   552→            fa = times[a][1]
+   553→            db = times[b][0]
+   554→            if db > fa:
+   555→                times[a] = (times[a][0], min(fa + EXT_MAX, db),
+   556→                            times[a][2], times[a][3])
+   557→            elif times[b][1] > fa:
+   558→                times[a] = (times[a][0], fa, times[a][2], times[a][3])
+   559→        dern = times[seq[-1]]
+   560→        times[seq[-1]] = (dern[0], dern[1] + QUEUE, dern[2], dern[3])
+   561→
+   562→    # ---- 5) classification des segments de l'audio ------------------------
+   563→    dans_run = set()
+   564→    for k, r in enumerate(actifs):
+   565→        ps = sorted(r['paires'], key=lambda x: x[0])
+   566→        wi0, wi1 = ps[0][0], ps[-1][0]
+   567→        for wi in range(wi0, wi1 + 1):     # mots sandwich inclus
+   568→            dans_run.add(wi)
+   569→
+   570→    classes = []
+   571→    for wi, w in enumerate(w_mots):
+   572→        if wi in dans_run:
+   573→            classes.append('lecture')
+   574→            continue
+   575→        mot = w['mot'] or ''
+   576→        a_ar = est_recitable(mot)
+   577→        a_lat = any('a' <= ch.lower() <= 'z' for ch in mot)
+   578→        if a_ar and normaliser(mot):
+   579→            classes.append('hors_livre')
+   580→        elif a_lat:
+   581→            classes.append('somali')
+   582→        else:
+   583→            classes.append(classes[-1] if classes else 'hors_livre')
+   584→
+   585→    segments = []
+   586→    for wi, cl in enumerate(classes):
+   587→        w = w_mots[wi]
+   588→        if segments and segments[-1]['type'] == cl and \
+   589→                w['debut'] - segments[-1]['fin'] < 2.0:
+   590→            segments[-1]['fin'] = w['fin']
+   591→            segments[-1]['n_mots'] += 1
+   592→            if len(segments[-1]['mots_txt']) < 12:
+   593→                segments[-1]['mots_txt'].append(w['mot'])
+   594→        else:
+   595→            segments.append({'type': cl, 'debut': w['debut'],
+   596→                             'fin': w['fin'], 'n_mots': 1,
+   597→                             'mots_txt': [w['mot']]})
+   598→
+   599→    durees = {'lecture': 0.0, 'somali': 0.0, 'hors_livre': 0.0}
+   600→    for s in segments:
+   601→        durees[s['type']] += s['fin'] - s['debut']
+   602→    tot = sum(durees.values()) or 1.0
+   603→    print("chronologie :")
+   604→    for t in ('lecture', 'somali', 'hors_livre'):
+   605→        print(f"   {t:<11} {durees[t]:7.1f}s ({100 * durees[t] / tot:4.1f} %)")
+   606→
+   607→    # ---- 6) timing.json ----------------------------------------------------
+   608→    timing, stats = [], {'whisper': 0, 'interpole': 0, 'hors_lecture': 0,
+   609→                         'hors_texte': 0}
+   610→    for i, m in enumerate(mots):
+   611→        entree = {'page': m['page'],
+   612→                  'position': m['position'], 'ligne': m.get('ligne', 0),
+   613→                  'texte': m['texte'], 'norme': normaliser(m['texte']),
+   614→                  'x0': round(m['x0'], 2), 'y0': round(m['y0'], 2),
+   615→                  'x1': round(m['x1'], 2), 'y1': round(m['y1'], 2)}
+   616→        q = None
+   617→        if i in parle_set:
+   618→            q = parle_pos[i]
+   619→        if q is not None and times[q] is not None:
+   620→            b, c, conf, src = times[q]
+   621→            entree.update(debut=round(b, 3), fin=round(c, 3),
+   622→                          confiance=round(conf, 3), etat=src,
+   623→                          run=(run_of[q] + 1) if run_of[q] is not None else None)
+   624→            stats[src] += 1
+   625→        elif q is None:
+   626→            prec = timing[-1] if timing else None
+   627→            b = prec['fin'] if prec and prec.get('fin') else 0.0
+   628→            entree.update(debut=round(b, 3), fin=round(b + 0.08, 3),
+   629→                          confiance=0.0, etat='hors_texte', run=None)
+   630→            stats['hors_texte'] += 1
+   631→        else:
+   632→            entree.update(debut=None, fin=None, confiance=0.0,
+   633→                          etat='hors_lecture', run=None)
+   634→            stats['hors_lecture'] += 1
+   635→        timing.append(entree)
+   636→
+   637→    resume_runs = []
+   638→    for k, r in enumerate(actifs):
+   639→        ps = r['paires']
+   640→        j0, j1 = ps[0][1], ps[-1][1]
+   641→        resume_runs.append({
+   642→            'run': k + 1, 'debut': round(r['debut'], 3),
+   643→            'fin': round(r['fin'], 3), 'n_mots': len(ps),
+   644→            'page_debut': mots[parle_idx[j0]]['page'],
+   645→            'page_fin': mots[parle_idx[j1]]['page'],
+   646→            'texte': ' '.join(w_mots[wi]['mot'] for wi, _b, _s in ps[:6])})
+   647→
+   648→    sortie = {'dars': args.dars, 'pages': [p1, p2],
+   649→              'duree': round(duree, 3),
+   650→              'params': {'seuil': SEUIL, 'gap': GAP,
+   651→                         'min_mots_run': MIN_MOTS_RUN,
+   652→                         'min_duree_run': MIN_DUREE_RUN,
+   653→                         'seuil2': SEUIL2, 'mean1': MEAN1, 'mean2': MEAN2,
+   654→                         'p80_min': P80_MIN},
+   655→              'stats': {'mots_livre': len(mots),
+   656→                        'mots_recitables': M, 'mots_whisper': N,
+   657→                        'appariements': len(paires) + len(paires2),
+   658→                        'runs_actifs': len(actifs), 'etats': stats},
+   659→              'runs': resume_runs,
+   660→              'segments': [{'type': s['type'], 'debut': round(s['debut'], 3),
+   661→                            'fin': round(s['fin'], 3),
+   662→                            'n_mots': s['n_mots'],
+   663→                            'texte': ' '.join(s['mots_txt'])}
+   664→                           for s in segments],
+   665→              'mots': timing}
+   666→    chemin = Path(travail) / args.dars / 'timing.json'
+   667→    sauver_json(chemin, sortie)
+   668→
+   669→    # ---- 7) CSV ------------------------------------------------------------
+   670→    dossier_sortie = chemin_projet(cfg, cfg.get('sortie', 'sortie'))
+   671→    dossier_sortie.mkdir(parents=True, exist_ok=True)
+   672→
+   673→    csv_sync = dossier_sortie / f"{args.dars}_synchronisation.csv"
+   674→    with open(csv_sync, 'w', encoding='utf-8', newline='') as f:
+   675→        wc = csv.writer(f, delimiter=';')
+   676→        wc.writerow(['mot', 'debut', 'fin', 'page', 'position', 'texte'])
+   677→        for t in timing:
+   678→            if t['etat'] in ('whisper', 'interpole') and t['debut'] is not None:
+   679→                wc.writerow([t['norme'], f"{t['debut']:.3f}",
+   680→                             f"{t['fin']:.3f}", t['page'], t['position'],
+   681→                             t['texte']])
+   682→
+   683→    csv_seg = dossier_sortie / f"{args.dars}_segments.csv"
+   684→    with open(csv_seg, 'w', encoding='utf-8', newline='') as f:
+   685→        wc = csv.writer(f, delimiter=';')
+   686→        wc.writerow(['type', 'debut', 'fin', 'n_mots', 'texte'])
+   687→        for s in segments:
+   688→            wc.writerow([s['type'], f"{s['debut']:.2f}", f"{s['fin']:.2f}",
+   689→                         s['n_mots'], ' '.join(s['mots_txt'])[:90]])
+   690→
+   691→    nb_surligne = stats['whisper'] + stats['interpole']
+   692→    print(f"✔ {nb_surligne} mots du livre seront surlignés "
+   693→          f"({stats['whisper']} directs, {stats['interpole']} interpolés) "
+   694→          f"sur {M} mots récitable — le reste est laissé sans surlignage")
+   695→    print(f"→ {chemin}")
+   696→    print(f"→ {csv_sync}")
+   697→    print(f"→ {csv_seg}")
+   698→
+   699→
+   700→if __name__ == '__main__':
+   701→    main()
+   702→
