@@ -1,0 +1,46 @@
+{
+  "entree": {
+    "livre": "/home/z/my-project/upload/LIVRE.pdf",
+    "cheikh": "/home/z/my-project/upload/IMAGE.jpeg",
+    "audio_dir": "/home/z/my-project/upload"
+  },
+  "travail": "travail_darsi",
+  "sortie": "sortie",
+  "whisper": {
+    "modele": "small",
+    "calcul": "int8",
+    "langue": null,
+    "multilingual": true
+  },
+  "alignement": {
+    "seuil": 0.45,
+    "gap": -0.28,
+    "min_mots_run": 3,
+    "min_duree_run": 1.5,
+    "queue": 0.6
+  },
+  "video": {
+    "largeur": 1920,
+    "hauteur": 1080,
+    "fps": 25,
+    "dpi": 200,
+    "panneau_cheikh": { "largeur": 768 },
+    "fond": [24, 24, 28],
+    "papier": [246, 242, 233],
+    "separation": [203, 164, 74],
+    "surlignage": {
+      "mode": "mot",
+      "couleur": [255, 235, 59],
+      "opacite": 0.45,
+      "pad": 5
+    }
+  },
+  "darses": {
+    "dars1": {
+      "titre": "الدرس الأول",
+      "audio": "/home/z/my-project/upload/Audio darsi-1.mpeg",
+      "pages": [1, 23],
+      "mode": "mot"
+    }
+  }
+}

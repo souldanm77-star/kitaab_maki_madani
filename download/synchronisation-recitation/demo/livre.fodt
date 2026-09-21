@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document
+ xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+ xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+ xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+ xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+ xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+ office:version="1.2"
+ office:mimetype="application/vnd.oasis.opendocument.text">
+<office:font-face-decls>
+ <style:font-face style:name="Amiri" svg:font-family="Amiri"/>
+</office:font-face-decls>
+<office:styles>
+ <style:style style:name="Standard" style:family="paragraph">
+  <style:paragraph-properties fo:text-align="center" style:writing-mode="rl-tb"/>
+  <style:text-properties style:font-name="Amiri" fo:font-size="24pt"/>
+ </style:style>
+ <style:style style:name="Titre" style:family="paragraph" style:parent-style-name="Standard">
+  <style:paragraph-properties fo:margin-bottom="0.5cm"/>
+  <style:text-properties fo:font-size="30pt" fo:color="#0e6e5c" fo:font-weight="bold"/>
+ </style:style>
+ <style:style style:name="TitrePage2" style:family="paragraph" style:parent-style-name="Titre">
+  <style:paragraph-properties fo:break-before="page"/>
+ </style:style>
+ <style:style style:name="Verset" style:family="paragraph" style:parent-style-name="Standard">
+  <style:paragraph-properties fo:line-height="200%" fo:margin-bottom="0.25cm"/>
+ </style:style>
+ <style:style style:name="Marqueur" style:family="text">
+  <style:text-properties fo:font-size="17pt" fo:color="#0e6e5c"/>
+ </style:style>
+ <style:style style:name="Basmala" style:family="paragraph" style:parent-style-name="Standard">
+  <style:text-properties fo:font-size="20pt" fo:color="#7a6a4f"/>
+ </style:style>
+</office:styles>
+<office:body><office:text>
+ <text:p text:style-name="Titre">سُورَةُ الْفَاتِحَة</text:p>
+ <text:p text:style-name="Verset">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ <text:span text:style-name="Marqueur">﴿١﴾</text:span></text:p><text:p text:style-name="Verset">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ <text:span text:style-name="Marqueur">﴿٢﴾</text:span></text:p><text:p text:style-name="Verset">الرَّحْمَٰنِ الرَّحِيمِ <text:span text:style-name="Marqueur">﴿٣﴾</text:span></text:p><text:p text:style-name="Verset">مَالِكِ يَوْمِ الدِّينِ <text:span text:style-name="Marqueur">﴿٤﴾</text:span></text:p><text:p text:style-name="Verset">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ <text:span text:style-name="Marqueur">﴿٥﴾</text:span></text:p><text:p text:style-name="Verset">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ <text:span text:style-name="Marqueur">﴿٦﴾</text:span></text:p><text:p text:style-name="Verset">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ <text:span text:style-name="Marqueur">﴿٧﴾</text:span></text:p>
+ <text:p text:style-name="TitrePage2">سُورَةُ الْإِخْلَاص</text:p>
+ <text:p text:style-name="Basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</text:p>
+ <text:p text:style-name="Verset">قُلْ هُوَ اللَّهُ أَحَدٌ <text:span text:style-name="Marqueur">﴿١﴾</text:span></text:p><text:p text:style-name="Verset">اللَّهُ الصَّمَدُ <text:span text:style-name="Marqueur">﴿٢﴾</text:span></text:p><text:p text:style-name="Verset">لَمْ يَلِدْ وَلَمْ يُولَدْ <text:span text:style-name="Marqueur">﴿٣﴾</text:span></text:p><text:p text:style-name="Verset">وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ <text:span text:style-name="Marqueur">﴿٤﴾</text:span></text:p>
+</office:text></office:body>
+</office:document>

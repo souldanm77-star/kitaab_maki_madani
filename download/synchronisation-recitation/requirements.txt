@@ -1,0 +1,6 @@
+# Pipeline de synchronisation récitation ⟷ livre arabe
+pymupdf>=1.24        # extraction mot à mot du PDF + rendu de page
+faster-whisper>=1.0  # transcription + timestamps mots (CPU, int8)
+edge-tts>=6.1        # (démo seulement) voix arabe de test
+weasyprint>=60       # (démo seulement) création du PDF d'exemple
+pillow>=10           # (montage vidéo) composition du panneau page

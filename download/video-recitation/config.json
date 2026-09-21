@@ -1,0 +1,41 @@
+{
+  "entree": {
+    "livre": "entree/livre.pdf",
+    "cheikh": "entree/cheikh.jpg",
+    "audio_dir": "entree/audio"
+  },
+  "travail": "travail",
+  "sortie": "sortie",
+  "whisper": {
+    "modele": "small",
+    "calcul": "int8",
+    "langue": "ar"
+  },
+  "alignement": {
+    "seuil": 0.45,
+    "gap": -0.28
+  },
+  "video": {
+    "largeur": 1920,
+    "hauteur": 1080,
+    "fps": 25,
+    "dpi": 200,
+    "panneau_cheikh": { "largeur": 768 },
+    "fond": [24, 24, 28],
+    "papier": [246, 242, 233],
+    "separation": [203, 164, 74],
+    "surlignage": {
+      "mode": "mot",
+      "couleur": [255, 235, 59],
+      "opacite": 0.45,
+      "pad": 5
+    }
+  },
+  "darses": {
+    "dars1": {
+      "titre": "الدرس الأول",
+      "audio": "entree/audio/dars1.mp3",
+      "pages": [1, 10]
+    }
+  }
+}

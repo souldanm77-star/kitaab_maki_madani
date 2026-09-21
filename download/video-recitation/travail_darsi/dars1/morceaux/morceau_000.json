@@ -1,0 +1,5388 @@
+{
+ "mots": [
+  {
+   "mot": "إن",
+   "debut": 0.0,
+   "fin": 0.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "الحمد",
+   "debut": 0.26,
+   "fin": 0.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "لله",
+   "debut": 0.76,
+   "fin": 1.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "نحمد",
+   "debut": 1.2,
+   "fin": 1.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "هو",
+   "debut": 1.78,
+   "fin": 2.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "نستعين",
+   "debut": 2.04,
+   "fin": 2.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "هو",
+   "debut": 2.86,
+   "fin": 3.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "نستفره",
+   "debut": 3.08,
+   "fin": 4.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "ونعود",
+   "debut": 4.88,
+   "fin": 5.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "بالله",
+   "debut": 5.36,
+   "fin": 5.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 5.78,
+   "fin": 5.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "شرور",
+   "debut": 5.98,
+   "fin": 6.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "أنفسنا",
+   "debut": 6.4,
+   "fin": 7.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "ونسيات",
+   "debut": 7.08,
+   "fin": 8.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "عمالنا",
+   "debut": 8.04,
+   "fin": 8.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 9.54,
+   "fin": 9.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "يهدي",
+   "debut": 9.98,
+   "fin": 10.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 10.32,
+   "fin": 10.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "فلا",
+   "debut": 10.7,
+   "fin": 11.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "مضل",
+   "debut": 11.14,
+   "fin": 11.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 11.56,
+   "fin": 11.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ومن",
+   "debut": 12.62,
+   "fin": 13.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "يضل",
+   "debut": 13.06,
+   "fin": 13.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "فلا",
+   "debut": 13.5,
+   "fin": 14.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "هادية",
+   "debut": 14.14,
+   "fin": 14.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 14.66,
+   "fin": 15.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "واشد",
+   "debut": 15.68,
+   "fin": 16.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 16.24,
+   "fin": 16.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "إله",
+   "debut": 16.62,
+   "fin": 17.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلا",
+   "debut": 17.56,
+   "fin": 17.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 17.94,
+   "fin": 18.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحده",
+   "debut": 18.34,
+   "fin": 18.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "لا",
+   "debut": 18.9,
+   "fin": 19.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "شريف",
+   "debut": 19.2,
+   "fin": 19.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "له",
+   "debut": 19.8,
+   "fin": 20.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "واشد",
+   "debut": 20.84,
+   "fin": 21.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "أن",
+   "debut": 21.38,
+   "fin": 21.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيدنا",
+   "debut": 21.7,
+   "fin": 22.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "محمد",
+   "debut": 22.58,
+   "fin": 23.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "عبده",
+   "debut": 23.28,
+   "fin": 23.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ورسوله",
+   "debut": 23.96,
+   "fin": 25.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "صلى",
+   "debut": 25.34,
+   "fin": 25.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 25.78,
+   "fin": 26.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "عليه",
+   "debut": 26.06,
+   "fin": 26.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "وسلم",
+   "debut": 26.48,
+   "fin": 27.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعلى",
+   "debut": 27.18,
+   "fin": 27.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "آله",
+   "debut": 27.9,
+   "fin": 28.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "وصحبه",
+   "debut": 28.36,
+   "fin": 29.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "ومنه",
+   "debut": 29.3,
+   "fin": 29.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "تدى",
+   "debut": 29.74,
+   "fin": 30.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "بهديه",
+   "debut": 30.36,
+   "fin": 31.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلى",
+   "debut": 31.44,
+   "fin": 31.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوم",
+   "debut": 31.6,
+   "fin": 31.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "الدين",
+   "debut": 31.86,
+   "fin": 32.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "أما",
+   "debut": 32.3,
+   "fin": 32.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "بعد",
+   "debut": 32.6,
+   "fin": 32.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "صلى",
+   "debut": 32.88,
+   "fin": 33.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 33.5,
+   "fin": 33.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "عليه",
+   "debut": 33.68,
+   "fin": 33.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "وسلم",
+   "debut": 33.68,
+   "fin": 33.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعليكم",
+   "debut": 33.68,
+   "fin": 34.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "رحمة",
+   "debut": 34.02,
+   "fin": 34.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 34.46,
+   "fin": 34.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "بركاته",
+   "debut": 34.68,
+   "fin": 35.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "بلله",
+   "debut": 35.9,
+   "fin": 37.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "بأمهجر",
+   "debut": 37.6,
+   "fin": 38.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبحانه",
+   "debut": 38.24,
+   "fin": 38.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتعالى",
+   "debut": 38.78,
+   "fin": 39.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبوك",
+   "debut": 39.62,
+   "fin": 40.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمكن",
+   "debut": 40.08,
+   "fin": 40.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمسكا",
+   "debut": 40.36,
+   "fin": 41.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "أدواء",
+   "debut": 41.24,
+   "fin": 42.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "ساعات",
+   "debut": 42.4,
+   "fin": 43.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "أدو",
+   "debut": 43.06,
+   "fin": 43.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيمها",
+   "debut": 43.52,
+   "fin": 43.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "البداية",
+   "debut": 43.92,
+   "fin": 44.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "أبيتك",
+   "debut": 44.9,
+   "fin": 45.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلهي",
+   "debut": 45.7,
+   "fin": 46.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "أه",
+   "debut": 46.3,
+   "fin": 46.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "يضوى",
+   "debut": 46.68,
+   "fin": 47.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "واحي",
+   "debut": 47.8,
+   "fin": 48.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 48.1,
+   "fin": 48.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "يسوني",
+   "debut": 48.2,
+   "fin": 48.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "منه",
+   "debut": 48.74,
+   "fin": 49.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "يبلينا",
+   "debut": 49.06,
+   "fin": 49.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحلها",
+   "debut": 49.8,
+   "fin": 50.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "سباشة",
+   "debut": 50.3,
+   "fin": 50.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "أبنى",
+   "debut": 50.88,
+   "fin": 51.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "أمه",
+   "debut": 51.26,
+   "fin": 51.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "ربط",
+   "debut": 51.58,
+   "fin": 51.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "على",
+   "debut": 51.94,
+   "fin": 52.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللقصن",
+   "debut": 52.1,
+   "fin": 52.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلمة",
+   "debut": 52.84,
+   "fin": 53.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلهي",
+   "debut": 53.74,
+   "fin": 54.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "أما",
+   "debut": 54.7,
+   "fin": 55.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 55.32,
+   "fin": 56.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "ككريمكاكوبة",
+   "debut": 56.1,
+   "fin": 57.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "على",
+   "debut": 57.2,
+   "fin": 57.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "الوقت",
+   "debut": 57.38,
+   "fin": 57.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلها",
+   "debut": 57.68,
+   "fin": 58.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "رأتهم",
+   "debut": 58.9,
+   "fin": 59.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "نصمين",
+   "debut": 59.5,
+   "fin": 60.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "إن",
+   "debut": 60.1,
+   "fin": 60.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "المترتون",
+   "debut": 60.28,
+   "fin": 61.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقتها",
+   "debut": 61.12,
+   "fin": 62.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "أفرح",
+   "debut": 62.22,
+   "fin": 62.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "القوحة",
+   "debut": 62.68,
+   "fin": 63.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "لجيابة",
+   "debut": 63.26,
+   "fin": 63.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "إني",
+   "debut": 63.92,
+   "fin": 64.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "ديير",
+   "debut": 64.12,
+   "fin": 64.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "إليدي",
+   "debut": 64.68,
+   "fin": 65.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "تهي",
+   "debut": 65.2,
+   "fin": 66.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "أما",
+   "debut": 66.0,
+   "fin": 66.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "أفرمت",
+   "debut": 66.3,
+   "fin": 66.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "بسادرات",
+   "debut": 66.84,
+   "fin": 67.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "ديد",
+   "debut": 67.78,
+   "fin": 68.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "هورا",
+   "debut": 68.18,
+   "fin": 68.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "مسجب",
+   "debut": 68.52,
+   "fin": 68.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "لابا",
+   "debut": 68.92,
+   "fin": 69.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "هنا",
+   "debut": 69.36,
+   "fin": 69.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "إيه",
+   "debut": 69.6,
+   "fin": 70.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحن",
+   "debut": 70.62,
+   "fin": 71.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "أردونا",
+   "debut": 71.04,
+   "fin": 71.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "ننتبذن",
+   "debut": 71.86,
+   "fin": 72.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "ووحيدين",
+   "debut": 72.6,
+   "fin": 73.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرن",
+   "debut": 73.26,
+   "fin": 73.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحغيرو",
+   "debut": 73.72,
+   "fin": 74.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "كومن",
+   "debut": 74.58,
+   "fin": 75.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "موين",
+   "debut": 75.06,
+   "fin": 75.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركا",
+   "debut": 76.2,
+   "fin": 77.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "لبن",
+   "debut": 77.26,
+   "fin": 77.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعو",
+   "debut": 77.96,
+   "fin": 78.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "انتبنس",
+   "debut": 78.42,
+   "fin": 79.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوحرن",
+   "debut": 79.34,
+   "fin": 80.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحدف",
+   "debut": 80.12,
+   "fin": 81.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "فهم",
+   "debut": 81.3,
+   "fin": 81.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "كالصباحا",
+   "debut": 81.62,
+   "fin": 82.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "ويلغذ",
+   "debut": 82.94,
+   "fin": 84.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "النوع",
+   "debut": 84.4,
+   "fin": 84.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "انك",
+   "debut": 84.72,
+   "fin": 85.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "بحضرنا",
+   "debut": 85.0,
+   "fin": 85.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعد",
+   "debut": 85.64,
+   "fin": 86.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "عرم",
+   "debut": 86.02,
+   "fin": 86.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 86.38,
+   "fin": 86.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوامدة",
+   "debut": 86.88,
+   "fin": 88.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمك",
+   "debut": 88.32,
+   "fin": 89.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدني",
+   "debut": 89.02,
+   "fin": 89.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقطع",
+   "debut": 89.9,
+   "fin": 91.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللغسان",
+   "debut": 91.2,
+   "fin": 91.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 91.86,
+   "fin": 92.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "كسودية",
+   "debut": 92.42,
+   "fin": 93.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "كسي",
+   "debut": 93.04,
+   "fin": 93.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "مريو",
+   "debut": 93.82,
+   "fin": 94.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "كسوكر",
+   "debut": 94.36,
+   "fin": 94.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "الدقيق",
+   "debut": 94.94,
+   "fin": 96.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "والروح",
+   "debut": 96.04,
+   "fin": 96.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "كبطع",
+   "debut": 96.64,
+   "fin": 97.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللغسان",
+   "debut": 97.18,
+   "fin": 97.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايا",
+   "debut": 97.76,
+   "fin": 98.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 98.8,
+   "fin": 99.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "كسودية",
+   "debut": 99.22,
+   "fin": 99.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "سابقى",
+   "debut": 99.92,
+   "fin": 100.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "ليافرية",
+   "debut": 100.44,
+   "fin": 101.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "طبم",
+   "debut": 101.02,
+   "fin": 101.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "كأه",
+   "debut": 101.36,
+   "fin": 101.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحوين",
+   "debut": 101.86,
+   "fin": 102.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ملحب",
+   "debut": 102.96,
+   "fin": 103.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوك",
+   "debut": 103.48,
+   "fin": 103.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "الى",
+   "debut": 103.9,
+   "fin": 104.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "الدجين",
+   "debut": 104.14,
+   "fin": 104.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "مقائي",
+   "debut": 104.56,
+   "fin": 105.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "مدينة",
+   "debut": 105.92,
+   "fin": 106.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "يدي",
+   "debut": 106.58,
+   "fin": 106.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 106.86,
+   "fin": 107.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحيد",
+   "debut": 107.12,
+   "fin": 107.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "و",
+   "debut": 107.54,
+   "fin": 107.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "هي",
+   "debut": 107.68,
+   "fin": 107.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "نواحيدة",
+   "debut": 107.84,
+   "fin": 108.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلبة",
+   "debut": 108.48,
+   "fin": 109.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "ورتاسوا",
+   "debut": 109.54,
+   "fin": 110.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "عمد",
+   "debut": 110.24,
+   "fin": 111.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "ان",
+   "debut": 111.52,
+   "fin": 112.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "قلت",
+   "debut": 112.08,
+   "fin": 112.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "لبانه",
+   "debut": 112.84,
+   "fin": 113.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "و",
+   "debut": 113.76,
+   "fin": 113.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ناسخ",
+   "debut": 113.96,
+   "fin": 114.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمصوخ",
+   "debut": 114.52,
+   "fin": 115.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 115.14,
+   "fin": 115.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "كه",
+   "debut": 115.68,
+   "fin": 116.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيات",
+   "debut": 116.38,
+   "fin": 117.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "باسراه",
+   "debut": 117.24,
+   "fin": 118.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلهي",
+   "debut": 118.68,
+   "fin": 119.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبحانه",
+   "debut": 119.38,
+   "fin": 119.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتعالى",
+   "debut": 119.9,
+   "fin": 120.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركز",
+   "debut": 120.44,
+   "fin": 120.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "وراحكا",
+   "debut": 120.76,
+   "fin": 121.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "منهوش",
+   "debut": 121.3,
+   "fin": 121.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "دي",
+   "debut": 121.92,
+   "fin": 122.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "يدي",
+   "debut": 122.22,
+   "fin": 123.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 123.54,
+   "fin": 123.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "دي",
+   "debut": 123.82,
+   "fin": 124.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "مراحل",
+   "debut": 124.08,
+   "fin": 124.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيهاية",
+   "debut": 124.66,
+   "fin": 125.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "وصلاحية",
+   "debut": 125.18,
+   "fin": 126.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "ومركة",
+   "debut": 126.16,
+   "fin": 127.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "الدرمانة",
+   "debut": 127.42,
+   "fin": 128.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "بالآيات",
+   "debut": 128.16,
+   "fin": 128.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلا",
+   "debut": 128.94,
+   "fin": 129.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحكمك",
+   "debut": 129.28,
+   "fin": 130.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "ادو",
+   "debut": 130.12,
+   "fin": 131.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحكدو",
+   "debut": 131.12,
+   "fin": 132.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "انك",
+   "debut": 132.24,
+   "fin": 132.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 132.46,
+   "fin": 132.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمي",
+   "debut": 132.62,
+   "fin": 133.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايام",
+   "debut": 133.04,
+   "fin": 133.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "واخور",
+   "debut": 133.56,
+   "fin": 134.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "النسخة",
+   "debut": 134.04,
+   "fin": 134.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايام",
+   "debut": 134.68,
+   "fin": 134.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقرامك",
+   "debut": 134.9,
+   "fin": 135.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "يعني",
+   "debut": 135.54,
+   "fin": 135.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوى",
+   "debut": 135.8,
+   "fin": 136.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "بضنان",
+   "debut": 136.14,
+   "fin": 136.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "بم",
+   "debut": 136.58,
+   "fin": 137.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "حاجي",
+   "debut": 137.0,
+   "fin": 138.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "اصف",
+   "debut": 138.7,
+   "fin": 138.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "جحرين",
+   "debut": 138.88,
+   "fin": 139.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيانو",
+   "debut": 139.52,
+   "fin": 141.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرن",
+   "debut": 141.04,
+   "fin": 141.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقرآن",
+   "debut": 141.42,
+   "fin": 142.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "كادي",
+   "debut": 142.44,
+   "fin": 143.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "لبحكمو",
+   "debut": 143.08,
+   "fin": 144.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلا",
+   "debut": 144.12,
+   "fin": 144.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "دوان",
+   "debut": 144.42,
+   "fin": 144.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايام",
+   "debut": 144.84,
+   "fin": 145.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايام",
+   "debut": 145.32,
+   "fin": 145.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "ايام",
+   "debut": 145.76,
+   "fin": 145.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "و",
+   "debut": 145.76,
+   "fin": 146.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "أي",
+   "debut": 146.62,
+   "fin": 146.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "ناكو",
+   "debut": 146.94,
+   "fin": 147.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "دعم",
+   "debut": 147.44,
+   "fin": 147.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "الفليك",
+   "debut": 147.78,
+   "fin": 148.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "راهين.",
+   "debut": 148.4,
+   "fin": 148.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "مدبى",
+   "debut": 149.68,
+   "fin": 150.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 150.24,
+   "fin": 150.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوخ",
+   "debut": 150.4,
+   "fin": 150.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "نقنية",
+   "debut": 150.78,
+   "fin": 151.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 151.32,
+   "fin": 151.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناسخ.",
+   "debut": 151.58,
+   "fin": 152.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركز",
+   "debut": 152.94,
+   "fin": 153.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "الرشدي",
+   "debut": 153.4,
+   "fin": 154.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "أنتا",
+   "debut": 154.32,
+   "fin": 154.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "جرنين",
+   "debut": 154.84,
+   "fin": 155.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "يكلق",
+   "debut": 155.42,
+   "fin": 155.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "يبو",
+   "debut": 155.98,
+   "fin": 156.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "حب",
+   "debut": 156.32,
+   "fin": 156.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "مهم",
+   "debut": 156.54,
+   "fin": 156.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "كبا",
+   "debut": 156.82,
+   "fin": 157.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "ميدا.",
+   "debut": 157.28,
+   "fin": 158.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "إنا",
+   "debut": 158.14,
+   "fin": 158.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "نجرنو",
+   "debut": 158.52,
+   "fin": 159.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 159.14,
+   "fin": 159.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "بارك",
+   "debut": 159.88,
+   "fin": 160.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوكسو",
+   "debut": 160.24,
+   "fin": 160.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "دبيسي",
+   "debut": 160.78,
+   "fin": 161.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "و",
+   "debut": 161.5,
+   "fin": 161.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "كلهوري",
+   "debut": 161.64,
+   "fin": 162.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "يسيت",
+   "debut": 162.42,
+   "fin": 163.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "يهر",
+   "debut": 163.06,
+   "fin": 163.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 163.4,
+   "fin": 163.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوخ",
+   "debut": 163.58,
+   "fin": 163.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "لوغ",
+   "debut": 163.94,
+   "fin": 164.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "ديقو.",
+   "debut": 164.24,
+   "fin": 165.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "عايد",
+   "debut": 165.18,
+   "fin": 165.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "بدمان",
+   "debut": 165.42,
+   "fin": 165.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناسخ",
+   "debut": 165.86,
+   "fin": 166.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "يون",
+   "debut": 166.42,
+   "fin": 166.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "قطوصا",
+   "debut": 166.72,
+   "fin": 167.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبق.",
+   "debut": 167.4,
+   "fin": 167.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "فهمت",
+   "debut": 168.22,
+   "fin": 168.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناسخ",
+   "debut": 168.9,
+   "fin": 169.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمن",
+   "debut": 169.48,
+   "fin": 169.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوخ",
+   "debut": 169.74,
+   "fin": 170.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "أن",
+   "debut": 170.14,
+   "fin": 170.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "فهمي",
+   "debut": 170.34,
+   "fin": 170.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "نو.",
+   "debut": 170.78,
+   "fin": 171.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيب",
+   "debut": 171.06,
+   "fin": 171.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "مهماء",
+   "debut": 171.94,
+   "fin": 172.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "كباتي",
+   "debut": 172.48,
+   "fin": 173.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "نفهمه",
+   "debut": 173.18,
+   "fin": 174.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآنك",
+   "debut": 174.04,
+   "fin": 175.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "نزلت",
+   "debut": 175.04,
+   "fin": 176.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 176.16,
+   "fin": 176.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "مهري",
+   "debut": 176.4,
+   "fin": 176.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "وكبات",
+   "debut": 176.88,
+   "fin": 177.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "سودقه",
+   "debut": 177.48,
+   "fin": 177.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "لباغ",
+   "debut": 177.96,
+   "fin": 178.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "النوع",
+   "debut": 178.32,
+   "fin": 178.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبغن",
+   "debut": 178.62,
+   "fin": 179.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "وضارنه",
+   "debut": 179.26,
+   "fin": 180.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "المركات",
+   "debut": 180.84,
+   "fin": 181.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "فهراء",
+   "debut": 181.8,
+   "fin": 182.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "ينكرين",
+   "debut": 182.24,
+   "fin": 183.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "المكي",
+   "debut": 183.04,
+   "fin": 183.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدني",
+   "debut": 183.62,
+   "fin": 184.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "انتين",
+   "debut": 184.3,
+   "fin": 185.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "قصيدا",
+   "debut": 185.4,
+   "fin": 186.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "أمان",
+   "debut": 186.5,
+   "fin": 186.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "منضومه",
+   "debut": 186.86,
+   "fin": 187.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "لباتي",
+   "debut": 187.88,
+   "fin": 188.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "نيبين",
+   "debut": 188.94,
+   "fin": 189.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "أه",
+   "debut": 189.58,
+   "fin": 190.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "ونن",
+   "debut": 190.62,
+   "fin": 191.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "إمام",
+   "debut": 191.02,
+   "fin": 191.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوكور",
+   "debut": 191.4,
+   "fin": 192.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "ريي",
+   "debut": 192.06,
+   "fin": 192.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "أم",
+   "debut": 192.5,
+   "fin": 192.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "الشيخ",
+   "debut": 192.88,
+   "fin": 193.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوكور",
+   "debut": 193.32,
+   "fin": 193.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "ريي",
+   "debut": 193.78,
+   "fin": 194.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوردها",
+   "debut": 194.36,
+   "fin": 195.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآنك",
+   "debut": 195.48,
+   "fin": 196.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "يقول",
+   "debut": 196.26,
+   "fin": 197.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "السكوة",
+   "debut": 197.78,
+   "fin": 198.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "فقصيني",
+   "debut": 198.4,
+   "fin": 199.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "مدينة",
+   "debut": 199.02,
+   "fin": 199.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "اي",
+   "debut": 199.86,
+   "fin": 200.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "بسود",
+   "debut": 200.04,
+   "fin": 200.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "دجين",
+   "debut": 200.4,
+   "fin": 200.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "يقول",
+   "debut": 200.9,
+   "fin": 201.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "السكوة",
+   "debut": 201.9,
+   "fin": 202.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "فقصيني",
+   "debut": 202.44,
+   "fin": 202.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "مكين",
+   "debut": 202.98,
+   "fin": 203.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "اي",
+   "debut": 203.42,
+   "fin": 203.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "بسود",
+   "debut": 203.6,
+   "fin": 203.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "دجين",
+   "debut": 203.92,
+   "fin": 204.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "يصورة",
+   "debut": 204.86,
+   "fin": 205.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "دقام",
+   "debut": 205.6,
+   "fin": 205.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "بدنين",
+   "debut": 205.9,
+   "fin": 206.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "اعلمة",
+   "debut": 206.36,
+   "fin": 206.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "ده",
+   "debut": 206.92,
+   "fin": 207.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "دخلو",
+   "debut": 207.1,
+   "fin": 207.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "ده",
+   "debut": 207.48,
+   "fin": 208.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "واماك",
+   "debut": 208.08,
+   "fin": 208.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوامدني",
+   "debut": 208.7,
+   "fin": 209.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "لبدل",
+   "debut": 209.42,
+   "fin": 209.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "ولا",
+   "debut": 209.9,
+   "fin": 210.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "يلاخل",
+   "debut": 210.2,
+   "fin": 210.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "افناش",
+   "debut": 210.68,
+   "fin": 211.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "يووتره",
+   "debut": 211.14,
+   "fin": 211.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "انت",
+   "debut": 211.92,
+   "fin": 212.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "اصول",
+   "debut": 212.58,
+   "fin": 212.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 212.88,
+   "fin": 213.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "اصول",
+   "debut": 213.14,
+   "fin": 213.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "كابه",
+   "debut": 213.48,
+   "fin": 213.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "يصفي",
+   "debut": 213.98,
+   "fin": 214.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "عنه",
+   "debut": 214.48,
+   "fin": 214.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "اصول",
+   "debut": 214.86,
+   "fin": 215.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "كابه",
+   "debut": 215.1,
+   "fin": 215.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحنات",
+   "debut": 215.58,
+   "fin": 216.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "موتبين",
+   "debut": 216.02,
+   "fin": 217.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "ورتاصف",
+   "debut": 217.14,
+   "fin": 217.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 217.82,
+   "fin": 218.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "أصله",
+   "debut": 218.32,
+   "fin": 219.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "لكن",
+   "debut": 219.26,
+   "fin": 219.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "أموره",
+   "debut": 219.84,
+   "fin": 220.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 220.68,
+   "fin": 220.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "عوني",
+   "debut": 220.92,
+   "fin": 221.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "يفهم",
+   "debut": 221.6,
+   "fin": 221.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "كأنه",
+   "debut": 221.98,
+   "fin": 222.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "أمورها",
+   "debut": 222.52,
+   "fin": 222.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "فهم",
+   "debut": 222.9,
+   "fin": 223.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "لهي",
+   "debut": 223.24,
+   "fin": 223.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "ودير",
+   "debut": 223.72,
+   "fin": 224.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيادر",
+   "debut": 224.96,
+   "fin": 225.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "أهي",
+   "debut": 225.8,
+   "fin": 226.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "موضع",
+   "debut": 226.18,
+   "fin": 227.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيا",
+   "debut": 227.06,
+   "fin": 227.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "كبهر",
+   "debut": 227.42,
+   "fin": 227.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "ريح",
+   "debut": 227.92,
+   "fin": 228.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "وارتا",
+   "debut": 228.5,
+   "fin": 229.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "ويلص",
+   "debut": 229.2,
+   "fin": 230.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "عندهم",
+   "debut": 230.16,
+   "fin": 230.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "تندي",
+   "debut": 230.62,
+   "fin": 231.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 231.08,
+   "fin": 231.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "الهو",
+   "debut": 231.3,
+   "fin": 231.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "فإن",
+   "debut": 232.56,
+   "fin": 233.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 233.62,
+   "fin": 233.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "أن",
+   "debut": 233.84,
+   "fin": 234.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعع",
+   "debut": 234.02,
+   "fin": 234.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "علوم",
+   "debut": 234.36,
+   "fin": 234.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 234.68,
+   "fin": 235.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "المتعلقة",
+   "debut": 235.26,
+   "fin": 236.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "بالنظورية",
+   "debut": 236.14,
+   "fin": 237.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "المكية",
+   "debut": 237.18,
+   "fin": 237.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدنية",
+   "debut": 237.72,
+   "fin": 238.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "نا",
+   "debut": 238.8,
+   "fin": 239.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآنك",
+   "debut": 239.36,
+   "fin": 239.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "علومتي",
+   "debut": 239.92,
+   "fin": 241.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوحة",
+   "debut": 241.24,
+   "fin": 242.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "أم",
+   "debut": 242.1,
+   "fin": 242.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "بذوه",
+   "debut": 242.34,
+   "fin": 242.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "نقنها",
+   "debut": 242.86,
+   "fin": 243.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآنك",
+   "debut": 243.48,
+   "fin": 244.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "انتصر",
+   "debut": 244.48,
+   "fin": 246.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "كواقار",
+   "debut": 246.32,
+   "fin": 247.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحقا",
+   "debut": 247.14,
+   "fin": 248.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "لو",
+   "debut": 248.2,
+   "fin": 248.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "ترد",
+   "debut": 248.34,
+   "fin": 248.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 248.7,
+   "fin": 249.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيبا",
+   "debut": 249.02,
+   "fin": 249.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "اقل",
+   "debut": 249.68,
+   "fin": 250.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "انت",
+   "debut": 250.46,
+   "fin": 250.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 250.8,
+   "fin": 251.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوكو",
+   "debut": 251.18,
+   "fin": 251.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "تبقى",
+   "debut": 251.72,
+   "fin": 252.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "هلوك",
+   "debut": 252.0,
+   "fin": 252.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "الى",
+   "debut": 252.34,
+   "fin": 252.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "دوان",
+   "debut": 252.58,
+   "fin": 252.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "له",
+   "debut": 252.94,
+   "fin": 253.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "يدن",
+   "debut": 253.54,
+   "fin": 253.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "اموقب",
+   "debut": 253.96,
+   "fin": 254.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "دن",
+   "debut": 254.62,
+   "fin": 254.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "كولنسة",
+   "debut": 254.82,
+   "fin": 255.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "تي",
+   "debut": 255.46,
+   "fin": 255.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركلية",
+   "debut": 255.56,
+   "fin": 256.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 256.08,
+   "fin": 256.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "كانوا",
+   "debut": 256.5,
+   "fin": 256.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "اعداء",
+   "debut": 256.94,
+   "fin": 257.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "علمت",
+   "debut": 257.32,
+   "fin": 257.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "ساكبك",
+   "debut": 257.82,
+   "fin": 258.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "وابنته",
+   "debut": 258.6,
+   "fin": 259.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "ادب",
+   "debut": 259.18,
+   "fin": 260.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "احكام",
+   "debut": 260.06,
+   "fin": 260.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "امداء",
+   "debut": 260.64,
+   "fin": 260.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "علمت",
+   "debut": 260.98,
+   "fin": 261.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 261.46,
+   "fin": 261.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "كيلاكيكو",
+   "debut": 261.92,
+   "fin": 262.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "تعلكسن",
+   "debut": 262.74,
+   "fin": 263.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "سودي",
+   "debut": 263.44,
+   "fin": 263.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "امكيسه",
+   "debut": 263.9,
+   "fin": 264.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "يسوك",
+   "debut": 264.94,
+   "fin": 266.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "له",
+   "debut": 266.1,
+   "fin": 266.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "الري",
+   "debut": 266.24,
+   "fin": 266.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "يي",
+   "debut": 266.76,
+   "fin": 267.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "نعلب",
+   "debut": 267.36,
+   "fin": 267.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "مجعابا",
+   "debut": 267.9,
+   "fin": 268.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "المكي",
+   "debut": 268.68,
+   "fin": 269.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدنيه",
+   "debut": 269.24,
+   "fin": 270.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "استلحان",
+   "debut": 270.1,
+   "fin": 270.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوكو",
+   "debut": 270.88,
+   "fin": 271.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "اركب",
+   "debut": 271.28,
+   "fin": 271.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "دونها",
+   "debut": 271.52,
+   "fin": 271.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "امكا",
+   "debut": 271.94,
+   "fin": 272.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوياهي",
+   "debut": 272.36,
+   "fin": 273.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "وهو",
+   "debut": 273.04,
+   "fin": 274.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "النوع",
+   "debut": 274.56,
+   "fin": 274.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "المهم",
+   "debut": 274.92,
+   "fin": 275.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "عديم",
+   "debut": 275.42,
+   "fin": 276.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "الفائدة",
+   "debut": 276.22,
+   "fin": 277.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "ونعاد",
+   "debut": 277.74,
+   "fin": 278.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيم",
+   "debut": 278.68,
+   "fin": 279.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "البدا",
+   "debut": 279.06,
+   "fin": 279.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "فايدة",
+   "debut": 279.42,
+   "fin": 280.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "ديسنة",
+   "debut": 280.7,
+   "fin": 281.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوهلتها",
+   "debut": 281.16,
+   "fin": 281.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوهلتها",
+   "debut": 281.86,
+   "fin": 282.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "اي",
+   "debut": 282.66,
+   "fin": 282.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "برناها",
+   "debut": 282.82,
+   "fin": 283.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "فايدو",
+   "debut": 283.32,
+   "fin": 283.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمكن",
+   "debut": 283.9,
+   "fin": 284.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "السندام",
+   "debut": 284.08,
+   "fin": 284.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "ما",
+   "debut": 284.78,
+   "fin": 284.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "لها",
+   "debut": 284.96,
+   "fin": 285.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "اي",
+   "debut": 285.42,
+   "fin": 285.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "اذ",
+   "debut": 285.78,
+   "fin": 286.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "ياد",
+   "debut": 286.16,
+   "fin": 286.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "لوسي",
+   "debut": 286.42,
+   "fin": 287.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "بها",
+   "debut": 287.04,
+   "fin": 287.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "يبا",
+   "debut": 287.34,
+   "fin": 288.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "وفي",
+   "debut": 288.28,
+   "fin": 288.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "معرفة",
+   "debut": 288.78,
+   "fin": 289.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "تاريخ",
+   "debut": 289.36,
+   "fin": 289.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "التشرع",
+   "debut": 289.88,
+   "fin": 290.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "الاسلامي",
+   "debut": 290.42,
+   "fin": 291.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "إلا",
+   "debut": 291.2,
+   "fin": 291.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "هي",
+   "debut": 291.98,
+   "fin": 292.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "سبحانه",
+   "debut": 292.12,
+   "fin": 292.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتعالى",
+   "debut": 292.6,
+   "fin": 293.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 293.38,
+   "fin": 293.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "كاس",
+   "debut": 293.96,
+   "fin": 294.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "تأحكامتك",
+   "debut": 294.54,
+   "fin": 296.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "للدون",
+   "debut": 296.0,
+   "fin": 296.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "والنوجل",
+   "debut": 296.44,
+   "fin": 297.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "شديقي",
+   "debut": 297.0,
+   "fin": 298.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "بدأت",
+   "debut": 298.2,
+   "fin": 298.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "تدحيلة",
+   "debut": 298.6,
+   "fin": 299.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتصنوض",
+   "debut": 299.16,
+   "fin": 299.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "رسول",
+   "debut": 299.8,
+   "fin": 300.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "كراهك",
+   "debut": 300.2,
+   "fin": 300.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "وصود",
+   "debut": 300.72,
+   "fin": 301.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "دجايا",
+   "debut": 301.18,
+   "fin": 301.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركاوحان",
+   "debut": 301.66,
+   "fin": 303.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "شرتي",
+   "debut": 303.04,
+   "fin": 303.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "أحكامتك",
+   "debut": 303.44,
+   "fin": 304.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "للدون",
+   "debut": 304.18,
+   "fin": 304.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتدروت",
+   "debut": 304.6,
+   "fin": 305.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمي",
+   "debut": 305.4,
+   "fin": 306.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "مركلية",
+   "debut": 306.26,
+   "fin": 306.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "ما",
+   "debut": 306.9,
+   "fin": 307.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوضى",
+   "debut": 307.1,
+   "fin": 307.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "إيمان",
+   "debut": 307.48,
+   "fin": 307.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحيكو",
+   "debut": 307.92,
+   "fin": 309.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "يمادل",
+   "debut": 309.32,
+   "fin": 309.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "ندوز",
+   "debut": 309.86,
+   "fin": 310.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "تدروت",
+   "debut": 310.36,
+   "fin": 311.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "شاوية",
+   "debut": 311.04,
+   "fin": 311.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "دو",
+   "debut": 311.44,
+   "fin": 311.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "قلبها",
+   "debut": 311.7,
+   "fin": 312.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "ستتحي",
+   "debut": 312.18,
+   "fin": 312.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللابو",
+   "debut": 312.82,
+   "fin": 313.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "دياريه",
+   "debut": 313.18,
+   "fin": 313.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "تدان",
+   "debut": 313.9,
+   "fin": 314.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "دين",
+   "debut": 314.62,
+   "fin": 314.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "أقوانه",
+   "debut": 314.96,
+   "fin": 315.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "رجح",
+   "debut": 315.62,
+   "fin": 316.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "عابو",
+   "debut": 316.02,
+   "fin": 316.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "ديه",
+   "debut": 316.5,
+   "fin": 316.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "وتعصوك",
+   "debut": 316.84,
+   "fin": 317.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "لمركليه",
+   "debut": 317.74,
+   "fin": 319.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 319.02,
+   "fin": 319.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "دي",
+   "debut": 319.14,
+   "fin": 319.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 319.44,
+   "fin": 319.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "أمره",
+   "debut": 319.64,
+   "fin": 320.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "ويقبأتك",
+   "debut": 320.62,
+   "fin": 321.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللي",
+   "debut": 321.5,
+   "fin": 321.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "بلتزروتي",
+   "debut": 321.82,
+   "fin": 323.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "يترتيب",
+   "debut": 323.08,
+   "fin": 324.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "يضو",
+   "debut": 324.42,
+   "fin": 325.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "تلالة",
+   "debut": 325.12,
+   "fin": 325.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "تلالة",
+   "debut": 325.68,
+   "fin": 326.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "بلووتي",
+   "debut": 326.1,
+   "fin": 326.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "يخضوات",
+   "debut": 326.62,
+   "fin": 328.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيأيقوا",
+   "debut": 328.1,
+   "fin": 329.26,
+   "langue": "ar"
+  },
+  {
+   "mot": "قلطمان",
+   "debut": 329.26,
+   "fin": 329.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "بلتاس",
+   "debut": 329.9,
+   "fin": 330.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "بابا",
+   "debut": 330.56,
+   "fin": 331.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "ترتيب",
+   "debut": 331.0,
+   "fin": 331.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "لبقى",
+   "debut": 331.76,
+   "fin": 332.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "بجرشة",
+   "debut": 332.24,
+   "fin": 332.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "ده",
+   "debut": 332.9,
+   "fin": 333.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "يتاريخ",
+   "debut": 333.34,
+   "fin": 334.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "تشريقي",
+   "debut": 334.34,
+   "fin": 335.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيو",
+   "debut": 335.04,
+   "fin": 335.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيم",
+   "debut": 335.5,
+   "fin": 335.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "مهمة",
+   "debut": 335.8,
+   "fin": 336.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "كوان",
+   "debut": 336.4,
+   "fin": 337.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "نقنويا",
+   "debut": 337.02,
+   "fin": 337.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "إنهم",
+   "debut": 337.56,
+   "fin": 337.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرن",
+   "debut": 337.9,
+   "fin": 338.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "المك",
+   "debut": 338.2,
+   "fin": 338.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدن",
+   "debut": 338.7,
+   "fin": 339.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "يو",
+   "debut": 339.38,
+   "fin": 340.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناصخ",
+   "debut": 340.62,
+   "fin": 341.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "المنصوخ",
+   "debut": 341.16,
+   "fin": 342.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "ناصخ",
+   "debut": 342.22,
+   "fin": 342.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "المنصوخنا",
+   "debut": 342.88,
+   "fin": 343.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "يضن",
+   "debut": 343.8,
+   "fin": 344.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "معرق",
+   "debut": 344.78,
+   "fin": 345.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "إنهم",
+   "debut": 345.6,
+   "fin": 345.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرنهم",
+   "debut": 345.86,
+   "fin": 346.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 346.62,
+   "fin": 347.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "كتبا",
+   "debut": 347.24,
+   "fin": 347.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناصخ",
+   "debut": 347.82,
+   "fin": 348.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "يكوى",
+   "debut": 348.34,
+   "fin": 348.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "منصوخة",
+   "debut": 348.88,
+   "fin": 349.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحق",
+   "debut": 349.62,
+   "fin": 350.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "أصاص",
+   "debut": 350.48,
+   "fin": 350.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "أما",
+   "debut": 350.98,
+   "fin": 351.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "أصل",
+   "debut": 351.7,
+   "fin": 352.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "بأو",
+   "debut": 352.0,
+   "fin": 352.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "النقانية",
+   "debut": 352.3,
+   "fin": 353.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "إن",
+   "debut": 353.0,
+   "fin": 353.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "أن",
+   "debut": 353.58,
+   "fin": 353.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "جرنصي",
+   "debut": 353.68,
+   "fin": 354.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآنك",
+   "debut": 354.36,
+   "fin": 354.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "النزور",
+   "debut": 354.84,
+   "fin": 355.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "كيسوسوك",
+   "debut": 355.22,
+   "fin": 356.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "له",
+   "debut": 356.0,
+   "fin": 356.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "الرئي.",
+   "debut": 356.14,
+   "fin": 356.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "ولا",
+   "debut": 357.08,
+   "fin": 357.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "يستغني",
+   "debut": 357.76,
+   "fin": 358.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "عنه",
+   "debut": 358.36,
+   "fin": 358.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "المفصير",
+   "debut": 358.76,
+   "fin": 359.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمتسدي",
+   "debut": 359.52,
+   "fin": 360.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "الاستباد",
+   "debut": 360.62,
+   "fin": 361.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "العكام",
+   "debut": 361.38,
+   "fin": 361.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 361.96,
+   "fin": 362.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 362.18,
+   "fin": 362.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "الكريم.",
+   "debut": 362.68,
+   "fin": 363.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "فرُفِر",
+   "debut": 363.58,
+   "fin": 364.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "كتاب",
+   "debut": 364.3,
+   "fin": 364.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 364.72,
+   "fin": 365.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "كا",
+   "debut": 365.24,
+   "fin": 365.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "أقريه",
+   "debut": 365.5,
+   "fin": 365.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "يا",
+   "debut": 365.98,
+   "fin": 366.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "فصره.",
+   "debut": 366.14,
+   "fin": 366.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "إنك",
+   "debut": 367.16,
+   "fin": 367.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "هم",
+   "debut": 367.68,
+   "fin": 367.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "عرما",
+   "debut": 367.98,
+   "fin": 368.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "يُنُمك",
+   "debut": 368.4,
+   "fin": 369.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "يام",
+   "debut": 369.3,
+   "fin": 369.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "دل",
+   "debut": 369.62,
+   "fin": 369.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ياغ",
+   "debut": 369.96,
+   "fin": 370.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "وغرطه.",
+   "debut": 370.32,
+   "fin": 371.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "سانُ",
+   "debut": 371.42,
+   "fin": 371.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "أُغمار",
+   "debut": 371.98,
+   "fin": 372.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "مهين",
+   "debut": 372.4,
+   "fin": 372.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "إن",
+   "debut": 372.88,
+   "fin": 373.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "أقان",
+   "debut": 373.12,
+   "fin": 373.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "أُيَ",
+   "debut": 373.58,
+   "fin": 373.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "شفيعا",
+   "debut": 373.9,
+   "fin": 374.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "ناس",
+   "debut": 374.64,
+   "fin": 375.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "قيم",
+   "debut": 375.12,
+   "fin": 375.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "صُخ",
+   "debut": 375.44,
+   "fin": 375.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآنك.",
+   "debut": 375.82,
+   "fin": 376.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "ما",
+   "debut": 376.52,
+   "fin": 377.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "هؤن",
+   "debut": 377.62,
+   "fin": 378.02,
+   "langue": "ar"
+  },
+  {
+   "mot": "روح",
+   "debut": 378.02,
+   "fin": 378.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 378.38,
+   "fin": 378.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "كفسرية",
+   "debut": 378.84,
+   "fin": 379.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمتسدي",
+   "debut": 379.78,
+   "fin": 381.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "لسيباد",
+   "debut": 381.1,
+   "fin": 381.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "العكامي",
+   "debut": 381.86,
+   "fin": 382.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 382.7,
+   "fin": 382.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 382.92,
+   "fin": 383.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "الكريم",
+   "debut": 383.52,
+   "fin": 384.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "كا",
+   "debut": 384.1,
+   "fin": 384.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "يسبو",
+   "debut": 384.42,
+   "fin": 384.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "بمبحية",
+   "debut": 384.84,
+   "fin": 385.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "الدونية",
+   "debut": 385.5,
+   "fin": 386.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 386.6,
+   "fin": 387.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحكى",
+   "debut": 387.0,
+   "fin": 387.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "لصبحة",
+   "debut": 387.3,
+   "fin": 388.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 388.42,
+   "fin": 389.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "كا",
+   "debut": 389.1,
+   "fin": 389.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "احكامتي",
+   "debut": 389.34,
+   "fin": 389.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيفهمه",
+   "debut": 389.86,
+   "fin": 390.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "دا",
+   "debut": 390.76,
+   "fin": 391.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحويا",
+   "debut": 391.34,
+   "fin": 391.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "سو",
+   "debut": 391.86,
+   "fin": 392.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعمل",
+   "debut": 392.28,
+   "fin": 392.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "فلدت",
+   "debut": 392.82,
+   "fin": 393.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "كنا",
+   "debut": 393.3,
+   "fin": 393.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "ووسي",
+   "debut": 393.58,
+   "fin": 394.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "وبدبيه",
+   "debut": 394.0,
+   "fin": 394.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "كاسنا",
+   "debut": 394.62,
+   "fin": 395.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "لغا",
+   "debut": 395.5,
+   "fin": 396.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "المارم",
+   "debut": 396.14,
+   "fin": 396.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "ما",
+   "debut": 396.52,
+   "fin": 396.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "بيوتها",
+   "debut": 396.62,
+   "fin": 397.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 397.18,
+   "fin": 397.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "اجرته",
+   "debut": 397.5,
+   "fin": 398.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "مكي",
+   "debut": 398.04,
+   "fin": 398.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "مدنجي",
+   "debut": 398.72,
+   "fin": 399.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "كل",
+   "debut": 399.46,
+   "fin": 399.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "فوائد",
+   "debut": 399.68,
+   "fin": 400.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "اعكي",
+   "debut": 400.28,
+   "fin": 400.68,
+   "langue": "ar"
+  },
+  {
+   "mot": "هل",
+   "debut": 400.68,
+   "fin": 400.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "انه",
+   "debut": 400.82,
+   "fin": 401.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "ويمرضا",
+   "debut": 401.06,
+   "fin": 401.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "بيسم",
+   "debut": 401.62,
+   "fin": 402.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "قال",
+   "debut": 402.0,
+   "fin": 403.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "النحاس",
+   "debut": 403.58,
+   "fin": 404.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "الرحمه",
+   "debut": 404.08,
+   "fin": 404.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 404.62,
+   "fin": 404.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "تعالى",
+   "debut": 404.84,
+   "fin": 405.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "كالله",
+   "debut": 405.82,
+   "fin": 406.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "أشغد",
+   "debut": 406.74,
+   "fin": 407.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيا",
+   "debut": 407.18,
+   "fin": 407.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "وطاس",
+   "debut": 407.64,
+   "fin": 408.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "وإمام",
+   "debut": 408.3,
+   "fin": 409.0,
+   "langue": "ar"
+  },
+  {
+   "mot": "أيمدي",
+   "debut": 409.0,
+   "fin": 409.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "إسلام",
+   "debut": 409.5,
+   "fin": 409.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "ككاملة",
+   "debut": 409.88,
+   "fin": 410.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "كتاب",
+   "debut": 410.72,
+   "fin": 411.84,
+   "langue": "ar"
+  },
+  {
+   "mot": "الله",
+   "debut": 411.84,
+   "fin": 412.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "يقول",
+   "debut": 412.04,
+   "fin": 412.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "اين",
+   "debut": 412.52,
+   "fin": 412.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناسخ",
+   "debut": 412.86,
+   "fin": 413.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمصخ",
+   "debut": 413.92,
+   "fin": 414.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 414.52,
+   "fin": 414.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرآن",
+   "debut": 414.7,
+   "fin": 415.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "كالنومد",
+   "debut": 415.48,
+   "fin": 416.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "بعيسا",
+   "debut": 416.4,
+   "fin": 417.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "أي",
+   "debut": 417.04,
+   "fin": 417.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "يوحوها",
+   "debut": 417.9,
+   "fin": 418.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "كتاب",
+   "debut": 418.6,
+   "fin": 419.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "كيسا",
+   "debut": 419.14,
+   "fin": 419.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناسخ",
+   "debut": 419.58,
+   "fin": 420.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمصخ",
+   "debut": 420.08,
+   "fin": 420.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "كبيرا",
+   "debut": 420.64,
+   "fin": 421.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "جسل",
+   "debut": 421.28,
+   "fin": 421.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "لباد",
+   "debut": 421.66,
+   "fin": 422.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "وإنما",
+   "debut": 422.1,
+   "fin": 423.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "يكترما",
+   "debut": 423.34,
+   "fin": 424.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "نزل",
+   "debut": 424.04,
+   "fin": 424.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "بمكتا",
+   "debut": 424.48,
+   "fin": 425.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "والمدينة",
+   "debut": 425.36,
+   "fin": 426.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "لان",
+   "debut": 426.42,
+   "fin": 428.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "فيها",
+   "debut": 428.2,
+   "fin": 428.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "عظم",
+   "debut": 428.6,
+   "fin": 428.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "الفائدة",
+   "debut": 428.94,
+   "fin": 429.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 429.5,
+   "fin": 429.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناس",
+   "debut": 429.8,
+   "fin": 430.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "خلما",
+   "debut": 430.14,
+   "fin": 430.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "سخ",
+   "debut": 430.54,
+   "fin": 430.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحلو",
+   "debut": 430.8,
+   "fin": 431.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "اهتماميه",
+   "debut": 431.3,
+   "fin": 432.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "الايس",
+   "debut": 432.46,
+   "fin": 433.66,
+   "langue": "ar"
+  },
+  {
+   "mot": "هاي",
+   "debut": 433.66,
+   "fin": 433.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللو",
+   "debut": 433.94,
+   "fin": 434.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرته",
+   "debut": 434.4,
+   "fin": 435.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "او",
+   "debut": 435.12,
+   "fin": 435.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللو",
+   "debut": 435.7,
+   "fin": 436.06,
+   "langue": "ar"
+  },
+  {
+   "mot": "هذا",
+   "debut": 436.06,
+   "fin": 436.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "الخاضه",
+   "debut": 436.22,
+   "fin": 436.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "اللو",
+   "debut": 436.78,
+   "fin": 437.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "بحثيه",
+   "debut": 437.04,
+   "fin": 437.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 437.82,
+   "fin": 438.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 438.62,
+   "fin": 438.8,
+   "langue": "ar"
+  },
+  {
+   "mot": "كيمة",
+   "debut": 438.8,
+   "fin": 439.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "كتب",
+   "debut": 439.24,
+   "fin": 439.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "سودقية",
+   "debut": 439.44,
+   "fin": 440.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "مدينة",
+   "debut": 440.12,
+   "fin": 440.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "انتك",
+   "debut": 440.74,
+   "fin": 441.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "بسودقتي",
+   "debut": 441.18,
+   "fin": 442.16,
+   "langue": "ar"
+  },
+  {
+   "mot": "محاك",
+   "debut": 442.16,
+   "fin": 443.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "وصونا",
+   "debut": 443.04,
+   "fin": 443.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "اعظم",
+   "debut": 443.58,
+   "fin": 444.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "الفائدة",
+   "debut": 444.4,
+   "fin": 444.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 444.88,
+   "fin": 445.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناس",
+   "debut": 445.18,
+   "fin": 445.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "خلما",
+   "debut": 445.52,
+   "fin": 445.9,
+   "langue": "ar"
+  },
+  {
+   "mot": "سخ",
+   "debut": 445.9,
+   "fin": 446.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "انا",
+   "debut": 446.18,
+   "fin": 446.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرته",
+   "debut": 446.38,
+   "fin": 446.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 446.94,
+   "fin": 447.74,
+   "langue": "ar"
+  },
+  {
+   "mot": "كناس",
+   "debut": 447.74,
+   "fin": 448.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "خيسيه",
+   "debut": 448.24,
+   "fin": 448.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "مصوخيه",
+   "debut": 448.76,
+   "fin": 449.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "سيه",
+   "debut": 449.4,
+   "fin": 449.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "وضريقه",
+   "debut": 449.6,
+   "fin": 450.18,
+   "langue": "ar"
+  },
+  {
+   "mot": "لو",
+   "debut": 450.18,
+   "fin": 450.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "جرانيه",
+   "debut": 450.34,
+   "fin": 451.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "ووصلت",
+   "debut": 451.12,
+   "fin": 452.22,
+   "langue": "ar"
+  },
+  {
+   "mot": "ليه",
+   "debut": 452.22,
+   "fin": 452.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "وضريقه",
+   "debut": 452.46,
+   "fin": 453.14,
+   "langue": "ar"
+  },
+  {
+   "mot": "المرينيه",
+   "debut": 453.14,
+   "fin": 453.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "ان",
+   "debut": 453.7,
+   "fin": 453.78,
+   "langue": "ar"
+  },
+  {
+   "mot": "جرانو",
+   "debut": 453.78,
+   "fin": 454.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "قرآن",
+   "debut": 454.28,
+   "fin": 454.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "كهيبه",
+   "debut": 454.64,
+   "fin": 455.2,
+   "langue": "ar"
+  },
+  {
+   "mot": "الناس",
+   "debut": 455.2,
+   "fin": 455.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 455.58,
+   "fin": 455.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "كبار",
+   "debut": 455.82,
+   "fin": 456.24,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 456.24,
+   "fin": 456.42,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوخه.",
+   "debut": 456.42,
+   "fin": 456.94,
+   "langue": "ar"
+  },
+  {
+   "mot": "سن",
+   "debut": 457.8,
+   "fin": 458.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "وصلوه",
+   "debut": 458.1,
+   "fin": 459.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "تهينا",
+   "debut": 459.04,
+   "fin": 459.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقلسي",
+   "debut": 459.38,
+   "fin": 459.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "حديه",
+   "debut": 459.98,
+   "fin": 460.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "لان",
+   "debut": 460.62,
+   "fin": 461.48,
+   "langue": "ar"
+  },
+  {
+   "mot": "الآية",
+   "debut": 461.48,
+   "fin": 462.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "إذا",
+   "debut": 462.08,
+   "fin": 462.5,
+   "langue": "ar"
+  },
+  {
+   "mot": "كانت",
+   "debut": 462.5,
+   "fin": 462.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "مكية.",
+   "debut": 462.98,
+   "fin": 463.56,
+   "langue": "ar"
+  },
+  {
+   "mot": "آيد",
+   "debut": 463.82,
+   "fin": 464.34,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرام",
+   "debut": 464.34,
+   "fin": 464.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "في",
+   "debut": 464.72,
+   "fin": 464.88,
+   "langue": "ar"
+  },
+  {
+   "mot": "ذلك",
+   "debut": 464.88,
+   "fin": 465.1,
+   "langue": "ar"
+  },
+  {
+   "mot": "بكبو",
+   "debut": 465.1,
+   "fin": 465.7,
+   "langue": "ar"
+  },
+  {
+   "mot": "سودكتين.",
+   "debut": 465.7,
+   "fin": 466.44,
+   "langue": "ar"
+  },
+  {
+   "mot": "وكان",
+   "debut": 467.6,
+   "fin": 467.86,
+   "langue": "ar"
+  },
+  {
+   "mot": "فيها",
+   "debut": 467.86,
+   "fin": 468.28,
+   "langue": "ar"
+  },
+  {
+   "mot": "حكم",
+   "debut": 468.28,
+   "fin": 468.64,
+   "langue": "ar"
+  },
+  {
+   "mot": "حكم",
+   "debut": 468.64,
+   "fin": 469.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "نعم",
+   "debut": 469.12,
+   "fin": 469.4,
+   "langue": "ar"
+  },
+  {
+   "mot": "كفاية",
+   "debut": 469.4,
+   "fin": 469.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "لسنه",
+   "debut": 469.92,
+   "fin": 470.58,
+   "langue": "ar"
+  },
+  {
+   "mot": "وحندي",
+   "debut": 470.58,
+   "fin": 471.54,
+   "langue": "ar"
+  },
+  {
+   "mot": "القرق",
+   "debut": 471.54,
+   "fin": 471.96,
+   "langue": "ar"
+  },
+  {
+   "mot": "ما",
+   "debut": 471.96,
+   "fin": 472.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "ينو",
+   "debut": 472.12,
+   "fin": 472.32,
+   "langue": "ar"
+  },
+  {
+   "mot": "حكم",
+   "debut": 472.32,
+   "fin": 472.72,
+   "langue": "ar"
+  },
+  {
+   "mot": "آه.",
+   "debut": 472.72,
+   "fin": 473.82,
+   "langue": "ar"
+  },
+  {
+   "mot": "نسي",
+   "debut": 473.82,
+   "fin": 474.36,
+   "langue": "ar"
+  },
+  {
+   "mot": "من",
+   "debut": 474.36,
+   "fin": 474.52,
+   "langue": "ar"
+  },
+  {
+   "mot": "سوخه",
+   "debut": 474.52,
+   "fin": 474.98,
+   "langue": "ar"
+  },
+  {
+   "mot": "نوح",
+   "debut": 474.98,
+   "fin": 475.3,
+   "langue": "ar"
+  },
+  {
+   "mot": "حكوي",
+   "debut": 475.3,
+   "fin": 475.6,
+   "langue": "ar"
+  },
+  {
+   "mot": "مادة",
+   "debut": 475.6,
+   "fin": 476.08,
+   "langue": "ar"
+  },
+  {
+   "mot": "لا",
+   "debut": 476.08,
+   "fin": 476.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "أمركي",
+   "debut": 476.76,
+   "fin": 477.38,
+   "langue": "ar"
+  },
+  {
+   "mot": "إنهي",
+   "debut": 477.38,
+   "fin": 477.76,
+   "langue": "ar"
+  },
+  {
+   "mot": "يا",
+   "debut": 477.76,
+   "fin": 477.92,
+   "langue": "ar"
+  },
+  {
+   "mot": "أخبارتي",
+   "debut": 477.92,
+   "fin": 478.46,
+   "langue": "ar"
+  },
+  {
+   "mot": "يا",
+   "debut": 478.46,
+   "fin": 478.62,
+   "langue": "ar"
+  },
+  {
+   "mot": "وعدك",
+   "debut": 478.62,
+   "fin": 479.04,
+   "langue": "ar"
+  },
+  {
+   "mot": "يا",
+   "debut": 479.04,
+   "fin": 479.12,
+   "langue": "ar"
+  },
+  {
+   "mot": "وقاطر",
+   "debut": 479.12,
+   "fin": 479.98,
+   "langue": "ar"
+  }
+ ],
+ "segments": [
+  {
+   "debut": 0.0,
+   "fin": 4.2,
+   "langue": "ar",
+   "texte": "إن الحمد لله نحمد هو نستعين هو نستفره"
+  },
+  {
+   "debut": 4.88,
+   "fin": 8.9,
+   "langue": "ar",
+   "texte": "ونعود بالله من شرور أنفسنا ونسيات عمالنا"
+  },
+  {
+   "debut": 9.54,
+   "fin": 11.96,
+   "langue": "ar",
+   "texte": "من يهدي الله فلا مضل الله"
+  },
+  {
+   "debut": 12.62,
+   "fin": 15.04,
+   "langue": "ar",
+   "texte": "ومن يضل فلا هادية الله"
+  },
+  {
+   "debut": 15.68,
+   "fin": 20.14,
+   "langue": "ar",
+   "texte": "واشد الله إله إلا الله وحده لا شريف له"
+  },
+  {
+   "debut": 20.84,
+   "fin": 25.34,
+   "langue": "ar",
+   "texte": "واشد أن سيدنا محمد عبده ورسوله"
+  },
+  {
+   "debut": 25.34,
+   "fin": 27.18,
+   "langue": "ar",
+   "texte": "صلى الله عليه وسلم"
+  },
+  {
+   "debut": 27.18,
+   "fin": 32.88,
+   "langue": "ar",
+   "texte": "وعلى آله وصحبه ومنه تدى بهديه إلى يوم الدين أما بعد"
+  },
+  {
+   "debut": 32.88,
+   "fin": 35.9,
+   "langue": "ar",
+   "texte": "صلى الله عليه وسلم وعليكم رحمة الله بركاته"
+  },
+  {
+   "debut": 35.9,
+   "fin": 43.06,
+   "langue": "ar",
+   "texte": "بلله بأمهجر سبحانه وتعالى سبوك يمكن يمسكا أدواء ساعات"
+  },
+  {
+   "debut": 43.06,
+   "fin": 44.9,
+   "langue": "ar",
+   "texte": "أدو قيمها البداية"
+  },
+  {
+   "debut": 44.9,
+   "fin": 46.68,
+   "langue": "ar",
+   "texte": "أبيتك إلهي أه"
+  },
+  {
+   "debut": 46.68,
+   "fin": 51.26,
+   "langue": "ar",
+   "texte": "يضوى واحي من يسوني منه يبلينا وحلها سباشة أبنى"
+  },
+  {
+   "debut": 51.26,
+   "fin": 52.84,
+   "langue": "ar",
+   "texte": "أمه ربط على اللقصن"
+  },
+  {
+   "debut": 52.84,
+   "fin": 57.68,
+   "langue": "ar",
+   "texte": "كلمة إلهي أما قرآن ككريمكاكوبة على الوقت"
+  },
+  {
+   "debut": 57.68,
+   "fin": 61.12,
+   "langue": "ar",
+   "texte": "كلها رأتهم نصمين إن المترتون"
+  },
+  {
+   "debut": 61.12,
+   "fin": 66.0,
+   "langue": "ar",
+   "texte": "وقتها أفرح القوحة لجيابة إني ديير إليدي تهي"
+  },
+  {
+   "debut": 66.0,
+   "fin": 68.18,
+   "langue": "ar",
+   "texte": "أما أفرمت بسادرات ديد"
+  },
+  {
+   "debut": 68.18,
+   "fin": 69.6,
+   "langue": "ar",
+   "texte": "هورا مسجب لابا هنا"
+  },
+  {
+   "debut": 69.6,
+   "fin": 73.72,
+   "langue": "ar",
+   "texte": "إيه وحن أردونا ننتبذن ووحيدين قرن"
+  },
+  {
+   "debut": 73.72,
+   "fin": 75.5,
+   "langue": "ar",
+   "texte": "وحغيرو كومن موين"
+  },
+  {
+   "debut": 76.2,
+   "fin": 80.12,
+   "langue": "ar",
+   "texte": "مركا لبن وعو انتبنس كوحرن"
+  },
+  {
+   "debut": 80.12,
+   "fin": 93.04,
+   "langue": "ar",
+   "texte": "وحدف فهم كالصباحا ويلغذ النوع انك بحضرنا وعد عرم القرآن كوامدة والمك والمدني وقطع اللغسان القرآن كسودية"
+  },
+  {
+   "debut": 93.04,
+   "fin": 101.86,
+   "langue": "ar",
+   "texte": "كسي مريو كسوكر الدقيق والروح كبطع اللغسان ايا قرآن كسودية سابقى ليافرية طبم كأه"
+  },
+  {
+   "debut": 101.86,
+   "fin": 109.54,
+   "langue": "ar",
+   "texte": "وحوين ملحب سوك الى الدجين مقائي مدينة يدي الله وحيد و هي نواحيدة كلبة"
+  },
+  {
+   "debut": 109.54,
+   "fin": 116.38,
+   "langue": "ar",
+   "texte": "ورتاسوا عمد ان قلت لبانه و ناسخ يمصوخ القرآن كه"
+  },
+  {
+   "debut": 116.38,
+   "fin": 118.68,
+   "langue": "ar",
+   "texte": "أيات باسراه"
+  },
+  {
+   "debut": 118.68,
+   "fin": 126.16,
+   "langue": "ar",
+   "texte": "إلهي سبحانه وتعالى مركز وراحكا منهوش دي يدي الله دي مراحل أيهاية وصلاحية"
+  },
+  {
+   "debut": 126.16,
+   "fin": 137.0,
+   "langue": "ar",
+   "texte": "ومركة الدرمانة بالآيات كلا وحكمك ادو وحكدو انك في يمي ايام واخور النسخة ايام وقرامك يعني كوى بضنان بم"
+  },
+  {
+   "debut": 137.0,
+   "fin": 145.76,
+   "langue": "ar",
+   "texte": "حاجي اصف جحرين سيانو قرن وقرآن كادي لبحكمو كلا دوان ايام ايام ايام"
+  },
+  {
+   "debut": 145.76,
+   "fin": 148.98,
+   "langue": "ar",
+   "texte": "و أي ناكو دعم الفليك راهين."
+  },
+  {
+   "debut": 149.68,
+   "fin": 152.4,
+   "langue": "ar",
+   "texte": "مدبى من سوخ نقنية من الناسخ."
+  },
+  {
+   "debut": 152.94,
+   "fin": 158.14,
+   "langue": "ar",
+   "texte": "مركز الرشدي أنتا جرنين يكلق يبو حب مهم كبا ميدا."
+  },
+  {
+   "debut": 158.14,
+   "fin": 165.04,
+   "langue": "ar",
+   "texte": "إنا نجرنو قرآن بارك يوكسو دبيسي و كلهوري يسيت يهر من سوخ لوغ ديقو."
+  },
+  {
+   "debut": 165.18,
+   "fin": 167.8,
+   "langue": "ar",
+   "texte": "عايد بدمان الناسخ يون قطوصا سبق."
+  },
+  {
+   "debut": 168.22,
+   "fin": 171.06,
+   "langue": "ar",
+   "texte": "فهمت الناسخ يمن سوخ أن فهمي نو."
+  },
+  {
+   "debut": 171.06,
+   "fin": 180.06,
+   "langue": "ar",
+   "texte": "قيب مهماء كباتي نفهمه قرآنك نزلت في مهري وكبات سودقه لباغ النوع سبغن وضارنه"
+  },
+  {
+   "debut": 180.84,
+   "fin": 190.22,
+   "langue": "ar",
+   "texte": "المركات فهراء ينكرين المكي والمدني انتين قصيدا أمان منضومه لباتي نيبين أه"
+  },
+  {
+   "debut": 190.62,
+   "fin": 196.26,
+   "langue": "ar",
+   "texte": "ونن إمام يوكور ريي أم الشيخ يوكور ريي سوردها قرآنك"
+  },
+  {
+   "debut": 196.26,
+   "fin": 217.14,
+   "langue": "ar",
+   "texte": "يقول السكوة فقصيني مدينة اي بسود دجين يقول السكوة فقصيني مكين اي بسود دجين يصورة دقام بدنين اعلمة ده دخلو ده واماك يوامدني لبدل ولا يلاخل افناش يووتره انت اصول انه اصول كابه يصفي عنه اصول كابه وحنات موتبين"
+  },
+  {
+   "debut": 217.14,
+   "fin": 223.72,
+   "langue": "ar",
+   "texte": "ورتاصف انه أصله لكن أموره انه عوني يفهم كأنه أمورها فهم لهي"
+  },
+  {
+   "debut": 223.72,
+   "fin": 228.5,
+   "langue": "ar",
+   "texte": "ودير أيادر أهي موضع أيا كبهر ريح"
+  },
+  {
+   "debut": 228.5,
+   "fin": 231.84,
+   "langue": "ar",
+   "texte": "وارتا ويلص عندهم تندي الله الهو"
+  },
+  {
+   "debut": 232.56,
+   "fin": 238.8,
+   "langue": "ar",
+   "texte": "فإن من أن وعع علوم القرآن المتعلقة بالنظورية المكية والمدنية"
+  },
+  {
+   "debut": 238.8,
+   "fin": 244.48,
+   "langue": "ar",
+   "texte": "نا قرآنك علومتي سوحة أم بذوه نقنها قرآنك"
+  },
+  {
+   "debut": 244.48,
+   "fin": 273.04,
+   "langue": "ar",
+   "texte": "انتصر كواقار وحقا لو ترد في قيبا اقل انت القرآن كوكو تبقى هلوك الى دوان له يدن اموقب دن كولنسة تي مركلية القرآن كانوا اعداء علمت ساكبك وابنته ادب احكام امداء علمت القرآن كيلاكيكو تعلكسن سودي امكيسه يسوك له الري يي نعلب مجعابا المكي والمدنيه استلحان كوكو اركب دونها امكا كوياهي"
+  },
+  {
+   "debut": 273.04,
+   "fin": 282.66,
+   "langue": "ar",
+   "texte": "وهو النوع المهم عديم الفائدة ونعاد قيم البدا فايدة ديسنة يوهلتها يوهلتها"
+  },
+  {
+   "debut": 282.66,
+   "fin": 291.2,
+   "langue": "ar",
+   "texte": "اي برناها فايدو يمكن السندام ما لها اي اذ ياد لوسي بها يبا وفي معرفة تاريخ التشرع الاسلامي"
+  },
+  {
+   "debut": 291.2,
+   "fin": 294.54,
+   "langue": "ar",
+   "texte": "إلا هي سبحانه وتعالى قرآن كاس"
+  },
+  {
+   "debut": 294.54,
+   "fin": 298.2,
+   "langue": "ar",
+   "texte": "تأحكامتك للدون والنوجل شديقي"
+  },
+  {
+   "debut": 298.2,
+   "fin": 301.66,
+   "langue": "ar",
+   "texte": "بدأت تدحيلة وتصنوض رسول كراهك وصود دجايا"
+  },
+  {
+   "debut": 301.66,
+   "fin": 305.4,
+   "langue": "ar",
+   "texte": "مركاوحان شرتي أحكامتك للدون وتدروت"
+  },
+  {
+   "debut": 305.4,
+   "fin": 307.92,
+   "langue": "ar",
+   "texte": "يمي مركلية ما يوضى إيمان"
+  },
+  {
+   "debut": 307.92,
+   "fin": 311.44,
+   "langue": "ar",
+   "texte": "وحيكو يمادل ندوز تدروت شاوية"
+  },
+  {
+   "debut": 311.44,
+   "fin": 313.9,
+   "langue": "ar",
+   "texte": "دو قلبها ستتحي اللابو دياريه"
+  },
+  {
+   "debut": 313.9,
+   "fin": 316.84,
+   "langue": "ar",
+   "texte": "تدان دين أقوانه رجح عابو ديه"
+  },
+  {
+   "debut": 316.84,
+   "fin": 320.62,
+   "langue": "ar",
+   "texte": "وتعصوك لمركليه من دي الله أمره"
+  },
+  {
+   "debut": 320.62,
+   "fin": 328.1,
+   "langue": "ar",
+   "texte": "ويقبأتك اللي بلتزروتي يترتيب يضو تلالة تلالة بلووتي يخضوات"
+  },
+  {
+   "debut": 328.1,
+   "fin": 331.76,
+   "langue": "ar",
+   "texte": "سيأيقوا قلطمان بلتاس بابا ترتيب"
+  },
+  {
+   "debut": 331.76,
+   "fin": 336.4,
+   "langue": "ar",
+   "texte": "لبقى بجرشة ده يتاريخ تشريقي أيو قيم مهمة"
+  },
+  {
+   "debut": 336.4,
+   "fin": 339.38,
+   "langue": "ar",
+   "texte": "كوان نقنويا إنهم قرن المك والمدن"
+  },
+  {
+   "debut": 339.38,
+   "fin": 342.22,
+   "langue": "ar",
+   "texte": "يو الناصخ المنصوخ"
+  },
+  {
+   "debut": 342.22,
+   "fin": 346.62,
+   "langue": "ar",
+   "texte": "ناصخ المنصوخنا يضن معرق إنهم قرنهم"
+  },
+  {
+   "debut": 346.62,
+   "fin": 349.62,
+   "langue": "ar",
+   "texte": "قرآن كتبا الناصخ يكوى منصوخة"
+  },
+  {
+   "debut": 349.62,
+   "fin": 356.6,
+   "langue": "ar",
+   "texte": "وحق أصاص أما أصل بأو النقانية إن أن جرنصي قرآنك النزور كيسوسوك له الرئي."
+  },
+  {
+   "debut": 357.08,
+   "fin": 363.58,
+   "langue": "ar",
+   "texte": "ولا يستغني عنه المفصير والمتسدي الاستباد العكام من القرآن الكريم."
+  },
+  {
+   "debut": 363.58,
+   "fin": 371.08,
+   "langue": "ar",
+   "texte": "فرُفِر كتاب قرآن كا أقريه يا فصره. إنك هم عرما يُنُمك يام دل ياغ وغرطه."
+  },
+  {
+   "debut": 371.42,
+   "fin": 376.52,
+   "langue": "ar",
+   "texte": "سانُ أُغمار مهين إن أقان أُيَ شفيعا ناس قيم صُخ القرآنك."
+  },
+  {
+   "debut": 376.52,
+   "fin": 384.1,
+   "langue": "ar",
+   "texte": "ما هؤن روح القرآن كفسرية والمتسدي لسيباد العكامي من القرآن الكريم"
+  },
+  {
+   "debut": 384.1,
+   "fin": 388.42,
+   "langue": "ar",
+   "texte": "كا يسبو بمبحية الدونية انه وحكى لصبحة"
+  },
+  {
+   "debut": 388.42,
+   "fin": 390.76,
+   "langue": "ar",
+   "texte": "القرآن كا احكامتي سيفهمه"
+  },
+  {
+   "debut": 390.76,
+   "fin": 394.62,
+   "langue": "ar",
+   "texte": "دا وحويا سو وعمل فلدت كنا ووسي وبدبيه"
+  },
+  {
+   "debut": 394.62,
+   "fin": 399.46,
+   "langue": "ar",
+   "texte": "كاسنا لغا المارم ما بيوتها انه اجرته مكي مدنجي"
+  },
+  {
+   "debut": 399.46,
+   "fin": 402.0,
+   "langue": "ar",
+   "texte": "كل فوائد اعكي هل انه ويمرضا بيسم"
+  },
+  {
+   "debut": 402.0,
+   "fin": 405.82,
+   "langue": "ar",
+   "texte": "قال النحاس الرحمه الله تعالى"
+  },
+  {
+   "debut": 405.82,
+   "fin": 417.04,
+   "langue": "ar",
+   "texte": "كالله أشغد سيا وطاس وإمام أيمدي إسلام ككاملة كتاب الله يقول اين الناسخ والمصخ في القرآن كالنومد بعيسا"
+  },
+  {
+   "debut": 417.04,
+   "fin": 426.42,
+   "langue": "ar",
+   "texte": "أي يوحوها كتاب كيسا الناسخ والمصخ كبيرا جسل لباد وإنما يكترما نزل بمكتا والمدينة"
+  },
+  {
+   "debut": 426.42,
+   "fin": 434.4,
+   "langue": "ar",
+   "texte": "لان فيها عظم الفائدة في الناس خلما سخ وحلو اهتماميه الايس هاي اللو"
+  },
+  {
+   "debut": 434.4,
+   "fin": 440.12,
+   "langue": "ar",
+   "texte": "قرته او اللو هذا الخاضه اللو بحثيه قرآن في كيمة كتب سودقية"
+  },
+  {
+   "debut": 440.12,
+   "fin": 445.9,
+   "langue": "ar",
+   "texte": "مدينة انتك بسودقتي محاك وصونا اعظم الفائدة في الناس خلما"
+  },
+  {
+   "debut": 445.9,
+   "fin": 450.34,
+   "langue": "ar",
+   "texte": "سخ انا قرته قرآن كناس خيسيه مصوخيه سيه وضريقه لو"
+  },
+  {
+   "debut": 450.34,
+   "fin": 455.2,
+   "langue": "ar",
+   "texte": "جرانيه ووصلت ليه وضريقه المرينيه ان جرانو قرآن كهيبه"
+  },
+  {
+   "debut": 455.2,
+   "fin": 463.56,
+   "langue": "ar",
+   "texte": "الناس في كبار من سوخه. سن وصلوه تهينا وقلسي حديه لان الآية إذا كانت مكية."
+  },
+  {
+   "debut": 463.82,
+   "fin": 469.92,
+   "langue": "ar",
+   "texte": "آيد القرام في ذلك بكبو سودكتين. وكان فيها حكم حكم نعم كفاية"
+  },
+  {
+   "debut": 469.92,
+   "fin": 476.08,
+   "langue": "ar",
+   "texte": "لسنه وحندي القرق ما ينو حكم آه. نسي من سوخه نوح حكوي مادة"
+  },
+  {
+   "debut": 476.08,
+   "fin": 479.98,
+   "langue": "ar",
+   "texte": "لا أمركي إنهي يا أخبارتي يا وعدك يا وقاطر"
+  }
+ ]
+}

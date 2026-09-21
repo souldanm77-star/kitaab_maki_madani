@@ -1,0 +1,41 @@
+{
+  "entree": {
+    "livre": "demo/livre.pdf",
+    "cheikh": "demo/cheikh_placeholder.png",
+    "audio_dir": "demo/audio"
+  },
+  "travail": "travail_demo",
+  "sortie": "sortie",
+  "whisper": {
+    "modele": "base",
+    "calcul": "int8",
+    "langue": "ar"
+  },
+  "alignement": {
+    "seuil": 0.45,
+    "gap": -0.28
+  },
+  "video": {
+    "largeur": 1920,
+    "hauteur": 1080,
+    "fps": 25,
+    "dpi": 200,
+    "panneau_cheikh": { "largeur": 768 },
+    "fond": [24, 24, 28],
+    "papier": [246, 242, 233],
+    "separation": [203, 164, 74],
+    "surlignage": {
+      "mode": "mot",
+      "couleur": [255, 235, 59],
+      "opacite": 0.45,
+      "pad": 5
+    }
+  },
+  "darses": {
+    "dars_demo": {
+      "titre": "Démo — Fatiha",
+      "audio": "demo/audio.mp3",
+      "pages": [1, 2]
+    }
+  }
+}
