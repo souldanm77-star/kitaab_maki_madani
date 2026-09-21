@@ -1,0 +1,55 @@
+« dars1 » : 5951 mots du livre (pages 1–23) ⟷ 8490 mots Whisper (80.3 min)
+[P1] ancrages exacts chaînés : 292
+[P1] appariements totaux : 1456
+[P1] runs : 175 au total, 40 ACTIVÉS
+[P2] continuations récupérées : 0 runs supplémentaires
+[F] runs ACTIVÉS après fusion : 40
+[F] temps de lecture détecté : 392s (8.1 % de 80 min)
+   🔵 run 1:     0.0s →    32.9s  pages 1–1  (53 mots, moy 0.94, p80 0.91)
+   🔵 run 2:   232.6s →   236.1s  pages 1–1  (6 mots, moy 0.93, p80 0.83)
+   🔵 run 3:   268.7s →   277.7s  pages 1–1  (7 mots, moy 0.93, p80 0.86)
+   🔵 run 4:   288.3s →   291.2s  pages 1–1  (5 mots, moy 0.94, p80 1.00)
+   🔵 run 5:   357.1s →   363.6s  pages 1–1  (10 mots, moy 0.92, p80 0.70)
+   🔵 run 6:   402.0s →   405.8s  pages 1–1  (5 mots, moy 0.96, p80 1.00)
+   🔵 run 7:   422.1s →   428.6s  pages 1–1  (7 mots, moy 0.88, p80 0.71)
+   🔵 run 8:   516.3s →   520.7s  pages 1–1  (5 mots, moy 0.82, p80 0.60)
+   🔵 run 9:   575.3s →   577.9s  pages 1–1  (4 mots, moy 1.00, p80 1.00)
+   🔵 run 10:   592.4s →   618.6s  pages 1–1  (20 mots, moy 0.91, p80 0.85)
+   🔵 run 11:   721.3s →   740.5s  pages 1–1  (11 mots, moy 0.87, p80 0.73)
+   🔵 run 12:   886.8s →   921.4s  pages 2–2  (28 mots, moy 0.90, p80 0.82)
+   🔵 run 13:   977.7s →   989.9s  pages 2–2  (12 mots, moy 0.96, p80 1.00)
+   🔵 run 14:   997.6s →  1007.4s  pages 2–2  (8 mots, moy 0.87, p80 0.75)
+   🔵 run 15:  1311.3s →  1313.1s  pages 2–2  (3 mots, moy 0.92, p80 0.67)
+   🔵 run 16:  1374.1s →  1396.2s  pages 2–2  (16 mots, moy 0.81, p80 0.56)
+   🔵 run 17:  1404.7s →  1415.7s  pages 2–2  (14 mots, moy 0.81, p80 0.57)
+   🔵 run 18:  1487.0s →  1495.7s  pages 2–2  (6 mots, moy 0.90, p80 0.83)
+   🔵 run 19:  1611.7s →  1615.6s  pages 2–2  (8 mots, moy 0.92, p80 0.75)
+   🔵 run 20:  1640.7s →  1651.6s  pages 2–2  (11 mots, moy 0.80, p80 0.55)
+   🔵 run 21:  1697.9s →  1710.1s  pages 2–2  (14 mots, moy 0.74, p80 0.50)
+   🔵 run 22:  1717.7s →  1722.9s  pages 2–2  (5 mots, moy 0.88, p80 0.80)
+   🔵 run 23:  1752.2s →  1755.2s  pages 2–2  (6 mots, moy 0.84, p80 0.67)
+   🔵 run 24:  1780.2s →  1782.4s  pages 3–3  (4 mots, moy 0.95, p80 1.00)
+   🔵 run 25:  1789.0s →  1797.4s  pages 3–3  (8 mots, moy 0.84, p80 0.75)
+   🔵 run 26:  1803.8s →  1814.1s  pages 3–3  (7 mots, moy 0.89, p80 0.71)
+   🔵 run 27:  1840.0s →  1842.9s  pages 3–3  (6 mots, moy 0.86, p80 0.67)
+   🔵 run 28:  1852.3s →  1859.7s  pages 3–3  (6 mots, moy 0.80, p80 0.67)
+   🔵 run 29:  1886.7s →  1894.2s  pages 3–3  (6 mots, moy 0.93, p80 1.00)
+   🔵 run 30:  2122.4s →  2133.3s  pages 3–3  (12 mots, moy 0.83, p80 0.58)
+   🔵 run 31:  2198.8s →  2217.1s  pages 3–3  (17 mots, moy 0.92, p80 0.88)
+   🔵 run 32:  2235.0s →  2243.6s  pages 3–3  (5 mots, moy 0.87, p80 0.80)
+   🔵 run 33:  2309.3s →  2313.9s  pages 3–3  (5 mots, moy 0.83, p80 0.60)
+   🔵 run 34:  2346.5s →  2350.8s  pages 3–3  (4 mots, moy 0.80, p80 0.50)
+   🔵 run 35:  2358.4s →  2365.9s  pages 3–3  (9 mots, moy 0.88, p80 0.78)
+   🔵 run 36:  2375.2s →  2389.8s  pages 3–3  (12 mots, moy 0.83, p80 0.67)
+   🔵 run 37:  2457.1s →  2461.6s  pages 3–3  (4 mots, moy 0.96, p80 1.00)
+   🔵 run 38:  2471.4s →  2473.6s  pages 3–3  (3 mots, moy 0.95, p80 1.00)
+   🔵 run 39:  2588.6s →  2608.8s  pages 4–4  (16 mots, moy 0.70, p80 0.44)
+   🔵 run 40:  3223.7s →  3228.0s  pages 6–6  (4 mots, moy 0.85, p80 0.75)
+chronologie :
+   lecture       391.6s ( 8.8 %)
+   somali         32.4s ( 0.7 %)
+   hors_livre   4045.2s (90.5 %)
+✔ 410 mots du livre seront surlignés (392 directs, 18 interpolés) sur 5951 mots récitable — le reste est laissé sans surlignage
+→ /home/z/my-project/download/video-recitation/travail_darsi/dars1/timing.json
+→ /home/z/my-project/download/video-recitation/sortie/dars1_synchronisation.csv
+→ /home/z/my-project/download/video-recitation/sortie/dars1_segments.csv

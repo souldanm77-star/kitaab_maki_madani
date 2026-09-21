@@ -10,7 +10,9 @@
     "modele": "small",
     "calcul": "int8",
     "langue": null,
-    "multilingual": true
+    "multilingual": true,
+    "beam": 1,
+    "prompt": "إن الحمد لله نحمده ونستعينه ونستغفره ونعوذ بالله من شرور أنفسنا ومن سيئات أعمالنا. علوم القرآن المكي والمدني الناسخ والمنسوخ السورة المكية السورة المدنية نزول القرآن التشريع الإسلامي"
   },
   "alignement": {
     "seuil": 0.45,
@@ -24,13 +26,31 @@
     "hauteur": 1080,
     "fps": 25,
     "dpi": 200,
-    "panneau_cheikh": { "largeur": 768 },
-    "fond": [24, 24, 28],
-    "papier": [246, 242, 233],
-    "separation": [203, 164, 74],
+    "panneau_cheikh": {
+      "largeur": 768
+    },
+    "fond": [
+      24,
+      24,
+      28
+    ],
+    "papier": [
+      246,
+      242,
+      233
+    ],
+    "separation": [
+      203,
+      164,
+      74
+    ],
     "surlignage": {
       "mode": "mot",
-      "couleur": [255, 235, 59],
+      "couleur": [
+        255,
+        235,
+        59
+      ],
       "opacite": 0.45,
       "pad": 5
     }
@@ -39,7 +59,37 @@
     "dars1": {
       "titre": "الدرس الأول",
       "audio": "/home/z/my-project/upload/Audio darsi-1.mpeg",
-      "pages": [1, 23],
+      "pages": [
+        1,
+        23
+      ],
+      "mode": "mot"
+    },
+    "dars2": {
+      "titre": "الدرس الثاني",
+      "audio": "/home/z/my-project/upload/Audio darsi-2.mpeg",
+      "pages": [
+        1,
+        23
+      ],
+      "mode": "mot"
+    },
+    "dars3": {
+      "titre": "الدرس الثالث",
+      "audio": "/home/z/my-project/upload/Audio Darsi-3.mpeg",
+      "pages": [
+        1,
+        23
+      ],
+      "mode": "mot"
+    },
+    "dars4": {
+      "titre": "الدرس الرابع",
+      "audio": "/home/z/my-project/upload/Audio darsi-4.mpeg",
+      "pages": [
+        1,
+        23
+      ],
       "mode": "mot"
     }
   }
