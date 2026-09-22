@@ -47,6 +47,37 @@ QUEUE = 0.6            # maintien du surlignage après le dernier mot (s)
 EXT_MAX = 2.5          # extension max d'un mot jusqu'au suivant (s)
 BANDE = 90             # demi-largeur de bande du DP local
 
+# ------------------------------ PASS 0 (détection par contexte d'ancres) ----
+# Le cheikh peut OUVRIR un dars n'importe où (pied de page, saut de page) :
+# la chaîne LIS monotone de la PASS 1 échoue alors. PASS 0 évalue chaque
+# ancre exacte INDÉPENDAMMENT par son contexte local (petite DP autour du
+# couple (i, j)) — une vraie lecture a des voisins qui matchent aussi.
+SEUIL0 = 0.50           # seuil DP local pour la fenêtre de contexte
+MEAN0 = 0.60            # moyenne minimale du contexte
+SPAN0 = 1.9             # contiguïté livre max du contexte
+MIN_MOTS0 = 5           # appariements dans la fenêtre
+MIN_DUREE0 = 1.5
+MAX_OCC = 60            # mot du livre présent > MAX_OCC fois = trop ambigu
+FENETRE_AV = 2          # mots Whisper avant l'ancre
+FENETRE_AP = 7          # mots Whisper après l'ancre
+P80_0 = 0.40            # part de mots solides exigée (sinon mean ≥ 0.80)
+FORMUL_SHARE = 0.75     # part max de mots-formules dans une fenêtre
+TROU_TEMPS0 = 2.5       # trou temporel max ENTRE mots appariés d'une fenêtre
+                        # (un trou plus long = formule prononcée de mémoire,
+                        #  somali inséré au milieu — pas une lecture continue)
+
+# Formules rituelles : les salutations/du'a du cheikh COINCIDENT avec les
+# formules imprimées du livre (صلى الله عليه وسلم…) — texte identique,
+# décision impossible au texte seul. Une fenêtre courte entièrement dans
+# ce lexique est une formule prononcée, pas une lecture du livre.
+FORMULES = {
+    'صلي', 'صل', 'وسلم', 'عليه', 'الله', 'رضي', 'عنهم', 'عنها', 'عنه',
+    'اجمعين', 'السلام', 'عليكم', 'ورحمه', 'بركاته', 'وبركاته', 'الحمد',
+    'لله', 'رب', 'العالمين', 'امين', 'سبحان', 'تعالى', 'وبارك', 'بارك',
+    'النبي', 'النبيه', 'سيدنا', 'محمد', 'وعلى', 'واصحابه', 'صحابه',
+    'لهم', 'اللهم', 'انك', 'عتيد', 'مجيب', 'الدعاء', 'استغفر', 'استغفرالله',
+}
+
 # ------------------------------ PASS 2 (rattrapage des continuations) ------
 SEUIL2 = 0.36          # seuil DP relâché
 MEAN1 = 0.62           # filtre pass 1 : moyenne des similarités
@@ -56,7 +87,7 @@ ANCRE_SC = 0.80        # score d'un appariement « solide »
 LONGS1 = 0.50          # part de mots longs (≥3 lettres) — pass 1
 LONGS2 = 0.42          # pass 2
 SPAN1 = 1.45           # contiguïté max span/n — pass 1
-SPAN2 = 1.75           # pass 2
+SPAN2 = 1.90           # pass 2 (aligné sur SPAN0)
 MIN_MOTS2 = 3
 MIN_DUREE2 = 1.2
 TROU_WHISPER = 4       # mots Whisper non appariés tolérés dans un run
@@ -316,6 +347,128 @@ def fusionner_runs_proches(runs, w_mots):
     return out
 
 
+def resoudre_conflits(actifs, w_mots):
+    """Un mot Whisper ne peut appartenir qu'à UN run. Les runs se
+    recouvrant (P0 vs P1 vs P2) sont départagés par qualité décroissante
+    (mean, puis durée). Renvoie les runs conservés, triés par temps."""
+    def cle(r):
+        return (round(r['mean'], 3), round(r['dur'], 2))
+    pris = set()
+    out = []
+    for r in sorted(actifs, key=cle, reverse=True):
+        wis = {wi for wi, _b, _s in r['paires']}
+        if not wis:
+            continue
+        recouvre = len(wis & pris) / len(wis)
+        if recouvre < 0.35:
+            out.append(r)
+            pris |= wis
+    out.sort(key=lambda r: r['debut'])
+    return out
+
+
+def filtrer_coherence(actifs):
+    """Écarte les ÎLOTS P0 isolés : position du livre très loin de tous les
+    autres runs voisins dans le temps (± 240 s) et qualité moyenne. Les
+    vraies lectures forment des grappes (le cheikh lit un passage, l'explique,
+    lit le suivant au même endroit) ; les coïncidences somali sont orphelines.
+    Les runs P1/P2 (progression monotone déjà validée) et les runs longs ou
+    très sûrs (n ≥ 8 ou mean ≥ 0.85) sont toujours gardés."""
+    def protégé(r):
+        return r.get('passe') != 0 or r['n'] >= 8 or r['mean'] >= 0.85
+
+    centres_t = {id(r): (r['debut'] + r['fin']) / 2 for r in actifs}
+    centres_b = {id(r): (r['paires'][0][1] + r['paires'][-1][1]) / 2
+                 for r in actifs}
+    gardes = []
+    for r in actifs:
+        if protégé(r):
+            gardes.append(r)
+            continue
+        t0 = centres_t[id(r)]
+        b0 = centres_b[id(r)]
+        # il faut AU MOINS DEUX voisins temporels au même endroit du livre :
+        # une paire de coïncidences mutuelles ne suffit plus
+        proches = [q for q in actifs
+                   if q is not r and abs(centres_t[id(q)] - t0) <= 180
+                   and abs(centres_b[id(q)] - b0) <= 150]
+        if len(proches) >= 2:
+            gardes.append(r)
+        else:
+            r['actif'] = False
+    gardes.sort(key=lambda r: r['debut'])
+    return gardes
+
+
+# ------------------------------------------------ PASS 0 : fenêtres ------
+def detecter_fenetres(w_norms, w_mots, b_norms):
+    """PASS 0 — ancre exacte validée par son contexte local.
+    Renvoie une liste de runs [(wi, bj, sc), …] (indépendants de la
+    progression monotone : sauts de page autorisés)."""
+    occurrences = {}
+    for j, n in enumerate(b_norms):
+        if n and len(n) >= 3:
+            occurrences.setdefault(n, []).append(j)
+
+    candidats = []
+    for i, n in enumerate(w_norms):
+        if not n or len(n) < 3:
+            continue
+        occ = occurrences.get(n)
+        if not occ or len(occ) > MAX_OCC:
+            continue          # mot trop courant ou fragment : pas d'ancre
+        for j in occ:
+            candidats.append((i, j))
+    candidats.sort()
+
+    acceptes = []            # [(wi_min, wi_max, {wi: (bj, sc)})]
+    for (i, j) in candidats:
+        # déjà couvert par une fenêtre acceptée ?
+        if any(a <= i <= b for (a, b, _d) in acceptes):
+            continue
+        i_a = max(0, i - FENETRE_AV)
+        i_b = min(len(w_norms), i + FENETRE_AP + 1)
+        w_r = list(range(i_a, i_b))
+        j_a = max(0, j - FENETRE_AV - 2)
+        j_b = min(len(b_norms), j + FENETRE_AP + 7)
+        b_r = list(range(j_a, j_b))
+        sous_w = [w_norms[k] for k in w_r]
+        sous_b = [b_norms[k] for k in b_r]
+        ops = dp_locale(sous_w, sous_b, seuil=SEUIL0)
+        loc = {}
+        for op in ops:
+            if op[0] == 'M':
+                loc[w_r[op[1]]] = (b_r[op[2]],
+                                   similarite(sous_w[op[1]], sous_b[op[2]]))
+        if len(loc) < MIN_MOTS0:
+            continue
+        ps = sorted((wi, bj, sc) for wi, (bj, sc) in loc.items())
+        q = qualite_run(ps, w_mots, b_norms)
+        # garde « formules » : fenêtre ⊂ lexique rituel → formule prononcée
+        part_formules = sum(1 for _wi, bj, _sc in ps
+                            if b_norms[bj] in FORMULES) / len(ps)
+        # garde « trou temporel » : les mots appariés d'une vraie lecture
+        # se suivent ; un trou > TROU_TEMPS0 s au milieu = deux énoncés
+        # distincts (formule + somali), pas une lecture continue
+        wis_tri = [wi for wi, _b, _sc in ps]
+        trou_max = max((w_mots[b]['debut'] - w_mots[a]['fin']
+                        for a, b in zip(wis_tri, wis_tri[1:])), default=0.0)
+        if (q['mean'] >= MEAN0 and q['span'] / q['n'] <= SPAN0
+                and q['dur'] >= MIN_DUREE0 and q['longs'] >= 0.5
+                and q['n'] >= MIN_MOTS0
+                and (q['p80'] >= P80_0 or q['mean'] >= 0.80)
+                and part_formules < FORMUL_SHARE
+                and trou_max <= TROU_TEMPS0
+                and (q['ancre_forte'] or q['mean'] >= 0.85)):
+            acceptes.append((min(loc), max(loc), {wi: (bj, sc) for wi, (bj, sc) in loc.items()}))
+
+    runs = []
+    for _a, _b, d in acceptes:
+        ps = sorted((wi, bj, sc) for wi, (bj, sc) in d.items())
+        runs.append(ps)
+    return runs
+
+
 # ------------------------------------------------------------- main ------
 def main():
     ap = argparse.ArgumentParser(
@@ -385,7 +538,7 @@ def main():
             continue
         n_r = len(w_r)
         if (i1, j1) == (-1, -1):            # tête : garder la FIN
-            b_r = b_r[-(n_r + 400):] if len(b_r) > n_r + 400 else b_r
+            b_r = b_r[-(n_r + 1500):] if len(b_r) > n_r + 1500 else b_r
         else:                               # intervalle / queue : garder le DÉBUT
             b_r = b_r[:n_r + 400] if len(b_r) > n_r + 400 else b_r
         sous_w = [w_norms[i] for i in w_r]
@@ -413,6 +566,21 @@ def main():
         if r_dict['actif']:
             actifs.append(r_dict)
     print(f"[P1] runs : {len(runs)} au total, {len(actifs)} ACTIVÉS")
+
+    # =========================== PASS 0 =====================================
+    # Détection indépendante par contexte d'ancres (sauts de page, pieds de
+    # page, ouvertures hors progression monotone). Exécutée APRÈS P1 mais
+    #fusionnée AVANT P2 pour que les zones de rattrapage en tiennent compte.
+    runs0 = detecter_fenetres(w_norms, w_mots, b_norms)
+    actifs0 = []
+    for r in runs0:
+        ps = sorted(r, key=lambda x: x[0])
+        q = qualite_run(ps, w_mots, b_norms)
+        actifs0.append({'paires': ps, **q, 'actif': True, 'passe': 0})
+    print(f"[P0] fenêtres validées par contexte : {len(actifs0)}")
+    actifs = resoudre_conflits(actifs0 + actifs, w_mots)
+    n0 = sum(1 for r in actifs if r.get('passe') == 0)
+    print(f"[P0] après arbitrage : {n0} runs P0 gardés, {len(actifs)} runs au total")
 
     # =========================== PASS 2 =====================================
     # Chaque trou Whisper entre deux runs actifs (ou avant le 1er / après
@@ -482,6 +650,12 @@ def main():
         actifs.sort(key=lambda r: r['debut'])
     print(f"[P2] continuations récupérées : {n_new} runs supplémentaires")
 
+    # ---- cohérence globale : écarte les îlots P0 orphelins -----------------
+    avant_coh = len(actifs)
+    actifs = filtrer_coherence(actifs)
+    print(f"[C] cohérence globale : {avant_coh - len(actifs)} îlots isolés écartés, "
+          f"{len(actifs)} runs restants")
+
     # ---- fusion des runs voisins (pass 1 + pass 2) --------------------------
     tous = [list(r['paires']) for r in actifs]
     fusionnes = fusionner_runs_proches(tous, w_mots)
@@ -529,17 +703,23 @@ def main():
                         run_of[j] = k
         # lissage dans l'ordre du livre
         idxs = [bj for _wi, bj, _ in ps]
+        dernier_t = None
         for j in range(idxs[0], idxs[-1] + 1):
-            if run_of[j] == k and times[j] is None:
-                times[j] = (times[j - 1][1], times[j - 1][1] + 0.06,
-                            0.0, 'interpole')
-                run_of[j] = k
+            if run_of[j] == k:
+                if times[j] is None:
+                    if dernier_t is None:
+                        continue     # aucun précédent possédé : sera rétro-rempli
+                    times[j] = (dernier_t[1], dernier_t[1] + 0.06,
+                                0.0, 'interpole')
+                dernier_t = times[j]
         bloc = [times[j] for j in range(idxs[0], idxs[-1] + 1)
-                if run_of[j] == k]
+                if run_of[j] == k and times[j] is not None]
+        if not bloc:
+            continue
         lisser(bloc)
         z = 0
         for j in range(idxs[0], idxs[-1] + 1):
-            if run_of[j] == k:
+            if run_of[j] == k and times[j] is not None:
                 times[j] = bloc[z]
                 z += 1
 
@@ -547,7 +727,10 @@ def main():
     for k, r in enumerate(actifs):
         ps = sorted(r['paires'], key=lambda x: x[1])
         j0, j1 = ps[0][1], ps[-1][1]
-        seq = [j for j in range(j0, j1 + 1) if run_of[j] == k]
+        seq = [j for j in range(j0, j1 + 1) if run_of[j] == k
+               and times[j] is not None]
+        if len(seq) < 2:
+            continue          # positions reprises par un run plus fiable
         for a, b in zip(seq, seq[1:]):
             fa = times[a][1]
             db = times[b][0]

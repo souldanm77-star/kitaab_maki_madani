@@ -1,8 +1,8 @@
 {
   "entree": {
-    "livre": "/home/z/my-project/upload/LIVRE.pdf",
-    "cheikh": "/home/z/my-project/upload/IMAGE.jpeg",
-    "audio_dir": "/home/z/my-project/upload"
+    "livre": "/home/z/my-project/kitaab_maki_madani/upload/LIVRE.pdf",
+    "cheikh": "/home/z/my-project/kitaab_maki_madani/upload/IMAGE.jpeg",
+    "audio_dir": "/home/z/my-project/kitaab_maki_madani/upload"
   },
   "travail": "travail_darsi",
   "sortie": "sortie",
@@ -58,7 +58,7 @@
   "darses": {
     "dars1": {
       "titre": "الدرس الأول",
-      "audio": "/home/z/my-project/upload/Audio darsi-1.mpeg",
+      "audio": "/home/z/my-project/kitaab_maki_madani/upload/Audio darsi-1.mpeg",
       "pages": [
         1,
         23
@@ -67,7 +67,7 @@
     },
     "dars2": {
       "titre": "الدرس الثاني",
-      "audio": "/home/z/my-project/upload/Audio darsi-2.mpeg",
+      "audio": "/home/z/my-project/kitaab_maki_madani/upload/Audio darsi-2.mpeg",
       "pages": [
         1,
         23
@@ -76,7 +76,7 @@
     },
     "dars3": {
       "titre": "الدرس الثالث",
-      "audio": "/home/z/my-project/upload/Audio Darsi-3.mpeg",
+      "audio": "/home/z/my-project/kitaab_maki_madani/upload/Audio Darsi-3.mpeg",
       "pages": [
         1,
         23
@@ -85,7 +85,7 @@
     },
     "dars4": {
       "titre": "الدرس الرابع",
-      "audio": "/home/z/my-project/upload/Audio darsi-4.mpeg",
+      "audio": "/home/z/my-project/kitaab_maki_madani/upload/Audio darsi-4.mpeg",
       "pages": [
         1,
         23

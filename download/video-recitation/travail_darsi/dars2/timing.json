@@ -20,17 +20,35 @@
   "mots_recitables": 5951,
   "mots_whisper": 4558,
   "appariements": 1043,
-  "runs_actifs": 10,
+  "runs_actifs": 41,
   "etats": {
-   "whisper": 118,
-   "interpole": 23,
-   "hors_lecture": 5810,
+   "whisper": 313,
+   "interpole": 82,
+   "hors_lecture": 5556,
    "hors_texte": 570
   }
  },
  "runs": [
   {
    "run": 1,
+   "debut": 25.72,
+   "fin": 30.5,
+   "n_mots": 9,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "وردي الله عنه قد أثر ناس"
+  },
+  {
+   "run": 2,
+   "debut": 29.46,
+   "fin": 52.8,
+   "n_mots": 28,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "المنصوخ من عدد واتخلوا فيه آيًا"
+  },
+  {
+   "run": 3,
    "debut": 223.38,
    "fin": 229.08,
    "n_mots": 4,
@@ -39,7 +57,43 @@
    "texte": "واللم ده لها ويه"
   },
   {
-   "run": 2,
+   "run": 4,
+   "debut": 726.52,
+   "fin": 731.24,
+   "n_mots": 5,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "عند الموت محتضر كيس كيين"
+  },
+  {
+   "run": 5,
+   "debut": 745.14,
+   "fin": 748.58,
+   "n_mots": 6,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "كيسي البقرة كتب عليكم اذا حضر"
+  },
+  {
+   "run": 6,
+   "debut": 747.84,
+   "fin": 752.3,
+   "n_mots": 8,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "اذا حضر احدكم الموتو انترك خيرا"
+  },
+  {
+   "run": 7,
+   "debut": 902.86,
+   "fin": 908.72,
+   "n_mots": 10,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "كان المال للولد وكانت الوصية للوالدين"
+  },
+  {
+   "run": 8,
    "debut": 924.52,
    "fin": 954.72,
    "n_mots": 16,
@@ -48,7 +102,52 @@
    "texte": "للذكر تلحظلو اولادي ولي ابوه كل"
   },
   {
-   "run": 3,
+   "run": 9,
+   "debut": 939.82,
+   "fin": 941.94,
+   "n_mots": 6,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "كل واحد منهم السدس باقي ير"
+  },
+  {
+   "run": 10,
+   "debut": 1037.44,
+   "fin": 1046.66,
+   "n_mots": 15,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "فأي تو يشير إلا ان قوله"
+  },
+  {
+   "run": 11,
+   "debut": 1047.6,
+   "fin": 1059.9,
+   "n_mots": 16,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "هاي بقوله تعالف وولي در المسيح"
+  },
+  {
+   "run": 12,
+   "debut": 1059.04,
+   "fin": 1063.08,
+   "n_mots": 9,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "كتب عليكم إذا حضر إحدى انترك"
+  },
+  {
+   "run": 13,
+   "debut": 1065.38,
+   "fin": 1073.0,
+   "n_mots": 10,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "قيلة بآية المواريث وقيلة بحديث بحديث"
+  },
+  {
+   "run": 14,
    "debut": 1083.54,
    "fin": 1104.54,
    "n_mots": 15,
@@ -57,7 +156,25 @@
    "texte": "النوجس عليه وحرمة الاخل بعد النوم"
   },
   {
-   "run": 4,
+   "run": 15,
+   "debut": 1171.06,
+   "fin": 1175.62,
+   "n_mots": 7,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "اشارية الى ان ايات كتب عليكم"
+  },
+  {
+   "run": 16,
+   "debut": 1180.18,
+   "fin": 1183.78,
+   "n_mots": 8,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "عتي كما كتب علي الذين من"
+  },
+  {
+   "run": 17,
    "debut": 1536.46,
    "fin": 1547.88,
    "n_mots": 9,
@@ -66,7 +183,7 @@
    "texte": "فمن شهيده منكم وشهره فليو وقال"
   },
   {
-   "run": 5,
+   "run": 18,
    "debut": 1615.92,
    "fin": 1617.84,
    "n_mots": 3,
@@ -75,16 +192,142 @@
    "texte": "وعلى الذين يضيقونه"
   },
   {
-   "run": 6,
-   "debut": 2175.4,
-   "fin": 2184.68,
+   "run": 19,
+   "debut": 1738.18,
+   "fin": 1740.7,
+   "n_mots": 5,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "لا ايه ايه ادي الاكي"
+  },
+  {
+   "run": 20,
+   "debut": 1763.36,
+   "fin": 1768.14,
+   "n_mots": 6,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "وقيلة محكمة ولا مقدرة ايدي لكن"
+  },
+  {
+   "run": 21,
+   "debut": 1769.2,
+   "fin": 1772.22,
+   "n_mots": 5,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "ايه ايه وعلى الذين يدقون"
+  },
+  {
+   "run": 22,
+   "debut": 1775.14,
+   "fin": 1780.66,
    "n_mots": 10,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "وحب التقواه فيما صح من أثر"
+  },
+  {
+   "run": 23,
+   "debut": 1795.82,
+   "fin": 1801.36,
+   "n_mots": 5,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "إتقلها حق تقاته الهيك تقوديسه"
+  },
+  {
+   "run": 24,
+   "debut": 1843.78,
+   "fin": 1847.78,
+   "n_mots": 6,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "تقابن فاتقوا الله ما استدعتهم. إلهي"
+  },
+  {
+   "run": 25,
+   "debut": 1952.42,
+   "fin": 1955.22,
+   "n_mots": 8,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "تا وما جعل عليكم في دين"
+  },
+  {
+   "run": 26,
+   "debut": 2019.62,
+   "fin": 2026.96,
+   "n_mots": 18,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "الله يكلف الله نفساً يلاوسعها. سجاولي"
+  },
+  {
+   "run": 27,
+   "debut": 2075.92,
+   "fin": 2077.74,
+   "n_mots": 5,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "لان قوله تعالى الذين هم"
+  },
+  {
+   "run": 28,
+   "debut": 2096.74,
+   "fin": 2101.4,
+   "n_mots": 6,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "في شهر الحرام بلهم عليه هادل"
+  },
+  {
+   "run": 29,
+   "debut": 2143.44,
+   "fin": 2147.92,
+   "n_mots": 10,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "لأن قوره تعالى يسألونك عن شهر"
+  },
+  {
+   "run": 30,
+   "debut": 2160.88,
+   "fin": 2164.18,
+   "n_mots": 6,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "سوخان بقول تعالى وقاتل المشركين كافا"
+  },
+  {
+   "run": 31,
+   "debut": 2162.92,
+   "fin": 2166.68,
+   "n_mots": 5,
+   "page_debut": 15,
+   "page_fin": 15,
+   "texte": "المشركين قال أولى التغالمه قال"
+  },
+  {
+   "run": 32,
+   "debut": 2175.4,
+   "fin": 2178.74,
+   "n_mots": 8,
    "page_debut": 16,
    "page_fin": 16,
    "texte": "لا تحل شعائر الله ولا شهر"
   },
   {
-   "run": 7,
+   "run": 33,
+   "debut": 2197.14,
+   "fin": 2201.98,
+   "n_mots": 7,
+   "page_debut": 16,
+   "page_fin": 16,
+   "texte": "العموم في الأشخاص يسلط العمومة الأزمة"
+  },
+  {
+   "run": 34,
    "debut": 2256.96,
    "fin": 2314.8,
    "n_mots": 25,
@@ -93,7 +336,16 @@
    "texte": "نصخ العلمها مدهبو نقول لأيه بلي"
   },
   {
-   "run": 8,
+   "run": 35,
+   "debut": 2332.24,
+   "fin": 2337.42,
+   "n_mots": 6,
+   "page_debut": 14,
+   "page_fin": 14,
+   "texte": "بعيان منسوخة كباريقان وانترى علي إلا"
+  },
+  {
+   "run": 36,
    "debut": 2337.02,
    "fin": 2379.38,
    "n_mots": 23,
@@ -102,7 +354,16 @@
    "texte": "إلا شار الحرام ادان كدما انتظنوا."
   },
   {
-   "run": 9,
+   "run": 37,
+   "debut": 2360.22,
+   "fin": 2364.62,
+   "n_mots": 7,
+   "page_debut": 17,
+   "page_fin": 17,
+   "texte": "والاعتداد بحول النعوصيات واي دان حديث"
+  },
+  {
+   "run": 38,
    "debut": 2388.48,
    "fin": 2394.8,
    "n_mots": 9,
@@ -111,22 +372,54 @@
    "texte": "أن يليه والذين يتوفون منكم ويدرون"
   },
   {
-   "run": 10,
-   "debut": 2749.14,
+   "run": 39,
+   "debut": 2418.2,
+   "fin": 2422.48,
+   "n_mots": 6,
+   "page_debut": 17,
+   "page_fin": 17,
+   "texte": "بسوان والذين يتوفون منكم ويدرونها الزواجين"
+  },
+  {
+   "run": 40,
+   "debut": 2735.58,
+   "fin": 2740.02,
+   "n_mots": 9,
+   "page_debut": 17,
+   "page_fin": 17,
+   "texte": "ان يداني حديث النفسي والفكره اشرق"
+  },
+  {
+   "run": 41,
+   "debut": 2750.2,
    "fin": 2751.72,
-   "n_mots": 4,
-   "page_debut": 23,
-   "page_fin": 23,
-   "texte": "محمد لي الله وسلم"
+   "n_mots": 5,
+   "page_debut": 1,
+   "page_fin": 1,
+   "texte": "وسه صلى الله عليه وسلم"
   }
  ],
  "segments": [
   {
    "type": "hors_livre",
    "debut": 0.0,
-   "fin": 188.48,
-   "n_mots": 329,
+   "fin": 25.72,
+   "n_mots": 39,
    "texte": "السلام عليكم ورحمة الرحيم والحمد لله أبّ العالمين صلاته وصلاة وعلى شرف"
+  },
+  {
+   "type": "lecture",
+   "debut": 25.72,
+   "fin": 52.8,
+   "n_mots": 38,
+   "texte": "وردي الله عنه قد أثر من ناس في المنصوخ من عدد واتخلوا"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 52.8,
+   "fin": 188.48,
+   "n_mots": 252,
+   "texte": "لي مدمجي ما مسعود بايماء بلا بميّة أبياد تبانوية وكسور ورعيية ولاية"
   },
   {
    "type": "hors_livre",
@@ -159,16 +452,58 @@
   {
    "type": "hors_livre",
    "debut": 681.72,
-   "fin": 843.94,
-   "n_mots": 307,
+   "fin": 726.52,
+   "n_mots": 84,
    "texte": "وحيث يجب أن يكون المسلم حديثا ونزلك آيات باعمار تاقبوف السيران. معنى"
+  },
+  {
+   "type": "lecture",
+   "debut": 726.52,
+   "fin": 731.24,
+   "n_mots": 9,
+   "texte": "عند الموت مركاة ولمانه يو محتضر كيس سكراتك كيين"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 731.24,
+   "fin": 745.14,
+   "n_mots": 25,
+   "texte": "وعره لفرض ياله وعلى واتبه يدمرك ايه السكرات وكبيه ما داروح ينقذ"
+  },
+  {
+   "type": "lecture",
+   "debut": 745.14,
+   "fin": 752.3,
+   "n_mots": 13,
+   "texte": "كيسي سورة البقرة كتب عليكم اذا حضر احدكم الموتو انترك خيرا الوصية"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 752.3,
+   "fin": 843.94,
+   "n_mots": 176,
+   "texte": "يدنك واتبه مركب متك ايه دنك ايه دنك كم ده جير ده"
   },
   {
    "type": "hors_livre",
    "debut": 874.16,
-   "fin": 924.52,
-   "n_mots": 100,
+   "fin": 902.86,
+   "n_mots": 56,
    "texte": "وحكوله وحينون صخينا مع اواء يأكي لحكوليه حديتي يسبر كون بائريه برنا"
+  },
+  {
+   "type": "lecture",
+   "debut": 902.86,
+   "fin": 908.72,
+   "n_mots": 10,
+   "texte": "كان المال للولد وكانت الوصية للوالدين فنصخ اللهم من ذلك"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 908.72,
+   "fin": 924.52,
+   "n_mots": 34,
+   "texte": "ما حب مركه هورأ انتا آياتك لحكسو الدين حلعه ابتعسك ودقائه أو"
   },
   {
    "type": "lecture",
@@ -194,9 +529,51 @@
   {
    "type": "hors_livre",
    "debut": 973.38,
-   "fin": 1083.54,
-   "n_mots": 234,
+   "fin": 1037.44,
+   "n_mots": 137,
    "texte": "يجعلونه حسنة. او كان كنا علمه ايجماعه ذهب كنا علمه الى كل"
+  },
+  {
+   "type": "lecture",
+   "debut": 1037.44,
+   "fin": 1046.66,
+   "n_mots": 19,
+   "texte": "فأي تو يشير إلا ان قوله تعالف اين ما تولوا فصر ما"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1046.66,
+   "fin": 1047.6,
+   "n_mots": 2,
+   "texte": "وين صخة"
+  },
+  {
+   "type": "lecture",
+   "debut": 1047.6,
+   "fin": 1063.08,
+   "n_mots": 33,
+   "texte": "هاي بقوله تعالف وولي وشكشة در المسيح الحرام كما شايدنا يحكم كي"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1063.08,
+   "fin": 1065.38,
+   "n_mots": 4,
+   "texte": "منصوخة نينة أن سخانتي"
+  },
+  {
+   "type": "lecture",
+   "debut": 1065.38,
+   "fin": 1073.0,
+   "n_mots": 17,
+   "texte": "قيلة بآية المواريث وانصد أن لن راتح وقيلة بحديث الله وصية الوارث"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1073.0,
+   "fin": 1083.54,
+   "n_mots": 22,
+   "texte": "حديث في سين نوغة وامدة وأهروح بحق كله وحلو مدر دار مكره"
   },
   {
    "type": "lecture",
@@ -222,9 +599,37 @@
   {
    "type": "hors_livre",
    "debut": 1152.72,
-   "fin": 1194.18,
-   "n_mots": 82,
+   "fin": 1171.06,
+   "n_mots": 37,
    "texte": "اما يوحلعبه. اما ذُمر لا تبوه. كلها دي ايه روضان. اهين انا"
+  },
+  {
+   "type": "lecture",
+   "debut": 1171.06,
+   "fin": 1175.62,
+   "n_mots": 8,
+   "texte": "اشارية الى ان ايات كتب عليكم السيام ايضا"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1175.62,
+   "fin": 1180.18,
+   "n_mots": 6,
+   "texte": "كتب عليكم السيام ويضمر كا وحلس"
+  },
+  {
+   "type": "lecture",
+   "debut": 1180.18,
+   "fin": 1183.78,
+   "n_mots": 8,
+   "texte": "عتي كما كتب علي الذين من قبلكم وحالا"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1183.78,
+   "fin": 1194.18,
+   "n_mots": 23,
+   "texte": "ينكفر دي يا ليس ام كي ذاك ينكي ينكه ريب الصوم كالله"
   },
   {
    "type": "hors_livre",
@@ -306,9 +711,93 @@
   {
    "type": "hors_livre",
    "debut": 1664.32,
-   "fin": 1872.26,
-   "n_mots": 434,
+   "fin": 1738.18,
+   "n_mots": 167,
    "texte": "وعلى اللذين يضل وقونه وغره يو وحلية ايدا المنصوخ معها لكن تتقارك"
+  },
+  {
+   "type": "lecture",
+   "debut": 1738.18,
+   "fin": 1740.7,
+   "n_mots": 7,
+   "texte": "لا ايه افق صوم ايه ادي الاكي"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1740.7,
+   "fin": 1763.36,
+   "n_mots": 48,
+   "texte": "ان الارتشين انه حن يمكن كبكسدو امدى ودعوه نقضيه او ادبوه اوضه"
+  },
+  {
+   "type": "lecture",
+   "debut": 1763.36,
+   "fin": 1768.14,
+   "n_mots": 8,
+   "texte": "وقيلة محكمة ولا مقدرة تنق ومحكمة ايدي لكن"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1768.14,
+   "fin": 1769.2,
+   "n_mots": 3,
+   "texte": "لا بل قدرة"
+  },
+  {
+   "type": "lecture",
+   "debut": 1769.2,
+   "fin": 1772.22,
+   "n_mots": 6,
+   "texte": "ايه ايه وعلى الذين لا يدقون"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1772.22,
+   "fin": 1774.0,
+   "n_mots": 5,
+   "texte": "وانأعرنك عن صار شرح نوى"
+  },
+  {
+   "type": "lecture",
+   "debut": 1775.14,
+   "fin": 1780.66,
+   "n_mots": 10,
+   "texte": "وحب التقواه فيما صح من أثر وفي الحرام القتال اللي"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1780.66,
+   "fin": 1795.82,
+   "n_mots": 29,
+   "texte": "إلا كفروا أيات كباية مو سعونا بحلو حب التقواه وحيالي كريم صقاوح"
+  },
+  {
+   "type": "lecture",
+   "debut": 1795.82,
+   "fin": 1801.36,
+   "n_mots": 9,
+   "texte": "إتقلها حق تقاته ده ده الهيك اعصى ده. تقوديسه"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1801.36,
+   "fin": 1843.78,
+   "n_mots": 82,
+   "texte": "حق ده يصكام الكيلاده هاي وقاه ان يضع فلا يُصى وان يشكرا"
+  },
+  {
+   "type": "lecture",
+   "debut": 1843.78,
+   "fin": 1847.78,
+   "n_mots": 6,
+   "texte": "تقابن فاتقوا الله ما استدعتهم. إلهي"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1847.78,
+   "fin": 1872.26,
+   "n_mots": 54,
+   "texte": "كعب صدقين فكرامكين. وانا كارسوك يلاهي له وإذا عمرتك بأمر الفأك منهم"
   },
   {
    "type": "hors_livre",
@@ -327,9 +816,37 @@
   {
    "type": "hors_livre",
    "debut": 1920.0,
-   "fin": 2055.54,
-   "n_mots": 266,
+   "fin": 1952.42,
+   "n_mots": 63,
    "texte": "إلهي قول كيسان وريفة تقول الله مستدعت مو. باب نصلمها. واب باب"
+  },
+  {
+   "type": "lecture",
+   "debut": 1952.42,
+   "fin": 1955.22,
+   "n_mots": 8,
+   "texte": "تا وما جعل عليكم في دين نحرش أمرى"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 1955.22,
+   "fin": 2019.62,
+   "n_mots": 121,
+   "texte": "مركض تا نتانجرا آيات كنبارك نصق ويكبحية صورة العمرى نامنا آيات كريال"
+  },
+  {
+   "type": "lecture",
+   "debut": 2019.62,
+   "fin": 2026.96,
+   "n_mots": 18,
+   "texte": "الله يكلف الله نفساً يلاوسعها. سجاولي وما تعال عليكم في الدين من"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2026.96,
+   "fin": 2055.54,
+   "n_mots": 56,
+   "texte": "عليه وعليه قرآن كأوك سودتي يأي. أقول وانزلنا إليك ذكرة ليتبينها للناس"
   },
   {
    "type": "somali",
@@ -341,23 +858,93 @@
   {
    "type": "hors_livre",
    "debut": 2056.12,
-   "fin": 2175.4,
-   "n_mots": 233,
+   "fin": 2075.92,
+   "n_mots": 40,
    "texte": "وحن ننكره لين مفرين لين يجمك اللي فيه واني نجد عايا وحن"
   },
   {
    "type": "lecture",
-   "debut": 2175.4,
-   "fin": 2184.68,
-   "n_mots": 21,
-   "texte": "لا تحل شعائر الله ولا شهر الحرام ايه ايضا كليا قتال فيه"
+   "debut": 2075.92,
+   "fin": 2077.74,
+   "n_mots": 6,
+   "texte": "لان قوله تعالى ايها الذين هم"
   },
   {
    "type": "hors_livre",
-   "debut": 2184.68,
+   "debut": 2077.74,
+   "fin": 2096.74,
+   "n_mots": 34,
+   "texte": "نتقل حبة قاته منصوخة بقول فتقلها ما صدعته ما شهري وغيلة محكمة"
+  },
+  {
+   "type": "lecture",
+   "debut": 2096.74,
+   "fin": 2101.4,
+   "n_mots": 10,
+   "texte": "في شهر الحرام بلهم حرمض عليه وانتظروا بشهراتهم. يبشا هادل"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2101.4,
+   "fin": 2143.44,
+   "n_mots": 83,
+   "texte": "قعدا يدو الحتة. مدو القعدا يدو الحتة يمحرم صدحة بلو ديس. ها"
+  },
+  {
+   "type": "lecture",
+   "debut": 2143.44,
+   "fin": 2147.92,
+   "n_mots": 10,
+   "texte": "لأن قوره تعالى يسألونك عن شهر الحرامي قتالهم فيه إلهبأي"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2147.92,
+   "fin": 2160.88,
+   "n_mots": 24,
+   "texte": "لوحك ويدينة النب محمد وبشا حرمضة لبل إلا التغالمه يقولك إلهي ولشهر"
+  },
+  {
+   "type": "lecture",
+   "debut": 2160.88,
+   "fin": 2166.68,
+   "n_mots": 12,
+   "texte": "سوخان بقول تعالى وقاتل المشركين كافا قال لدي سجود أولى التغالمه قال"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2166.68,
+   "fin": 2175.4,
+   "n_mots": 14,
+   "texte": "لدي هلك كي شاهب أولى التغالمه تاسبان الصخضي تاسبوي بني مكان فانا"
+  },
+  {
+   "type": "lecture",
+   "debut": 2175.4,
+   "fin": 2178.74,
+   "n_mots": 8,
+   "texte": "لا تحل شعائر الله ولا شهر الحرام ايه"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2178.74,
+   "fin": 2197.14,
+   "n_mots": 37,
+   "texte": "ايضا كليا قتال فيه قلت قتال فيه كبير ايكو بصبان تاي وحي"
+  },
+  {
+   "type": "lecture",
+   "debut": 2197.14,
+   "fin": 2201.98,
+   "n_mots": 9,
+   "texte": "العموم في الأشخاص يسلط من العمومة في الأزمة وي."
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2202.38,
    "fin": 2223.22,
-   "n_mots": 74,
-   "texte": "ايديني بلا حر مدى لي افرت انا انضلال لقادا عنو بنا ناين"
+   "n_mots": 41,
+   "texte": "كل هذه المشركين تستقودوا لدى للمة. تكي مشرقها. هدو بلي حرمة ده"
   },
   {
    "type": "hors_livre",
@@ -376,16 +963,16 @@
   {
    "type": "hors_livre",
    "debut": 2314.8,
-   "fin": 2337.02,
-   "n_mots": 40,
+   "fin": 2332.24,
+   "n_mots": 32,
    "texte": "حكم كاسا أنساله بالرقما هويان اللهم عين وحويان تابويان اركها خلافرتك متربعين"
   },
   {
    "type": "lecture",
-   "debut": 2337.02,
+   "debut": 2332.24,
    "fin": 2349.2,
-   "n_mots": 27,
-   "texte": "إلا ريو كل هدان حجه و دبني لو كبق يمن ولا شار"
+   "n_mots": 35,
+   "texte": "بعيان منسوخة كباريقان وانترى بعض العلم علي منهل إلا ريو كل هدان"
   },
   {
    "type": "lecture",
@@ -425,9 +1012,23 @@
   {
    "type": "hors_livre",
    "debut": 2394.8,
-   "fin": 2564.0,
-   "n_mots": 342,
+   "fin": 2418.2,
+   "n_mots": 40,
    "texte": "متعن للحول كوى يوجد لما نية إيه دمر كبادتي قاية أحوية وحاية"
+  },
+  {
+   "type": "lecture",
+   "debut": 2418.2,
+   "fin": 2422.48,
+   "n_mots": 6,
+   "texte": "بسوان والذين يتوفون منكم ويدرونها الزواجين"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2422.48,
+   "fin": 2564.0,
+   "n_mots": 296,
+   "texte": "يتربصنا بأفصينا 24 معشرة كوالي منية دمر أي قبين كبتة ليا او"
   },
   {
    "type": "hors_livre",
@@ -439,16 +1040,30 @@
   {
    "type": "hors_livre",
    "debut": 2710.22,
-   "fin": 2749.14,
-   "n_mots": 89,
+   "fin": 2735.58,
+   "n_mots": 55,
    "texte": "ايه بالمركة ويكون ولي اعتداده اذا ترسي بحول ان سندل ويبعد ارسده"
   },
   {
    "type": "lecture",
-   "debut": 2749.14,
-   "fin": 2751.72,
+   "debut": 2735.58,
+   "fin": 2740.02,
    "n_mots": 10,
-   "texte": "محمد و عالا لي وسه فيه صلى الله عليه وسلم"
+   "texte": "ان يداني حديث النفسي والفكره اشرق كلائه رأي اديو نا"
+  },
+  {
+   "type": "hors_livre",
+   "debut": 2740.02,
+   "fin": 2750.2,
+   "n_mots": 28,
+   "texte": "انت ادعو له لا سبحانه وتعاله علىه علىه سبحانك الله مبحمدك اشدو"
+  },
+  {
+   "type": "lecture",
+   "debut": 2750.2,
+   "fin": 2751.72,
+   "n_mots": 6,
+   "texte": "وسه فيه صلى الله عليه وسلم"
   }
  ],
  "mots": [
@@ -1134,11 +1749,11 @@
    "y0": 148.9,
    "x1": 406.4,
    "y1": 166.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2750.2,
+   "fin": 2750.66,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 41
   },
   {
    "page": 1,
@@ -1150,11 +1765,11 @@
    "y0": 148.9,
    "x1": 362.61,
    "y1": 166.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2750.66,
+   "fin": 2750.92,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 41
   },
   {
    "page": 1,
@@ -1166,11 +1781,11 @@
    "y0": 148.9,
    "x1": 331.76,
    "y1": 166.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2750.92,
+   "fin": 2751.06,
+   "confiance": 0.9,
+   "etat": "whisper",
+   "run": 41
   },
   {
    "page": 1,
@@ -1182,11 +1797,11 @@
    "y0": 148.9,
    "x1": 314.78,
    "y1": 166.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2751.06,
+   "fin": 2751.2,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 41
   },
   {
    "page": 1,
@@ -1198,11 +1813,11 @@
    "y0": 148.9,
    "x1": 288.56,
    "y1": 166.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2751.2,
+   "fin": 2752.32,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 41
   },
   {
    "page": 1,
@@ -37010,7 +37625,7 @@
    "fin": 224.56,
    "confiance": 0.909,
    "etat": "whisper",
-   "run": 1
+   "run": 3
   },
   {
    "page": 10,
@@ -37026,7 +37641,7 @@
    "fin": 225.22,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 1
+   "run": 3
   },
   {
    "page": 10,
@@ -37042,7 +37657,7 @@
    "fin": 227.9,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 1
+   "run": 3
   },
   {
    "page": 10,
@@ -37058,7 +37673,7 @@
    "fin": 229.68,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 1
+   "run": 3
   },
   {
    "page": 10,
@@ -49054,11 +49669,11 @@
    "y0": 70.81,
    "x1": 485.39,
    "y1": 97.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 25.72,
+   "fin": 26.22,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49070,11 +49685,11 @@
    "y0": 70.81,
    "x1": 458.15,
    "y1": 97.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 26.22,
+   "fin": 26.5,
+   "confiance": 0.9,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49086,11 +49701,11 @@
    "y0": 70.81,
    "x1": 442.26,
    "y1": 97.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 26.5,
+   "fin": 27.02,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49102,8 +49717,8 @@
    "y0": 97.89,
    "x1": 527.58,
    "y1": 125.48,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 27.02,
+   "fin": 27.1,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -49118,11 +49733,11 @@
    "y0": 97.89,
    "x1": 504.1,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 27.02,
+   "fin": 28.16,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49134,11 +49749,11 @@
    "y0": 97.89,
    "x1": 487.43,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 28.16,
+   "fin": 28.9,
+   "confiance": 0.857,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49150,11 +49765,11 @@
    "y0": 97.89,
    "x1": 461.75,
    "y1": 129.08,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 28.9,
+   "fin": 29.2,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49166,11 +49781,11 @@
    "y0": 97.89,
    "x1": 430.89,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 29.2,
+   "fin": 30.06,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 1
   },
   {
    "page": 14,
@@ -49182,11 +49797,11 @@
    "y0": 97.89,
    "x1": 416.87,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 29.46,
+   "fin": 30.2,
+   "confiance": 0.857,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49198,11 +49813,11 @@
    "y0": 97.89,
    "x1": 376.27,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 30.2,
+   "fin": 30.5,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49214,11 +49829,11 @@
    "y0": 97.89,
    "x1": 358.23,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 30.5,
+   "fin": 31.14,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49230,11 +49845,11 @@
    "y0": 97.89,
    "x1": 289.06,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 31.14,
+   "fin": 32.88,
+   "confiance": 0.857,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49246,11 +49861,11 @@
    "y0": 97.89,
    "x1": 247.9,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 32.88,
+   "fin": 33.34,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49262,11 +49877,11 @@
    "y0": 97.89,
    "x1": 224.17,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 33.34,
+   "fin": 34.04,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49278,11 +49893,11 @@
    "y0": 97.89,
    "x1": 212.63,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 34.04,
+   "fin": 34.46,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49294,11 +49909,11 @@
    "y0": 97.89,
    "x1": 187.31,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
+   "debut": 34.46,
+   "fin": 35.07,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 2
   },
   {
    "page": 14,
@@ -49310,11 +49925,11 @@
    "y0": 97.89,
    "x1": 170.67,
    "y1": 125.48,
-   "debut": null,
-   "fin": null,
+   "debut": 35.07,
+   "fin": 35.68,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 2
   },
   {
    "page": 14,
@@ -49326,8 +49941,8 @@
    "y0": 125.37,
    "x1": 514.38,
    "y1": 152.96,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 35.68,
+   "fin": 35.76,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -49342,11 +49957,11 @@
    "y0": 125.37,
    "x1": 490.91,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 35.68,
+   "fin": 36.74,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49358,11 +49973,11 @@
    "y0": 125.37,
    "x1": 461.25,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 36.74,
+   "fin": 37.42,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49374,11 +49989,11 @@
    "y0": 125.37,
    "x1": 429.06,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
+   "debut": 37.42,
+   "fin": 38.12,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 2
   },
   {
    "page": 14,
@@ -49390,11 +50005,11 @@
    "y0": 125.37,
    "x1": 414.26,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 38.12,
+   "fin": 38.44,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49406,11 +50021,11 @@
    "y0": 125.37,
    "x1": 401.23,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 38.44,
+   "fin": 38.84,
+   "confiance": 0.925,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49422,11 +50037,11 @@
    "y0": 125.37,
    "x1": 376.08,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 38.84,
+   "fin": 40.02,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49438,11 +50053,11 @@
    "y0": 125.37,
    "x1": 278.07,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 40.02,
+   "fin": 40.88,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49454,11 +50069,11 @@
    "y0": 125.37,
    "x1": 240.26,
    "y1": 158.84,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 40.88,
+   "fin": 41.62,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49470,11 +50085,11 @@
    "y0": 125.37,
    "x1": 207.71,
    "y1": 153.92,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 41.62,
+   "fin": 42.64,
+   "confiance": 0.833,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49486,11 +50101,11 @@
    "y0": 125.37,
    "x1": 170.86,
    "y1": 152.96,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 42.64,
+   "fin": 43.56,
+   "confiance": 0.909,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49502,8 +50117,8 @@
    "y0": 152.97,
    "x1": 523.14,
    "y1": 180.56,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 43.56,
+   "fin": 43.64,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -49518,11 +50133,11 @@
    "y0": 152.97,
    "x1": 494.29,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 43.56,
+   "fin": 44.56,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49534,11 +50149,11 @@
    "y0": 152.97,
    "x1": 479.51,
    "y1": 184.4,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 44.56,
+   "fin": 45.5,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49550,11 +50165,11 @@
    "y0": 152.97,
    "x1": 445.82,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 45.5,
+   "fin": 45.98,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49566,11 +50181,11 @@
    "y0": 152.97,
    "x1": 416.03,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 45.98,
+   "fin": 46.44,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49582,11 +50197,11 @@
    "y0": 152.97,
    "x1": 394.99,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 46.44,
+   "fin": 46.82,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49598,11 +50213,11 @@
    "y0": 152.97,
    "x1": 370.9,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
+   "debut": 46.82,
+   "fin": 48.04,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 2
   },
   {
    "page": 14,
@@ -49614,11 +50229,11 @@
    "y0": 152.97,
    "x1": 288.23,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 48.04,
+   "fin": 48.78,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49630,11 +50245,11 @@
    "y0": 152.97,
    "x1": 255.38,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 48.78,
+   "fin": 51.34,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 2
   },
   {
    "page": 14,
@@ -49646,11 +50261,11 @@
    "y0": 152.97,
    "x1": 222.27,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 726.52,
+   "fin": 727.18,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 4
   },
   {
    "page": 14,
@@ -49662,11 +50277,11 @@
    "y0": 152.97,
    "x1": 199.91,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 727.18,
+   "fin": 729.4,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 4
   },
   {
    "page": 14,
@@ -49678,11 +50293,11 @@
    "y0": 152.97,
    "x1": 168.43,
    "y1": 180.56,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 729.4,
+   "fin": 730.56,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 4
   },
   {
    "page": 14,
@@ -49694,11 +50309,11 @@
    "y0": 181.09,
    "x1": 540.69,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
+   "debut": 51.34,
+   "fin": 52.071,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 2
   },
   {
    "page": 14,
@@ -49710,8 +50325,8 @@
    "y0": 181.09,
    "x1": 514.26,
    "y1": 207.98,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 52.071,
+   "fin": 52.151,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -49726,11 +50341,11 @@
    "y0": 180.57,
    "x1": 499.53,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1037.44,
+   "fin": 1038.78,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49742,11 +50357,11 @@
    "y0": 180.57,
    "x1": 484.75,
    "y1": 212.0,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1038.78,
+   "fin": 1038.94,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49758,11 +50373,11 @@
    "y0": 181.09,
    "x1": 445.84,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1038.94,
+   "fin": 1039.66,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49774,11 +50389,11 @@
    "y0": 181.09,
    "x1": 420.66,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1039.66,
+   "fin": 1040.08,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49790,11 +50405,11 @@
    "y0": 181.09,
    "x1": 403.59,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1040.08,
+   "fin": 1040.3,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49806,11 +50421,11 @@
    "y0": 181.09,
    "x1": 388.46,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1040.3,
+   "fin": 1040.74,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49822,11 +50437,11 @@
    "y0": 181.09,
    "x1": 366.98,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1040.74,
+   "fin": 1041.5,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49838,11 +50453,11 @@
    "y0": 180.57,
    "x1": 335.62,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1041.5,
+   "fin": 1042.6,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49854,11 +50469,11 @@
    "y0": 180.57,
    "x1": 296.11,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1042.6,
+   "fin": 1043.18,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49870,11 +50485,11 @@
    "y0": 180.57,
    "x1": 270.66,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
+   "debut": 1043.18,
+   "fin": 1043.231,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 10
   },
   {
    "page": 14,
@@ -49886,11 +50501,11 @@
    "y0": 180.57,
    "x1": 250.91,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
+   "debut": 1043.231,
+   "fin": 1043.283,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 10
   },
   {
    "page": 14,
@@ -49902,8 +50517,8 @@
    "y0": 182.8,
    "x1": 215.24,
    "y1": 202.67,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1043.283,
+   "fin": 1043.363,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -49918,11 +50533,11 @@
    "y0": 181.09,
    "x1": 202.22,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
+   "debut": 1043.283,
+   "fin": 1043.36,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 10
   },
   {
    "page": 14,
@@ -49934,11 +50549,11 @@
    "y0": 181.09,
    "x1": 178.38,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1043.36,
+   "fin": 1044.86,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49950,11 +50565,11 @@
    "y0": 208.69,
    "x1": 567.14,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1044.86,
+   "fin": 1045.3,
+   "confiance": 0.6,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49966,11 +50581,11 @@
    "y0": 208.69,
    "x1": 526.69,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1045.3,
+   "fin": 1046.04,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -49982,11 +50597,11 @@
    "y0": 208.69,
    "x1": 503.38,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1047.6,
+   "fin": 1047.84,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -49998,11 +50613,11 @@
    "y0": 208.69,
    "x1": 481.83,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
+   "debut": 1046.04,
+   "fin": 1046.1,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 10
   },
   {
    "page": 14,
@@ -50014,11 +50629,11 @@
    "y0": 208.69,
    "x1": 463.49,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1046.1,
+   "fin": 1047.32,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 10
   },
   {
    "page": 14,
@@ -50030,11 +50645,11 @@
    "y0": 208.69,
    "x1": 433.83,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1047.84,
+   "fin": 1048.4,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50046,11 +50661,11 @@
    "y0": 208.69,
    "x1": 407.71,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1048.4,
+   "fin": 1049.06,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50062,11 +50677,11 @@
    "y0": 208.17,
    "x1": 367.71,
    "y1": 235.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1049.06,
+   "fin": 1049.4,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50078,11 +50693,11 @@
    "y0": 208.17,
    "x1": 344.1,
    "y1": 235.76,
-   "debut": null,
-   "fin": null,
+   "debut": 1049.4,
+   "fin": 1050.04,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 11
   },
   {
    "page": 14,
@@ -50094,11 +50709,11 @@
    "y0": 208.17,
    "x1": 298.48,
    "y1": 235.76,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1050.04,
+   "fin": 1050.14,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50110,11 +50725,11 @@
    "y0": 208.17,
    "x1": 279.85,
    "y1": 235.76,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1050.14,
+   "fin": 1050.66,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50126,11 +50741,11 @@
    "y0": 208.17,
    "x1": 239.64,
    "y1": 235.76,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1050.66,
+   "fin": 1051.14,
+   "confiance": 0.933,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50142,8 +50757,8 @@
    "y0": 210.4,
    "x1": 214.04,
    "y1": 230.27,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1051.14,
+   "fin": 1051.22,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50158,11 +50773,11 @@
    "y0": 208.69,
    "x1": 201.02,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
+   "debut": 1051.14,
+   "fin": 1053.097,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 11
   },
   {
    "page": 14,
@@ -50174,8 +50789,8 @@
    "y0": 208.69,
    "x1": 177.18,
    "y1": 235.58,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1053.097,
+   "fin": 1053.177,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50190,11 +50805,11 @@
    "y0": 208.69,
    "x1": 146.32,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
+   "debut": 1053.097,
+   "fin": 1055.38,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 11
   },
   {
    "page": 14,
@@ -50206,8 +50821,8 @@
    "y0": 208.65,
    "x1": 116.38,
    "y1": 225.86,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1055.38,
+   "fin": 1055.46,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50222,11 +50837,11 @@
    "y0": 236.32,
    "x1": 545.08,
    "y1": 263.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1055.38,
+   "fin": 1056.36,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50238,8 +50853,8 @@
    "y0": 238.17,
    "x1": 513.69,
    "y1": 258.1,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1056.36,
+   "fin": 1056.44,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50254,11 +50869,11 @@
    "y0": 235.8,
    "x1": 503.18,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1056.36,
+   "fin": 1056.58,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50270,11 +50885,11 @@
    "y0": 235.8,
    "x1": 482.09,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1056.58,
+   "fin": 1056.96,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50286,11 +50901,11 @@
    "y0": 235.8,
    "x1": 449.36,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1056.96,
+   "fin": 1058.12,
+   "confiance": 0.833,
+   "etat": "whisper",
+   "run": 11
   },
   {
    "page": 14,
@@ -50302,11 +50917,11 @@
    "y0": 236.32,
    "x1": 411.21,
    "y1": 263.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1171.06,
+   "fin": 1172.38,
+   "confiance": 0.917,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50318,11 +50933,11 @@
    "y0": 236.32,
    "x1": 385.36,
    "y1": 263.21,
-   "debut": null,
-   "fin": null,
+   "debut": 746.599,
+   "fin": 746.646,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 5
   },
   {
    "page": 14,
@@ -50334,11 +50949,11 @@
    "y0": 236.32,
    "x1": 372.69,
    "y1": 263.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1172.38,
+   "fin": 1172.76,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50350,11 +50965,11 @@
    "y0": 236.32,
    "x1": 355.65,
    "y1": 265.85,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1172.76,
+   "fin": 1173.0,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50366,11 +50981,11 @@
    "y0": 236.32,
    "x1": 340.49,
    "y1": 263.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1173.0,
+   "fin": 1173.5,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50382,8 +50997,8 @@
    "y0": 238.03,
    "x1": 323.72,
    "y1": 257.9,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1173.5,
+   "fin": 1173.58,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50398,11 +51013,11 @@
    "y0": 235.8,
    "x1": 310.67,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1173.5,
+   "fin": 1173.96,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50414,11 +51029,11 @@
    "y0": 235.8,
    "x1": 281.64,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1173.96,
+   "fin": 1174.94,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50430,11 +51045,11 @@
    "y0": 235.8,
    "x1": 246.7,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1174.94,
+   "fin": 1176.22,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 15
   },
   {
    "page": 14,
@@ -50446,11 +51061,11 @@
    "y0": 235.8,
    "x1": 229.38,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1060.1,
+   "fin": 1060.48,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 12
   },
   {
    "page": 14,
@@ -50462,11 +51077,11 @@
    "y0": 235.8,
    "x1": 198.62,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1060.48,
+   "fin": 1061.24,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 12
   },
   {
    "page": 14,
@@ -50478,11 +51093,11 @@
    "y0": 235.8,
    "x1": 162.77,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 749.14,
+   "fin": 750.14,
+   "confiance": 0.933,
+   "etat": "whisper",
+   "run": 6
   },
   {
    "page": 14,
@@ -50494,11 +51109,11 @@
    "y0": 235.8,
    "x1": 131.32,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1061.24,
+   "fin": 1062.0,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 12
   },
   {
    "page": 14,
@@ -50510,11 +51125,11 @@
    "y0": 235.8,
    "x1": 115.61,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
+   "debut": 750.14,
+   "fin": 750.72,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 6
   },
   {
    "page": 14,
@@ -50526,11 +51141,11 @@
    "y0": 235.8,
    "x1": 94.31,
    "y1": 263.39,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1062.0,
+   "fin": 1062.44,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 12
   },
   {
    "page": 14,
@@ -50542,11 +51157,11 @@
    "y0": 263.4,
    "x1": 567.19,
    "y1": 295.79,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 750.72,
+   "fin": 751.48,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 6
   },
   {
    "page": 14,
@@ -50558,11 +51173,11 @@
    "y0": 263.92,
    "x1": 521.98,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
+   "debut": 751.48,
+   "fin": 751.537,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 6
   },
   {
    "page": 14,
@@ -50574,8 +51189,8 @@
    "y0": 263.92,
    "x1": 498.26,
    "y1": 290.81,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 751.537,
+   "fin": 751.617,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50590,11 +51205,11 @@
    "y0": 263.92,
    "x1": 467.19,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
+   "debut": 751.537,
+   "fin": 752.203,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 6
   },
   {
    "page": 14,
@@ -50606,11 +51221,11 @@
    "y0": 263.92,
    "x1": 440.73,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1062.44,
+   "fin": 1063.14,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 12
   },
   {
    "page": 14,
@@ -50622,11 +51237,11 @@
    "y0": 263.92,
    "x1": 395.28,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1065.38,
+   "fin": 1065.76,
+   "confiance": 0.925,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50638,11 +51253,11 @@
    "y0": 263.92,
    "x1": 370.55,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1065.76,
+   "fin": 1066.12,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50654,11 +51269,11 @@
    "y0": 263.92,
    "x1": 350.52,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1066.12,
+   "fin": 1068.54,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50670,11 +51285,11 @@
    "y0": 263.92,
    "x1": 306.94,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1068.54,
+   "fin": 1069.7,
+   "confiance": 0.93,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50686,11 +51301,11 @@
    "y0": 263.92,
    "x1": 277.24,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1069.7,
+   "fin": 1070.16,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50702,8 +51317,8 @@
    "y0": 263.92,
    "x1": 241.53,
    "y1": 290.81,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1070.16,
+   "fin": 1070.24,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -50718,11 +51333,11 @@
    "y0": 263.4,
    "x1": 232.06,
    "y1": 290.99,
-   "debut": null,
-   "fin": null,
+   "debut": 1070.16,
+   "fin": 1070.34,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 13
   },
   {
    "page": 14,
@@ -50734,11 +51349,11 @@
    "y0": 263.4,
    "x1": 218.96,
    "y1": 290.99,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1070.34,
+   "fin": 1070.84,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50750,11 +51365,11 @@
    "y0": 263.4,
    "x1": 189.24,
    "y1": 290.99,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1070.84,
+   "fin": 1072.4,
+   "confiance": 0.933,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50766,11 +51381,11 @@
    "y0": 263.92,
    "x1": 145.49,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1072.4,
+   "fin": 1072.72,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -50782,11 +51397,11 @@
    "y0": 263.92,
    "x1": 120.82,
    "y1": 290.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1072.72,
+   "fin": 1072.78,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 13
   },
   {
    "page": 14,
@@ -50798,11 +51413,11 @@
    "y0": 290.92,
    "x1": 567.18,
    "y1": 317.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1072.78,
+   "fin": 1073.66,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 13
   },
   {
    "page": 14,
@@ -52798,11 +53413,11 @@
    "y0": 616.62,
    "x1": 205.95,
    "y1": 637.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 902.86,
+   "fin": 903.54,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52814,11 +53429,11 @@
    "y0": 616.62,
    "x1": 187.24,
    "y1": 637.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 903.54,
+   "fin": 904.02,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52830,11 +53445,11 @@
    "y0": 616.62,
    "x1": 169.04,
    "y1": 637.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 904.02,
+   "fin": 904.72,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52846,11 +53461,11 @@
    "y0": 616.62,
    "x1": 148.71,
    "y1": 637.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 904.72,
+   "fin": 905.38,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52862,11 +53477,11 @@
    "y0": 616.62,
    "x1": 122.44,
    "y1": 642.04,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 905.38,
+   "fin": 905.9,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52878,11 +53493,11 @@
    "y0": 616.62,
    "x1": 96.06,
    "y1": 637.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 905.9,
+   "fin": 907.02,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52894,11 +53509,11 @@
    "y0": 637.5,
    "x1": 567.22,
    "y1": 658.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 907.02,
+   "fin": 907.94,
+   "confiance": 0.75,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52910,11 +53525,11 @@
    "y0": 637.5,
    "x1": 543.86,
    "y1": 658.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 907.94,
+   "fin": 908.32,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52926,11 +53541,11 @@
    "y0": 637.5,
    "x1": 531.3,
    "y1": 658.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 908.32,
+   "fin": 908.48,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -52942,11 +53557,11 @@
    "y0": 637.5,
    "x1": 517.63,
    "y1": 658.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 908.48,
+   "fin": 909.32,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 7
   },
   {
    "page": 14,
@@ -53010,7 +53625,7 @@
    "fin": 924.94,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53026,7 +53641,7 @@
    "fin": 925.2,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53042,7 +53657,7 @@
    "fin": 928.36,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53058,7 +53673,7 @@
    "fin": 934.96,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53074,7 +53689,7 @@
    "fin": 938.42,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53087,10 +53702,10 @@
    "x1": 326.75,
    "y1": 658.48,
    "debut": 938.42,
-   "fin": 939.82,
+   "fin": 941.08,
    "confiance": 0.545,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53106,7 +53721,7 @@
    "fin": 939.92,
    "confiance": 0.8,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53122,7 +53737,7 @@
    "fin": 940.24,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53138,7 +53753,7 @@
    "fin": 940.62,
    "confiance": 0.93,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53154,7 +53769,7 @@
    "fin": 941.08,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53186,7 +53801,7 @@
    "fin": 941.68,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53202,7 +53817,7 @@
    "fin": 941.94,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53218,7 +53833,7 @@
    "fin": 942.614,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53231,10 +53846,10 @@
    "x1": 475.73,
    "y1": 682.12,
    "debut": 942.614,
-   "fin": 943.4,
+   "fin": 945.9,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53246,11 +53861,11 @@
    "y0": 658.38,
    "x1": 444.98,
    "y1": 679.36,
-   "debut": 943.4,
-   "fin": 946.28,
+   "debut": 941.08,
+   "fin": 941.68,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53262,11 +53877,11 @@
    "y0": 658.38,
    "x1": 421.48,
    "y1": 679.36,
-   "debut": 947.2,
-   "fin": 947.8,
+   "debut": 941.68,
+   "fin": 942.54,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 9
   },
   {
    "page": 14,
@@ -53282,7 +53897,7 @@
    "fin": 950.4,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53298,7 +53913,7 @@
    "fin": 953.0,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53314,7 +53929,7 @@
    "fin": 954.34,
    "confiance": 0.462,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53330,7 +53945,7 @@
    "fin": 955.32,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 2
+   "run": 8
   },
   {
    "page": 14,
@@ -53518,11 +54133,11 @@
    "y0": 679.38,
    "x1": 500.62,
    "y1": 701.2,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2332.24,
+   "fin": 2332.88,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53534,11 +54149,11 @@
    "y0": 679.38,
    "x1": 486.46,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2332.88,
+   "fin": 2333.46,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53550,11 +54165,11 @@
    "y0": 679.38,
    "x1": 454.96,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2333.46,
+   "fin": 2334.5,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53566,11 +54181,11 @@
    "y0": 679.38,
    "x1": 439.36,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
+   "debut": 2334.5,
+   "fin": 2334.56,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 35
   },
   {
    "page": 14,
@@ -53582,11 +54197,11 @@
    "y0": 679.38,
    "x1": 405.39,
    "y1": 702.4,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2334.56,
+   "fin": 2335.66,
+   "confiance": 0.9,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53598,11 +54213,11 @@
    "y0": 679.38,
    "x1": 390.16,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
+   "debut": 2335.66,
+   "fin": 2336.094,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 35
   },
   {
    "page": 14,
@@ -53614,11 +54229,11 @@
    "y0": 679.38,
    "x1": 359.99,
    "y1": 701.08,
-   "debut": null,
-   "fin": null,
+   "debut": 2336.094,
+   "fin": 2336.28,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 35
   },
   {
    "page": 14,
@@ -53630,11 +54245,11 @@
    "y0": 679.38,
    "x1": 346.0,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2336.28,
+   "fin": 2336.58,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53646,11 +54261,11 @@
    "y0": 679.38,
    "x1": 327.83,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
+   "debut": 2336.58,
+   "fin": 2337.08,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 35
   },
   {
    "page": 14,
@@ -53662,11 +54277,11 @@
    "y0": 679.38,
    "x1": 304.23,
    "y1": 700.36,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2337.08,
+   "fin": 2338.08,
+   "confiance": 0.887,
+   "etat": "whisper",
+   "run": 35
   },
   {
    "page": 14,
@@ -53730,7 +54345,7 @@
    "fin": 1086.52,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 14,
@@ -53746,7 +54361,7 @@
    "fin": 1088.62,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 14,
@@ -53794,7 +54409,7 @@
    "fin": 1090.06,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53810,7 +54425,7 @@
    "fin": 1090.68,
    "confiance": 0.8,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53826,7 +54441,7 @@
    "fin": 1091.0,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53842,7 +54457,7 @@
    "fin": 1091.58,
    "confiance": 0.93,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53858,7 +54473,7 @@
    "fin": 1091.92,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53874,7 +54489,7 @@
    "fin": 1093.0,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53890,7 +54505,7 @@
    "fin": 1094.64,
    "confiance": 0.75,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53906,7 +54521,7 @@
    "fin": 1095.18,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53922,7 +54537,7 @@
    "fin": 1095.94,
    "confiance": 0.917,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53938,7 +54553,7 @@
    "fin": 1099.6,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53954,7 +54569,7 @@
    "fin": 1102.9,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -53986,7 +54601,7 @@
    "fin": 1103.94,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -54002,7 +54617,7 @@
    "fin": 1105.14,
    "confiance": 0.8,
    "etat": "whisper",
-   "run": 3
+   "run": 14
   },
   {
    "page": 15,
@@ -54734,11 +55349,11 @@
    "y0": 181.09,
    "x1": 397.17,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1769.2,
+   "fin": 1769.44,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 21
   },
   {
    "page": 15,
@@ -54750,11 +55365,11 @@
    "y0": 181.09,
    "x1": 380.13,
    "y1": 210.62,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1738.18,
+   "fin": 1739.98,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 19
   },
   {
    "page": 15,
@@ -54766,11 +55381,11 @@
    "y0": 181.09,
    "x1": 365.0,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1769.44,
+   "fin": 1769.98,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 21
   },
   {
    "page": 15,
@@ -54782,11 +55397,11 @@
    "y0": 180.57,
    "x1": 348.1,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1769.98,
+   "fin": 1770.98,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 21
   },
   {
    "page": 15,
@@ -54798,11 +55413,11 @@
    "y0": 180.57,
    "x1": 309.47,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1770.98,
+   "fin": 1771.62,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 21
   },
   {
    "page": 15,
@@ -54814,11 +55429,11 @@
    "y0": 180.57,
    "x1": 279.39,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1771.62,
+   "fin": 1772.82,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 21
   },
   {
    "page": 15,
@@ -54830,11 +55445,11 @@
    "y0": 180.57,
    "x1": 240.42,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1739.98,
+   "fin": 1740.24,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 19
   },
   {
    "page": 15,
@@ -54846,11 +55461,11 @@
    "y0": 180.57,
    "x1": 215.25,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
+   "debut": 1740.24,
+   "fin": 1740.3,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 19
   },
   {
    "page": 15,
@@ -54862,11 +55477,11 @@
    "y0": 180.57,
    "x1": 188.58,
    "y1": 208.16,
-   "debut": null,
-   "fin": null,
+   "debut": 1740.3,
+   "fin": 1740.36,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 19
   },
   {
    "page": 15,
@@ -54878,8 +55493,8 @@
    "y0": 182.8,
    "x1": 154.01,
    "y1": 202.67,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1740.36,
+   "fin": 1740.44,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -54894,11 +55509,11 @@
    "y0": 181.09,
    "x1": 141.02,
    "y1": 207.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1740.36,
+   "fin": 1741.48,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 19
   },
   {
    "page": 15,
@@ -54910,8 +55525,8 @@
    "y0": 181.09,
    "x1": 117.19,
    "y1": 207.98,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1741.48,
+   "fin": 1741.56,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -54978,7 +55593,7 @@
    "fin": 1536.76,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -54994,7 +55609,7 @@
    "fin": 1537.2,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55010,7 +55625,7 @@
    "fin": 1537.54,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55026,7 +55641,7 @@
    "fin": 1538.16,
    "confiance": 0.6,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55042,7 +55657,7 @@
    "fin": 1538.48,
    "confiance": 0.6,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55071,10 +55686,10 @@
    "x1": 303.75,
    "y1": 235.58,
    "debut": 1538.48,
-   "fin": 1539.0,
+   "fin": 1541.5,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55086,11 +55701,11 @@
    "y0": 208.69,
    "x1": 272.16,
    "y1": 235.58,
-   "debut": 1539.0,
-   "fin": 1539.34,
-   "confiance": 0.75,
+   "debut": 1763.36,
+   "fin": 1763.9,
+   "confiance": 0.93,
    "etat": "whisper",
-   "run": 4
+   "run": 20
   },
   {
    "page": 15,
@@ -55102,11 +55717,11 @@
    "y0": 208.69,
    "x1": 242.46,
    "y1": 235.58,
-   "debut": 1539.34,
-   "fin": 1543.02,
-   "confiance": 0.0,
-   "etat": "interpole",
-   "run": 4
+   "debut": 1763.9,
+   "fin": 1764.42,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 20
   },
   {
    "page": 15,
@@ -55119,10 +55734,10 @@
    "x1": 209.38,
    "y1": 235.58,
    "debut": 1543.02,
-   "fin": 1545.1,
+   "fin": 1544.26,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 4
+   "run": 17
   },
   {
    "page": 15,
@@ -55134,11 +55749,11 @@
    "y0": 208.69,
    "x1": 198.58,
    "y1": 235.58,
-   "debut": 1545.1,
-   "fin": 1547.1,
+   "debut": 1764.42,
+   "fin": 1764.66,
    "confiance": 0.8,
    "etat": "whisper",
-   "run": 4
+   "run": 20
   },
   {
    "page": 15,
@@ -55150,11 +55765,11 @@
    "y0": 208.69,
    "x1": 175.87,
    "y1": 239.06,
-   "debut": 1547.1,
-   "fin": 1548.48,
-   "confiance": 0.571,
+   "debut": 1764.66,
+   "fin": 1767.1,
+   "confiance": 1.0,
    "etat": "whisper",
-   "run": 4
+   "run": 20
   },
   {
    "page": 15,
@@ -55166,11 +55781,11 @@
    "y0": 208.69,
    "x1": 145.55,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1767.1,
+   "fin": 1767.4,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 20
   },
   {
    "page": 15,
@@ -55182,11 +55797,11 @@
    "y0": 208.69,
    "x1": 117.81,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
+   "debut": 1767.4,
+   "fin": 1767.46,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 20
   },
   {
    "page": 15,
@@ -55198,11 +55813,11 @@
    "y0": 208.69,
    "x1": 89.55,
    "y1": 235.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1767.46,
+   "fin": 1768.8,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 20
   },
   {
    "page": 15,
@@ -56190,11 +56805,11 @@
    "y0": 449.19,
    "x1": 332.7,
    "y1": 474.61,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2162.92,
+   "fin": 2164.18,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 31
   },
   {
    "page": 15,
@@ -56206,11 +56821,11 @@
    "y0": 470.07,
    "x1": 549.99,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2164.18,
+   "fin": 2164.6,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 31
   },
   {
    "page": 15,
@@ -56222,11 +56837,11 @@
    "y0": 470.07,
    "x1": 534.43,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
+   "debut": 2164.6,
+   "fin": 2164.824,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 31
   },
   {
    "page": 15,
@@ -56238,11 +56853,11 @@
    "y0": 470.07,
    "x1": 508.08,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
+   "debut": 2164.824,
+   "fin": 2164.92,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 31
   },
   {
    "page": 15,
@@ -56254,11 +56869,11 @@
    "y0": 470.07,
    "x1": 497.12,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
+   "debut": 2164.92,
+   "fin": 2165.112,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 31
   },
   {
    "page": 15,
@@ -56270,11 +56885,11 @@
    "y0": 470.07,
    "x1": 432.66,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
+   "debut": 2165.112,
+   "fin": 2165.24,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 31
   },
   {
    "page": 15,
@@ -56286,11 +56901,11 @@
    "y0": 470.07,
    "x1": 415.49,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2165.24,
+   "fin": 2165.5,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 31
   },
   {
    "page": 15,
@@ -56302,11 +56917,11 @@
    "y0": 470.07,
    "x1": 398.95,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2165.5,
+   "fin": 2166.24,
+   "confiance": 0.533,
+   "etat": "whisper",
+   "run": 31
   },
   {
    "page": 15,
@@ -56318,11 +56933,11 @@
    "y0": 470.07,
    "x1": 364.26,
    "y1": 491.05,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2166.24,
+   "fin": 2167.28,
+   "confiance": 0.925,
+   "etat": "whisper",
+   "run": 31
   },
   {
    "page": 15,
@@ -56830,11 +57445,11 @@
    "y0": 511.95,
    "x1": 346.81,
    "y1": 534.97,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2075.92,
+   "fin": 2076.16,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 27
   },
   {
    "page": 15,
@@ -56846,11 +57461,11 @@
    "y0": 511.95,
    "x1": 335.21,
    "y1": 532.93,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2076.16,
+   "fin": 2076.54,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 27
   },
   {
    "page": 15,
@@ -56862,11 +57477,11 @@
    "y0": 511.95,
    "x1": 318.73,
    "y1": 532.93,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2076.54,
+   "fin": 2077.28,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 27
   },
   {
    "page": 15,
@@ -56878,8 +57493,8 @@
    "y0": 511.95,
    "x1": 294.38,
    "y1": 532.93,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2077.28,
+   "fin": 2077.36,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -56894,11 +57509,11 @@
    "y0": 508.35,
    "x1": 275.46,
    "y1": 538.21,
-   "debut": null,
-   "fin": null,
+   "debut": 1180.56,
+   "fin": 1180.62,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -56910,11 +57525,11 @@
    "y0": 506.07,
    "x1": 253.39,
    "y1": 536.65,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1180.62,
+   "fin": 1181.0,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 16
   },
   {
    "page": 15,
@@ -56926,11 +57541,11 @@
    "y0": 508.35,
    "x1": 228.16,
    "y1": 538.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1181.0,
+   "fin": 1181.42,
+   "confiance": 0.875,
+   "etat": "whisper",
+   "run": 16
   },
   {
    "page": 15,
@@ -56942,11 +57557,11 @@
    "y0": 511.95,
    "x1": 164.8,
    "y1": 536.65,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1181.42,
+   "fin": 1182.34,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 16
   },
   {
    "page": 15,
@@ -56958,11 +57573,11 @@
    "y0": 507.99,
    "x1": 146.77,
    "y1": 538.09,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2077.28,
+   "fin": 2077.6,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 27
   },
   {
    "page": 15,
@@ -56974,11 +57589,11 @@
    "y0": 508.35,
    "x1": 124.18,
    "y1": 532.93,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2077.6,
+   "fin": 2078.34,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 27
   },
   {
    "page": 15,
@@ -56990,11 +57605,11 @@
    "y0": 506.07,
    "x1": 110.54,
    "y1": 535.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1182.34,
+   "fin": 1182.9,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 16
   },
   {
    "page": 15,
@@ -57006,8 +57621,8 @@
    "y0": 511.95,
    "x1": 86.59,
    "y1": 532.93,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1182.9,
+   "fin": 1182.98,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -57022,11 +57637,11 @@
    "y0": 532.83,
    "x1": 567.15,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1182.9,
+   "fin": 1182.947,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57038,11 +57653,11 @@
    "y0": 532.83,
    "x1": 557.14,
    "y1": 554.53,
-   "debut": null,
-   "fin": null,
+   "debut": 1182.947,
+   "fin": 1183.01,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57054,11 +57669,11 @@
    "y0": 532.83,
    "x1": 539.56,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1183.01,
+   "fin": 1183.072,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57070,11 +57685,11 @@
    "y0": 532.83,
    "x1": 521.32,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1183.072,
+   "fin": 1183.135,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57086,11 +57701,11 @@
    "y0": 532.83,
    "x1": 499.11,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1183.135,
+   "fin": 1183.197,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57102,11 +57717,11 @@
    "y0": 532.83,
    "x1": 485.97,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1183.197,
+   "fin": 1183.26,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 16
   },
   {
    "page": 15,
@@ -57118,11 +57733,11 @@
    "y0": 532.83,
    "x1": 462.63,
    "y1": 553.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1183.26,
+   "fin": 1184.8,
+   "confiance": 0.75,
+   "etat": "whisper",
+   "run": 16
   },
   {
    "page": 15,
@@ -58098,7 +58713,7 @@
    "fin": 1616.16,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 5
+   "run": 18
   },
   {
    "page": 15,
@@ -58114,7 +58729,7 @@
    "fin": 1616.78,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 5
+   "run": 18
   },
   {
    "page": 15,
@@ -58130,7 +58745,7 @@
    "fin": 1618.44,
    "confiance": 0.857,
    "etat": "whisper",
-   "run": 5
+   "run": 18
   },
   {
    "page": 15,
@@ -59310,11 +59925,11 @@
    "y0": 70.89,
    "x1": 499.44,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1775.14,
+   "fin": 1775.68,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59326,11 +59941,11 @@
    "y0": 70.89,
    "x1": 473.07,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1775.68,
+   "fin": 1776.34,
+   "confiance": 0.921,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59342,11 +59957,11 @@
    "y0": 70.89,
    "x1": 446.3,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1776.34,
+   "fin": 1776.92,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59358,11 +59973,11 @@
    "y0": 70.89,
    "x1": 422.63,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1776.92,
+   "fin": 1777.26,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59374,11 +59989,11 @@
    "y0": 70.89,
    "x1": 397.68,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1777.26,
+   "fin": 1777.52,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59390,11 +60005,11 @@
    "y0": 70.89,
    "x1": 379.57,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1777.52,
+   "fin": 1778.74,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59406,11 +60021,11 @@
    "y0": 70.89,
    "x1": 291.91,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1778.74,
+   "fin": 1779.22,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59422,11 +60037,11 @@
    "y0": 70.89,
    "x1": 271.99,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1779.22,
+   "fin": 1779.72,
+   "confiance": 0.933,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59438,11 +60053,11 @@
    "y0": 70.89,
    "x1": 241.98,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1779.72,
+   "fin": 1780.28,
+   "confiance": 0.917,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59454,11 +60069,11 @@
    "y0": 70.89,
    "x1": 216.58,
    "y1": 98.48,
-   "debut": null,
-   "fin": null,
+   "debut": 1780.28,
+   "fin": 1780.392,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 22
   },
   {
    "page": 16,
@@ -59470,11 +60085,11 @@
    "y0": 99.01,
    "x1": 567.18,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
+   "debut": 1780.392,
+   "fin": 1780.439,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 22
   },
   {
    "page": 16,
@@ -59486,8 +60101,8 @@
    "y0": 99.01,
    "x1": 540.62,
    "y1": 125.9,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1780.439,
+   "fin": 1780.519,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -59502,11 +60117,11 @@
    "y0": 98.49,
    "x1": 531.19,
    "y1": 126.08,
-   "debut": null,
-   "fin": null,
+   "debut": 1780.439,
+   "fin": 1780.477,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 22
   },
   {
    "page": 16,
@@ -59518,11 +60133,11 @@
    "y0": 98.49,
    "x1": 504.79,
    "y1": 126.08,
-   "debut": null,
-   "fin": null,
+   "debut": 1780.477,
+   "fin": 1780.533,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 22
   },
   {
    "page": 16,
@@ -59534,11 +60149,11 @@
    "y0": 99.01,
    "x1": 472.84,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
+   "debut": 1780.533,
+   "fin": 1780.58,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 22
   },
   {
    "page": 16,
@@ -59550,11 +60165,11 @@
    "y0": 99.01,
    "x1": 447.66,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1780.58,
+   "fin": 1781.56,
+   "confiance": 0.857,
+   "etat": "whisper",
+   "run": 22
   },
   {
    "page": 16,
@@ -59678,11 +60293,11 @@
    "y0": 98.49,
    "x1": 263.7,
    "y1": 126.08,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1795.82,
+   "fin": 1796.9,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 23
   },
   {
    "page": 16,
@@ -59694,11 +60309,11 @@
    "y0": 98.49,
    "x1": 221.67,
    "y1": 126.08,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1796.9,
+   "fin": 1797.22,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 23
   },
   {
    "page": 16,
@@ -59710,11 +60325,11 @@
    "y0": 98.49,
    "x1": 200.39,
    "y1": 126.08,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1797.22,
+   "fin": 1798.32,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 23
   },
   {
    "page": 16,
@@ -59726,11 +60341,11 @@
    "y0": 99.01,
    "x1": 166.46,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1798.32,
+   "fin": 1799.34,
+   "confiance": 0.6,
+   "etat": "whisper",
+   "run": 23
   },
   {
    "page": 16,
@@ -59742,8 +60357,8 @@
    "y0": 99.01,
    "x1": 142.62,
    "y1": 125.9,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1799.34,
+   "fin": 1799.42,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -59758,11 +60373,11 @@
    "y0": 99.01,
    "x1": 111.79,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
+   "debut": 1799.34,
+   "fin": 1799.561,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 23
   },
   {
    "page": 16,
@@ -59774,11 +60389,11 @@
    "y0": 99.01,
    "x1": 95.21,
    "y1": 125.9,
-   "debut": null,
-   "fin": null,
+   "debut": 1799.561,
+   "fin": 1800.004,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 23
   },
   {
    "page": 16,
@@ -59790,11 +60405,11 @@
    "y0": 126.61,
    "x1": 567.22,
    "y1": 153.5,
-   "debut": null,
-   "fin": null,
+   "debut": 1800.004,
+   "fin": 1800.52,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 23
   },
   {
    "page": 16,
@@ -59806,11 +60421,11 @@
    "y0": 126.61,
    "x1": 526.74,
    "y1": 153.5,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1800.52,
+   "fin": 1801.96,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 23
   },
   {
    "page": 16,
@@ -60126,11 +60741,11 @@
    "y0": 154.21,
    "x1": 389.37,
    "y1": 183.74,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2143.44,
+   "fin": 2143.72,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60142,11 +60757,11 @@
    "y0": 154.21,
    "x1": 374.27,
    "y1": 181.1,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2143.72,
+   "fin": 2144.12,
+   "confiance": 0.75,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60158,11 +60773,11 @@
    "y0": 154.21,
    "x1": 352.72,
    "y1": 181.1,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2144.12,
+   "fin": 2144.56,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60174,11 +60789,11 @@
    "y0": 153.69,
    "x1": 312.81,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2144.56,
+   "fin": 2145.2,
+   "confiance": 0.857,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60190,11 +60805,11 @@
    "y0": 153.69,
    "x1": 266.4,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2145.2,
+   "fin": 2145.38,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60206,11 +60821,11 @@
    "y0": 153.69,
    "x1": 246.69,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2145.38,
+   "fin": 2145.74,
+   "confiance": 0.91,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60222,11 +60837,11 @@
    "y0": 153.69,
    "x1": 212.96,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2145.74,
+   "fin": 2146.28,
+   "confiance": 0.921,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60238,11 +60853,11 @@
    "y0": 153.69,
    "x1": 182.97,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2146.28,
+   "fin": 2146.74,
+   "confiance": 0.917,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60254,11 +60869,11 @@
    "y0": 153.69,
    "x1": 157.68,
    "y1": 181.28,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2146.74,
+   "fin": 2147.14,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60270,8 +60885,8 @@
    "y0": 155.92,
    "x1": 139.37,
    "y1": 175.79,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2147.14,
+   "fin": 2147.22,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -60286,11 +60901,11 @@
    "y0": 154.21,
    "x1": 126.37,
    "y1": 181.1,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2147.14,
+   "fin": 2148.52,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 29
   },
   {
    "page": 16,
@@ -60302,8 +60917,8 @@
    "y0": 154.21,
    "x1": 102.67,
    "y1": 181.1,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2148.52,
+   "fin": 2148.6,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -60478,11 +61093,11 @@
    "y0": 181.81,
    "x1": 307.1,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2160.88,
+   "fin": 2161.32,
+   "confiance": 0.921,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60494,11 +61109,11 @@
    "y0": 181.81,
    "x1": 260.28,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2161.32,
+   "fin": 2161.66,
+   "confiance": 0.93,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60510,11 +61125,11 @@
    "y0": 181.81,
    "x1": 234.16,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2161.66,
+   "fin": 2162.42,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60526,11 +61141,11 @@
    "y0": 181.29,
    "x1": 202.88,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2162.42,
+   "fin": 2162.92,
+   "confiance": 0.921,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60542,11 +61157,11 @@
    "y0": 181.29,
    "x1": 159.25,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2162.92,
+   "fin": 2163.6,
+   "confiance": 0.925,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60558,11 +61173,11 @@
    "y0": 181.29,
    "x1": 117.94,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2163.6,
+   "fin": 2164.78,
+   "confiance": 0.75,
+   "etat": "whisper",
+   "run": 30
   },
   {
    "page": 16,
@@ -60574,8 +61189,8 @@
    "y0": 183.52,
    "x1": 91.73,
    "y1": 203.39,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2164.78,
+   "fin": 2164.86,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -61598,11 +62213,11 @@
    "y0": 523.83,
    "x1": 539.43,
    "y1": 545.65,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1843.78,
+   "fin": 1844.5,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -61614,11 +62229,11 @@
    "y0": 523.83,
    "x1": 525.27,
    "y1": 544.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1844.5,
+   "fin": 1844.566,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 24
   },
   {
    "page": 16,
@@ -61630,11 +62245,11 @@
    "y0": 523.83,
    "x1": 493.71,
    "y1": 544.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1844.566,
+   "fin": 1844.623,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 24
   },
   {
    "page": 16,
@@ -61646,11 +62261,11 @@
    "y0": 523.83,
    "x1": 473.43,
    "y1": 544.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1844.623,
+   "fin": 1844.68,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 24
   },
   {
    "page": 16,
@@ -61662,8 +62277,8 @@
    "y0": 523.83,
    "x1": 449.09,
    "y1": 544.81,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1844.68,
+   "fin": 1844.76,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -61678,11 +62293,11 @@
    "y0": 523.83,
    "x1": 437.83,
    "y1": 547.21,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1844.68,
+   "fin": 1845.48,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -61694,11 +62309,11 @@
    "y0": 523.83,
    "x1": 416.15,
    "y1": 544.81,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1845.48,
+   "fin": 1845.64,
+   "confiance": 0.9,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -61710,11 +62325,11 @@
    "y0": 523.83,
    "x1": 403.71,
    "y1": 549.49,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1845.64,
+   "fin": 1845.78,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -61726,11 +62341,11 @@
    "y0": 517.83,
    "x1": 393.18,
    "y1": 548.05,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1845.78,
+   "fin": 1846.46,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -61742,8 +62357,8 @@
    "y0": 523.83,
    "x1": 360.25,
    "y1": 544.81,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 1846.46,
+   "fin": 1846.54,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -61758,11 +62373,11 @@
    "y0": 544.83,
    "x1": 556.86,
    "y1": 568.69,
-   "debut": null,
-   "fin": null,
+   "debut": 1846.46,
+   "fin": 1847.153,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 24
   },
   {
    "page": 16,
@@ -61774,11 +62389,11 @@
    "y0": 544.83,
    "x1": 532.5,
    "y1": 565.81,
-   "debut": null,
-   "fin": null,
+   "debut": 1847.153,
+   "fin": 1847.5,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 24
   },
   {
    "page": 16,
@@ -61790,11 +62405,11 @@
    "y0": 544.83,
    "x1": 515.47,
    "y1": 570.01,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 1847.5,
+   "fin": 1848.56,
+   "confiance": 0.6,
+   "etat": "whisper",
+   "run": 24
   },
   {
    "page": 16,
@@ -62382,11 +62997,11 @@
    "y0": 565.71,
    "x1": 232.65,
    "y1": 586.69,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2019.62,
+   "fin": 2019.76,
+   "confiance": 0.9,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62398,11 +63013,11 @@
    "y0": 565.71,
    "x1": 220.21,
    "y1": 588.01,
-   "debut": null,
-   "fin": null,
+   "debut": 2019.76,
+   "fin": 2019.82,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62414,11 +63029,11 @@
    "y0": 561.75,
    "x1": 185.38,
    "y1": 587.77,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2019.82,
+   "fin": 2020.26,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62430,11 +63045,11 @@
    "y0": 565.71,
    "x1": 159.49,
    "y1": 587.89,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2020.26,
+   "fin": 2020.48,
+   "confiance": 0.925,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62446,11 +63061,11 @@
    "y0": 557.79,
    "x1": 145.9,
    "y1": 592.33,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2020.48,
+   "fin": 2020.96,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62462,11 +63077,11 @@
    "y0": 563.43,
    "x1": 124.86,
    "y1": 586.69,
-   "debut": null,
-   "fin": null,
+   "debut": 2020.96,
+   "fin": 2021.02,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62478,11 +63093,11 @@
    "y0": 559.95,
    "x1": 112.59,
    "y1": 591.13,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2021.02,
+   "fin": 2022.02,
+   "confiance": 0.912,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62494,8 +63109,8 @@
    "y0": 565.71,
    "x1": 86.76,
    "y1": 586.69,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2022.02,
+   "fin": 2022.1,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -62510,11 +63125,11 @@
    "y0": 586.74,
    "x1": 567.17,
    "y1": 607.72,
-   "debut": null,
-   "fin": null,
+   "debut": 2022.02,
+   "fin": 2022.08,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62526,11 +63141,11 @@
    "y0": 586.74,
    "x1": 547.58,
    "y1": 607.72,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2022.08,
+   "fin": 2022.86,
+   "confiance": 0.545,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62542,8 +63157,8 @@
    "y0": 586.74,
    "x1": 523.15,
    "y1": 607.72,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2022.86,
+   "fin": 2022.94,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -62558,11 +63173,11 @@
    "y0": 586.74,
    "x1": 512.0,
    "y1": 612.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2022.86,
+   "fin": 2023.06,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62574,11 +63189,11 @@
    "y0": 586.74,
    "x1": 497.62,
    "y1": 613.6,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2023.06,
+   "fin": 2023.4,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62590,11 +63205,11 @@
    "y0": 580.86,
    "x1": 476.85,
    "y1": 611.44,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2023.4,
+   "fin": 2023.8,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62606,11 +63221,11 @@
    "y0": 584.94,
    "x1": 451.66,
    "y1": 607.72,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2023.8,
+   "fin": 2023.98,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62622,11 +63237,11 @@
    "y0": 582.78,
    "x1": 440.58,
    "y1": 610.36,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2023.98,
+   "fin": 2024.24,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62638,11 +63253,11 @@
    "y0": 581.46,
    "x1": 417.87,
    "y1": 607.72,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2024.24,
+   "fin": 2024.4,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62654,11 +63269,11 @@
    "y0": 586.74,
    "x1": 404.14,
    "y1": 613.24,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2024.4,
+   "fin": 2025.52,
+   "confiance": 0.571,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62670,8 +63285,8 @@
    "y0": 588.77,
    "x1": 385.32,
    "y1": 606.7,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2025.52,
+   "fin": 2025.6,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -62686,11 +63301,11 @@
    "y0": 588.77,
    "x1": 375.8,
    "y1": 606.7,
-   "debut": null,
-   "fin": null,
+   "debut": 1954.68,
+   "fin": 1954.74,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 25
   },
   {
    "page": 16,
@@ -62702,11 +63317,11 @@
    "y0": 588.77,
    "x1": 361.02,
    "y1": 606.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2025.52,
+   "fin": 2025.82,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62718,8 +63333,8 @@
    "y0": 607.62,
    "x1": 567.16,
    "y1": 628.6,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2025.82,
+   "fin": 2025.9,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -62734,11 +63349,11 @@
    "y0": 609.65,
    "x1": 549.03,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2025.82,
+   "fin": 2026.12,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62750,11 +63365,11 @@
    "y0": 609.65,
    "x1": 533.19,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
+   "debut": 2026.12,
+   "fin": 2026.198,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62766,11 +63381,11 @@
    "y0": 609.65,
    "x1": 513.37,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
+   "debut": 2026.198,
+   "fin": 2026.253,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62782,11 +63397,11 @@
    "y0": 609.65,
    "x1": 497.81,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
+   "debut": 2026.253,
+   "fin": 2026.309,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62798,11 +63413,11 @@
    "y0": 609.65,
    "x1": 479.67,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
+   "debut": 2026.309,
+   "fin": 2026.78,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 26
   },
   {
    "page": 16,
@@ -62814,11 +63429,11 @@
    "y0": 609.65,
    "x1": 459.5,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2096.74,
+   "fin": 2096.92,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 28
   },
   {
    "page": 16,
@@ -62830,11 +63445,11 @@
    "y0": 609.65,
    "x1": 450.15,
    "y1": 629.98,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2096.92,
+   "fin": 2097.2,
+   "confiance": 0.91,
+   "etat": "whisper",
+   "run": 28
   },
   {
    "page": 16,
@@ -62846,11 +63461,11 @@
    "y0": 609.65,
    "x1": 429.39,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2097.2,
+   "fin": 2097.7,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 28
   },
   {
    "page": 16,
@@ -62862,11 +63477,11 @@
    "y0": 609.65,
    "x1": 407.84,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2026.78,
+   "fin": 2027.92,
+   "confiance": 0.545,
+   "etat": "whisper",
+   "run": 26
   },
   {
    "page": 16,
@@ -62878,11 +63493,11 @@
    "y0": 609.65,
    "x1": 386.61,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2097.7,
+   "fin": 2098.62,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 28
   },
   {
    "page": 16,
@@ -62894,11 +63509,11 @@
    "y0": 609.65,
    "x1": 372.25,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2098.62,
+   "fin": 2099.44,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 28
   },
   {
    "page": 16,
@@ -62910,8 +63525,8 @@
    "y0": 609.65,
    "x1": 351.24,
    "y1": 627.58,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2099.44,
+   "fin": 2099.52,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -62930,7 +63545,7 @@
    "fin": 2175.62,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -62946,7 +63561,7 @@
    "fin": 2176.04,
    "confiance": 0.91,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -62962,7 +63577,7 @@
    "fin": 2176.64,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -62978,7 +63593,7 @@
    "fin": 2176.88,
    "confiance": 0.925,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -62994,7 +63609,7 @@
    "fin": 2177.18,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -63010,7 +63625,7 @@
    "fin": 2177.56,
    "confiance": 0.91,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -63026,7 +63641,7 @@
    "fin": 2178.14,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -63055,10 +63670,10 @@
    "x1": 204.18,
    "y1": 627.58,
    "debut": 2178.14,
-   "fin": 2181.24,
+   "fin": 2179.34,
    "confiance": 0.545,
    "etat": "whisper",
-   "run": 6
+   "run": 32
   },
   {
    "page": 16,
@@ -63070,11 +63685,11 @@
    "y0": 609.65,
    "x1": 181.85,
    "y1": 627.58,
-   "debut": 2183.12,
-   "fin": 2184.22,
-   "confiance": 0.571,
-   "etat": "whisper",
-   "run": 6
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 16,
@@ -63086,11 +63701,11 @@
    "y0": 609.65,
    "x1": 166.31,
    "y1": 627.58,
-   "debut": 2184.22,
-   "fin": 2185.28,
-   "confiance": 0.6,
-   "etat": "whisper",
-   "run": 6
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 16,
@@ -63150,11 +63765,11 @@
    "y0": 609.65,
    "x1": 77.39,
    "y1": 627.58,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2197.14,
+   "fin": 2198.1,
+   "confiance": 0.936,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63166,11 +63781,11 @@
    "y0": 628.49,
    "x1": 567.08,
    "y1": 646.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2198.1,
+   "fin": 2198.28,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63182,11 +63797,11 @@
    "y0": 628.49,
    "x1": 557.72,
    "y1": 646.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2198.28,
+   "fin": 2198.9,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63198,11 +63813,11 @@
    "y0": 628.49,
    "x1": 523.17,
    "y1": 646.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2198.9,
+   "fin": 2200.3,
+   "confiance": 0.6,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63214,11 +63829,11 @@
    "y0": 628.49,
    "x1": 501.37,
    "y1": 646.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2200.3,
+   "fin": 2201.24,
+   "confiance": 0.907,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63230,11 +63845,11 @@
    "y0": 628.49,
    "x1": 482.54,
    "y1": 646.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2201.24,
+   "fin": 2201.66,
+   "confiance": 0.923,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63246,11 +63861,11 @@
    "y0": 646.49,
    "x1": 552.62,
    "y1": 664.42,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2201.66,
+   "fin": 2202.58,
+   "confiance": 0.667,
+   "etat": "whisper",
+   "run": 33
   },
   {
    "page": 16,
@@ -63538,7 +64153,7 @@
    "fin": 2259.36,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63554,7 +64169,7 @@
    "fin": 2261.08,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63570,7 +64185,7 @@
    "fin": 2261.62,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63586,7 +64201,7 @@
    "fin": 2262.1,
    "confiance": 0.925,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63602,7 +64217,7 @@
    "fin": 2264.22,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63618,7 +64233,7 @@
    "fin": 2264.7,
    "confiance": 0.727,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63634,7 +64249,7 @@
    "fin": 2264.776,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63650,7 +64265,7 @@
    "fin": 2264.823,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63666,7 +64281,7 @@
    "fin": 2264.88,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63682,7 +64297,7 @@
    "fin": 2265.58,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63698,7 +64313,7 @@
    "fin": 2266.14,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63714,7 +64329,7 @@
    "fin": 2269.2,
    "confiance": 0.6,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63730,7 +64345,7 @@
    "fin": 2272.74,
    "confiance": 0.91,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63746,7 +64361,7 @@
    "fin": 2278.22,
    "confiance": 0.6,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63762,7 +64377,7 @@
    "fin": 2280.94,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63778,7 +64393,7 @@
    "fin": 2283.96,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63794,7 +64409,7 @@
    "fin": 2285.94,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63810,7 +64425,7 @@
    "fin": 2286.42,
    "confiance": 0.545,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63826,7 +64441,7 @@
    "fin": 2286.48,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63842,7 +64457,7 @@
    "fin": 2289.26,
    "confiance": 0.545,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63858,7 +64473,7 @@
    "fin": 2290.94,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63874,7 +64489,7 @@
    "fin": 2291.74,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63890,7 +64505,7 @@
    "fin": 2291.86,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63906,7 +64521,7 @@
    "fin": 2292.34,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63922,7 +64537,7 @@
    "fin": 2292.66,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63938,7 +64553,7 @@
    "fin": 2292.817,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63954,7 +64569,7 @@
    "fin": 2292.911,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63970,7 +64585,7 @@
    "fin": 2293.1,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -63986,7 +64601,7 @@
    "fin": 2295.26,
    "confiance": 0.8,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64002,7 +64617,7 @@
    "fin": 2297.54,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64018,7 +64633,7 @@
    "fin": 2300.18,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64034,7 +64649,7 @@
    "fin": 2304.6,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64050,7 +64665,7 @@
    "fin": 2310.2,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64066,7 +64681,7 @@
    "fin": 2314.36,
    "confiance": 0.545,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64082,7 +64697,7 @@
    "fin": 2315.4,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 7
+   "run": 34
   },
   {
    "page": 16,
@@ -64146,7 +64761,7 @@
    "fin": 2337.42,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64162,7 +64777,7 @@
    "fin": 2340.52,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64178,7 +64793,7 @@
    "fin": 2340.78,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64194,7 +64809,7 @@
    "fin": 2343.32,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64210,7 +64825,7 @@
    "fin": 2346.18,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64226,7 +64841,7 @@
    "fin": 2347.98,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64242,7 +64857,7 @@
    "fin": 2348.58,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64258,7 +64873,7 @@
    "fin": 2349.2,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64274,7 +64889,7 @@
    "fin": 2351.96,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64290,7 +64905,7 @@
    "fin": 2354.8,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64306,7 +64921,7 @@
    "fin": 2358.24,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64322,7 +64937,7 @@
    "fin": 2358.86,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64335,10 +64950,10 @@
    "x1": 283.65,
    "y1": 700.3,
    "debut": 2358.86,
-   "fin": 2360.22,
+   "fin": 2361.54,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 16,
@@ -64350,8 +64965,8 @@
    "y0": 741.01,
    "x1": 323.46,
    "y1": 756.67,
-   "debut": 2360.22,
-   "fin": 2360.3,
+   "debut": 2361.54,
+   "fin": 2361.62,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -64366,8 +64981,8 @@
    "y0": 70.89,
    "x1": 505.62,
    "y1": 98.48,
-   "debut": 2360.3,
-   "fin": 2360.38,
+   "debut": 2361.62,
+   "fin": 2361.7,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -64386,7 +65001,7 @@
    "fin": 2360.98,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64402,7 +65017,7 @@
    "fin": 2361.58,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64415,10 +65030,10 @@
    "x1": 406.2,
    "y1": 98.48,
    "debut": 2361.58,
-   "fin": 2361.64,
+   "fin": 2364.14,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64430,11 +65045,11 @@
    "y0": 70.89,
    "x1": 388.71,
    "y1": 103.28,
-   "debut": 2361.64,
+   "debut": 2361.58,
    "fin": 2362.8,
    "confiance": 0.533,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64450,7 +65065,7 @@
    "fin": 2363.26,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64466,7 +65081,7 @@
    "fin": 2363.62,
    "confiance": 0.925,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64482,7 +65097,7 @@
    "fin": 2364.14,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64495,10 +65110,10 @@
    "x1": 213.41,
    "y1": 98.48,
    "debut": 2364.14,
-   "fin": 2366.12,
+   "fin": 2365.22,
    "confiance": 0.727,
    "etat": "whisper",
-   "run": 8
+   "run": 37
   },
   {
    "page": 17,
@@ -64514,7 +65129,7 @@
    "fin": 2368.74,
    "confiance": 0.936,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64530,7 +65145,7 @@
    "fin": 2370.42,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64562,7 +65177,7 @@
    "fin": 2372.98,
    "confiance": 0.917,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64578,7 +65193,7 @@
    "fin": 2375.66,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64594,7 +65209,7 @@
    "fin": 2376.32,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64610,7 +65225,7 @@
    "fin": 2379.14,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64626,7 +65241,7 @@
    "fin": 2379.98,
    "confiance": 0.571,
    "etat": "whisper",
-   "run": 8
+   "run": 36
   },
   {
    "page": 17,
@@ -64638,11 +65253,11 @@
    "y0": 99.01,
    "x1": 354.19,
    "y1": 128.54,
-   "debut": 2388.48,
-   "fin": 2388.7,
-   "confiance": 1.0,
+   "debut": 2418.2,
+   "fin": 2419.1,
+   "confiance": 0.571,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64658,7 +65273,7 @@
    "fin": 2389.54,
    "confiance": 0.5,
    "etat": "whisper",
-   "run": 9
+   "run": 38
   },
   {
    "page": 17,
@@ -64671,10 +65286,10 @@
    "x1": 317.66,
    "y1": 125.9,
    "debut": 2389.54,
-   "fin": 2389.6,
+   "fin": 2392.1,
    "confiance": 0.0,
    "etat": "interpole",
-   "run": 9
+   "run": 38
   },
   {
    "page": 17,
@@ -64686,11 +65301,11 @@
    "y0": 98.49,
    "x1": 277.6,
    "y1": 126.08,
-   "debut": 2389.6,
-   "fin": 2390.22,
+   "debut": 2419.1,
+   "fin": 2419.66,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64702,11 +65317,11 @@
    "y0": 98.49,
    "x1": 242.2,
    "y1": 126.08,
-   "debut": 2390.22,
-   "fin": 2391.06,
+   "debut": 2419.66,
+   "fin": 2420.42,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64718,11 +65333,11 @@
    "y0": 98.49,
    "x1": 206.9,
    "y1": 126.08,
-   "debut": 2391.06,
-   "fin": 2391.62,
+   "debut": 2420.42,
+   "fin": 2420.78,
    "confiance": 1.0,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64734,11 +65349,11 @@
    "y0": 98.49,
    "x1": 177.94,
    "y1": 126.08,
-   "debut": 2391.62,
-   "fin": 2393.0,
-   "confiance": 0.727,
+   "debut": 2420.78,
+   "fin": 2421.56,
+   "confiance": 0.615,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64750,11 +65365,11 @@
    "y0": 98.49,
    "x1": 144.8,
    "y1": 126.08,
-   "debut": 2393.0,
-   "fin": 2393.66,
-   "confiance": 0.833,
+   "debut": 2421.56,
+   "fin": 2423.08,
+   "confiance": 0.714,
    "etat": "whisper",
-   "run": 9
+   "run": 39
   },
   {
    "page": 17,
@@ -64770,7 +65385,7 @@
    "fin": 2394.32,
    "confiance": 0.667,
    "etat": "whisper",
-   "run": 9
+   "run": 38
   },
   {
    "page": 17,
@@ -64786,7 +65401,7 @@
    "fin": 2395.4,
    "confiance": 0.925,
    "etat": "whisper",
-   "run": 9
+   "run": 38
   },
   {
    "page": 17,
@@ -65118,11 +65733,11 @@
    "y0": 181.29,
    "x1": 522.42,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2735.58,
+   "fin": 2735.76,
+   "confiance": 0.8,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65134,11 +65749,11 @@
    "y0": 181.29,
    "x1": 496.17,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2735.76,
+   "fin": 2736.2,
+   "confiance": 0.93,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65150,11 +65765,11 @@
    "y0": 181.29,
    "x1": 469.8,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2736.2,
+   "fin": 2736.6,
+   "confiance": 1.0,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65166,11 +65781,11 @@
    "y0": 181.29,
    "x1": 433.22,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2736.6,
+   "fin": 2737.06,
+   "confiance": 0.727,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65182,11 +65797,11 @@
    "y0": 181.29,
    "x1": 399.17,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2737.06,
+   "fin": 2738.12,
+   "confiance": 0.936,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65198,8 +65813,8 @@
    "y0": 181.81,
    "x1": 362.41,
    "y1": 208.7,
-   "debut": 0.0,
-   "fin": 0.08,
+   "debut": 2738.12,
+   "fin": 2738.2,
    "confiance": 0.0,
    "etat": "hors_texte",
    "run": null
@@ -65214,11 +65829,11 @@
    "y0": 181.81,
    "x1": 353.06,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2738.12,
+   "fin": 2738.9,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65230,11 +65845,11 @@
    "y0": 181.81,
    "x1": 327.79,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2738.9,
+   "fin": 2739.24,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65246,11 +65861,11 @@
    "y0": 181.81,
    "x1": 310.75,
    "y1": 211.34,
-   "debut": null,
-   "fin": null,
+   "debut": 2739.24,
+   "fin": 2739.285,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 40
   },
   {
    "page": 17,
@@ -65262,11 +65877,11 @@
    "y0": 181.81,
    "x1": 295.65,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
+   "debut": 2739.285,
+   "fin": 2739.36,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 40
   },
   {
    "page": 17,
@@ -65278,11 +65893,11 @@
    "y0": 181.81,
    "x1": 274.1,
    "y1": 208.7,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2739.36,
+   "fin": 2739.76,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -65294,11 +65909,11 @@
    "y0": 181.29,
    "x1": 233.98,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
+   "debut": 2739.76,
+   "fin": 2739.84,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 40
   },
   {
    "page": 17,
@@ -65310,11 +65925,11 @@
    "y0": 181.29,
    "x1": 212.53,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
+   "debut": 2739.84,
+   "fin": 2739.96,
    "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "etat": "interpole",
+   "run": 40
   },
   {
    "page": 17,
@@ -65326,11 +65941,11 @@
    "y0": 181.29,
    "x1": 185.0,
    "y1": 208.88,
-   "debut": null,
-   "fin": null,
-   "confiance": 0.0,
-   "etat": "hors_lecture",
-   "run": null
+   "debut": 2739.96,
+   "fin": 2740.74,
+   "confiance": 0.5,
+   "etat": "whisper",
+   "run": 40
   },
   {
    "page": 17,
@@ -104430,11 +105045,11 @@
    "y0": 615.45,
    "x1": 416.94,
    "y1": 648.58,
-   "debut": 2749.14,
-   "fin": 2750.1,
-   "confiance": 1.0,
-   "etat": "whisper",
-   "run": 10
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 23,
@@ -104446,11 +105061,11 @@
    "y0": 615.45,
    "x1": 390.46,
    "y1": 642.34,
-   "debut": 2750.1,
-   "fin": 2750.92,
-   "confiance": 0.667,
-   "etat": "whisper",
-   "run": 10
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 23,
@@ -104462,11 +105077,11 @@
    "y0": 615.45,
    "x1": 362.2,
    "y1": 642.34,
-   "debut": 2750.92,
-   "fin": 2751.06,
-   "confiance": 0.857,
-   "etat": "whisper",
-   "run": 10
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 23,
@@ -104478,11 +105093,11 @@
    "y0": 615.45,
    "x1": 345.46,
    "y1": 642.34,
-   "debut": 2751.06,
-   "fin": 2751.2,
+   "debut": null,
+   "fin": null,
    "confiance": 0.0,
-   "etat": "interpole",
-   "run": 10
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 23,
@@ -104494,11 +105109,11 @@
    "y0": 615.45,
    "x1": 307.66,
    "y1": 642.34,
-   "debut": 2751.2,
-   "fin": 2752.32,
-   "confiance": 1.0,
-   "etat": "whisper",
-   "run": 10
+   "debut": null,
+   "fin": null,
+   "confiance": 0.0,
+   "etat": "hors_lecture",
+   "run": null
   },
   {
    "page": 23,
