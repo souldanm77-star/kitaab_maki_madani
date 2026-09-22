@@ -1,12 +1,16 @@
 ffconcat version 1.0
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p001.png'
-duration 886.360
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p002.png'
-duration 893.480
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p003.png'
-duration 808.340
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p004.png'
-duration 635.160
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p006.png'
-duration 1595.956
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars1/fond_p006.png'
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p001.png'
+duration 892.640
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p002.png'
+duration 887.200
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p003.png'
+duration 809.319
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p004.png'
+duration 2043.961
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p005.png'
+duration 0.500
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p006.png'
+duration 749.500
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p013.png'
+duration 846.456
+file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars1/fond_p013.png'
