@@ -79,3 +79,31 @@ Stage Summary:
 - Statistiques de surlignage : dars1 = 410 mots (40 runs, pages 1-6), dars2 = 141 mots (10 runs, pages 10-23), dars3 = 558 mots (38 runs, pages 2-13), dars4 = 239 mots (21 runs, pages 20-23).
 - CSV de contrôle pour vérification humaine : sortie/darsN_segments.csv (chronologie lecture/somali/hors_livre) et sortie/darsN_synchronisation.csv (mots surlignés horodatés).
 - Piège documenté : l'extraction d'une frame EXACTEMENT à t=start d'un événement ASS peut rater le rectangle (frontière flottante) — toujours vérifier avec une séquence fps≥2.
+
+---
+Task ID: 5
+Agent: Super Z (agent principal)
+Task: Session « clone GitHub » — l'utilisateur ne voit pas les vidéos ; après inspection, il regarde les ANCIENNES versions (rollback sandbox). Réclamations : dars1 coupure à 1:01 sans surlignage, dars2/dars3 aucun surlignage, dars4 surligne tout + mauvaises pages. Travail demandé DANS le clone GitHub.
+
+Work Log:
+- État constaté : mp4 de sortie remplacés par les anciens rendus (tailles/horodatages différents) ; git local corrompu (commits UUID, fetch en erreur). Transcriptions + timing v3 intacts.
+- CLONE propre avec le PAT : /home/z/my-project/kitaab_maki_madani (contient pipeline, upload/, transcriptions, timings v3, fonds) ; un commit GitHub Actions distant a été rebase-sans-conflit.
+- DIAGNOSTIC par fenêtres glissantes (scripts/diag_trous.py) : les trous dars1 (33-232 s) scorent TOUS < 0,45 → somali réel, comportement correct (règle 3 états).
+- MAIS dars2 0-35 s : « قال الإمام السيوطي… قد أثر الناس في المنسوخ من عدّة… آيات لا تنحصر » = VRAIE lecture du PIED DE PAGE p14 (j≈3045), jamais atteinte par la chaîne LIS monotone (cap tête n+400) — le DP remplissait la fenêtre avec des fausses coïncidences 0,45-0,67 dispersées sur p1. L'utilisateur avait raison.
+- ALIGNER v4 (pipeline/3_aligner.py) :
+    * PASS 0 « contexte d'ancres » : chaque ancre exacte validée INDÉPENDAMMENT par une petite DP locale (voisins temporels vs voisins du livre) → sauts de page/pieds de page détectés ;
+    * garde « formules » (lexique صلى الله عليه وسلم…) : fenêtre ⊂ formules rituelles ≠ lecture ;
+    * garde « trou temporel » : trou > 2,5 s ENTRE mots appariés = formule récitée de mémoire (ex. salam @6,6 s coincidant avec la du'a finale p23 — éliminé) ;
+    * resoudre_conflits (un mot Whisper = un run) ;
+    * filtrer_coherence : un îlot P0 (n < 8, mean < 0,85) exige ≥ 2 voisins à ±180 s ET ±150 mots du livre (les coïncidences somali sont orphelines ; les vraies lectures forment des grappes).
+- Crash corrigé : runs chevauchants → seq vide dans l'extension + times[j-1] None (gards + continue).
+- Résultats v4 (v3 → v4) : dars1 410 → 495 mots (khutba 0-33 s intacte, fenêtres somali toujours vides) ; dars2 141 → 395 (ouverture p14 28 mots moy 0,84 ✅, faux positif p23 @6,6 s éliminé) ; dars3 558 → 684 ; dars4 239 → 577 (pages recentrées 20-23 : 40/64 runs ; îlots p1/p2/p4 écartés par cohérence).
+- config_darsi.json re-pointé vers le clone (upload/ du dépôt) — dépôt autonome.
+- Commit + push : `e7dc34e..6067577`.
+- Test rendu clone OK : dars2 --max 240 → page 10 (0-25,3 s) puis page 14 (25,3 s+) suit la lecture réelle ; 39 événements de surlignage en 240 s (v3 : 4) ; frame t=31-33 s : 1778 px jaunes ✓.
+- Chaîne de rendus complète relancée en arrière-plan depuis le clone : dars2 → dars1 → dars3 → dars4 (~90 min à 3,8× RT).
+
+Stage Summary:
+- L'utilisateur regardait les ANCIENNES vidéos (rollback sandbox) — mais son signalement dars2 a révélé un vrai bug (ouvertures/sauts hors progression monotone) : corrigé par PASS 0 + gardes v4.
+- Les 4 timings v4 régénérés, poussés sur GitHub ; rendus v4 en cours.
+- Pièges : frame exactement à t=start d'un événement ASS = faux « pas de surlignage » ; toujours vérifier par séquence fps ≥ 2.
