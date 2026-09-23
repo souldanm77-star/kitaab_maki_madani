@@ -107,3 +107,58 @@ Stage Summary:
 - L'utilisateur regardait les ANCIENNES vidéos (rollback sandbox) — mais son signalement dars2 a révélé un vrai bug (ouvertures/sauts hors progression monotone) : corrigé par PASS 0 + gardes v4.
 - Les 4 timings v4 régénérés, poussés sur GitHub ; rendus v4 en cours.
 - Pièges : frame exactement à t=start d'un événement ASS = faux « pas de surlignage » ; toujours vérifier par séquence fps ≥ 2.
+
+---
+Task ID: 6
+Agent: Super Z (agent principal)
+Task: Session « clone GitHub + 4 bugs signalés » — travail DANS le clone /home/z/my-project/kitaab_maki_madani. Bugs : dars1 plus de surlignage après 1:01 ; dars2/dars3 aucun surlignage visible ; dars4 sur-surlignage + mauvaises pages affichées.
+
+Work Log:
+- État au démarrage : sandbox réinitialisée (rendus v4 perdus du disque, MP4 exclus du git) ; clone propre avec PAT = transcriptions + timings v4 + ASS v4 + CSV intacts (495/395/684/577 mots).
+- DIAGNOSTIC des 4 bugs sur les timings v4 :
+    * BUG PAGES (dars4 surtout, mais les 4 concernés) : 4_video.py triait les fenêtres de pages par NUMÉRO de page alors que la lecture est non linéaire (dars4 : p16@268s, p17@484s, p1 éparpillé 480→5839s, p20/p21 entrelacées) -> fenêtres à durées NÉGATIVES, pages affichées en retard/à l'envers. Exactement « il lit une autre page, on voit les premières pages ».
+    * BUG SUR-SURLIGNAGE (dars4) : l'aligneur v4 matchait les formules RÉCITÉES DE MÉMOIRE (chahada, أما بعد, صلى الله عليه وسلم, titre الجامع لأحكام القرآن) sur p1/p2/p4/p12/p15 — clusters 0,3-0,5 s/mot + hésitations entre deux pages (p4@921 vs p15@926 : 2 pages en 8 s = impossible).
+    * dars1 « coupure à 1:01 » : vérifié dans la transcription — 1:01→3:52 = vraie explication SOMALI (texte phonétique arabe absurde), la lecture reprend à 232,6 s (« فإن من أنواع علوم القرآن »). Comportement 3 états CORRECT ; l'utilisateur regardait les anciennes vidéos du rollback.
+    * dars2/dars3 : cause = vidéos de rollback regardées par l'utilisateur + couverture v4 déjà accrue.
+- NOUVEAU : 4_video.py v5 — stabiliser_sessions() (post-traitement rendu, timing.json v4 intact) :
+    * visites (même page, trous <= 20 s) -> sessions (chaînage quelconque <= 8 s) -> page dominante par session ;
+    * mesure sur DÉBUTS de mots (les fins Whisper sont gonflées) ;
+    * écarte : RAPIDE (>= 4 mots à <= 0,55 s/mot = récité), MINUSCULE (< 3 mots), et non-substantielle isolée ;
+    * ZONES de lecture : cluster de >= 3 sessions de même page (trous <= 600 s), >= 8 mots, >= 3 mots/min -> TOUTES les sessions du cluster survivent (lectures fragmentées réelles, p19/p20/p21 dars4) ;
+    * RELAIS : session faible gardée si voisine vivante de même page forte ;
+    * mots des visites non dominantes écartés (rectangle serait sur la mauvaise page) ;
+    * fenêtres CHRONOLOGIQUES (bug v3 corrigé), première fenêtre depuis 0 s, contiguïté concat conservée ;
+    * re-export de <dars>_synchronisation.csv depuis les mots RÉELLEMENT surlignés.
+- Résultats stabilisés : dars1 446 mots (90 %), fenêtres p1[0-893] p2[893-1752] p3[1752-2199] p2[2199-2213] p3[2213-3447] p4[3447-4633] p5[fin] ; dars2 310 (78 %) p14→p15→p16→p17 ; dars3 471 (69 %) p4→p2→p4→p6→p9→p10→p11→p12→p13 ; dars4 423 (73 %) p18→p19→p20<->p21→p22→p23→p12[4757-4921]→p23. 0 mot hors de la fenêtre de sa page, toutes monotones.
+- Cas arbitré : GAP_VISITE 20 s réunit le hadith + définitions p12 de dars4 (rythme global 1,07 s/mot = lecture) ; p18@573 dars4 (8 mots, prose) gardée — fenêtre p18 au début de dars4.
+- Test rendu dars2 --max 240 : OK 62 s ; séquence fps=2 : 16/36 frames surlignées pendant la lecture p14 (25-51 s), 0/120 pendant le somali (60-120 s) — règle 3 états respectée dans le rendu.
+- Chaîne complète v5 lancée en arrière-plan (scripts/chaine_rendus_v5.sh) : dars2 -> dars1 -> dars3 -> dars4.
+
+Stage Summary:
+- 3 causes racine traitées : fenêtres par n° de page (-> chronologiques), formules récitées (-> filtrage rapide/isolé), hésitations d'aligneur (-> sessions à page dominante).
+- Pipeline de rendu v5 dans le clone ; timings v4 inchangés ; à venir : vérification dense + livraison Darsi-N.mp4 + push.
+
+---
+Task ID: 7
+Agent: Super Z (agent principal)
+Task: Rendus v5 complets + vérification dense + livraison.
+
+Work Log:
+- Constaté : les processus de fond (nohup) sont TUÉS à la fin de chaque appel d'outil dans cette session — la chaîne nohup a rendu ~10 s puis mouru. Impossible de rendre un dars entier (12-40 min) en un appel (limite ~9,5 min).
+- NOUVEAU : rendu SEGMENTÉ avec reprise dans 4_video.py :
+    * --segment L --par-appel N : rend au plus N tranches nouvelles par invocation, saute les segments complets (ffprobe), concat final SANS ré-encodage ;
+    * chaque segment = liste concat recadrée sur [t, fin) + ASS décalé à 0 + seek d'entrée AUDIO uniquement (aucun seek vidéo) ;
+    * rejeté au passage : seek de sortie (trop lent : 3 min de filtrage pour 2000 s) et input-seek+copyts (PTS négatifs, mux cassé) ;
+    * ass_segmentaire() : ASS vide (en-tête seul) pour les segments sans mot lu (grandes explications somali) ;
+    * composer_fond(cache=True) : fonds recomposés uniquement s'ils manquent.
+- Rendus : dars2 7×400 s ; dars1 4×1500 s ; dars3 3×1500 s ; dars4 7×1500 s — un segment par appel d'outil, ~6-7 min chacun.
+- Vérification MOT À MOT (verif_mots.py : sonde fps=10 calée sur chaque mot, seuil proportionnel à la surface du rect à l'échelle 960×540 — piège : un mot court couvre surtout son glyphe sombre, donc peu de pixels jaune-papier ; seuil fixe = faux négatifs) :
+    dars1 14/14 · dars2 20/20 · dars3 14/14 · dars4 16/16 mots surlignés VISIBLES à l'écran.
+- Vérification SUIVI DES PAGES dars4 (verif_pages.py : comparaison de frames aux fonds composés) :
+    500 s→p18, 1700→p19, 2000→p20, 2600→p21, 2750→p20 (retour en arrière CORRECT), 3500→p22, 4100→p23, 4800→p12 (citation), 5000→p23 — la page suit la lecture chronologiquement, y compris les retours.
+- Absence de surlignage pendant le somali vérifiée (0/120 frames 60-120 s dars2).
+- LIVRAISON : download/Darsi-1.mp4 (80:19, 140 Mo), Darsi-2.mp4 (45:52, 83 Mo), Darsi-3.mp4 (63:55, 113 Mo), Darsi-4.mp4 (2:30:12, 272 Mo) + CSV (synchronisation stabilisée + segments) dans download/csv_verification/.
+
+Stage Summary:
+- 4 vidéos v5 livrées et vérifiées : surlignage mot à mot uniquement sur la lecture réelle du livre, pages chronologiques avec retours, somali jamais surligné.
+- Pièges nouveaux documentés : processus de fond tués entre appels (rendu segmenté obligatoire), -t en option d'entrée vs sortie, seek concat sans copyts, seuil de détection proportionnel.
