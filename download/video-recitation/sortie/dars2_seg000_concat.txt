@@ -1,4 +1,4 @@
 ffconcat version 1.0
 file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars2/fond_p014.png'
-duration 400.000
+duration 240.000
 file '/home/z/my-project/kitaab_maki_madani/download/video-recitation/travail_darsi/fonds/dars2/fond_p014.png'
