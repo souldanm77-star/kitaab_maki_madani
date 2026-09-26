@@ -21,3 +21,7 @@ download/synchronisation-recitation/demo/
 *.key
 id_rsa*
 id_ed25519*
+
+# Fichiers temporaires de rendu segmente (ASS decope par segment)
+download/video-recitation/sortie/*_seg*.ass
+download/video-recitation/sortie/*_segments.txt
