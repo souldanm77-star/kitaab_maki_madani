@@ -162,3 +162,37 @@ Work Log:
 Stage Summary:
 - 4 vidéos v5 livrées et vérifiées : surlignage mot à mot uniquement sur la lecture réelle du livre, pages chronologiques avec retours, somali jamais surligné.
 - Pièges nouveaux documentés : processus de fond tués entre appels (rendu segmenté obligatoire), -t en option d'entrée vs sortie, seek concat sans copyts, seuil de détection proportionnel.
+
+---
+Task ID: 6
+Agent: Super Z (agent principal)
+Task: Reprise après reset de l'environnement — vidéos disparues, diagnostic des 4 bugs et re-rendu v5.
+
+Work Log:
+- L'utilisateur rapporte ne voir AUCUN changement : l'environnement sandbox a été réinitialisé — les mp4 livrés (Darsi-1..4.mp4 à la racine download) et les fichiers de rendu ont disparu (non versionnés, >100MB). Le repo GitHub conservait tout le reste.
+- Clone du repo exécuté comme demandé : /home/z/my-project/kitaab_maki_madani (PAT auth, HEAD 438b1a5). Le clone contient upload/ (4 audios, PDF, image cheikh), les 23 pages PNG, fonds/, transcriptions+timing+ASS des 4 dars, pipeline v5.
+- Découverte chronologie git : après le résumé de session, deux commits supplémentaires existaient : 6067577 (aligner v4, couverture x2-x3 : 495/395/684/577 mots) et 438b1a5 (v5 : stabiliser_sessions + fenêtres chronologiques + rendu segmenté, "4 vidéos vérifiées 64/64"). Les vidéos v5 n'ont JAMAIS atteint l'utilisateur (reset avant copie à la racine download).
+- Diagnostic (outils/diagnostic_bugs.py) : les bugs signalés correspondent aux vidéos v3/v4 : fenêtres v4 de dars4 affichaient p1 pendant 2404s et p4 pendant 3837s (faux positifs khutba/titre matchés sur p1), dars3 40/74 runs incohérents. Le fenêtrage v5 corrige : dars4 ne montre plus que p18-23 (+session p12 à 79-82min, plausible relecture du chapitre naskh), dars2 14→15→16→17 linéaire.
+- Dry-run v5 (outils/dryrun_fenetres.py) : mots gardés dars1=446, dars2=310, dars3=471, dars4=423 ; les ASS du repo correspondent exactement (vérifié).
+- Test rendu 90s de dars2 : 3.9x temps réel, vérification pixels jaunes 15/21 frames surlignées dans 24-45s ✓.
+- RENDU COMPLET v6 lancé en nohup (outils/rendu_complet.sh) : dars2 → dars1 → dars3 → dars4, segments 240s, ~88 min estimé.
+
+Stage Summary:
+- Cause racine des "aucune modification visible" : reset d'environnement, les v5 corrigées jamais livrées.
+- Pipeline v5 fonctionnel, rendu v6 en cours. Prochaine étape : vérification dense pixels jaunes sur les 4 rendus, livraison à la racine download, push.
+
+---
+Task ID: 6-b
+Agent: Super Z (agent principal)
+Task: Rendu v6 complet des 4 vidéos + vérifications et livraison.
+
+Work Log:
+- BUG CORRIGÉ dans 4_video.py rendre_segments : après avoir rendu tous les segments d'un appel, le code imprimait « ENCORE 0 segment(s) à rendre » et retournait SANS concaténer (test sur `manquants` au lieu des segments réellement absents). Fix : concat si restants==0 (commit a2ded8c). C'est pourquoi les vidéos v5 du 23/09 n'existaient jamais vraiment.
+- Incident corrigé : suppression accidentelle de dars2_seg000.ass pendant le rendu (mon nettoyage git) -> crash du premier rendu dars2 ; gitignore ajouté pour les *_seg*.ass ; le rendu a repris sur ses segments (reprise par segments fonctionnelle, seg000 sauté).
+- Rendus : dars1 (21 seg, 20 min), dars2 (12 seg dont reprise), dars3 (16 seg), dars4 (38 seg, 50 min) — concat sans ré-encodage.
+- Fenêtres rendues vérifiées : dars4 commence p18, finit p23 (plus de pages 1-4 parasites de la v4) ; dars2 14->15->16->17 linéaire.
+- Vérification dense pixels jaunes (outils/verification_dense.py, 0.5 fps) : dars1 155/2410 frames (6.4%) sur 11 plages réparties sur TOUTE la durée (0-1,3-10,12,14-16,21-24,26-31,35-36,38-42,57,63,77-79 min) ; dars3 200/1917 (10.4%) sur 8 plages (dont lecture dense p9-10 à 34-47 min). Le bug « interruption à 1:01 » n'existe plus : après la khutba le surlignage revient dès 3 min.
+- Livraison : Darsi-1.mp4 (139MB), Darsi-2.mp4 (82MB), Darsi-3.mp4 (112MB), Darsi-4.mp4 (270MB) copiés à la racine download/.
+
+Stage Summary:
+- 4 vidéos v6 rendues + livrées, vérifiées par échantillonnage dense. Règle des 3 états respectée. Vérification dense dars2/dars4 en cours.
