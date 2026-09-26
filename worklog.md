@@ -196,3 +196,18 @@ Work Log:
 
 Stage Summary:
 - 4 vidéos v6 rendues + livrées, vérifiées par échantillonnage dense. Règle des 3 états respectée. Vérification dense dars2/dars4 en cours.
+
+---
+Task ID: 6-c
+Agent: Super Z (agent principal)
+Task: Vérification dense finale des 4 vidéos + livraison complète.
+
+Work Log:
+- Vérification dense (pixels jaunes 0.5 fps, toute la durée) : dars1 6.4% (11 plages), dars2 7.5% (8 plages dont lecture dense 33-40 min), dars3 10.4% (8 plages), dars4 2.8% (14 plages, progression p18->p23 sans khutba parasite).
+- Contrôles visuels dars4 (frames lues) : t=36:59 page 20 + mot « أو » surligné ; t=72:15 page 23 + mot « الشيخ » surligné — mise en page cheikh gauche / page réelle droite / surlignage jaune mot à mot conforme.
+- Livraison racine download/ : Darsi-1.mp4 (139MB/80min), Darsi-2.mp4 (82MB/46min), Darsi-3.mp4 (112MB/64min), Darsi-4.mp4 (270MB/150min).
+- Pushs : 1ee0524 (outils diagnostic), a2ded8c (fix concat), 7a031ad (rendu v6 + worklog).
+
+Stage Summary:
+- Les 4 bugs signalés sont corrigés : dars1 (surlignage présent sur toute la durée après la khutba), dars2/dars3 (surlignage visible 7.5%/10.4%), dars4 (plus de sur-surlignage, pages 18-23 suivies correctement).
+- Les CSV de synchronisation (sortie/darsN_synchronisation.csv) permettent la vérification humaine mot à mot.
