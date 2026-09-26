@@ -474,9 +474,9 @@ def rendre_segments(fenetres, fonds, audio, chemin_ass, sortie, cfg,
         segments.append(seg)
         t = fin
         k += 1
-    if manquants:
-        restants = sum(1 for s in segments
-                       if not s.exists() or duree_media(s) < 0.5)
+    restants = sum(1 for s in segments
+                   if not s.exists() or duree_media(s) < 0.5)
+    if restants:
         print(f"ENCORE {restants} segment(s) à rendre — "
               f"relancez avec les mêmes arguments")
         return
