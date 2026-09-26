@@ -1,0 +1,30 @@
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+modèle « small » (int8) chargé en 19 s
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+  morceau 1/6 : 466 mots en 335s | langues: ar | « السلام عليكم ورحمة الله وبركاته صلاته وصلاة على »
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+  morceau 2/6 : 804 mots en 195s | langues: ar | « محال الأمر يا بل إنه دداله أم أحد »
+  morceau 3/6 : 796 mots en 240s | langues: ar | « حيث المرؤ كان وانك صابحني. وان يوسيع انه »
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+  morceau 4/6 : 767 mots en 357s | langues: ar | « وحلق منه وحلعبين دي أحاديثا كقادلنا القرآن ككما »
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+  morceau 5/6 : 815 mots en 314s | langues: so | « إلهي قولتي الثنوري فاتقوا اللهم الصضعت معو dance »
+audio : /home/z/my-project/upload/Audio darsi-2.mpeg
+6 morceaux de 480 s (durée totale 2752 s = 45.9 min)
+modèle « small » (int8) chargé en 2 s
+  morceau 6/6 : 406 mots en 338s | langues: ar | « احوية وحاق ايتي ان الدردار ما اول كو »
+OK -> /home/z/my-project/download/video-recitation/travail_darsi/dars2/transcription.json
+   4054 mots horodatés | langues : ar, so | mots étiquetés ar : 3239

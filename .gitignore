@@ -1,27 +1,5 @@
-skills/
-node_modules/
-__pycache__/
-*.pyc
-.DS_Store
-
-# Videos generees (regenerables depuis les audios sources, dars1.mp4 > 100MB limite GitHub)
-download/video-recitation/sortie/*.mp4
-
-# Blocs audio intermediaires de transcription (regenerables)
-download/video-recitation/travail_darsi/*/morceaux/*.wav
-
-# Cache de rendu des pages
-download/video-recitation/travail_darsi/*/pages/
-download/video-recitation/travail_demo/
-download/video-recitation/demo/
-download/synchronisation-recitation/demo/
-
-# Cles et secrets
-*.pem
-*.key
-id_rsa*
-id_ed25519*
-
-# Fichiers temporaires de rendu segmente (ASS decope par segment)
-download/video-recitation/sortie/*_seg*.ass
-download/video-recitation/sortie/*_segments.txt
+*.mp4
+!download/video-recitation/sortie/dars_demo.mp4
+*.wav
+worklog.md
+agent-ctx/

@@ -50,13 +50,10 @@ def preparer_morceaux(audio: Path, dossier: Path):
     return chemins, total
 
 
-def transcrire_un(model, morceau: Path, offset: float, multilingual: bool,
-                  prompt: str = None, beam: int = 5):
+def transcrire_un(model, morceau: Path, offset: float, multilingual: bool):
     """Transcrit un morceau -> (mots, segments) avec temps ABSOLUS."""
     kwargs = dict(language=None, word_timestamps=True, vad_filter=True,
-                  beam_size=beam, condition_on_previous_text=False)
-    if prompt:
-        kwargs['initial_prompt'] = prompt
+                  beam_size=1, condition_on_previous_text=False)
     if multilingual:
         kwargs['multilingual'] = True
     try:
@@ -93,9 +90,6 @@ def main():
     ap.add_argument('--calcul', default=None)
     ap.add_argument('--budget', type=float, default=BUDGET,
                     help="budget de traitement par invocation (s)")
-    ap.add_argument('--prompt', default=None,
-                    help="initial_prompt Whisper (vocabulaire du livre)")
-    ap.add_argument('--beam', type=int, default=None)
     ap.add_argument('--travail', default=None)
     args = ap.parse_args()
 
@@ -109,8 +103,6 @@ def main():
     modele = args.modele or w.get('modele', 'small')
     calcul = args.calcul or w.get('calcul', 'int8')
     multilingual = bool(w.get('multilingual', True))
-    beam = args.beam or w.get('beam', 5)
-    prompt = args.prompt or w.get('prompt', None)
 
     dossier = Path(travail) / args.dars
     cache = dossier / 'morceaux'
@@ -135,8 +127,7 @@ def main():
             continue
         offset = k * DUREE_MORCEAU
         t1 = time.time()
-        mots, segs = transcrire_un(model, morceau, offset, multilingual,
-                                   prompt, beam)
+        mots, segs = transcrire_un(model, morceau, offset, multilingual)
         sauver_json(dest, {'mots': mots, 'segments': segs})
         faits += 1
         extrait = ' '.join(m['mot'] for m in mots[:8])
