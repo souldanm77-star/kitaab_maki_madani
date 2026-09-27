@@ -313,23 +313,6 @@ def main():
                 continue
         runs.append({'paires': [(wi, bj, sc)]})
 
-    # NOUVEAU — fusion des runs proches : une vraie lecture scindée par
-    # quelques mots ratés de Whisper ne doit pas donner deux petits runs
-    # qui finiront rejetés par le filtre de qualité.
-    if runs:
-        fusionnes = [runs[0]]
-        for r in runs[1:]:
-            p = fusionnes[-1]
-            wa, ba = p['paires'][-1][0], p['paires'][-1][1]
-            wb, bb = r['paires'][0][0], r['paires'][0][1]
-            trou_t = w_mots[wb]['debut'] - w_mots[wa]['fin']
-            trou_l = bb - ba - 1
-            if trou_t <= 5.0 and trou_l <= 4:
-                p['paires'].extend(r['paires'])
-            else:
-                fusionnes.append(r)
-        runs = fusionnes
-
     actifs = []
     rejetes = 0
     for r in runs:
@@ -345,57 +328,30 @@ def main():
         span = j1 - j0 + 1                       # emprise dans le livre
         longs = sum(1 for _w, bj, _s in ps
                     if len(b_norms[bj]) >= 3) / n
-        ancre_forte = any(len(b_norms[bj]) >= 4 and sc >= 0.82
+        ancre_forte = any(len(b_norms[bj]) >= 4 and sc >= 0.85
                           for _w, bj, sc in ps)
         # Filtre qualité (le critère est la CORRESPONDANCE RÉELLE avec le
         # texte du livre, pas la simple présence de l'arabe) :
-        #   - solidité   : moyenne des similarités ≥ 0.66 (le somali
+        #   - solidité   : moyenne des similarités ≥ 0.70 (le somali
         #                  déformé plafonne à ~0.62) ;
-        #   - contiguïté : span/n ≤ 1.5 — une vraie lecture avance mot à
+        #   - contiguïté : span/n ≤ 1.45 — une vraie lecture avance mot à
         #                  mot dans le livre, les coïncidences sautent ;
-        #   - substance  : ≥ 50 % de mots longs + au moins un mot long
+        #   - substance  : ≥ 60 % de mots longs + au moins un mot long
         #                  apparié solidement (élimine les formules vides
         #                  du type « في إذا انك وقد »).
-        actif = ((n >= 4 and mean >= 0.66 and dur >= 2.0
-                  and span / n <= 1.5 and longs >= 0.5 and ancre_forte)
+        actif = ((n >= 4 and mean >= 0.70 and dur >= 2.0
+                  and span / n <= 1.45 and longs >= 0.6 and ancre_forte)
                  or
-                 (n == 3 and mean >= 0.85 and p85 >= 0.66 and dur >= 1.5
-                  and span / n <= 1.5 and longs >= 0.5 and ancre_forte))
+                 (n == 3 and mean >= 0.90 and p85 >= 0.66 and dur >= 1.5
+                  and span / n <= 1.45 and longs >= 0.6 and ancre_forte))
         r['actif'] = actif
         r['mean'] = mean
         if actif:
             actifs.append(r)
         else:
             rejetes += 1
-
-    # NOUVEAU — absorption : un run rejeté juste à côté d'un run actif
-    # (même séquence de lecture, quelques mots bruités) est récupéré si sa
-    # moyenne reste honnête — sinon des paragraphes entiers perdent leur
-    # première ou dernière partie.
-    absorbes = 0
-    for k, r in enumerate(runs):
-        if r['actif']:
-            continue
-        voisin = None
-        if k > 0 and runs[k - 1]['actif']:
-            voisin = runs[k - 1]
-        if voisin is None and k + 1 < len(runs) and runs[k + 1]['actif']:
-            voisin = runs[k + 1]
-        if voisin is None:
-            continue
-        wa, ba = voisin['paires'][-1][0], voisin['paires'][-1][1]
-        wb, bb = r['paires'][0][0], r['paires'][0][1]
-        trou_t = w_mots[wb]['debut'] - w_mots[wa]['fin']
-        trou_l = bb - ba - 1
-        if trou_t <= 4.0 and trou_l <= 3 and r['mean'] >= 0.55:
-            r['actif'] = True
-            actifs.append(r)
-            absorbes += 1
-    if absorbes:
-        rejetes -= absorbes
-    print(f"runs de lecture : {len(runs)} au total, {len(actifs)} ACTIVÉS "
-          f"(dont {absorbes} absorbés), {rejetes} rejetés "
-          f"(coïncidences / qualité insuffisante)")
+    print(f"runs de lecture : {len(runs)} au total, {len(actifs)} ACTIVÉS, "
+          f"{rejetes} rejetés (coïncidences / qualité insuffisante)")
     for k, r in enumerate(actifs):
         j0, j1 = r['paires'][0][1], r['paires'][-1][1]
         pg0 = mots[parle_idx[j0]]['page']

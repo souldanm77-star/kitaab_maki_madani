@@ -1,8 +1,8 @@
 {
   "entree": {
-    "livre": "/home/z/my-project/download/video-recitation/audio/LIVRE.pdf",
-    "cheikh": "/home/z/my-project/download/video-recitation/audio/IMAGE.jpeg",
-    "audio_dir": "/home/z/my-project/download/video-recitation/audio"
+    "livre": "audio/LIVRE.pdf",
+    "cheikh": "audio/IMAGE.jpeg",
+    "audio_dir": "audio"
   },
   "travail": "travail_darsi",
   "sortie": "sortie",
@@ -38,25 +38,25 @@
   "darses": {
     "dars1": {
       "titre": "الدرس الأول",
-      "audio": "/home/z/my-project/upload/Audio darsi-1.mpeg",
+      "audio": "audio/Audio darsi-1.mpeg",
       "pages": [1, 23],
       "mode": "mot"
     },
     "dars2": {
       "titre": "الدرس الثاني",
-      "audio": "/home/z/my-project/download/video-recitation/audio/Audio darsi-2.mpeg",
+      "audio": "audio/Audio darsi-2.mpeg",
       "pages": [1, 23],
       "mode": "mot"
     },
     "dars3": {
       "titre": "الدرس الثالث",
-      "audio": "/home/z/my-project/download/video-recitation/audio/Audio Darsi-3.mpeg",
+      "audio": "audio/Audio Darsi-3.mpeg",
       "pages": [1, 23],
       "mode": "mot"
     },
     "dars4": {
       "titre": "الدرس الرابع",
-      "audio": "/home/z/my-project/download/video-recitation/audio/Audio darsi-4.mpeg",
+      "audio": "audio/Audio darsi-4.mpeg",
       "pages": [1, 23],
       "mode": "mot"
     }

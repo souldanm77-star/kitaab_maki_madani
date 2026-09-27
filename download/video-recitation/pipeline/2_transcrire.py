@@ -90,6 +90,10 @@ def main():
     ap.add_argument('--calcul', default=None)
     ap.add_argument('--budget', type=float, default=BUDGET,
                     help="budget de traitement par invocation (s)")
+    ap.add_argument('--debut', type=int, default=0,
+                    help="index du premier morceau à traiter (parallélisme)")
+    ap.add_argument('--fin', type=int, default=None,
+                    help="index limite (exclu) des morceaux à traiter")
     ap.add_argument('--travail', default=None)
     args = ap.parse_args()
 
@@ -120,7 +124,9 @@ def main():
     print(f"modèle « {modele} » ({calcul}) chargé en {time.time() - t0:.0f} s")
 
     faits = 0
-    for k, morceau in enumerate(morceaux):
+    borne_fin = len(morceaux) if args.fin is None else min(args.fin, len(morceaux))
+    for k in range(args.debut, borne_fin):
+        morceau = morceaux[k]
         dest = cache / f"morceau_{k:03d}.json"
         if dest.exists():
             faits += 1

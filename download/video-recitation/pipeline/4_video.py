@@ -15,13 +15,20 @@ précis à la milliseconde, sans re-rendu des frames en Python.
 Sortie : sortie/<dars>.mp4   (1920x1080, H.264 + AAC — prêt pour YouTube)
 """
 import argparse
+import re
 import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageOps
 
-from commun import (charger_json, charger_config, chemin_projet,
-                    fmt_ass, duree_media)
+from commun import (charger_json, sauver_json, charger_config,
+                    chemin_projet, fmt_ass, duree_media)
+
+
+def fmt2s(t):
+    """temps ASS 'H:MM:SS.CC' -> secondes"""
+    h, m, s = t.split(':')
+    return int(h) * 3600 + int(m) * 60 + float(s)
 
 
 # ----------------------------------------------------------------- fond ---
@@ -161,14 +168,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 # --------------------------------------------------------------- ffmpeg ---
 def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
-                 t0=0.0):
+                 liste_concat=None, audio_debut=None, audio_duree=None):
     """Rendu par DEMUXEUR CONCAT : chaque page est une image affichée
     pendant sa fenêtre (le surligneur ASS passe par-dessus).
     Bien plus rapide que N entrées -loop pour un long dars.
-    t0 > 0 : rendu PARTIEL d'un segment [t0, t0+duree) — le seek audio se
-    fait à l'entrée (MP3, précis à l'échantillon près)."""
+    Si audio_debut est fourni : découpe l'audio (rendu SEGMENTÉ)."""
     v = cfg['video']
-    lst = Path(sortie).parent / (Path(sortie).stem + '_concat.txt')
+    lst = Path(liste_concat) if liste_concat else \
+        Path(sortie).parent / (Path(sortie).stem + '_concat.txt')
     lignes = ['ffconcat version 1.0']
     for (p, d0, d1), f in zip(fenetres, fonds):
         dur = max(0.5, d1 - d0)
@@ -177,23 +184,23 @@ def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
     lignes.append(f"file '{fonds[-1]}'")       # répétition finale requise
     lst.write_text('\n'.join(lignes) + '\n', encoding='utf-8')
 
-    # -nostdin : EMPÊCHE ffmpeg de lire l'entrée standard (sinon il bloque
-    # la session qui l'appelle — bug sournois et classique)
     cmd = ['ffmpeg', '-nostdin', '-y', '-hide_banner', '-loglevel', 'error',
            '-stats',
            '-f', 'concat', '-safe', '0', '-i', str(lst)]
-    if t0 > 0:                                 # seek de l'entrée AUDIO
-        cmd += ['-ss', f'{t0:.3f}']
+    if audio_debut is not None:
+        # seek d'ENTRÉE sur l'audio : ne décode pas tout le début
+        cmd += ['-ss', f'{audio_debut:.3f}']
     cmd += ['-i', str(audio),
             '-map', '0:v', '-map', '1:a',
-            # fps D'ABORD (normalise les timestamps du concat, sinon ass ne
-            # verrait qu'une frame par page), puis le surligneur ASS
-            '-vf', f"fps={v.get('fps', 25)},ass={chemin_ass},"
-                   f"format=yuv420p",
-            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
-            '-c:a', 'aac', '-b:a', '160k',
-            '-movflags', '+faststart']
-    if duree:
+           # fps D'ABORD (normalise les timestamps du concat, sinon ass ne
+           # verrait qu'une frame par page), puis le surligneur ASS
+           '-vf', f"fps={v.get('fps', 25)},ass={chemin_ass},"
+                  f"format=yuv420p",
+           '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
+           '-c:a', 'aac', '-b:a', '160k']
+    if audio_duree is not None:
+        cmd += ['-t', f'{audio_duree:.3f}']
+    elif duree:
         cmd += ['-t', f'{duree + 0.5:.3f}']   # garde anti-boucle infinie
     cmd.append(str(sortie))
     subprocess.run(cmd, check=True)
@@ -210,10 +217,9 @@ def main():
     ap.add_argument('--sortie', default=None)
     ap.add_argument('--max', type=float, default=None,
                     help='test : rend seulement les N premières secondes')
-    ap.add_argument('--debut', type=float, default=0.0,
-                    help='rendu segmenté : début du segment (s)')
-    ap.add_argument('--fin', type=float, default=None,
-                    help='rendu segmenté : fin du segment (s)')
+    ap.add_argument('--segment', nargs=2, type=float, default=None,
+                    metavar=('DEB', 'FIN'),
+                    help='rendu segmenté : ne rend que [DEB, FIN) secondes')
     args = ap.parse_args()
 
     cfg = charger_config(args.config)
@@ -240,124 +246,114 @@ def main():
         mots = [m for m in mots
                 if m.get('debut') is None or m['debut'] < duree]
 
-    # ---- fenêtres d'affichage de chaque page (ORDRE CHRONOLOGIQUE) -------
-    # On suit la lecture RÉELLE du cheikh : les mots lus (runs actifs)
-    # triés par temps définissent la séquence de pages visitées. La page
-    # courante reste affichée pendant les explications somali / hors
-    # livre, et change dès que la lecture passe à une autre page.
-    # (L'ancien code triait par NUMÉRO de page : dès que la lecture n'était
-    # pas monotone — retour en arrière ou simple coïncidence d'alignement
-    # sur une page lointaine — la mauvaise page restait affichée.)
-    lus = [m for m in mots
-           if m.get('etat') in ('whisper', 'interpole')
-           and m.get('debut') is not None]
-    if not lus:
+    # ---- fenêtres d'affichage de chaque page -----------------------------
+    # basées sur les mots effectivement LUS (runs actifs) : pendant les
+    # explications somali / hors livre, la page courante reste affichée
+    # sans surlignage.
+    par_page = {}
+    for m in mots:
+        if (m.get('etat') in ('whisper', 'interpole')
+                and m.get('debut') is not None):
+            par_page.setdefault(m['page'], []).append(m['debut'])
+    if not par_page:
         raise SystemExit("Aucun mot du livre n'a été détecté comme lu — "
                          "vérifiez l'étape 3.")
-    lus.sort(key=lambda m: m['debut'])
-
-    # séquence chronologique de passages (pages consécutives identiques
-    # fusionnées)
-    passages = []                       # [{'page','debut','fin','n'}]
-    for m in lus:
-        if passages and passages[-1]['page'] == m['page']:
-            passages[-1]['fin'] = max(passages[-1]['fin'], m['fin'])
-            passages[-1]['n'] += 1
-        else:
-            passages.append({'page': m['page'], 'debut': m['debut'],
-                             'fin': m['fin'], 'n': 1})
-
-    # garde anti-coïncidence : 1-3 mots isolés sur une page différente
-    # ne doivent pas faire clignoter l'affichage
-    robustes = []
-    for psg in passages:
-        if robustes and (psg['page'] == robustes[-1]['page'] or
-                         (psg['n'] < 4 and psg['fin'] - psg['debut'] < 2.5)):
-            robustes[-1]['fin'] = max(robustes[-1]['fin'], psg['fin'])
-            robustes[-1]['n'] += psg['n']
-        else:
-            robustes.append(psg)
-    passages = robustes
-
+    nums = sorted(par_page)
     fenetres = []
-    for idx, psg in enumerate(passages):
-        p = psg['page']
-        d0 = 0.0 if idx == 0 else max(0.0, psg['debut'] - 0.4)
-        d1 = (passages[idx + 1]['debut'] - 0.4
-              if idx + 1 < len(passages) else duree)
+    for idx, p in enumerate(nums):
+        d0 = 0.0 if idx == 0 else max(0.0, min(par_page[p]) - 0.4)
+        d1 = min(par_page[nums[idx + 1]]) if idx + 1 < len(nums) else duree
         if d1 <= d0:
             d1 = d0 + 1.0
         fenetres.append((p, d0, d1))
-    # les fenêtres sont contiguës PAR CONSTRUCTION (fin = début suivant)
-
-    # ---- rendu SEGMENTÉ (optionnel) ---------------------------------------
-    # Le segment [T0, T1) : fenêtres clippées+décalées, mots décalés,
-    # seek audio à T0. Permet de rendre un long dars par tranches qui
-    # tiennent chacune dans un appel (l'infra tue les processus détachés).
-    T0 = max(0.0, args.debut or 0.0)
-    T1 = min(args.fin, duree) if args.fin is not None else duree
-    if T0 > 0 or T1 < duree:
-        fen_clip = []
-        for p, d0, d1 in fenetres:
-            a, b = max(d0, T0), min(d1, T1)
-            if b - a > 0.05:
-                fen_clip.append((p, a - T0, b - T0))
-        fenetres = fen_clip
-        mots_seg = []
-        for m in mots:
-            fin_m = m.get('fin') or m.get('debut')
-            if fin_m is None or fin_m <= T0:
-                continue                    # terminé avant le segment
-            if m.get('debut') is not None and m['debut'] >= T1:
-                continue                    # commence après le segment
-            c = dict(m)
-            if c.get('debut') is not None:
-                c['debut'] = max(0.0, c['debut'] - T0)
-            if c.get('fin') is not None:
-                c['fin'] = max(0.05, c['fin'] - T0)
-            mots_seg.append(c)
-        mots = mots_seg
-        duree = T1 - T0
+    # CONTIGUÏTÉ obligatoire pour le démuxeur concat : la fin d'une fenêtre
+    # = le début de la suivante (sinon les chevauchements s'accumulent et
+    # les pages s'affichent en retard par rapport au surligneur ASS).
+    for k in range(len(fenetres) - 1):
+        p, d0, _d1 = fenetres[k]
+        fenetres[k] = (p, d0, fenetres[k + 1][1])
 
     # ---- fonds composés + transformations -------------------------------
     dossier_fonds = Path(travail) / 'fonds' / args.dars
     dossier_fonds.mkdir(parents=True, exist_ok=True)
     infos_pages = {p['numero']: p for p in pages['pages']}
     fonds, transfos = [], {}
+    chemin_transfos = dossier_fonds / 'transfos.json'
+    transfos_mem = charger_json(chemin_transfos) if chemin_transfos.exists() \
+        else {}
     for p, d0, d1 in fenetres:
         pj = infos_pages[p]
         fond_path = dossier_fonds / f"fond_p{p:03d}.png"
-        transfos[p] = composer_fond(cfg, cheikh,
-                                    Path(travail) / pj['image'], fond_path)
+        if fond_path.exists() and str(p) in transfos_mem:
+            transfos[p] = transfos_mem[str(p)]
+        else:
+            transfos[p] = composer_fond(cfg, cheikh,
+                                        Path(travail) / pj['image'], fond_path)
+            transfos_mem[str(p)] = transfos[p]
+            sauver_json(chemin_transfos, transfos_mem)
         fonds.append(fond_path)
         print(f"  page {p}: affichée de {d0:.1f}s à {d1:.1f}s")
 
     # ---- surligneur ASS --------------------------------------------------
-    # IMPORTANT : générer les événements UNE SEULE FOIS par page (une page
-    # peut apparaître dans plusieurs fenêtres si le cheikh y revient)
     chemin_ass = Path(travail) / args.dars / 'surlignage.ass'
     entete, evenements = None, []
-    pages_ass = []
     for p, _d0, _d1 in fenetres:
-        if p not in pages_ass:
-            pages_ass.append(p)
-    for p in pages_ass:
         mots_page = [m for m in mots if m['page'] == p]
         ent, ev = generer_ass(cfg, mots_page, transfos[p], pages['dpi'], mode)
         entete = ent
         evenements += ev
-    chemin_ass.write_text(entete + "\n".join(evenements) + "\n",
-                          encoding='utf-8')
+    seg = args.segment
+    if seg:
+        deb, fin = float(seg[0]), float(seg[1])
+        # 1) ASS : événements chevauchant [deb, fin), rebasés sur 0
+        gardes = []
+        for ligne in evenements:
+            m = re.match(r'Dialogue: 0,([\d:.]+),([\d:.]+),(.*)', ligne)
+            if not m:
+                continue
+            a, b = fmt2s(m.group(1)), fmt2s(m.group(2))
+            if b <= deb or a >= fin:
+                continue
+            nl = ligne.replace(m.group(1), fmt_ass(max(0.0, a - deb)), 1)
+            nl = nl.replace(m.group(2), fmt_ass(min(fin, b) - deb), 1)
+            gardes.append(nl)
+        chemin_ass_seg = Path(travail) / args.dars / \
+            f"surlignage_seg_{int(deb):05d}.ass"
+        chemin_ass_seg.write_text(entete + "\n".join(gardes) + "\n",
+                                  encoding='utf-8')
+        chemin_ass = chemin_ass_seg
+        # 2) fenêtres de pages : découpées sur [deb, fin) et rebasées
+        fen_seg = []
+        for p, d0, d1 in fenetres:
+            a, b = max(d0, deb), min(d1, fin)
+            if b > a:
+                fen_seg.append((p, a - deb, b - deb))
+        fenetres = fen_seg
+        print(f"segment [{deb:.0f}s -> {fin:.0f}s] : "
+              f"{len(gardes)} événements, {len(fenetres)} fenêtres")
+    else:
+        chemin_ass.write_text(entete + "\n".join(evenements) + "\n",
+                              encoding='utf-8')
     print(f"surligneur : {len(evenements)} événements ({mode}) -> {chemin_ass}")
 
     # ---- rendu ffmpeg ----------------------------------------------------
     dossier_sortie = chemin_projet(cfg, cfg.get('sortie', 'sortie'))
     dossier_sortie.mkdir(parents=True, exist_ok=True)
-    sortie = Path(args.sortie) if args.sortie else \
-        dossier_sortie / f"{args.dars}.mp4"
-    print(f"rendu ffmpeg -> {sortie}")
-    rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree,
-                 t0=T0)
+    if seg:
+        deb, fin = float(seg[0]), float(seg[1])
+        dossier_parts = dossier_sortie / 'parts'
+        dossier_parts.mkdir(exist_ok=True)
+        sortie = dossier_parts / f"{args.dars}_part_{int(deb):05d}.mp4"
+        liste = Path(travail) / args.dars / f"concat_seg_{int(deb):05d}.txt"
+        print(f"rendu ffmpeg segment -> {sortie}")
+        rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg,
+                     liste_concat=liste, audio_debut=deb,
+                     audio_duree=fin - deb)
+    else:
+        sortie = Path(args.sortie) if args.sortie else \
+            dossier_sortie / f"{args.dars}.mp4"
+        print(f"rendu ffmpeg -> {sortie}")
+        rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree)
     print(f"OK -> {sortie}")
 
 
