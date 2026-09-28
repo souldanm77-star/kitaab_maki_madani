@@ -1,0 +1,37 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 834
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Surl,Arial,20,&H00000000,&H00000000,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 2,0:00:00.00,0:00:00.26,Surl,,0,0,0,,{\an7\pos(662.0,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 24.2 0 24.2 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:00.26,0:00:00.76,Surl,,0,0,0,,{\an7\pos(619.5,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 38.4 0 38.4 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:00.76,0:00:01.20,Surl,,0,0,0,,{\an7\pos(599.9,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 15.4 0 15.4 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:01.20,0:00:01.94,Surl,,0,0,0,,{\an7\pos(554.9,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 40.9 0 40.9 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:01.94,0:00:03.00,Surl,,0,0,0,,{\an7\pos(483.0,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 67.9 0 67.9 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:03.00,0:00:04.20,Surl,,0,0,0,,{\an7\pos(407.3,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 71.5 0 71.5 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:04.74,0:00:05.38,Surl,,0,0,0,,{\an7\pos(361.0,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 42.0 0 42.0 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:05.38,0:00:05.78,Surl,,0,0,0,,{\an7\pos(331.2,150.9)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 25.7 0 25.7 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:23.28,0:00:23.94,Surl,,0,0,0,,{\an7\pos(555.9,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 32.3 0 32.3 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:23.94,0:00:25.30,Surl,,0,0,0,,{\an7\pos(496.2,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 55.6 0 55.6 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:25.30,0:00:25.78,Surl,,0,0,0,,{\an7\pos(454.4,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 37.8 0 37.8 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:25.78,0:00:26.04,Surl,,0,0,0,,{\an7\pos(431.0,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 19.1 0 19.1 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:26.04,0:00:26.48,Surl,,0,0,0,,{\an7\pos(395.5,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 31.5 0 31.5 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:26.48,0:00:27.22,Surl,,0,0,0,,{\an7\pos(349.5,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 41.7 0 41.7 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:27.22,0:00:27.96,Surl,,0,0,0,,{\an7\pos(305.2,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 40.2 0 40.2 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:27.96,0:00:28.40,Surl,,0,0,0,,{\an7\pos(281.8,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 19.3 0 19.3 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:28.40,0:00:29.20,Surl,,0,0,0,,{\an7\pos(216.1,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 61.6 0 61.6 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:29.20,0:00:29.64,Surl,,0,0,0,,{\an7\pos(180.4,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 31.4 0 31.4 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:29.64,0:00:30.28,Surl,,0,0,0,,{\an7\pos(133.5,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 42.9 0 42.9 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:30.28,0:00:31.42,Surl,,0,0,0,,{\an7\pos(92.6,205.0)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 36.8 0 36.8 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:31.42,0:00:31.60,Surl,,0,0,0,,{\an7\pos(747.0,232.2)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 23.9 0 23.9 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:31.60,0:00:31.88,Surl,,0,0,0,,{\an7\pos(719.0,232.2)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 23.9 0 23.9 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:31.88,0:00:32.30,Surl,,0,0,0,,{\an7\pos(679.6,232.2)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 35.3 0 35.3 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:32.30,0:00:32.60,Surl,,0,0,0,,{\an7\pos(696.3,270.2)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 26.3 0 26.3 20.3 0 20.3{\p0}
+Dialogue: 2,0:00:32.60,0:00:32.86,Surl,,0,0,0,,{\an7\pos(663.1,270.2)\1c&H00FFFF&\1a&H8C&\p1}m 0 0 l 29.1 0 29.1 20.3 0 20.3{\p0}

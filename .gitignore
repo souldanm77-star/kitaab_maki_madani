@@ -1,5 +1,15 @@
-*.mp4
-!download/video-recitation/sortie/dars_demo.mp4
+# caches Python
+__pycache__/
+*.pyc
+
+# gros fichiers audio temporaires (morceaux WAV de transcription)
 *.wav
-worklog.md
-agent-ctx/
+
+# vidéos finales > 100 Mo : GitHub les refuse (limite par fichier)
+download/video-recitation/sortie/*.mp4
+download/video-recitation/sortie/*.mpg
+download/*.mp4
+download/*.mpg
+
+# fichiers de travail volumineux non essentiels
+*.log
