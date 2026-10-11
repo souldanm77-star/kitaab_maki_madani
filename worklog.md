@@ -64,3 +64,46 @@ Stage Summary:
 - Rapports de contrôle pour l'utilisateur : sortie/dars1_segments.csv (chronologie horodatée lecture/somali/hors_livre) et sortie/dars1_synchronisation.csv (355 mots surlignés avec temps/page/position).
 - Résiduel documenté : 2-3 micro-runs de 3-7 mots (du'a finale p23, hadith cité p6) où formules arabes coïncident avec le texte de la page — visuellement cohérent (mots réellement prononcés, page correcte).
 - Pour les dars 2-4 : ajouter audio + entrée dans config_darsi.json → étapes 2→4 (l'extraction PDF couvre déjà tout le livre).
+
+---
+Task ID: 3
+Agent: Super Z (agent principal)
+Task: Livrer le script autonome demandé (darsi_video.py : Whisper + détection répétitions + pages + surlignage) + résoudre le problème « vidéos invisibles sur GitHub » + push du dépôt.
+
+Work Log:
+- Écrit darsi_video.py (990 lignes, autonome, commenté en français) : transcription faster-whisper mot à mot (morceaux 480 s + cache de reprise), extraction PDF arabe robuste portée du pipeline (PyMuPDF rawdict + tri RTL + Otsu + ligatures), alignement ancres n-grammes -> NW -> interpolation -> runs (règle 3 états), séquence de pages (retours en arrière supportés), rendu ffmpeg concat + surlignage ASS rectangles jaunes (opacité 0.45), rapports timing.csv + rapport_alignement.json, CLI complète (--dossier/--surligner/--format mpeg/--modele...).
+- Tests : 2 bugs trouvés et corrigés (dossier images absent ; pdfplumber -> remplacé par la méthode RTL éprouvée car extract_words casse l'arabe).
+- Découverte : le PDF démo régénéré casse le découpage même avec le pipeline original (police décorative) — pas un bug du nouveau script ; validé sur le VRAI LIVRE.pdf (mots propres).
+- Test final sur 60 s d'audio RÉEL du dars1 : 3 ancres, 5 runs -> après ajout de 2 garde-fous (plausibilité temporelle des sauts VITESSE_MAX=8 mots/s ; coupure aux retours en arrière SAUT_MAX=5 ; anagrammes الله/هلL=0.95 ; plafond de progression NW 5x+200) : 2 runs propres page 1 (khutba + formule prophétique), faux alignements éliminés, 25 rectangles de surlignage, frame t=3 s vérifiée : mot إنَّ surligné en jaune sur la page réelle.
+- README_DARSI.md : installation, 2 configurations (PDF / images+txt), algorithme détaillé des répétitions, limites.
+- GitHub : cause identifiée du problème utilisateur — pas de .gitignore + sortie/dars1.mp4 (131 Mo) et 11 WAV (~15 Mo chacun) TRACKÉS (limite GitHub = 100 Mo par fichier). Créé .gitignore racine (*.wav, *.mp4 sorties, __pycache__), détracké les gros fichiers.
+- Push bloqué 2 fois : historiques local/remote DISJOINTS (merge-base vide) + untracked skills/upload + 19 conflits add/add. Résolu : merge --allow-unrelated-histories, conflits résolus (theirs=pipeline corrigé + config, ours=scripts/diagnostics), vieux snapshots locaux purgés par reset --soft FETCH_HEAD + recommit.
+- PUSH RÉUSSI 06dbe71..9e47325. BONUS MAJEUR : transcriptions complètes dars2/dars3/dars4 récupérées du remote (des heures de calcul économisées).
+- Restauration upload/ (4 audios + IMAGE + LIVRE) et skills/ après merge.
+
+Stage Summary:
+- darsi_video.py + README_DARSI.md poussés sur GitHub (commit 9e47325), visible par l'utilisateur.
+- Explication à donner : les mp4 (>100 Mo) ne peuvent JAMAIS apparaître sur GitHub ; les vidéos se téléchargent localement (/home/z/my-project/download/).
+- Prochaine étape : re-rendu des 4 darses avec darsi_video.py ou pipeline v3 (transcriptions toutes disponibles), livraison Darsi-1..4.mp4.
+
+---
+Task ID: 4
+Agent: Super Z (agent principal)
+Task: Lancement de la correction complète des 4 vidéos (bugs signalés par l'utilisateur) + livraison fonctionnelle.
+
+Work Log:
+- Diagnostic : transcriptions dars1-4 terminées ; timing.json corrects (dars1=50 runs/355 mots, dars2=17/128, dars3=38/321, dars4=41/324) mais surlignage.ass de dars2/3/4 PÉRIMÉS (générés avant l'alignement final) -> cause des « vidéos sans surlignage ».
+- BUG MAJEUR DÉCOUVERT ET CORRIGÉ (pipeline/4_video.py, mode segmenté) : « fonds » était une liste alignée sur les fenêtres PLEINES ; en rendu segmenté, zip(fenetres_coupées, fonds_pleines) décalait les fonds (la page 18 recevait le fond de la page 7, etc.). Fix : fonds indexés PAR PAGE (dict fonds_par_page) + réalignement après découpe du segment. C'est la vraie cause des « fausses pages » de dars4 — et elle touchait AUSSI dars1/2/3 dès le 2e segment.
+- Améliorations 4_video.py : fenêtres de pages CHRONOLOGIQUES (retours en arrière gérés, groupe stable >= 2 mots contre le clignotement), dédoublonnage des événements ASS par page unique.
+- Rendu complet des 4 dars via rendre_segments.sh (repreneur) : dars1=11 segments, dars2=6, dars3=8, dars4=19 ; concat -c copy + faststart.
+- Vérification EXACTE (seek keyframe réelle + argmin sur tous les fonds) : dars1 5/5 pages OK, dars2 5/5 OK, dars3 5/5 OK, dars4 6/6 OK (pages 7,19,21,22,23,23). Surlignage jaune confirmé par échantillonnage dense (les « jaune=0 » ponctuels = pauses entre les mots, comportement normal).
+- Point d'attention méthodologique : pour t<12 s le seek hybride max(0,tm-12)+ss12 regarde t=12 s -> faux négatifs ; utiliser le seek de sortie direct en début de vidéo.
+- t=61 s de dars1 sans surlignage = NORMAL (explication somali, règle 3 états) : ce n'est pas le bug signalé mais le comportement demandé.
+- surlignage.ass complets régénérés pour les 4 dars (scripts/regenerer_ass.py) : 355/128/321/324 événements.
+- Livrables copiés : download/Darsi-1.mp4 (136 Mo, 80 min), Darsi-2.mp4 (82 Mo, 46 min), Darsi-3.mp4 (111 Mo, 64 min), Darsi-4.mp4 (270 Mo, 150 min).
+- Git : sortie/dars1.mp4 (135 Mo) + download/darsi1/Darsi1_Maki_wa_Madani.mp4 (146 Mo) + parts/video_seule.mp4 (54 Mo) détrackés ; .gitignore renforcé ; push vers GitHub.
+
+Stage Summary:
+- Les 4 vidéos Darsi-1..4.mp4 sont CORRIGÉES, VÉRIFIÉES et livrées dans /home/z/my-project/download/.
+- Bug racine « mauvaises pages » = désalignement fonds/fenêtres en rendu segmenté — corrigé définitivement dans 4_video.py.
+- darsi_video.py (script autonome demandé) déjà présent et poussé (commit 9e47325).

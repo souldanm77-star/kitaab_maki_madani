@@ -1,0 +1,5 @@
+[0:v]trim=duration=549.296,setpts=PTS-STARTPTS,scale=834:1080:flags=lanczos,setsar=1,fps=25,format=yuv420p[p0];
+[p0]concat=n=1:v=1:a=0[pages];
+[1:v]trim=duration=549.296,setpts=PTS-STARTPTS,scale=1086:1080:force_original_aspect_ratio=decrease:flags=lanczos,pad=1086:1080:(ow-iw)/2:(oh-ih)/2:color=0x14161A,setsar=1,fps=25,format=yuv420p[ch];
+[ch][pages]hstack=inputs=2[base];
+[base]sendcmd=f=/home/z/my-project/travail/darsi1/sendcmd.txt,drawbox=x=0:y=0:w=0:h=0:color=0xFFCC00@0.40:t=fill[vid]

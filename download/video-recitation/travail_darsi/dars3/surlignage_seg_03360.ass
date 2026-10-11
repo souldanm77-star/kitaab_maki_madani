@@ -1,0 +1,36 @@
+[Script Info]
+; Surligneur karaoke — généré par 4_video.py
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hl,Amiri,20,&H8C3BEBFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:53.90,0:00:54.18,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1179 121 l 1211 121 l 1211 165 l 1179 165{\p0}
+Dialogue: 0,0:00:54.18,0:00:54.42,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1144 121 l 1183 121 l 1183 165 l 1144 165{\p0}
+Dialogue: 0,0:00:54.42,0:00:54.86,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1096 121 l 1148 121 l 1148 165 l 1096 165{\p0}
+Dialogue: 0,0:00:54.86,0:00:55.24,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1075 121 l 1100 121 l 1100 165 l 1075 165{\p0}
+Dialogue: 0,0:00:55.24,0:00:55.62,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1031 121 l 1079 121 l 1079 165 l 1031 165{\p0}
+Dialogue: 0,0:00:55.62,0:00:57.62,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1632 155 l 1681 155 l 1681 200 l 1632 200{\p0}
+Dialogue: 0,0:01:01.74,0:01:02.70,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1606 190 l 1636 190 l 1636 234 l 1606 234{\p0}
+Dialogue: 0,0:01:02.70,0:01:03.34,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1580 190 l 1610 190 l 1610 234 l 1580 234{\p0}
+Dialogue: 0,0:01:03.34,0:01:03.78,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1535 190 l 1584 190 l 1584 239 l 1535 239{\p0}
+Dialogue: 0,0:01:03.78,0:01:04.52,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1482 190 l 1540 190 l 1540 234 l 1482 234{\p0}
+Dialogue: 0,0:01:04.52,0:01:05.40,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1420 190 l 1486 190 l 1486 234 l 1420 234{\p0}
+Dialogue: 0,0:01:05.40,0:01:05.84,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1393 190 l 1428 190 l 1428 234 l 1393 234{\p0}
+Dialogue: 0,0:01:05.84,0:01:06.02,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1370 190 l 1397 190 l 1397 234 l 1370 234{\p0}
+Dialogue: 0,0:01:06.02,0:01:06.08,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1342 190 l 1375 190 l 1375 234 l 1342 234{\p0}
+Dialogue: 0,0:01:06.08,0:01:07.18,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1304 190 l 1347 190 l 1347 234 l 1304 234{\p0}
+Dialogue: 0,0:02:42.12,0:02:42.74,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1592 258 l 1636 258 l 1636 302 l 1592 302{\p0}
+Dialogue: 0,0:02:42.74,0:02:43.16,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1554 258 l 1596 258 l 1596 302 l 1554 302{\p0}
+Dialogue: 0,0:02:43.16,0:02:43.54,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1527 258 l 1559 258 l 1559 302 l 1527 302{\p0}
+Dialogue: 0,0:02:43.54,0:02:44.00,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1491 258 l 1532 258 l 1532 302 l 1491 302{\p0}
+Dialogue: 0,0:02:44.00,0:02:44.46,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1461 258 l 1495 258 l 1495 302 l 1461 302{\p0}
+Dialogue: 0,0:02:44.46,0:02:44.88,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1422 258 l 1465 258 l 1465 302 l 1422 302{\p0}
+Dialogue: 0,0:02:44.88,0:02:46.16,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1378 258 l 1427 258 l 1427 302 l 1378 302{\p0}

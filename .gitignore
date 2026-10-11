@@ -13,3 +13,7 @@ download/*.mpg
 
 # fichiers de travail volumineux non essentiels
 *.log
+
+# autres vidéos > limite GitHub / rebuts de travail
+download/darsi1/*.mp4
+download/video-recitation/travail_darsi/*/parts/

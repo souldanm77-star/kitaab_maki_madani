@@ -247,22 +247,39 @@ def main():
                 if m.get('debut') is None or m['debut'] < duree]
 
     # ---- fenêtres d'affichage de chaque page -----------------------------
-    # basées sur les mots effectivement LUS (runs actifs) : pendant les
-    # explications somali / hors livre, la page courante reste affichée
-    # sans surlignage.
-    par_page = {}
-    for m in mots:
-        if (m.get('etat') in ('whisper', 'interpole')
-                and m.get('debut') is not None):
-            par_page.setdefault(m['page'], []).append(m['debut'])
-    if not par_page:
+    # SÉQUENCE CHRONOLOGIQUE des pages réellement lues (mots actifs de
+    # l'étape 3). La page affichée suit la lecture, retours en arrière
+    # compris (règle : si le cheikh reprend une phrase d'une page
+    # précédente, on RÉAFFICHE cette page). Pendant les explications
+    # somali / hors livre, la page courante reste affichée sans
+    # surlignage. Une page ne devient « courante » que si au moins 2
+    # mots consécutifs la concernent (évite le clignotement sur un mot
+    # interpolé isolé).
+    actifs = sorted((m for m in mots
+                     if m.get('etat') in ('whisper', 'interpole')
+                     and m.get('debut') is not None),
+                    key=lambda m: m['debut'])
+    if not actifs:
         raise SystemExit("Aucun mot du livre n'a été détecté comme lu — "
                          "vérifiez l'étape 3.")
-    nums = sorted(par_page)
+    seq = []                     # [(page, instant_d'affichage)]
+    n = len(actifs)
+    i = 0
+    while i < n:
+        p = actifs[i]['page']
+        j = i
+        while j < n and actifs[j]['page'] == p:
+            j += 1
+        if (j - i) >= 2 or not seq:          # groupe stable (>= 2 mots)
+            t = max(0.0, actifs[i]['debut'] - 0.4)
+            if seq and t < seq[-1][1]:
+                t = seq[-1][1]               # fenêtres strictement croissantes
+            seq.append((p, t))
+        i = j
     fenetres = []
-    for idx, p in enumerate(nums):
-        d0 = 0.0 if idx == 0 else max(0.0, min(par_page[p]) - 0.4)
-        d1 = min(par_page[nums[idx + 1]]) if idx + 1 < len(nums) else duree
+    for k, (p, t0) in enumerate(seq):
+        d0 = 0.0 if k == 0 else t0
+        d1 = seq[k + 1][1] if k + 1 < len(seq) else duree
         if d1 <= d0:
             d1 = d0 + 1.0
         fenetres.append((p, d0, d1))
@@ -274,14 +291,19 @@ def main():
         fenetres[k] = (p, d0, fenetres[k + 1][1])
 
     # ---- fonds composés + transformations -------------------------------
+    # IMPORTANT : les fonds sont indexés PAR PAGE (dict). Le rendu
+    # segmenté découpe « fenetres » ; si les fonds étaient une liste
+    # alignée sur les fenêtres PLEINES, le zip fenêtres/fonds du segment
+    # serait décalé (la page N recevant le fond de la page k-ième) — bug
+    # des « mauvaises pages » corrigé ici.
     dossier_fonds = Path(travail) / 'fonds' / args.dars
     dossier_fonds.mkdir(parents=True, exist_ok=True)
     infos_pages = {p['numero']: p for p in pages['pages']}
-    fonds, transfos = [], {}
+    fonds_par_page, transfos = {}, {}
     chemin_transfos = dossier_fonds / 'transfos.json'
     transfos_mem = charger_json(chemin_transfos) if chemin_transfos.exists() \
         else {}
-    for p, d0, d1 in fenetres:
+    for p in sorted({p for p, _d0, _d1 in fenetres}):
         pj = infos_pages[p]
         fond_path = dossier_fonds / f"fond_p{p:03d}.png"
         if fond_path.exists() and str(p) in transfos_mem:
@@ -291,13 +313,18 @@ def main():
                                         Path(travail) / pj['image'], fond_path)
             transfos_mem[str(p)] = transfos[p]
             sauver_json(chemin_transfos, transfos_mem)
-        fonds.append(fond_path)
+        fonds_par_page[p] = fond_path
+    for p, d0, d1 in fenetres:
         print(f"  page {p}: affichée de {d0:.1f}s à {d1:.1f}s")
+    fonds = [fonds_par_page[p] for p, _d0, _d1 in fenetres]
 
     # ---- surligneur ASS --------------------------------------------------
+    # pages UNIQUES des fenêtres : en cas de retour en arrière, une même
+    # page peut apparaître plusieurs fois — ne générer ses événements
+    # qu'une seule fois.
     chemin_ass = Path(travail) / args.dars / 'surlignage.ass'
     entete, evenements = None, []
-    for p, _d0, _d1 in fenetres:
+    for p in sorted({p for p, _d0, _d1 in fenetres}):
         mots_page = [m for m in mots if m['page'] == p]
         ent, ev = generer_ass(cfg, mots_page, transfos[p], pages['dpi'], mode)
         entete = ent
@@ -322,13 +349,15 @@ def main():
         chemin_ass_seg.write_text(entete + "\n".join(gardes) + "\n",
                                   encoding='utf-8')
         chemin_ass = chemin_ass_seg
-        # 2) fenêtres de pages : découpées sur [deb, fin) et rebasées
+        # 2) fenêtres de pages : découpées sur [deb, fin) et rebasées,
+        #    fonds RÉALIGNÉS sur les fenêtres conservées (sinon zip décalé)
         fen_seg = []
         for p, d0, d1 in fenetres:
             a, b = max(d0, deb), min(d1, fin)
             if b > a:
                 fen_seg.append((p, a - deb, b - deb))
         fenetres = fen_seg
+        fonds = [fonds_par_page[p] for p, _a, _b in fenetres]
         print(f"segment [{deb:.0f}s -> {fin:.0f}s] : "
               f"{len(gardes)} événements, {len(fenetres)} fenêtres")
     else:

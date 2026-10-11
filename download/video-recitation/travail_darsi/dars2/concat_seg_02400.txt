@@ -1,0 +1,6 @@
+ffconcat version 1.0
+file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars2/fond_p017.png'
+duration 348.480
+file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars2/fond_p023.png'
+duration 3.264
+file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars2/fond_p023.png'

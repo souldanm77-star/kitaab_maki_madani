@@ -1,0 +1,22 @@
+[Script Info]
+; Surligneur karaoke — généré par 4_video.py
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hl,Amiri,20,&H8C3BEBFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:01:45.76,0:01:46.06,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1513 896 l 1538 896 l 1538 932 l 1513 932{\p0}
+Dialogue: 0,0:01:46.06,0:01:46.80,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1469 896 l 1518 896 l 1518 932 l 1469 932{\p0}
+Dialogue: 0,0:01:46.80,0:01:48.12,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1450 896 l 1475 896 l 1475 935 l 1450 935{\p0}
+Dialogue: 0,0:03:41.35,0:03:41.61,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1140 683 l 1169 683 l 1169 724 l 1140 724{\p0}
+Dialogue: 0,0:03:41.61,0:03:42.13,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1111 678 l 1146 678 l 1146 726 l 1111 726{\p0}
+Dialogue: 0,0:03:42.13,0:03:42.29,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1094 678 l 1117 678 l 1117 719 l 1094 719{\p0}
+Dialogue: 0,0:03:42.29,0:03:42.79,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1063 675 l 1100 675 l 1100 722 l 1063 722{\p0}
+Dialogue: 0,0:03:42.79,0:03:44.37,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1663 709 l 1681 709 l 1681 746 l 1663 746{\p0}

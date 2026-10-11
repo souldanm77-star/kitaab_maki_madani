@@ -1,0 +1,21 @@
+[Script Info]
+; Surligneur en ligne — généré par 4_video.py
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hl,Amiri,20,&H8C3BEBFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.40,0:00:12.56,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1045 816 l 1681 816 l 1681 860 l 1045 860{\p0}
+Dialogue: 0,0:00:12.56,0:01:03.57,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1045 816 l 1681 816 l 1681 860 l 1045 860{\p0}
+Dialogue: 0,0:00:12.56,0:00:34.01,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1045 842 l 1681 842 l 1681 885 l 1045 885{\p0}
+Dialogue: 0,0:00:34.01,0:01:03.57,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1045 842 l 1681 842 l 1681 885 l 1045 885{\p0}
+Dialogue: 0,0:00:34.01,0:00:42.12,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1409 869 l 1681 869 l 1681 905 l 1409 905{\p0}
+Dialogue: 0,0:00:42.12,0:01:03.57,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1409 869 l 1681 869 l 1681 905 l 1409 905{\p0}
+Dialogue: 0,0:00:42.12,0:01:03.57,hl,,0,0,0,,{\an7\pos(0,0)\p1}m 1091 896 l 1659 896 l 1659 941 l 1091 941{\p0}

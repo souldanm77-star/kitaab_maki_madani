@@ -1,0 +1,29 @@
+[Script Info]
+; Surligneur karaoke — généré par 4_video.py
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hl,Amiri,20,&H8C3BEBFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:21.56,0:00:24.06,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1304 656 l 1339 656 l 1339 693 l 1304 693{\p0}
+Dialogue: 0,0:00:24.06,0:00:24.48,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1279 656 l 1310 656 l 1310 693 l 1279 693{\p0}
+Dialogue: 0,0:00:24.48,0:00:24.96,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1251 656 l 1285 656 l 1285 693 l 1251 693{\p0}
+Dialogue: 0,0:00:24.96,0:00:25.58,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1215 656 l 1257 656 l 1257 693 l 1215 693{\p0}
+Dialogue: 0,0:00:25.58,0:00:25.64,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1641 683 l 1681 683 l 1681 719 l 1641 719{\p0}
+Dialogue: 0,0:00:25.64,0:00:25.70,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1611 683 l 1647 683 l 1647 719 l 1611 719{\p0}
+Dialogue: 0,0:00:25.70,0:00:26.66,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1594 683 l 1617 683 l 1617 719 l 1594 719{\p0}
+Dialogue: 0,0:00:26.66,0:00:26.78,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1579 683 l 1600 683 l 1600 722 l 1579 722{\p0}
+Dialogue: 0,0:00:26.78,0:00:27.72,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1556 683 l 1585 683 l 1585 719 l 1556 719{\p0}
+Dialogue: 0,0:05:48.88,0:05:49.24,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1485 814 l 1528 814 l 1528 866 l 1485 866{\p0}
+Dialogue: 0,0:05:49.24,0:05:49.68,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1451 814 l 1490 814 l 1490 866 l 1451 866{\p0}
+Dialogue: 0,0:05:49.68,0:05:50.00,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1416 814 l 1456 814 l 1456 859 l 1416 859{\p0}
+Dialogue: 0,0:05:50.00,0:05:50.46,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1394 814 l 1420 814 l 1420 859 l 1394 859{\p0}
+Dialogue: 0,0:05:50.46,0:05:50.68,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1346 814 l 1399 814 l 1399 859 l 1346 859{\p0}
+Dialogue: 0,0:05:50.68,0:05:51.50,hl,,0,0,0,,{\an7\pos(0,0)\fad(25,25)\p1}m 1305 814 l 1351 814 l 1351 859 l 1305 859{\p0}

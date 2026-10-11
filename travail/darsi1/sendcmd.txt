@@ -1,0 +1,8 @@
+0.051 [enter] drawbox x 1346, drawbox y 650, drawbox w 471, drawbox h 46;
+26.670 [enter] drawbox x 1153, drawbox y 687, drawbox w 659, drawbox h 46;
+105.340 [enter] drawbox x 1753, drawbox y 724, drawbox w 65, drawbox h 46;
+128.640 [enter] drawbox x 1182, drawbox y 760, drawbox w 606, drawbox h 46;
+319.270 [enter] drawbox x 1665, drawbox y 797, drawbox w 202, drawbox h 46;
+343.850 [enter] drawbox x 1216, drawbox y 834, drawbox w 584, drawbox h 46;
+415.330 [enter] drawbox x 1218, drawbox y 871, drawbox w 168, drawbox h 47;
+439.920 [enter] drawbox x 1164, drawbox y 908, drawbox w 233, drawbox h 51;

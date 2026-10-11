@@ -1,0 +1,629 @@
+     1→#!/usr/bin/env python3
+     2→# -*- coding: utf-8 -*-
+     3→"""
+     4→ÉTAPE 4 — Montage de la vidéo
+     5→=============================
+     6→  GAUCHE : image du cheikh (fixe, recadrée plein cadre)
+     7→  DROITE : la page RÉELLE du livre (rendu PNG de l'étape 1)
+     8→  PAR-DESSUS : rectangle surligneur semi-transparent qui suit le mot
+     9→               (mode « mot ») ou la ligne (mode « ligne ») pendant la
+    10→               récitation.
+    11→
+    12→Le surlignage est un fichier ASS (dessins vectoriels) incrusté par ffmpeg :
+    13→précis à la milliseconde, sans re-rendu des frames en Python.
+    14→
+    15→Sortie : sortie/<dars>.mp4   (1920x1080, H.264 + AAC — prêt pour YouTube)
+    16→"""
+    17→import argparse
+    18→import csv
+    19→import subprocess
+    20→from pathlib import Path
+    21→
+    22→from PIL import Image, ImageOps
+    23→
+    24→from commun import (charger_json, charger_config, chemin_projet,
+    25→                    fmt_ass, duree_media)
+    26→
+    27→
+    28→# --------------------------------------------- stabilité des sessions ---
+    29→# L'aligneur produit des appariements mots-audio PARFAITS isolément mais
+    30→# imparfaits collectivement : hésitations entre deux pages (le même audio
+    31→# existe à deux endroits du livre), versets et formules RÉCITÉS DE MÉMOIRE
+    32→# qui « matchent » une page lointaine, citations du titre du livre...
+    33→# Or l'utilisateur a valié la règle des 3 états : surligner UNIQUEMENT la
+    34→# vraie lecture posée du livre. D'où ce post-traitement RENDU :
+    35→#   1. les mots lus sont groupés en « visites » (même page, trous <= 20 s)
+    36→#      puis en « sessions » (chaînage de visites, trous <= 8 s) ;
+    37→#   2. chaque session désigne sa page DOMINANTE (la visite la plus riche) ;
+    38→#   3. une session est ÉCARTÉE si sa visite dominante est RAPIDE (>= 4 mots
+    39→#      à <= 0,55 s/mot : formule récitée de mémoire), MINUSCULE (< 3 mots :
+    40→#      bruit) ou NI substantielle (>= 8 mots ou >= 6 s) NI accompagnée
+    41→#      (autre session de la même page à ±180 s : lecture fragmentée réelle) ;
+    42→#   4. une session non forte survit si elle RELAIE une session voisine forte
+    43→#      de la même page (fragments d'une même lecture posée) ;
+    44→#   5. les mots des visites non dominantes d'une session sont écartés
+    45→#      (le rectangle serait affiché sur une autre page que la sienne) ;
+    46→#   6. les fenêtres de pages suivent l'ORDRE CHRONOLOGIQUE des sessions :
+    47→#      une relecture d'une page antérieure réaffiche cette page (bug v3 :
+    48→#      fenêtres triées par NUMÉRO de page -> durées négatives et pages en
+    49→#      retard pour tout dars non linéaire).
+    50→GAP_VISITE = 20.0   # s — trou dans une même page -> nouvelle visite
+    51→GAP_SESSION = 8.0   # s — visites quelconques chaînées en session
+    52→ZONE_TROU = 600.0   # s — sessions de même page rapprochées = même cluster
+    53→ZONE_SESSIONS = 3   # un cluster de lecture compte >= 3 sessions...
+    54→ZONE_MOTS = 8       # ...totalisant >= 8 mots...
+    55→ZONE_DENSITE = 3.0  # ...à >= 3 mots/min (lecture fragmentée réelle)
+    56→FAST_PACE = 0.55    # s/mot (débuts) : rythme de récitation de mémoire
+    57→SUB_N = 8           # substantielle : >= SUB_N mots...
+    58→SUB_N_SPAN = 6      # ...ou >= 6 mots sur >= 6 s (débuts)
+    59→SUB_SPAN = 6.0
+    60→
+    61→
+    62→def stabiliser_sessions(mots, trace=False):
+    63→    """Filtre les mots lus et renvoie (mots_gardés, sessions).
+    64→    sessions : [{'page', 'debut', 'fin', 'mots'}, ...] triées par temps,
+    65→    une entrée par session confirmée (page dominante uniquement)."""
+    66→    lus = sorted([m for m in mots
+    67→                  if m.get('etat') in ('whisper', 'interpole')
+    68→                  and m.get('debut') is not None],
+    69→                 key=lambda m: m['debut'])
+    70→
+    71→    # ---- 1) visites : même page, petits trous seulement -----------------
+    72→    visites = []
+    73→    for m in lus:
+    74→        fin_m = max(m.get('fin') or m['debut'], m['debut'])
+    75→        if visites and visites[-1]['page'] == m['page'] \
+    76→                and m['debut'] - visites[-1]['fin'] <= GAP_VISITE:
+    77→            v = visites[-1]
+    78→            v['fin'] = max(v['fin'], fin_m)
+    79→            v['fin_parole'] = m['debut']      # début du dernier mot :
+    80→            v['mots'].append(m)               # les fins Whisper sont gonflées
+    81→        else:
+    82→            visites.append({'page': m['page'], 'debut': m['debut'],
+    83→                            'fin': fin_m, 'fin_parole': m['debut'],
+    84→                            'mots': [m]})
+    85→
+    86→    # ---- 2) sessions : chaînage de visites (page quelconque) ------------
+    87→    sessions = []
+    88→    for v in visites:
+    89→        if sessions and v['debut'] - sessions[-1]['fin'] <= GAP_SESSION:
+    90→            sessions[-1]['fin'] = max(sessions[-1]['fin'], v['fin'])
+    91→            sessions[-1]['visites'].append(v)
+    92→        else:
+    93→            sessions.append({'debut': v['debut'], 'fin': v['fin'],
+    94→                             'visites': [v]})
+    95→
+    96→    # ---- 3) page dominante de chaque session -----------------------------
+    97→    for s in sessions:
+    98→        s['dom'] = max(
+    99→            s['visites'],
+   100→            key=lambda v: (len(v['mots']),
+   101→                           sum(m.get('confiance', 0) for m in v['mots'])
+   102→                           / len(v['mots'])))
+   103→        s['page'] = s['dom']['page']
+   104→
+   105→    # ---- 4) écarte récitations de mémoire, bruit et îlots isolés ---------
+   106→    # rapide        : >= 4 mots enchaînés à <= 0,55 s/mot -> formule récitée
+   107→    # minuscule     : < 3 mots -> bruit d'appariement
+   108→    # substantielle : >= 8 mots, ou >= 6 mots posés sur >= 6 s
+   109→    # zone          : cluster de >= 3 sessions de la même page (trous
+   110→    #                 <= 600 s) totalisant >= 8 mots à >= 3 mots/min -> le
+   111→    #                 cheikh lit cette page par fragments entrecoupés
+   112→    #                 d'explications ; TOUTES les sessions du cluster sont
+   113→    #                 légitimes (même les rapides : son débit réel compresse
+   114→    #                 les horodatages Whisper)
+   115→    # une session survit si elle est forte, ou si elle relaie (voisine
+   116→    # immédiate vivante, même page) une session forte de cette page.
+   117→    def profil(s):
+   118→        d = s['dom']
+   119→        n = len(d['mots'])
+   120→        span = max(0.001, d['fin_parole'] - d['debut'])
+   121→        return n, span, span / n
+   122→
+   123→    # clusters de lectures par page + zones
+   124→    zone = [False] * len(sessions)
+   125→    par_page = {}
+   126→    for i, s in enumerate(sessions):
+   127→        par_page.setdefault(s['page'], []).append(i)
+   128→    for page, idxs in par_page.items():
+   129→        clusters, courant = [], [idxs[0]]
+   130→        for i in idxs[1:]:
+   131→            if sessions[i]['debut'] - sessions[courant[-1]]['fin'] <= ZONE_TROU:
+   132→                courant.append(i)
+   133→            else:
+   134→                clusters.append(courant)
+   135→                courant = [i]
+   136→        clusters.append(courant)
+   137→        for cl in clusters:
+   138→            if len(cl) < ZONE_SESSIONS:
+   139→                continue
+   140→            nb_mots = sum(len(sessions[i]['dom']['mots']) for i in cl)
+   141→            if nb_mots < ZONE_MOTS:
+   142→                continue
+   143→            duree = sessions[cl[-1]]['fin'] - sessions[cl[0]]['debut']
+   144→            if duree <= 0:
+   145→                continue
+   146→            if nb_mots / duree * 60.0 >= ZONE_DENSITE:
+   147→                for i in cl:
+   148→                    zone[i] = True
+   149→
+   150→    def forte(i):
+   151→        s = sessions[i]
+   152→        n, span, pace = profil(s)
+   153→        if n < 3:
+   154→            return False                        # bruit
+   155→        if zone[i]:
+   156→            return True                         # fragment d'une zone de lecture
+   157→        if n >= 4 and pace <= FAST_PACE:
+   158→            return False                        # récité de mémoire, isolé
+   159→        return n >= SUB_N or (n >= SUB_N_SPAN and span >= SUB_SPAN)
+   160→
+   161→    vivants = [True] * len(sessions)
+   162→    change = True
+   163→    while change:
+   164→        change = False
+   165→        idx = [i for i in range(len(sessions)) if vivants[i]]
+   166→        for k, i in enumerate(idx):
+   167→            if forte(i):
+   168→                continue
+   169→            voisins = []
+   170→            if k > 0:
+   171→                voisins.append(idx[k - 1])
+   172→            if k + 1 < len(idx):
+   173→                voisins.append(idx[k + 1])
+   174→            # relais d'une lecture posée de la MÊME page -> on garde
+   175→            if any(sessions[v]['page'] == sessions[i]['page'] and forte(v)
+   176→                   for v in voisins):
+   177→                if trace:
+   178→                    print(f"    [trace] session {sessions[i]['debut']:.1f}-"
+   179→                          f"{sessions[i]['fin']:.1f} "
+   180→                          f"p{sessions[i]['page']} gardée (relais)")
+   181→                continue
+   182→            vivants[i] = False
+   183→            change = True
+   184→            if trace:
+   185→                print(f"    [trace] session {sessions[i]['debut']:.1f}-"
+   186→                      f"{sessions[i]['fin']:.1f} "
+   187→                      f"p{sessions[i]['page']} écartée (faible/rapide)")
+   188→
+   189→    # ---- 5) sortie -------------------------------------------------------
+   190→    mots_gardes, finales = [], []
+   191→    for i, s in enumerate(sessions):
+   192→        if vivants[i]:
+   193→            mots_gardes.extend(s['dom']['mots'])
+   194→        finales.append({'page': s['page'], 'debut': s['debut'],
+   195→                        'fin': s['fin'], 'mots': s['dom']['mots'],
+   196→                        'vivante': bool(vivants[i]),
+   197→                        'visites': [{'page': v['page'], 'debut': v['debut'],
+   198→                                     'fin': v['fin'], 'n': len(v['mots'])}
+   199→                                    for v in s['visites']]})
+   200→    mots_gardes.sort(key=lambda m: m['debut'])
+   201→    return mots_gardes, finales
+   202→
+   203→
+   204→def exporter_csv(dossier_sortie, dars, mots_gardes):
+   205→    """Ré-exporte le CSV de synchronisation depuis les mots RÉELLEMENT
+   206→    surlignés (l'aligner exporte avant stabilisation)."""
+   207→    dossier_sortie.mkdir(parents=True, exist_ok=True)
+   208→    chemin = dossier_sortie / f"{dars}_synchronisation.csv"
+   209→    with open(chemin, 'w', encoding='utf-8', newline='') as f:
+   210→        wc = csv.writer(f, delimiter=';')
+   211→        wc.writerow(['mot', 'debut', 'fin', 'page', 'position', 'texte'])
+   212→        for m in mots_gardes:
+   213→            wc.writerow([m.get('norme', m['texte']), f"{m['debut']:.3f}",
+   214→                         f"{m['fin']:.3f}", m['page'], m['position'],
+   215→                         m['texte']])
+   216→    return chemin
+   217→
+   218→
+   219→# ----------------------------------------------------------------- fond ---
+   220→def composer_fond(cfg, image_cheikh, image_page, chemin_sortie, cache=False):
+   221→    """Assemble 1920x1080 : cheikh à gauche + page réelle à droite.
+   222→    Renvoie la transformation (pt PDF -> pixels écran).
+   223→    cache=True : si le fond existe déjà (composition déterministe), seuls
+   224→    les chiffres de la transformation sont recalculés (rendu segmenté)."""
+   225→    v = cfg['video']
+   226→    W, H = v['largeur'], v['hauteur']
+   227→    LW = v['panneau_cheikh']['largeur']
+   228→    RW = W - LW
+   229→
+   230→    # --- transformation (déterministe, calculée avant toute composition)
+   231→    pg = Image.open(image_page).convert('RGB')
+   232→    marges = v.get('marge', {})
+   233→    mx = marges.get('cote', 36)
+   234→    my = marges.get('haut', 36)
+   235→    s2 = min((RW - 2 * mx) / pg.width, (H - 2 * my) / pg.height)
+   236→    pw, ph = round(pg.width * s2), round(pg.height * s2)
+   237→    ox = LW + (RW - (pw + 2)) // 2          # +2 : cadre de 1 px
+   238→    oy = (H - (ph + 2)) // 2
+   239→    transfo = {'s': s2, 'ox': ox + 1, 'oy': oy + 1}   # vise l'intérieur
+   240→
+   241→    if cache and Path(chemin_sortie).exists():
+   242→        return transfo
+   243→
+   244→    fond = Image.new('RGB', (W, H), tuple(v.get('fond', [24, 24, 28])))
+   245→
+   246→    # --- panneau cheikh : recadrage « cover » centré
+   247→    img = Image.open(image_cheikh).convert('RGB')
+   248→    s = max(LW / img.width, H / img.height)
+   249→    img = img.resize((round(img.width * s), round(img.height * s)),
+   250→                     Image.LANCZOS)
+   251→    x = (img.width - LW) // 2
+   252→    y = (img.height - H) // 2
+   253→    fond.paste(img.crop((x, y, x + LW, y + H)), (0, 0))
+   254→
+   255→    # --- panneau page : papier clair + séparateur doré
+   256→    papier = tuple(v.get('papier', [246, 242, 233]))
+   257→    fond.paste(Image.new('RGB', (RW, H), papier), (LW, 0))
+   258→    fond.paste(Image.new('RGB', (4, H), tuple(v.get('separation',
+   259→                                                      [203, 164, 74]))),
+   260→               (LW - 2, 0))
+   261→
+   262→    # --- la page réelle : ajustée dans le panneau avec marges
+   263→    pg2 = pg.resize((pw, ph), Image.LANCZOS)
+   264→    pg2 = ImageOps.expand(pg2, border=1, fill=(180, 172, 150))
+   265→    fond.paste(pg2, (ox, oy))
+   266→
+   267→    fond.save(chemin_sortie)
+   268→    return transfo
+   269→
+   270→
+   271→# ------------------------------------------------------------------ ASS ---
+   272→def generer_ass(cfg, mots, transfo, dpi, mode, chemin_ass=None):
+   273→    """Construit les événements du surligneur.
+   274→    Seuls les mots des passages LU dans le livre (états 'whisper' et
+   275→    'interpole' produits par l'étape 3) sont surlignés — jamais les
+   276→    explications somali ni l'arabe hors livre ('hors_lecture').
+   277→    Si chemin_ass est fourni : écrit un fichier complet.
+   278→    Renvoie (entete, evenements) — evenements = texte brut des Dialogue.
+   279→    """
+   280→    v = cfg['video']
+   281→    s_cfg = v.get('surlignage', {})
+   282→    opacite = s_cfg.get('opacite', 0.45)
+   283→    alpha = max(0, min(255, round(255 * (1 - opacite))))
+   284→    r, g, b = s_cfg.get('couleur', [255, 235, 59])
+   285→    primaire = f"&H{alpha:02X}{b:02X}{g:02X}{r:02X}"
+   286→    pad = s_cfg.get('pad', 5)
+   287→
+   288→    ratio = dpi / 72.0
+   289→
+   290→    def rect_ecran(x0, y0, x1, y1):
+   291→        X0 = round(transfo['ox'] + x0 * ratio * transfo['s']) - pad
+   292→        Y0 = round(transfo['oy'] + y0 * ratio * transfo['s']) - pad
+   293→        X1 = round(transfo['ox'] + x1 * ratio * transfo['s']) + pad
+   294→        Y1 = round(transfo['oy'] + y1 * ratio * transfo['s']) + pad
+   295→        if X1 - X0 < 16:
+   296→            X1 = X0 + 16
+   297→        if Y1 - Y0 < 22:
+   298→            Y1 = Y0 + 22
+   299→        return X0, Y0, X1, Y1
+   300→
+   301→    # ---- cibles à surligner ------------------------------------------------
+   302→    actif = lambda m: (m.get('etat') in ('whisper', 'interpole')
+   303→                       and m.get('debut') is not None)
+   304→    cibles = []
+   305→    if mode == 'mot':
+   306→        cibles = [m for m in mots if actif(m)]
+   307→    else:  # mode « ligne » : la ligne entière reste surlignée tant qu'on la lit
+   308→        groupes = {}
+   309→        for m in mots:
+   310→            if m.get('etat') == 'hors_texte':
+   311→                continue
+   312→            groupes.setdefault((m['page'], m.get('ligne', 0)), []).append(m)
+   313→        for (page, ligne), ms in groupes.items():
+   314→            t = [m for m in ms if actif(m)]
+   315→            if not t:
+   316→                continue
+   317→            cibles.append({
+   318→                'page': page, 'ligne': ligne,
+   319→                'x0': min(m['x0'] for m in ms),
+   320→                'y0': min(m['y0'] for m in ms),
+   321→                'x1': max(m['x1'] for m in ms),
+   322→                'y1': max(m['y1'] for m in ms),
+   323→                'debut': min(m['debut'] for m in t),
+   324→                'fin': max(m['fin'] for m in t)})
+   325→        cibles.sort(key=lambda c: c['debut'])
+   326→        for a, b in zip(cibles, cibles[1:]):
+   327→            if b['debut'] - a['fin'] < 3.0:
+   328→                a['fin'] = b['debut']      # surlignage continu ligne à ligne
+   329→
+   330→    entete = f"""[Script Info]
+   331→; Surligneur karaoke — généré par 4_video.py
+   332→ScriptType: v4.00+
+   333→PlayResX: {v['largeur']}
+   334→PlayResY: {v['hauteur']}
+   335→ScaledBorderAndShadow: yes
+   336→WrapStyle: 2
+   337→
+   338→[V4+ Styles]
+   339→Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+   340→Style: hl,Amiri,20,{primaire},&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+   341→
+   342→[Events]
+   343→Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+   344→"""
+   345→    evenements = []
+   346→    for c in cibles:
+   347→        X0, Y0, X1, Y1 = rect_ecran(c['x0'], c['y0'], c['x1'], c['y1'])
+   348→        dessin = f"m {X0} {Y0} l {X1} {Y0} l {X1} {Y1} l {X0} {Y1}"
+   349→        texte = "{\\an7\\pos(0,0)\\fad(25,25)\\p1}" + dessin + "{\\p0}"
+   350→        evenements.append(
+   351→            f"Dialogue: 0,{fmt_ass(c['debut'])},{fmt_ass(c['fin'])},"
+   352→            f"hl,,0,0,0,,{texte}")
+   353→
+   354→    if chemin_ass:
+   355→        Path(chemin_ass).write_text(entete + "\n".join(evenements) + "\n",
+   356→                                    encoding='utf-8')
+   357→    return entete, evenements
+   358→
+   359→
+   360→# --------------------------------------------------------------- ffmpeg ---
+   361→def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg,
+   362→                 duree=None, debut=None, fin=None):
+   363→    """Rendu par DEMUXEUR CONCAT : chaque page est une image affichée
+   364→    pendant sa fenêtre (le surligneur ASS passe par-dessus).
+   365→    Bien plus rapide que N entrées -loop pour un long dars.
+   366→    Si debut/fin sont fournis (rendu segmenté) : fenetres/fonds sont déjà
+   367→    recadrés sur [debut, fin), l'ASS est déjà décalé à 0, et seul l'AUDIO
+   368→    est compensé par un seek d'entrée (-ss debut)."""
+   369→    v = cfg['video']
+   370→    lst = Path(sortie).parent / (Path(sortie).stem + '_concat.txt')
+   371→    lignes = ['ffconcat version 1.0']
+   372→    for (p, d0, d1), f in zip(fenetres, fonds):
+   373→        dur = max(0.5, d1 - d0)
+   374→        lignes.append(f"file '{f}'")
+   375→        lignes.append(f"duration {dur:.3f}")
+   376→    lignes.append(f"file '{fonds[-1]}'")       # répétition finale requise
+   377→    lst.write_text('\n'.join(lignes) + '\n', encoding='utf-8')
+   378→
+   379→    # -nostdin : EMPÊCHE ffmpeg de lire l'entrée standard (sinon il bloque
+   380→    # la session qui l'appelle — bug sournois et classique)
+   381→    cmd = ['ffmpeg', '-nostdin', '-y', '-hide_banner', '-loglevel', 'error',
+   382→           '-stats',
+   383→           '-f', 'concat', '-safe', '0', '-i', str(lst)]
+   384→    if debut is not None:
+   385→        # seek d'entrée AUDIO : l'option s'applique à l'entrée suivante
+   386→        cmd += ['-ss', f'{debut:.3f}']
+   387→    cmd += ['-i', str(audio),
+   388→            '-map', '0:v', '-map', '1:a',
+   389→            # fps D'ABORD (normalise les timestamps du concat, sinon ass ne
+   390→            # verrait qu'une frame par page), puis le surligneur ASS
+   391→            '-vf', f"fps={v.get('fps', 25)},ass={chemin_ass},"
+   392→                   f"format=yuv420p",
+   393→            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
+   394→            '-c:a', 'aac', '-b:a', '160k',
+   395→            '-movflags', '+faststart']
+   396→    if debut is not None:
+   397→        cmd += ['-t', f'{max(0.5, fin - debut):.3f}']
+   398→    elif duree:
+   399→        cmd += ['-t', f'{duree + 0.5:.3f}']   # garde anti-boucle infinie
+   400→    cmd.append(str(sortie))
+   401→    subprocess.run(cmd, check=True)
+   402→
+   403→
+   404→def ass_segmentaire(cfg, fenetres, transfos, dpi, mode, mots, t0, t1,
+   405→                    chemin):
+   406→    """ASS décalé pour le segment [t0, t1) : événements recoupés puis
+   407→    décalés à 0 (le rendu du segment démarre à 0).
+   408→    Un segment sans aucun mot lu (grande explication somali) reçoit un
+   409→    ASS vide (en-tête seul) — le fond de page reste affiché sans
+   410→    surlignage, conformément à la règle des 3 états."""
+   411→    entete, _ = generer_ass(cfg, [], next(iter(transfos.values())),
+   412→                            dpi, mode)
+   413→    mots_seg = []
+   414→    for m in mots:
+   415→        if m.get('fin', m['debut']) > t0 and m['debut'] < t1:
+   416→            c = dict(m)
+   417→            c['debut'] = max(0.0, m['debut'] - t0)
+   418→            c['fin'] = max(0.05, m.get('fin', m['debut']) - t0)
+   419→            mots_seg.append(c)
+   420→    evenements = []
+   421→    for p, _d0, _d1 in fenetres:
+   422→        mp = [m for m in mots_seg if m['page'] == p]
+   423→        if not mp:
+   424→            continue
+   425→        ent, ev = generer_ass(cfg, mp, transfos[p], dpi, mode)
+   426→        evenements += ev
+   427→    Path(chemin).write_text(entete + '\n'.join(evenements) + '\n',
+   428→                            encoding='utf-8')
+   429→    return len(evenements)
+   430→
+   431→
+   432→def rendre_segments(fenetres, fonds, audio, chemin_ass, sortie, cfg,
+   433→                    duree, longueur, par_appel=1, mots=None, transfos=None,
+   434→                    dpi=None, mode='mot', pages_cfg=None):
+   435→    """Rendu SEGMENTÉ avec reprise : les processus de fond ne survivant pas
+   436→    entre les appels d'outils, le rendu se fait par tranches (au plus
+   437→    par_appel tranches nouvelles par invocation) ; les segments complets
+   438→    sont sautés, puis concaténés SANS ré-encodage quand tout est prêt.
+   439→    Chaque segment reçoit sa propre liste concat (fenêtres recadrées sur
+   440→    [t, fin)) et son ASS décalé à 0 — aucun seek sur le flux vidéo."""
+   441→    sortie = Path(sortie)
+   442→    dossier = sortie.parent
+   443→    prefix = sortie.stem
+   444→    segments, t, k = [], 0.0, 0
+   445→    manquants = 0
+   446→    while t < duree - 0.5:
+   447→        fin = min(t + longueur, duree)
+   448→        seg = dossier / f"{prefix}_seg{k:03d}.mp4"
+   449→        attendu = fin - t
+   450→        deja = duree_media(seg) if seg.exists() else 0.0
+   451→        if deja >= attendu - 1.5:
+   452→            print(f"  segment {k} [{t:.0f}-{fin:.0f}s] déjà complet "
+   453→                  f"({deja:.1f}s) — sauté")
+   454→        elif manquants >= par_appel:
+   455→            print(f"  segment {k} [{t:.0f}-{fin:.0f}s] EN ATTENTE "
+   456→                  f"(relancez l'appel suivant)")
+   457→        else:
+   458→            # fenêtres recadrées sur le segment (contiguïté conservée)
+   459→            seg_fen, seg_fonds = [], []
+   460→            for (p, d0, d1), fpath in zip(fenetres, fonds):
+   461→                a, b = max(d0, t), min(d1, fin)
+   462→                if b - a > 0.05:
+   463→                    seg_fen.append((p, a - t, b - t))
+   464→                    seg_fonds.append(fpath)
+   465→            ass_seg = dossier / f"{prefix}_seg{k:03d}.ass"
+   466→            n_ev = ass_segmentaire(cfg, seg_fen, transfos, dpi, mode,
+   467→                                   mots or [], t, fin, ass_seg)
+   468→            print(f"  segment {k} [{t:.0f}-{fin:.0f}s] "
+   469→                  f"({len(seg_fen)} fenêtres, {n_ev} événements) ...")
+   470→            rendre_video(seg_fen, seg_fonds, audio, ass_seg, seg, cfg,
+   471→                         debut=t, fin=fin)
+   472→            ass_seg.unlink()
+   473→            manquants += 1
+   474→        segments.append(seg)
+   475→        t = fin
+   476→        k += 1
+   477→    if manquants:
+   478→        restants = sum(1 for s in segments
+   479→                       if not s.exists() or duree_media(s) < 0.5)
+   480→        print(f"ENCORE {restants} segment(s) à rendre — "
+   481→              f"relancez avec les mêmes arguments")
+   482→        return
+   483→    lst = dossier / f"{prefix}_segments.txt"
+   484→    lst.write_text('\n'.join(f"file '{s}'" for s in segments) + '\n',
+   485→                   encoding='utf-8')
+   486→    subprocess.run(['ffmpeg', '-nostdin', '-y', '-hide_banner',
+   487→                    '-loglevel', 'error', '-f', 'concat', '-safe', '0',
+   488→                    '-i', str(lst), '-c', 'copy',
+   489→                    '-movflags', '+faststart', str(sortie)], check=True)
+   490→    for s in segments:
+   491→        s.unlink()
+   492→    lst.unlink()
+   493→    print(f"  {k} segments concaténés sans ré-encodage")
+   494→
+   495→
+   496→# ----------------------------------------------------------------- main ---
+   497→def main():
+   498→    ap = argparse.ArgumentParser(description="Montage vidéo (étape 4)")
+   499→    ap.add_argument('--config', default='config.json')
+   500→    ap.add_argument('--dars', required=True)
+   501→    ap.add_argument('--mode', choices=['mot', 'ligne'], default=None,
+   502→                    help="surlignage mot à mot (défaut) ou ligne par ligne")
+   503→    ap.add_argument('--travail', default=None)
+   504→    ap.add_argument('--sortie', default=None)
+   505→    ap.add_argument('--max', type=float, default=None,
+   506→                    help='test : rend seulement les N premières secondes')
+   507→    ap.add_argument('--segment', type=float, default=None,
+   508→                    help='rendu segmenté avec reprise : longueur cible d un '
+   509→                         'segment en s (le rendu complet se fait appel '
+   510→                         'après appel, puis concat sans ré-encodage)')
+   511→    ap.add_argument('--par-appel', type=int, default=1,
+   512→                    help='segments rendus par invocation (défaut 1)')
+   513→    args = ap.parse_args()
+   514→
+   515→    cfg = charger_config(args.config)
+   516→    travail = chemin_projet(cfg, args.travail or cfg.get('travail', 'travail'))
+   517→    dars = cfg['darses'][args.dars]
+   518→    mode = args.mode or dars.get('mode') or \
+   519→        cfg['video'].get('surlignage', {}).get('mode', 'mot')
+   520→
+   521→    pages = charger_json(Path(travail) / 'pages.json')
+   522→    timing = charger_json(Path(travail) / args.dars / 'timing.json')
+   523→    audio = chemin_projet(cfg, dars['audio'])
+   524→    cheikh = chemin_projet(cfg, cfg['entree']['cheikh'])
+   525→    duree = duree_media(audio)
+   526→    if not duree:
+   527→        duree = timing.get('duree', 0.0)
+   528→
+   529→    p1, p2 = dars['pages']
+   530→    mots = [m for m in timing['mots'] if p1 <= m['page'] <= p2]
+   531→    if not mots:
+   532→        raise SystemExit(f"Aucun mot calé pour « {args.dars} » — lancez les "
+   533→                         f"étapes 1→3 d'abord.")
+   534→    if args.max:
+   535→        duree = min(duree, args.max)
+   536→        mots = [m for m in mots
+   537→                if m.get('debut') is None or m['debut'] < duree]
+   538→
+   539→    # ---- stabilité des sessions + fenêtres CHRONOLOGIQUES ----------------
+   540→    # le surlignage ne conserve que les lectures posées du livre (règle des
+   541→    # 3 états) et la page affichée suit l'ordre RÉEL de la lecture.
+   542→    mots_gardes, sessions = stabiliser_sessions(mots)
+   543→    sessions = [s for s in sessions if s['vivante']]
+   544→    if not sessions:
+   545→        raise SystemExit("Aucune lecture du livre n'a été confirmée après "
+   546→                         "stabilisation — vérifiez l'étape 3.")
+   547→    n_ecartes = sum(1 for m in mots
+   548→                    if m.get('etat') in ('whisper', 'interpole')
+   549→                    and m.get('debut') is not None) - len(mots_gardes)
+   550→    print(f"stabilisation : {len(mots_gardes)} mots gardés "
+   551→          f"({n_ecartes} écartés : îlots, récitations de mémoire, "
+   552→          f"hésitations) en {len(sessions)} sessions de lecture")
+   553→
+   554→    # fenêtres : une par rafale de sessions de même page ; la première
+   555→    # couvre depuis 0 s (avant la première lecture, la page du premier
+   556→    # passage lu reste affichée, sans surlignage) ; CONTIGUÏTÉ obligatoire
+   557→    # pour le démuxeur concat (sinon dérive pages/surligneur ASS).
+   558→    têtes = []
+   559→    for s in sessions:
+   560→        d0 = max(0.0, s['debut'] - 0.4)
+   561→        if têtes and têtes[-1][0] == s['page']:
+   562→            continue                      # même page : la fenêtre continue
+   563→        têtes.append([s['page'], d0])
+   564→    if têtes:
+   565→        têtes[0][1] = 0.0                 # la vidéo commence à 0 s !
+   566→    fenetres = []
+   567→    for k, (p, d0) in enumerate(têtes):
+   568→        d1 = têtes[k + 1][1] if k + 1 < len(têtes) else duree
+   569→        if d1 <= d0:
+   570→            d1 = d0 + 1.0
+   571→        fenetres.append((p, d0, d1))
+   572→    for p, d0, d1 in fenetres:
+   573→        print(f"  page {p}: affichée de {d0:.1f}s à {d1:.1f}s")
+   574→
+   575→    # ---- fonds composés + transformations -------------------------------
+   576→    # (cache : le fond composé est déterministe, on ne refait que les
+   577→    #  nouveaux — chaque invocation de rendu segmenté gagne ~30 s)
+   578→    dossier_fonds = Path(travail) / 'fonds' / args.dars
+   579→    dossier_fonds.mkdir(parents=True, exist_ok=True)
+   580→    infos_pages = {p['numero']: p for p in pages['pages']}
+   581→    fonds, transfos = [], {}
+   582→    for p, d0, d1 in fenetres:
+   583→        pj = infos_pages[p]
+   584→        fond_path = dossier_fonds / f"fond_p{p:03d}.png"
+   585→        transfos[p] = composer_fond(cfg, cheikh,
+   586→                                    Path(travail) / pj['image'],
+   587→                                    fond_path, cache=True)
+   588→        fonds.append(fond_path)
+   589→
+   590→    # ---- surligneur ASS --------------------------------------------------
+   591→    chemin_ass = Path(travail) / args.dars / 'surlignage.ass'
+   592→    entete, evenements = None, []
+   593→    for p, d0, d1 in fenetres:
+   594→        # mots GARDÉS de cette page dont l'instant tombe dans la fenêtre
+   595→        # (une même page peut avoir plusieurs fenêtres si le cheikh y
+   596→        # revient plus tard — le filtre temporel évite les doublons)
+   597→        mots_page = [m for m in mots_gardes
+   598→                     if m['page'] == p and d0 <= m['debut'] < d1]
+   599→        ent, ev = generer_ass(cfg, mots_page, transfos[p], pages['dpi'], mode)
+   600→        entete = ent
+   601→        evenements += ev
+   602→    chemin_ass.write_text(entete + "\n".join(evenements) + "\n",
+   603→                          encoding='utf-8')
+   604→    print(f"surligneur : {len(evenements)} événements ({mode}) -> {chemin_ass}")
+   605→
+   606→    # ---- rendu ffmpeg ----------------------------------------------------
+   607→    dossier_sortie = chemin_projet(cfg, cfg.get('sortie', 'sortie'))
+   608→    dossier_sortie.mkdir(parents=True, exist_ok=True)
+   609→    sortie = Path(args.sortie) if args.sortie else \
+   610→        dossier_sortie / f"{args.dars}.mp4"
+   611→    # ---- CSV de synchronisation (mots RÉELLEMENT surlignés) --------------
+   612→    if not args.max:
+   613→        csv_chemin = exporter_csv(dossier_sortie, args.dars, mots_gardes)
+   614→        print(f"CSV synchronisation ré-exporté -> {csv_chemin}")
+   615→
+   616→    print(f"rendu ffmpeg -> {sortie}")
+   617→    if args.segment:
+   618→        rendre_segments(fenetres, fonds, audio, chemin_ass, sortie, cfg,
+   619→                        duree, args.segment, args.par_appel,
+   620→                        mots=mots_gardes, transfos=transfos,
+   621→                        dpi=pages['dpi'], mode=mode)
+   622→    else:
+   623→        rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree)
+   624→    print(f"OK -> {sortie}")
+   625→
+   626→
+   627→if __name__ == '__main__':
+   628→    main()
+   629→

@@ -1,0 +1,6 @@
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_000.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_001.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_002.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_003.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_004.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/chunks/dars2/morceau_005.mp4'
