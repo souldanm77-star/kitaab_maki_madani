@@ -4,3 +4,5 @@ file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_00960
 file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_01440.mp4'
 file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_01920.mp4'
 file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_02400.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_02880.mp4'
+file '/home/z/my-project/download/video-recitation/sortie/parts/dars2_part_03360.mp4'

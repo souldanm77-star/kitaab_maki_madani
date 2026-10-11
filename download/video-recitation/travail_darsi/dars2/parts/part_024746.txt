@@ -1,4 +1,0 @@
-ffconcat version 1.0
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars2/fond_p014.png'
-duration 99999
-file '/home/z/my-project/download/video-recitation/travail_darsi/fonds/dars2/fond_p014.png'

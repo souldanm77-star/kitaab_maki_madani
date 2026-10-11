@@ -24,13 +24,31 @@
     "hauteur": 1080,
     "fps": 25,
     "dpi": 200,
-    "panneau_cheikh": { "largeur": 768 },
-    "fond": [24, 24, 28],
-    "papier": [246, 242, 233],
-    "separation": [203, 164, 74],
+    "panneau_cheikh": {
+      "largeur": 768
+    },
+    "fond": [
+      24,
+      24,
+      28
+    ],
+    "papier": [
+      246,
+      242,
+      233
+    ],
+    "separation": [
+      203,
+      164,
+      74
+    ],
     "surlignage": {
       "mode": "mot",
-      "couleur": [255, 235, 59],
+      "couleur": [
+        255,
+        235,
+        59
+      ],
       "opacite": 0.45,
       "pad": 5
     }
@@ -39,25 +57,37 @@
     "dars1": {
       "titre": "الدرس الأول",
       "audio": "audio/Audio darsi-1.mpeg",
-      "pages": [1, 23],
+      "pages": [
+        1,
+        23
+      ],
       "mode": "mot"
     },
     "dars2": {
       "titre": "الدرس الثاني",
-      "audio": "audio/Audio darsi-2.mpeg",
-      "pages": [1, 23],
+      "audio": "audio/Audio Darsi-3.mpeg",
+      "pages": [
+        1,
+        23
+      ],
       "mode": "mot"
     },
     "dars3": {
       "titre": "الدرس الثالث",
-      "audio": "audio/Audio Darsi-3.mpeg",
-      "pages": [1, 23],
+      "audio": "audio/Audio darsi-2.mpeg",
+      "pages": [
+        1,
+        23
+      ],
       "mode": "mot"
     },
     "dars4": {
       "titre": "الدرس الرابع",
       "audio": "audio/Audio darsi-4.mpeg",
-      "pages": [1, 23],
+      "pages": [
+        1,
+        23
+      ],
       "mode": "mot"
     }
   }

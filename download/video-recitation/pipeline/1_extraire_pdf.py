@@ -23,6 +23,29 @@ import fitz  # PyMuPDF
 from commun import (normaliser, est_recitable, sauver_json,
                     charger_config, chemin_projet)
 
+# -----------------------------------------------------------------
+# RÉPARATION de la couche texte du PDF (ToUnicode incomplet) :
+#  - le glyphe décoratif « لله » ne fournit que ه/ل (l'alef est perdue)
+#    → الله sort sous forme لهل / هلل / اهلل selon la page ;
+#  - les kashidas (élargissements typographiques des pages poétiques)
+#    sont mappés vers des alefs → « النساخ » sort « النسااااخ ».
+# Ces deux corrections sont sûres : aucun vrai mot arabe n'a 2 alefs
+# consécutives, et لهل/هلل/اهلل ne sont pas des mots.
+CORRECTIONS = {'لهل': 'الله', 'هلل': 'الله', 'اهلل': 'الله',
+               'لهلا': 'الله', 'هللا': 'الله', 'لله': 'الله'}
+
+
+def reparer(texte):
+    if not texte:
+        return texte
+    if texte in CORRECTIONS:
+        return CORRECTIONS[texte]
+    if 'اا' in texte:                       # kashidas -> alefs uniques
+        import re as _re
+        texte = _re.sub('ا{2,}', 'ا', texte)
+        texte = CORRECTIONS.get(texte, texte)
+    return texte
+
 
 def grouper_caracteres(page):
     """Collecte les caractères de la page, groupés par objet 'ligne' du PDF."""
@@ -83,7 +106,14 @@ def grouper_chevauchement(chars_triees):
     """Regroupe les glyphes dont les bbox se chevauchent fortement
     (ligatures empilées type لله) — l'ordre FLUX est conservé À
     L'INTÉRIEUR d'un groupe, restaurant l'ordre logique même si les
-    x sont quasi égaux. À n'utiliser qu'À L'INTÉRIEUR d'un mot."""
+    x sont quasi égaux. À n'utiliser qu'À L'INTÉRIEUR d'un mot.
+
+    CORRECTION (bug des lettres inversées) : PyMuPDF émet les caractères
+    d'un même glyphe ligaturé dans l'ordre VISUEL gauche→droite, donc
+    INVERSÉ par rapport à l'ordre logique (الله sortait «اهلل»,
+    الموت → «املوت», الأقربين → «األقربني»). Quand tous les caractères
+    d'un groupe partagent la même boîte (± 25 % de la largeur), on
+    inverse le groupe pour retrouver l'ordre logique RTL."""
     groupes = []
     for bbox, c in chars_triees:
         place = False
@@ -98,6 +128,16 @@ def grouper_chevauchement(chars_triees):
                 place = True
         if not place:
             groupes.append([(bbox, c)])
+    # --- inversion des groupes « même boîte » (ligatures à glyphes uniques)
+    for k, g in enumerate(groupes):
+        if len(g) >= 2:
+            x0s = [b[0] for b, _ in g]
+            x1s = [b[2] for b, _ in g]
+            wref = (max(x1s) - min(x0s)) or 1.0
+            meme_boite = (max(x0s) - min(x0s) <= 0.25 * wref and
+                          max(x1s) - min(x1s) <= 0.25 * wref)
+            if meme_boite:
+                groupes[k] = list(reversed(g))
     return groupes
 
 
@@ -164,12 +204,30 @@ def mots_de_rangee(chars):
                          'x1': t[0][2], 'y1': t[0][3]})
 
     # --- texte de chaque mot : ordre logique via ligatures regroupées ------
+    # Les CHIFFRES d'un nombre sont remis en ordre LTR (le PDF les stocke
+    # visuellement ; le tri RTL les inversait : « 180 » -> « 081 »).
+    def texte_du_mot(cs):
+        cs2 = sorted(cs, key=lambda t: (-t[0][2], t[0][0]))
+        groupes = grouper_chevauchement(cs2)
+        seq = [t for g in groupes for t in g]
+        # re-ordonner les séries de chiffres en LTR
+        out, i = [], 0
+        while i < len(seq):
+            if seq[i][1].isdigit():
+                j = i
+                while j < len(seq) and seq[j][1].isdigit():
+                    j += 1
+                out.extend(sorted(seq[i:j], key=lambda t: t[0][0]))
+                i = j
+            else:
+                out.append(seq[i])
+                i += 1
+        return ''.join(c for _, c in out)
+
     mots = []
     for s in sacs:
         cs = sorted(s['chars'], key=lambda t: (-t[0][2], t[0][0]))
-        groupes = grouper_chevauchement(cs)
-        texte = ''.join(c for _, c in
-                        [t for g in groupes for t in g])
+        texte = reparer(texte_du_mot(cs))
         mots.append({'texte': texte, 'x0': s['x0'], 'y0': s['y0'],
                      'x1': s['x1'], 'y1': s['y1']})
 

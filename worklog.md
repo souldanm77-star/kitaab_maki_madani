@@ -107,3 +107,23 @@ Stage Summary:
 - Les 4 vidéos Darsi-1..4.mp4 sont CORRIGÉES, VÉRIFIÉES et livrées dans /home/z/my-project/download/.
 - Bug racine « mauvaises pages » = désalignement fonds/fenêtres en rendu segmenté — corrigé définitivement dans 4_video.py.
 - darsi_video.py (script autonome demandé) déjà présent et poussé (commit 9e47325).
+
+---
+Task ID: 5
+Agent: Super Z (agent principal)
+Task: Correction des problèmes signalés sur dars2/3/4 (inversion + surlignage manquant) — reprise après rollback du workspace.
+
+Work Log:
+- ROLLBACK constaté : le workspace avait été réinitialisé par la synchronisation (commits locaux perdus, travail_darsi/dars2-4 et audios supprimés, mp4 perdus). RÉCUPÉRATION COMPLÈTE depuis GitHub (commit 98df72f, push de la session précédente) : git remote + fetch + reset --hard. Transcriptions intactes (heures de calcul économisées).
+- INVERSION CONFIRMÉE (plainte utilisateur) : les fichiers audio « darsi-2 » et « Darsi-3 » étaient croisés. Preuve par l'ordre du cours : dars1 = pages 1-4+6+10, leçon suivante logique = pages 6-13 (tables des sourates), puis 14-17 (la wasaya), puis 16-23. SWAP EFFECTUÉ : dars2 ↔ dars3 (répertoires travail_darsi échangés + chemins audio dans config_darsi.json).
+- CAUSE RACINE du faible surlignage DÉCOUVERTE : la couche TEXTE du PDF est corrompue. (a) le glyphe décoratif لله ne fournit que ه/ل dans rawdict (l'alef est absente de la couche texte, glyphes à bbox dégénérée) → الله extrait « لهل/اهلل » ; (b) les glyphes ligaturés (لم, لأ, ين) ont des bbox identiques émises en ordre VISUEL → « الموت » extrait « املوت » ; (c) les kashidas des pages poétiques (5-7) mappés en alefs → « النسااااخ » ; (d) chiffres inversés (180→081).
+- FIXES extraction (1_extraire_pdf.py) : inversion des groupes de glyphes à bbox identique (meme_boite ±25%) ; chiffres remis en LTR ; dictionnaire de réparation {لهل,هلل,اهلل…} → الله ; collapse des séries d'alefs (kashidas). Résultat : الله présent sur 19 pages, الصيام/النساخ/الموت trouvés.
+- FIXES aligneur (3_aligner.py) : (1) filtre anti-formules — rejet des runs courts (≤6 mots) ISOLÉS sur leur page (<150 s d'un autre run) matchant رحمه الله/صلى الله/سيدنا محمد etc. ; (2) PASSE DE PROPAGATION (étape 4.5) : entre deux runs voisins (≤45 mots du livre, ≤90 s), ré-assignation monotone des mots Whisper déformés aux mots suivants du livre (seuil 0.38, fenêtre 7, ≥2 affectations).
+- Ré-alignement dars2/3/4 : dars2 = 434 mots surlignés (38 runs, pages 2,5,6,7,9-13) ; dars3 = 170 mots (16 runs, pages 14-17+23) ; dars4 = 318 mots (32 runs, pages 6+19-23, conforme au brief initial « pages 20-23 »). dars1 INTACT (timing validé conservé).
+- Vérification pixel jaune sur les rendus : dars1 3/3, dars2 3/3 (p5,p6,p9), dars3 5/5 (p14), dars4 4/4 (p6,p21,p23,p23). Pages affichées = pages des runs (argmin fonds).
+- LIMITATION DOCUMENTÉE : Whisper small déforme fortement la récitation (accent+mélodie) — « يوصيكم » → « بلكم ». La propagation rattrape une partie ; un modèle medium/large améliorerait encore (coût CPU élevé).
+- Livrables : download/Darsi-1..4.mp4 re-rendus et copiés.
+
+Stage Summary:
+- dars2/dars3 ÉCHANGÉS (contenu correct), surlignage fortement augmenté (×3,4 sur dars2), formules parasites filtrées, texte du livre réparé.
+- Les 4 vidéos vérifiées et livrées dans download/. Push à faire immédiatement (risque de nouveau rollback).

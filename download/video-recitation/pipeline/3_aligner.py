@@ -36,6 +36,7 @@ Sorties :
 """
 import argparse
 import csv
+import re
 from pathlib import Path
 
 from commun import (normaliser, similarite, est_recitable, charger_json,
@@ -350,6 +351,36 @@ def main():
             actifs.append(r)
         else:
             rejetes += 1
+
+    # ---- filtre anti-formules ----------------------------------------------
+    # Les formules usuelles (رحمه الله، صلى الله عليه وسلم، سيدنا محمد…)
+    # sont prononcées en PERMANENCE pendant les explications ET figurent
+    # dans le texte du livre : un run COURT et ISOLÉ sur sa page (aucun
+    # autre run à moins de 150 s) n'est qu'une coïncidence de formule.
+    FORMULE = re.compile(r'رحمهالله|صلىالله|سيدنامحمد|وعلىالله|وصحبه|'
+                         r'والصحبه|الحمدلله|ولااله|بسمالله')
+    iso_rejets = 0
+    actifs2 = []
+    for k, r in enumerate(actifs):
+        ps = sorted(r['paires'], key=lambda x: x[1])
+        j0, j1 = ps[0][1], ps[-1][1]
+        pg = mots[parle_idx[j0]]['page']
+        nb_mots = len(ps)
+        txt_norm = ''.join(b_norms[b] for _w, b, _s in ps)
+        isole = not any(kk != k
+                        and mots[parle_idx[sorted(aa['paires'],
+                                                  key=lambda x: x[1])[0][1]]]['page'] == pg
+                        and abs(aa['debut'] - r['debut']) < 150
+                        for kk, aa in enumerate(actifs))
+        if (isole and nb_mots <= 6 and FORMULE.search(txt_norm)):
+            iso_rejets += 1
+            rejetes += 1
+            continue
+        actifs2.append(r)
+    actifs = actifs2
+    if iso_rejets:
+        print(f"filtre anti-formules : {iso_rejets} run(s) isolé(s) "
+              f"rejeté(s) (formules dites hors lecture)")
     print(f"runs de lecture : {len(runs)} au total, {len(actifs)} ACTIVÉS, "
           f"{rejetes} rejetés (coïncidences / qualité insuffisante)")
     for k, r in enumerate(actifs):
@@ -395,6 +426,54 @@ def main():
             if run_of[j] == k:
                 times[j] = bloc[z]
                 z += 1
+
+    # ---- 4.5) propagation de la récitation entre runs voisins --------------
+    # Entre deux runs actifs voisins (trou de texte court + trou de temps
+    # court), le cheikh continue souvent la lecture mais Whisper DÉFORME
+    # les mots (accent, mélodie, somali adjacent) : on ré-assigne les mots
+    # Whisper du trou aux MOTS SUIVANTS du livre, avec un pointeur
+    # monotone et un seuil tolérant. Sans cela, seuls les fragments bien
+    # transcrits sont surlignés et les longues lectures restent muettes.
+    PROP_TROU_MOTS = 45      # emprise max dans le livre entre 2 runs
+    PROP_TROU_TPS = 90.0     # écart temporel max entre les 2 runs (s)
+    PROP_SEUIL = 0.38        # similarité tolérante (récitation déformée)
+    PROP_FEN = 7             # fenêtre de recherche devant le pointeur
+    PROP_MIN = 2             # nb mini d'affectations pour valider le trou
+    prop_ajouts = 0
+    for k in range(len(actifs) - 1):
+        a, b = actifs[k], actifs[k + 1]
+        ja = max(x[1] for x in a['paires'])
+        jb = min(x[1] for x in b['paires'])
+        if jb - ja - 1 > PROP_TROU_MOTS or jb <= ja:
+            continue
+        wi_a = max(x[0] for x in a['paires'])
+        wi_b = min(x[0] for x in b['paires'])
+        t0, t1 = w_mots[wi_a]['fin'], w_mots[wi_b]['debut']
+        if t1 - t0 > PROP_TROU_TPS or t1 <= t0:
+            continue
+        affect = []
+        p = ja + 1
+        for wi in range(wi_a + 1, wi_b):
+            nw = w_norms[wi]
+            if not nw:
+                continue
+            for j in range(p, min(p + PROP_FEN, jb)):
+                s = similarite(nw, b_norms[j])
+                if s >= PROP_SEUIL:
+                    affect.append((wi, j, s))
+                    p = j + 1
+                    break
+        if len(affect) < PROP_MIN:
+            continue
+        for wi, j, s in affect:
+            times[j] = (w_mots[wi]['debut'], w_mots[wi]['fin'], s, 'whisper')
+            run_of[j] = k
+            a['paires'].append((wi, j, s))
+        a['fin'] = w_mots[affect[-1][0]]['fin']
+        prop_ajouts += len(affect)
+    if prop_ajouts:
+        print(f"propagation de récitation : {prop_ajouts} mots ré-assignés "
+              f"entre runs voisins (lecture continue déformée par Whisper)")
 
     # extension : chaque mot tient jusqu'au suivant (pas de clignotement)
     for k, r in enumerate(actifs):
