@@ -101,6 +101,13 @@ def verifier_dependances_python():
             __import__(module)
         except ImportError:
             manque.append(paquet)
+    # faster-whisper exige PyAV >= 12 (sinon : « open() got an unexpected keyword argument 'metadata_errors' »)
+    try:
+        from importlib.metadata import version
+        if int(version("av").split(".")[0]) < 12:
+            manque.append("av>=12")
+    except Exception:
+        manque.append("av>=12")
     try:
         __import__("pymupdf")
     except ImportError:
@@ -165,7 +172,7 @@ def main():
 
     manque = verifier_dependances_python()
     if manque:
-        cmd_pip = [sys.executable, "-m", "pip", "install"] + manque
+        cmd_pip = [sys.executable, "-m", "pip", "install", "--upgrade"] + manque
         if a.installer:
             print("\nInstallation des paquets manquants :", " ".join(manque))
             if subprocess.call(cmd_pip) != 0:
