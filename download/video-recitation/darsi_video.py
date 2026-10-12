@@ -202,6 +202,24 @@ def charger_images_existantes(dossier_images: Path):
 # en cache (travail/morceaux/morceau_XX.json) : si le script est relancé,
 # les morceaux déjà faits ne sont PAS recalculés (reprise automatique).
 
+def charger_wav(chemin_wav):
+    """Lit un WAV 16 kHz mono 16 bits (créé par ffmpeg) et renvoie un tableau float32.
+    Donner un tableau à faster-whisper évite sa lecture interne via la bibliothèque PyAV
+    (« av »), dont les versions anciennes provoquent l'erreur
+    « open() got an unexpected keyword argument 'metadata_errors' ».
+    Si le format n'est pas celui attendu, renvoie le chemin (comportement normal de repli)."""
+    import wave
+    try:
+        import numpy as np
+        with wave.open(str(chemin_wav), "rb") as w:
+            if w.getframerate() != 16000 or w.getnchannels() != 1 or w.getsampwidth() != 2:
+                return str(chemin_wav)
+            brut = w.readframes(w.getnframes())
+        return np.frombuffer(brut, dtype=np.int16).astype(np.float32) / 32768.0
+    except Exception:
+        return str(chemin_wav)
+
+
 def transcrire_audio(chemin_audio: str, dossier_travail: Path,
                      modele_nom: str = "small", langue: str = None,
                      duree_morceau: int = 480):
@@ -226,7 +244,7 @@ def transcrire_audio(chemin_audio: str, dossier_travail: Path,
         print("  transcription de %s (décalage %.0f s)…" % (chemin_wav.name, decalage))
         t0 = time.time()
         segments, _info = modele.transcribe(
-            str(chemin_wav), word_timestamps=True, language=langue, vad_filter=True)
+            charger_wav(chemin_wav), word_timestamps=True, language=langue, vad_filter=True)
         mots = []
         for seg in segments:
             for w in (seg.words or []):
