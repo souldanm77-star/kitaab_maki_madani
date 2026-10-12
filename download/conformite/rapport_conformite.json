@@ -252,16 +252,126 @@
   },
   "dars2": {
     "avant": {
-      "mots": 195,
-      "clusters": 20,
-      "clusters_isoles": 4,
-      "mots_isoles": 5,
-      "mots_trop_longs": 16,
-      "chevauchements": 5
+      "mots": 434,
+      "clusters": 39,
+      "clusters_isoles": 2,
+      "mots_isoles": 2,
+      "mots_trop_longs": 35,
+      "chevauchements": 2
     },
     "apres": {
-      "mots": 187,
-      "clusters": 17,
+      "mots": 425,
+      "clusters": 37,
+      "clusters_isoles": 0,
+      "mots_isoles": 0,
+      "mots_trop_longs": 0,
+      "chevauchements": 0
+    },
+    "pages_lues": {
+      "2": {
+        "debut_s": 212,
+        "fin_s": 218,
+        "mots": 4
+      },
+      "5": {
+        "debut_s": 240,
+        "fin_s": 271,
+        "mots": 9
+      },
+      "6": {
+        "debut_s": 315,
+        "fin_s": 420,
+        "mots": 50
+      },
+      "7": {
+        "debut_s": 1261,
+        "fin_s": 1266,
+        "mots": 7
+      },
+      "9": {
+        "debut_s": 1967,
+        "fin_s": 2455,
+        "mots": 197
+      },
+      "10": {
+        "debut_s": 2487,
+        "fin_s": 2652,
+        "mots": 75
+      },
+      "11": {
+        "debut_s": 2652,
+        "fin_s": 2847,
+        "mots": 27
+      },
+      "12": {
+        "debut_s": 3024,
+        "fin_s": 3193,
+        "mots": 41
+      },
+      "13": {
+        "debut_s": 3414,
+        "fin_s": 3427,
+        "mots": 15
+      }
+    },
+    "avertissements": [],
+    "mots_retires": [
+      {
+        "mot": "ومعرفته",
+        "t": 1994.6,
+        "page": 9,
+        "pos": 60
+      },
+      {
+        "mot": "لازمة",
+        "t": 1995.0,
+        "page": 9,
+        "pos": 61
+      },
+      {
+        "mot": "ركن",
+        "t": 2026.9,
+        "page": 9,
+        "pos": 78
+      },
+      {
+        "mot": "ناسخها",
+        "t": 2072.4,
+        "page": 9,
+        "pos": 99
+      },
+      {
+        "mot": "يقصّ",
+        "t": 2119.8,
+        "page": 9,
+        "pos": 118
+      },
+      {
+        "mot": "تعالى:",
+        "t": 2269.1,
+        "page": 9,
+        "pos": 201
+      },
+      {
+        "mot": "مكانه،",
+        "t": 2703.8,
+        "page": 11,
+        "pos": 19
+      }
+    ]
+  },
+  "dars3": {
+    "avant": {
+      "mots": 170,
+      "clusters": 15,
+      "clusters_isoles": 1,
+      "mots_isoles": 1,
+      "mots_trop_longs": 10,
+      "chevauchements": 1
+    },
+    "apres": {
+      "mots": 167,
+      "clusters": 14,
       "clusters_isoles": 0,
       "mots_isoles": 0,
       "mots_trop_longs": 0,
@@ -269,632 +379,113 @@
     },
     "pages_lues": {
       "14": {
-        "debut_s": 747,
-        "fin_s": 942,
-        "mots": 37
+        "debut_s": 990,
+        "fin_s": 1072,
+        "mots": 63
       },
       "15": {
-        "debut_s": 1172,
-        "fin_s": 1775,
-        "mots": 71
+        "debut_s": 1181,
+        "fin_s": 1616,
+        "mots": 19
       },
       "16": {
         "debut_s": 1775,
-        "fin_s": 1854,
-        "mots": 73
+        "fin_s": 2203,
+        "mots": 44
       },
-      "18": {
-        "debut_s": 2068,
-        "fin_s": 2072,
-        "mots": 6
+      "17": {
+        "debut_s": 2360,
+        "fin_s": 2428,
+        "mots": 34
+      },
+      "23": {
+        "debut_s": 2749,
+        "fin_s": 2752,
+        "mots": 7
       }
     },
-    "avertissements": [],
+    "avertissements": [
+      "saut page 17 -> 23 entre 2428s et 2749s (à vérifier à l'écoute)"
+    ],
     "mots_retires": [
       {
-        "mot": "البقرة.",
-        "t": 746.0,
-        "page": 14,
-        "pos": 72
+        "mot": "المشركين",
+        "t": 2184.2,
+        "page": 16,
+        "pos": 239
       },
       {
-        "mot": "الأنثيين،ّ",
-        "t": 931.8,
-        "page": 14,
-        "pos": 251
+        "mot": "عموما،",
+        "t": 2190.1,
+        "page": 16,
+        "pos": 240
       },
       {
-        "mot": "يدلّ",
-        "t": 1188.5,
-        "page": 15,
-        "pos": 204
-      },
-      {
-        "mot": "الآية:",
-        "t": 1595.7,
-        "page": 15,
-        "pos": 268
-      },
-      {
-        "mot": "محكمة،",
-        "t": 1763.9,
-        "page": 15,
-        "pos": 312
-      },
-      {
-        "mot": "لكنهاّ",
-        "t": 1764.4,
-        "page": 15,
-        "pos": 313
-      },
-      {
-        "mot": "الآيتين،",
-        "t": 2075.0,
-        "page": 18,
-        "pos": 325
-      },
-      {
-        "mot": "لأنّ",
-        "t": 2075.9,
-        "page": 18,
-        "pos": 326
-      }
-    ]
-  },
-  "dars3": {
-    "avant": {
-      "mots": 767,
-      "clusters": 70,
-      "clusters_isoles": 11,
-      "mots_isoles": 16,
-      "mots_trop_longs": 126,
-      "chevauchements": 1
-    },
-    "apres": {
-      "mots": 723,
-      "clusters": 70,
-      "clusters_isoles": 0,
-      "mots_isoles": 0,
-      "mots_trop_longs": 0,
-      "chevauchements": 0
-    },
-    "pages_lues": {
-      "1": {
-        "debut_s": 66,
-        "fin_s": 146,
-        "mots": 43
-      },
-      "2": {
-        "debut_s": 149,
-        "fin_s": 199,
-        "mots": 22
-      },
-      "6": {
-        "debut_s": 326,
-        "fin_s": 1023,
-        "mots": 88
-      },
-      "7": {
-        "debut_s": 1180,
-        "fin_s": 1449,
-        "mots": 14
-      },
-      "8": {
-        "debut_s": 1941,
-        "fin_s": 1952,
-        "mots": 13
-      },
-      "9": {
-        "debut_s": 1964,
-        "fin_s": 2485,
-        "mots": 232
-      },
-      "10": {
-        "debut_s": 2485,
-        "fin_s": 2679,
-        "mots": 121
-      },
-      "11": {
-        "debut_s": 2680,
-        "fin_s": 3003,
-        "mots": 87
-      },
-      "12": {
-        "debut_s": 3070,
-        "fin_s": 3349,
-        "mots": 70
-      },
-      "13": {
-        "debut_s": 3366,
-        "fin_s": 3526,
-        "mots": 33
-      }
-    },
-    "avertissements": [],
-    "mots_retires": [
-      {
-        "mot": "فيّ",
-        "t": 114.3,
-        "page": 1,
-        "pos": 104
-      },
-      {
-        "mot": "الناسخّ",
-        "t": 122.8,
-        "page": 1,
-        "pos": 105
-      },
-      {
-        "mot": "والمنسوخ؛",
-        "t": 128.3,
-        "page": 1,
-        "pos": 106
-      },
-      {
-        "mot": "البقرةّ",
-        "t": 187.3,
-        "page": 2,
-        "pos": 70
-      },
-      {
-        "mot": "الرعدّّ",
-        "t": 202.2,
-        "page": 2,
-        "pos": 74
-      },
-      {
-        "mot": "اختلاف.ّ",
-        "t": 203.0,
-        "page": 2,
-        "pos": 75
-      },
-      {
-        "mot": "في",
-        "t": 512.3,
-        "page": 6,
-        "pos": 198
-      },
-      {
-        "mot": "مسنده",
-        "t": 515.4,
-        "page": 6,
-        "pos": 199
-      },
-      {
-        "mot": "تعالى",
-        "t": 1011.7,
-        "page": 6,
-        "pos": 327
-      },
-      {
-        "mot": "أنّ",
-        "t": 1012.8,
-        "page": 6,
-        "pos": 328
-      },
-      {
-        "mot": "في",
-        "t": 1209.3,
-        "page": 7,
-        "pos": 87
-      },
-      {
-        "mot": "وربما",
-        "t": 1452.1,
-        "page": 7,
-        "pos": 163
-      },
-      {
-        "mot": "كانت",
-        "t": 1453.4,
-        "page": 7,
-        "pos": 164
-      },
-      {
-        "mot": "آيات",
-        "t": 1458.0,
-        "page": 7,
-        "pos": 165
-      },
-      {
-        "mot": "السور",
-        "t": 1610.2,
-        "page": 7,
-        "pos": 201
-      },
-      {
-        "mot": "المكية:ّ",
-        "t": 1615.2,
-        "page": 7,
-        "pos": 202
-      },
-      {
-        "mot": "وأماّ",
-        "t": 1617.6,
-        "page": 7,
-        "pos": 203
-      },
-      {
-        "mot": "العالم",
-        "t": 1935.0,
-        "page": 7,
-        "pos": 282
-      },
-      {
-        "mot": "الر",
-        "t": 1959.3,
-        "page": 9,
-        "pos": 1
-      },
-      {
-        "mot": "أو",
-        "t": 2044.3,
-        "page": 9,
-        "pos": 75
-      },
-      {
-        "mot": "على",
-        "t": 2133.2,
-        "page": 9,
-        "pos": 116
-      },
-      {
-        "mot": "قاصّ",
-        "t": 2133.4,
-        "page": 9,
-        "pos": 117
-      },
-      {
-        "mot": "هلكت",
-        "t": 2165.2,
-        "page": 9,
-        "pos": 128
-      },
-      {
-        "mot": "وأهلكت",
-        "t": 2165.9,
-        "page": 9,
-        "pos": 129
-      },
-      {
-        "mot": "الناس،",
-        "t": 2218.9,
-        "page": 9,
-        "pos": 154
-      },
-      {
-        "mot": "فأرسل",
-        "t": 2262.6,
-        "page": 9,
-        "pos": 174
-      },
-      {
-        "mot": "اهلل",
-        "t": 2328.6,
-        "page": 9,
-        "pos": 194
-      },
-      {
-        "mot": "نسخت",
-        "t": 2696.6,
-        "page": 11,
-        "pos": 13
-      },
-      {
-        "mot": "الشمس",
-        "t": 2697.1,
-        "page": 11,
-        "pos": 14
-      },
-      {
-        "mot": "مكاناّ",
-        "t": 2711.3,
-        "page": 11,
-        "pos": 29
-      },
-      {
-        "mot": "شيء.",
-        "t": 2712.9,
-        "page": 11,
-        "pos": 30
-      },
-      {
-        "mot": "والناسخّ",
-        "t": 2718.0,
-        "page": 11,
-        "pos": 31
-      },
-      {
-        "mot": "في",
-        "t": 2732.1,
-        "page": 11,
-        "pos": 33
-      },
-      {
-        "mot": "هذا",
-        "t": 2742.7,
-        "page": 11,
-        "pos": 37
-      },
-      {
-        "mot": "نسخ",
-        "t": 3135.5,
-        "page": 12,
-        "pos": 72
-      },
-      {
-        "mot": "التلاوة",
-        "t": 3137.5,
-        "page": 12,
-        "pos": 73
-      },
-      {
-        "mot": "والحكم",
-        "t": 3240.0,
-        "page": 12,
-        "pos": 108
-      },
-      {
-        "mot": "إجماعا.",
-        "t": 3241.6,
-        "page": 12,
-        "pos": 109
-      },
-      {
-        "mot": "آية",
-        "t": 3307.3,
-        "page": 12,
-        "pos": 177
-      },
-      {
-        "mot": "نسخ",
-        "t": 3348.8,
-        "page": 13,
-        "pos": 2
-      },
-      {
-        "mot": "الحكم",
-        "t": 3349.7,
-        "page": 13,
-        "pos": 3
-      },
-      {
-        "mot": "ليس",
-        "t": 3464.2,
-        "page": 13,
-        "pos": 39
-      },
-      {
-        "mot": "منه",
-        "t": 3464.3,
-        "page": 13,
-        "pos": 40
-      },
-      {
-        "mot": "غلطا.",
-        "t": 3517.5,
-        "page": 13,
-        "pos": 41
+        "mot": "وصية",
+        "t": 2376.3,
+        "page": 17,
+        "pos": 25
       }
     ]
   },
   "dars4": {
     "avant": {
-      "mots": 593,
-      "clusters": 74,
-      "clusters_isoles": 9,
-      "mots_isoles": 13,
-      "mots_trop_longs": 89,
-      "chevauchements": 5
+      "mots": 318,
+      "clusters": 32,
+      "clusters_isoles": 0,
+      "mots_isoles": 0,
+      "mots_trop_longs": 20,
+      "chevauchements": 1
     },
     "apres": {
-      "mots": 568,
-      "clusters": 75,
+      "mots": 317,
+      "clusters": 33,
       "clusters_isoles": 0,
       "mots_isoles": 0,
       "mots_trop_longs": 0,
       "chevauchements": 0
     },
     "pages_lues": {
-      "7": {
-        "debut_s": 5,
-        "fin_s": 10,
-        "mots": 10
-      },
-      "16": {
-        "debut_s": 170,
-        "fin_s": 171,
-        "mots": 4
-      },
-      "17": {
-        "debut_s": 171,
-        "fin_s": 226,
-        "mots": 26
-      },
-      "18": {
-        "debut_s": 422,
-        "fin_s": 792,
-        "mots": 41
+      "6": {
+        "debut_s": 329,
+        "fin_s": 332,
+        "mots": 6
       },
       "19": {
-        "debut_s": 1734,
-        "fin_s": 1893,
-        "mots": 42
+        "debut_s": 1740,
+        "fin_s": 1795,
+        "mots": 20
       },
       "20": {
-        "debut_s": 1893,
-        "fin_s": 2418,
-        "mots": 110
+        "debut_s": 1906,
+        "fin_s": 2196,
+        "mots": 46
       },
       "21": {
         "debut_s": 2583,
-        "fin_s": 3281,
-        "mots": 89
+        "fin_s": 2838,
+        "mots": 56
       },
       "22": {
-        "debut_s": 3281,
-        "fin_s": 3747,
-        "mots": 84
+        "debut_s": 3294,
+        "fin_s": 3887,
+        "mots": 61
       },
       "23": {
-        "debut_s": 3955,
-        "fin_s": 5247,
-        "mots": 162
+        "debut_s": 3887,
+        "fin_s": 5052,
+        "mots": 128
       }
     },
     "avertissements": [
-      "saut page 7 -> 16 entre 10s et 170s (à vérifier à l'écoute)"
+      "saut page 6 -> 19 entre 332s et 1740s (à vérifier à l'écoute)"
     ],
     "mots_retires": [
       {
-        "mot": "أولى",
-        "t": 363.5,
-        "page": 18,
-        "pos": 5
-      },
-      {
-        "mot": "كفر",
-        "t": 364.3,
-        "page": 18,
-        "pos": 6
-      },
-      {
-        "mot": "أنّ",
-        "t": 494.3,
-        "page": 18,
-        "pos": 17
-      },
-      {
-        "mot": "قوله",
-        "t": 568.7,
-        "page": 18,
-        "pos": 18
-      },
-      {
-        "mot": "عبيد،",
-        "t": 2028.6,
-        "page": 20,
-        "pos": 177
-      },
-      {
-        "mot": "وهبة",
-        "t": 2030.9,
-        "page": 20,
-        "pos": 178
-      },
-      {
-        "mot": "عنه،",
-        "t": 2421.4,
-        "page": 20,
-        "pos": 458
-      },
-      {
-        "mot": "وقد",
-        "t": 2425.6,
-        "page": 20,
-        "pos": 459
-      },
-      {
-        "mot": "ا",
-        "t": 2551.0,
-        "page": 20,
-        "pos": 486
-      },
-      {
-        "mot": "وقوله:",
-        "t": 2551.9,
-        "page": 21,
-        "pos": 0
-      },
-      {
-        "mot": "قوله",
-        "t": 2612.3,
-        "page": 21,
-        "pos": 12
-      },
-      {
-        "mot": "تعالى:",
-        "t": 2613.3,
-        "page": 21,
-        "pos": 13
-      },
-      {
-        "mot": "(الأحزاب:25)",
-        "t": 2637.7,
-        "page": 21,
-        "pos": 21
-      },
-      {
-        "mot": "اهلل",
-        "t": 3515.9,
+        "mot": "داود",
+        "t": 3871.4,
         "page": 22,
-        "pos": 194
-      },
-      {
-        "mot": "عنها:",
-        "t": 3520.8,
-        "page": 22,
-        "pos": 195
-      },
-      {
-        "mot": "يا",
-        "t": 3523.0,
-        "page": 22,
-        "pos": 196
-      },
-      {
-        "mot": "رضي",
-        "t": 3751.0,
-        "page": 22,
-        "pos": 273
-      },
-      {
-        "mot": "قوله",
-        "t": 3944.8,
-        "page": 23,
-        "pos": 21
-      },
-      {
-        "mot": "تعالى:",
-        "t": 3949.4,
-        "page": 23,
-        "pos": 22
-      },
-      {
-        "mot": "الحكم",
-        "t": 4223.5,
-        "page": 23,
-        "pos": 63
-      },
-      {
-        "mot": "الحكمة.",
-        "t": 4320.6,
-        "page": 23,
-        "pos": 86
-      },
-      {
-        "mot": "الثاني:",
-        "t": 4321.5,
-        "page": 23,
-        "pos": 87
-      },
-      {
-        "mot": "الثانية:",
-        "t": 4459.6,
-        "page": 23,
-        "pos": 99
-      },
-      {
-        "mot": "منسوخ",
-        "t": 4818.6,
-        "page": 23,
-        "pos": 172
-      },
-      {
-        "mot": "الاجتهاد،",
-        "t": 4921.3,
-        "page": 23,
-        "pos": 192
+        "pos": 312
       }
     ]
   }

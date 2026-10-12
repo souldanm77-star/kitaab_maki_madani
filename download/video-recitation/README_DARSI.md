@@ -245,3 +245,32 @@ exclues par le `.gitignore`. Le dépôt contient tout le reste : les scripts,
 le texte extrait, les transcriptions, les timings CSV et les rapports
 d'alignement. Les vidéos se téléchargent depuis l'espace de travail
 (`/home/z/my-project/download/Darsi-N.mp4`).
+
+---
+
+## Lancement automatique : `lancer_darsi.py`
+
+```
+python lancer_darsi.py --liste          # montre ce qui est détecté (audios + PDF), ne lance rien
+python lancer_darsi.py --installer      # installe faster-whisper/rapidfuzz/PyMuPDF si besoin, puis rend
+python lancer_darsi.py --seulement 1    # un seul darsi (numéro de LEÇON)
+python lancer_darsi.py --modele medium  # small (défaut) | medium | large-v3 (plus précis, plus lent)
+```
+
+* Détecte le PDF et les audios `darsi-N` (ignore `extrait_test.wav`, `*_16k_mono.wav`…).
+* **Leçons 2 et 3 échangées par défaut** : l'audio « darsi-3 » est la 2ᵉ leçon du cours
+  (pages 6-13), « darsi-2 » la 3ᵉ (pages 14-17). `--sans-echange` pour désactiver.
+
+## Qualité du surlignage (régularisation)
+
+Appliquée automatiquement avant la génération ASS, dans `darsi_video.py` **et** `pipeline/4_video.py` :
+
+| Règle | Effet | Réglage |
+|---|---|---|
+| Mots isolés | < 3 mots consécutifs = faux positif, supprimé | `--min-cluster` |
+| Durée plafonnée | un mot ne reste jamais jaune pendant une pause | `--duree-max-mot` (1,6 s) |
+| Surlignage continu | le jaune passe d'un mot au suivant sans clignoter | `--pont` (0,6 s) |
+| Anti-chevauchement | un seul mot surligné à la fois | — |
+
+`download/controle_conformite.py` audite/corrige les CSV sans relancer Whisper
+(rapport : `download/conformite/rapport_conformite.md`).

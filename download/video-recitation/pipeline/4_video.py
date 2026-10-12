@@ -78,6 +78,27 @@ def composer_fond(cfg, image_cheikh, image_page, chemin_sortie):
 
 
 # ------------------------------------------------------------------ ASS ---
+def regulariser_cibles(cibles, duree_max=1.6, pont=0.6, duree_min=0.12):
+    """Rend le surlignage mot à mot stable et continu (règle « un seul mot à la fois ») :
+    plafonne la durée d'un mot (le jaune ne traîne pas sur une pause), comble les
+    micro-silences entre deux mots consécutifs d'une même page (pas de clignotement),
+    supprime les chevauchements et garantit une durée minimale visible."""
+    cibles.sort(key=lambda c: (c['debut'], c['fin']))
+    for c in cibles:
+        c['fin'] = min(c['fin'], c['debut'] + duree_max)
+    for a, b in zip(cibles, cibles[1:]):
+        if a['fin'] > b['debut']:
+            a['fin'] = b['debut']
+        elif a['page'] == b['page'] and 0 < b['debut'] - a['fin'] <= pont:
+            a['fin'] = b['debut']
+    for i, c in enumerate(cibles):
+        limite = cibles[i + 1]['debut'] if i + 1 < len(cibles) else c['debut'] + duree_min
+        if c['fin'] - c['debut'] < duree_min:
+            c['fin'] = min(c['debut'] + duree_min, limite)   # jamais au-delà du mot suivant
+    # < 1 image (0,04 s à 25 i/s) = invisible : mots dont Whisper a écrasé le timing
+    return [c for c in cibles if c['fin'] - c['debut'] >= 0.04]
+
+
 def generer_ass(cfg, mots, transfo, dpi, mode, chemin_ass=None):
     """Construit les événements du surligneur.
     Seuls les mots des passages LU dans le livre (états 'whisper' et
@@ -112,7 +133,10 @@ def generer_ass(cfg, mots, transfo, dpi, mode, chemin_ass=None):
                        and m.get('debut') is not None)
     cibles = []
     if mode == 'mot':
-        cibles = [m for m in mots if actif(m)]
+        cibles = [dict(m) for m in mots if actif(m)]   # copie : ne modifie pas timing.json
+        if s_cfg.get('regularisation', True):
+            cibles = regulariser_cibles(
+                cibles, s_cfg.get('duree_max_mot', 1.6), s_cfg.get('pont', 0.6))
     else:  # mode « ligne » : la ligne entière reste surlignée tant qu'on la lit
         groupes = {}
         for m in mots:

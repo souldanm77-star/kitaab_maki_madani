@@ -791,7 +791,7 @@ def fmt_temps_ass(t: float) -> str:
     return "%d:%02d:%05.2f" % (int(t // 3600), int(t % 3600 // 60), t % 60)
 
 
-def nettoyer_evenements(evenements, min_cluster=3, gap_cluster=2.5, duree_max_mot=1.6):
+def nettoyer_evenements(evenements, min_cluster=3, gap_cluster=2.5, duree_max_mot=1.6, pont=0.6):
     """Applique la règle « surligner UNIQUEMENT la vraie lecture du livre ».
 
     evenements : liste de (t0, t1, page, x, y, l, h) triée par t0.
@@ -801,14 +801,17 @@ def nettoyer_evenements(evenements, min_cluster=3, gap_cluster=2.5, duree_max_mo
        positifs (mot isolé reconnu par hasard pendant une explication) ;
     3) plafonne la durée de chaque mot (duree_max_mot) : un mot ne reste jamais
        surligné pendant une pause ou une explication ;
-    4) supprime tout chevauchement (un seul mot surligné à la fois).
+    4) rend le surligneur CONTINU : si le mot suivant (même page) démarre moins de
+       `pont` s après la fin du mot courant, le jaune passe directement de l'un à
+       l'autre (pas de clignotement dû au bruit des timestamps Whisper) ;
+    5) supprime tout chevauchement (un seul mot surligné à la fois).
     Retourne (evenements_nettoyes, statistiques)."""
     # plafonner d'abord : un mot étiré sur une pause ne doit pas « ponter » deux lectures
     plaf0 = sum(1 for e in evenements if e[1] - e[0] > duree_max_mot)
     evs = sorted(((t0, min(t1, t0 + duree_max_mot), p, x, y, l, h)
                   for (t0, t1, p, x, y, l, h) in evenements), key=lambda e: (e[0], e[1]))
     if not evs:
-        return evs, {"entree": 0, "sortie": 0, "isoles": 0, "plafonnes": 0, "chevauchements": 0}
+        return evs, {"entree": 0, "sortie": 0, "isoles": 0, "plafonnes": 0, "chevauchements": 0, "ponts": 0}
     clusters = [[evs[0]]]
     for a, b in zip(evs, evs[1:]):
         if b[2] == a[2] and b[0] - a[1] <= gap_cluster:
@@ -821,15 +824,20 @@ def nettoyer_evenements(evenements, min_cluster=3, gap_cluster=2.5, duree_max_mo
             gardes.extend(c)
         else:
             isoles += len(c)
-    out, plafonnes, chevauch = [], plaf0, 0
+    out, plafonnes, chevauch, ponts = [], plaf0, 0, 0
     for i, (t0, t1, page, x, y, l, h) in enumerate(gardes):
-        if i + 1 < len(gardes) and t1 > gardes[i + 1][0]:
-            t1 = gardes[i + 1][0]
-            chevauch += 1
+        if i + 1 < len(gardes):
+            nxt = gardes[i + 1]
+            if t1 > nxt[0]:
+                t1 = nxt[0]
+                chevauch += 1
+            elif nxt[2] == page and 0 < nxt[0] - t1 <= pont:
+                t1 = nxt[0]
+                ponts += 1
         if t1 > t0:
             out.append((t0, t1, page, x, y, l, h))
     return out, {"entree": len(evs), "sortie": len(out), "isoles": isoles,
-                 "plafonnes": plafonnes, "chevauchements": chevauch}
+                 "plafonnes": plafonnes, "chevauchements": chevauch, "ponts": ponts}
 
 
 def generer_ass(evenements, echelle_x, echelle_y, taille_video):
@@ -1013,6 +1021,8 @@ def main():
                         "supprime les mots isolés (faux positifs)")
     p.add_argument("--gap-cluster", type=float, default=2.5,
                    help="silence max (s) entre deux mots d'une même lecture (défaut 2.5)")
+    p.add_argument("--pont", type=float, default=0.6,
+                   help="écart max (s) comblé entre deux mots pour un surlignage continu (défaut 0.6)")
     p.add_argument("--duree-max-mot", type=float, default=1.6,
                    help="durée max (s) d'un mot surligné (défaut 1.6)")
     p.add_argument("--res", type=int, default=1080, help="hauteur de la vidéo (défaut 1080)")
@@ -1085,10 +1095,10 @@ def main():
                 evenements.extend(inserer_mots_interpoles(run, mots_trans, mots_ref))
             evenements.sort(key=lambda e: e[0])
             evenements, stats_net = nettoyer_evenements(
-                evenements, args.min_cluster, args.gap_cluster, args.duree_max_mot)
+                evenements, args.min_cluster, args.gap_cluster, args.duree_max_mot, args.pont)
             print("  nettoyage surlignage : %(entree)d -> %(sortie)d mots "
                   "(%(isoles)d isolés supprimés, %(plafonnes)d durées plafonnées, "
-                  "%(chevauchements)d chevauchements corrigés)" % stats_net)
+                  "%(chevauchements)d chevauchements corrigés, %(ponts)d transitions lissées)" % stats_net)
             if not evenements:
                 print("  aucun mot avec coordonnées -> surlignage impossible.")
             else:

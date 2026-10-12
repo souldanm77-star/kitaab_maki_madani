@@ -24,6 +24,7 @@ Usage :  python3 controle_conformite.py [--dossier .] [--sortie conformite]
 import argparse
 import csv
 import json
+import re
 from pathlib import Path
 
 MIN_CLUSTER = 3
@@ -134,7 +135,8 @@ def main():
                      "Règle : surlignage uniquement sur la vraie lecture du livre.\n",
                      "| Dars | Mots avant | Mots après | Mots isolés retirés | Mots plafonnés | Chevauchements | Pages lues |",
                      "|---|---|---|---|---|---|---|"]
-    for csv_in in sorted(dossier.glob("dars*_synchronisation.csv")):
+    for csv_in in sorted(f for f in dossier.glob("dars*_synchronisation.csv")
+                         if re.match(r"dars\d+_", f.name)):
         nom = csv_in.name.split("_")[0]
         entete, mots = lire(csv_in)
         avant = auditer(mots)
