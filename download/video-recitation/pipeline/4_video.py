@@ -191,6 +191,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 # --------------------------------------------------------------- ffmpeg ---
+def _chemin_filtre(chemin):
+    """Chemin utilisable DANS un filtre ffmpeg (ass=…), sous Windows comme sous Linux :
+    séparateurs « / », deux-points échappés (D\\:/…) et guillemets simples pour les espaces."""
+    c = Path(chemin).resolve().as_posix().replace("'", "\\'")
+    return "'" + c.replace(":", "\\:") + "'"
+
+
 def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
                  liste_concat=None, audio_debut=None, audio_duree=None):
     """Rendu par DEMUXEUR CONCAT : chaque page est une image affichée
@@ -203,9 +210,9 @@ def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
     lignes = ['ffconcat version 1.0']
     for (p, d0, d1), f in zip(fenetres, fonds):
         dur = max(0.5, d1 - d0)
-        lignes.append(f"file '{f}'")
+        lignes.append(f"file '{Path(f).resolve().as_posix()}'")
         lignes.append(f"duration {dur:.3f}")
-    lignes.append(f"file '{fonds[-1]}'")       # répétition finale requise
+    lignes.append(f"file '{Path(fonds[-1]).resolve().as_posix()}'")       # répétition finale requise
     lst.write_text('\n'.join(lignes) + '\n', encoding='utf-8')
 
     cmd = ['ffmpeg', '-nostdin', '-y', '-hide_banner', '-loglevel', 'error',
@@ -218,7 +225,7 @@ def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
             '-map', '0:v', '-map', '1:a',
            # fps D'ABORD (normalise les timestamps du concat, sinon ass ne
            # verrait qu'une frame par page), puis le surligneur ASS
-           '-vf', f"fps={v.get('fps', 25)},ass={chemin_ass},"
+           '-vf', f"fps={v.get('fps', 25)},ass={_chemin_filtre(chemin_ass)},"
                   f"format=yuv420p",
            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
            '-c:a', 'aac', '-b:a', '160k']
