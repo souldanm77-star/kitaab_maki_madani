@@ -180,7 +180,7 @@ def main():
                 return 1
         else:
             print("\nPaquets Python manquants :", ", ".join(manque))
-            print("Installez-les avec :\n  " + " ".join(cmd_pip))
+            print("Installez-les avec :\n  " + " ".join('"%s"' % c if (">" in c or " " in c) else c for c in cmd_pip))
             print("ou relancez : python lancer_darsi.py --installer")
             return 1
 
