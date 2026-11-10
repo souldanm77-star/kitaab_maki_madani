@@ -99,6 +99,70 @@ def regulariser_cibles(cibles, duree_max=1.6, pont=0.6, duree_min=0.12):
     return [c for c in cibles if c['fin'] - c['debut'] >= 0.04]
 
 
+def cibles_ligne(mots, pont=4.0, tenue=0.6, s_par_mot=0.3, max_s=8.0):
+    """Surlignage PAR LIGNE, robuste aux erreurs de reconnaissance de Whisper.
+    * chaque lecture continue (« run » de l'étape 3) est traitée séparément ;
+    * une ligne reste allumée le temps estimé pour la lire en entier, même si
+      Whisper n'en a reconnu que quelques mots ;
+    * les lignes SAUTÉES entre deux lignes reconnues (même page) sont comblées,
+      à condition que le rythme de lecture soit plausible ;
+    * le surlignage passe d'une ligne à la suivante sans trou et s'éteint
+      pendant le somali et les commentaires (aucune ligne hors lecture)."""
+    actif = lambda m: (m.get('etat') in ('whisper', 'interpole') and m.get('debut') is not None)
+    tous = {}
+    for m in mots:
+        if m.get('etat') != 'hors_texte':
+            tous.setdefault((m['page'], m.get('ligne', 0)), []).append(m)
+    boite = {k: (min(m['x0'] for m in ms), min(m['y0'] for m in ms),
+                 max(m['x1'] for m in ms), max(m['y1'] for m in ms), len(ms))
+             for k, ms in tous.items()}
+    runs = {}
+    for m in mots:
+        if actif(m):
+            runs.setdefault(m.get('run'), []).append(m)
+    cibles = []
+    for ms in runs.values():
+        L = {}
+        for m in ms:
+            k = (m['page'], m.get('ligne', 0))
+            t0, t1 = L.get(k, (m['debut'], m['fin']))
+            L[k] = (min(t0, m['debut']), max(t1, m['fin']))
+        ordre = sorted(L, key=lambda k: L[k][0])
+        # combler les lignes sautées entre deux lignes reconnues consécutives
+        for a, b in zip(ordre, ordre[1:]):
+            if a[0] != b[0] or not (2 <= b[1] - a[1] <= 5):
+                continue
+            milieu = list(range(a[1], b[1]))
+            poids = [boite.get((a[0], i), (0, 0, 0, 0, 0))[4] for i in milieu]
+            total = sum(poids)
+            dt = L[b][0] - L[a][0]
+            if total and 0.12 <= dt / total <= 1.2 and all((a[0], i) in boite for i in milieu):
+                cum = 0
+                for i, w in zip(milieu[1:], poids[:-1]):
+                    cum += w
+                    t = L[a][0] + dt * cum / total
+                    L[(a[0], i)] = (t, t + dt * poids[milieu.index(i)] / total)
+        ordre = sorted(L, key=lambda k: L[k][0])
+        for i, k in enumerate(ordre):
+            if k not in boite:
+                continue
+            x0, y0, x1, y1, n = boite[k]
+            debut, t1 = L[k]
+            fin = max(t1 + tenue, debut + min(n * s_par_mot, max_s))
+            if i + 1 < len(ordre):
+                suiv = L[ordre[i + 1]][0]
+                if suiv - t1 <= pont or fin > suiv:
+                    fin = suiv                       # passage continu à la ligne suivante
+            if fin - debut >= 0.3:
+                cibles.append({'page': k[0], 'ligne': k[1], 'x0': x0, 'y0': y0,
+                               'x1': x1, 'y1': y1, 'debut': debut, 'fin': fin})
+    cibles.sort(key=lambda c: (c['debut'], c['fin']))
+    for a, b in zip(cibles, cibles[1:]):             # jamais deux lignes à la fois
+        if a['fin'] > b['debut']:
+            a['fin'] = b['debut']
+    return [c for c in cibles if c['fin'] - c['debut'] >= 0.1]
+
+
 def generer_ass(cfg, mots, transfo, dpi, mode, chemin_ass=None):
     """Construit les événements du surligneur.
     Seuls les mots des passages LU dans le livre (états 'whisper' et
@@ -138,27 +202,8 @@ def generer_ass(cfg, mots, transfo, dpi, mode, chemin_ass=None):
             cibles = regulariser_cibles(
                 cibles, s_cfg.get('duree_max_mot', 1.6), s_cfg.get('pont', 0.6))
     else:  # mode « ligne » : la ligne entière reste surlignée tant qu'on la lit
-        groupes = {}
-        for m in mots:
-            if m.get('etat') == 'hors_texte':
-                continue
-            groupes.setdefault((m['page'], m.get('ligne', 0)), []).append(m)
-        for (page, ligne), ms in groupes.items():
-            t = [m for m in ms if actif(m)]
-            if not t:
-                continue
-            cibles.append({
-                'page': page, 'ligne': ligne,
-                'x0': min(m['x0'] for m in ms),
-                'y0': min(m['y0'] for m in ms),
-                'x1': max(m['x1'] for m in ms),
-                'y1': max(m['y1'] for m in ms),
-                'debut': min(m['debut'] for m in t),
-                'fin': max(m['fin'] for m in t)})
-        cibles.sort(key=lambda c: c['debut'])
-        for a, b in zip(cibles, cibles[1:]):
-            if b['debut'] - a['fin'] < 3.0:
-                a['fin'] = b['debut']      # surlignage continu ligne à ligne
+        cibles = cibles_ligne(mots, s_cfg.get('pont_ligne', 4.0), s_cfg.get('tenue_ligne', 0.6),
+                              s_cfg.get('s_par_mot', 0.3), s_cfg.get('max_ligne_s', 8.0))
 
     entete = f"""[Script Info]
 ; Surligneur karaoke — généré par 4_video.py
@@ -225,10 +270,13 @@ def rendre_video(fenetres, fonds, audio, chemin_ass, sortie, cfg, duree=None,
             '-map', '0:v', '-map', '1:a',
            # fps D'ABORD (normalise les timestamps du concat, sinon ass ne
            # verrait qu'une frame par page), puis le surligneur ASS
-           '-vf', f"fps={v.get('fps', 25)},ass={_chemin_filtre(chemin_ass)},"
-                  f"format=yuv420p",
-           '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
-           '-c:a', 'aac', '-b:a', '160k']
+           '-vf', f"fps={v.get('fps', 25)},"
+                  + (f"scale={v['largeur_sortie']}:{v['hauteur_sortie']}:flags=lanczos,"
+                     if v.get('largeur_sortie') else "")
+                  + f"ass={_chemin_filtre(chemin_ass)},format=yuv420p",
+           '-c:v', 'libx264', '-preset', str(v.get('preset', 'veryfast')),
+           '-crf', str(v.get('crf', 20)),
+           '-c:a', 'aac', '-b:a', str(v.get('audio_bitrate', '160k'))]
     if audio_duree is not None:
         cmd += ['-t', f'{audio_duree:.3f}']
     elif duree:

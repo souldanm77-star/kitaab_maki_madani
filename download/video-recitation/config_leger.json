@@ -1,0 +1,98 @@
+{
+ "entree": {
+  "livre": "audio/LIVRE.pdf",
+  "cheikh": "audio/IMAGE.jpeg",
+  "audio_dir": "audio"
+ },
+ "travail": "travail_darsi",
+ "sortie": "sortie",
+ "whisper": {
+  "modele": "small",
+  "calcul": "int8",
+  "langue": null,
+  "multilingual": true
+ },
+ "alignement": {
+  "seuil": 0.45,
+  "gap": -0.28,
+  "min_mots_run": 3,
+  "min_duree_run": 1.5,
+  "queue": 0.6
+ },
+ "video": {
+  "largeur": 1920,
+  "hauteur": 1080,
+  "fps": 15,
+  "dpi": 200,
+  "panneau_cheikh": {
+   "largeur": 768
+  },
+  "fond": [
+   24,
+   24,
+   28
+  ],
+  "papier": [
+   246,
+   242,
+   233
+  ],
+  "separation": [
+   203,
+   164,
+   74
+  ],
+  "surlignage": {
+   "mode": "mot",
+   "couleur": [
+    255,
+    235,
+    59
+   ],
+   "opacite": 0.45,
+   "pad": 5
+  },
+  "largeur_sortie": 1280,
+  "hauteur_sortie": 720,
+  "crf": 27,
+  "audio_bitrate": "48k"
+ },
+ "darses": {
+  "dars1": {
+   "titre": "الدرس الأول",
+   "audio": "audio/Audio darsi-1.mpeg",
+   "pages": [
+    1,
+    23
+   ],
+   "mode": "ligne"
+  },
+  "dars2": {
+   "titre": "الدرس الثاني",
+   "audio": "audio/Audio Darsi-3.mpeg",
+   "pages": [
+    1,
+    23
+   ],
+   "mode": "ligne"
+  },
+  "dars3": {
+   "titre": "الدرس الثالث",
+   "audio": "audio/Audio darsi-2.mpeg",
+   "pages": [
+    1,
+    23
+   ],
+   "mode": "ligne"
+  },
+  "dars4": {
+   "titre": "الدرس الرابع",
+   "audio": "audio/Audio darsi-4.mpeg",
+   "pages": [
+    1,
+    23
+   ],
+   "mode": "ligne"
+  }
+ }
+}
