@@ -99,6 +99,39 @@ def regulariser_cibles(cibles, duree_max=1.6, pont=0.6, duree_min=0.12):
     return [c for c in cibles if c['fin'] - c['debut'] >= 0.04]
 
 
+# Formules courantes (forme normalisée de l'étape 3) : prières, louanges, invocations.
+FORMULES = {
+    'الله', 'اهلل', 'لله', 'صلي', 'عليه', 'وسلم', 'وعلي', 'علي', 'اله', 'واله', 'وصحبه', 'سيدنا',
+    'محمد', 'محمدا', 'ومن', 'تبعهم', 'باحسان', 'الي', 'يوم', 'الدين', 'رب', 'العالمين',
+    'والحمد', 'الحمد', 'سبحانه', 'وتعالي', 'تعالي', 'رحمه', 'رضي', 'عنه', 'عنهما', 'عنها',
+    'عبده', 'ورسوله', 'اشهد', 'ان', 'لا', 'الا', 'وحده', 'له', 'شريك', 'وان', 'بسم', 'الرحمن', 'الرحيم'}
+
+
+def retirer_formules(mots, max_mots=12, seuil_confiance=0.8):
+    """Écarte les FAUX POSITIFS de formules : un court passage (<= max_mots mots) dont
+    tous les mots fiables (confiance >= seuil) sont des formules courantes (« صلى الله
+    عليه وسلم », « الحمد لله »…) n'est pas une lecture du livre : le Cheikh prononce
+    simplement la formule (clôture de la séance, invocation). Sans ce filtre, la formule
+    est rattachée à une ligne quelconque du livre qui la contient et la vidéo change de
+    page pour rien. Travaille sur une copie : timing.json n'est pas modifié.
+    Retourne (mots_corriges, nombre_de_passages_ecartes)."""
+    mots = [dict(m) for m in mots]
+    runs = {}
+    for m in mots:
+        if m.get('etat') in ('whisper', 'interpole') and m.get('debut') is not None:
+            runs.setdefault(m.get('run'), []).append(m)
+    ecartes = 0
+    for ms in runs.values():
+        if len(ms) > max_mots:
+            continue
+        fiables = [m for m in ms if m.get('confiance', 0) >= seuil_confiance]
+        if fiables and all(m.get('norme') in FORMULES for m in fiables):
+            for m in ms:
+                m['etat'] = 'hors_lecture'
+            ecartes += 1
+    return mots, ecartes
+
+
 def cibles_ligne(mots, pont=4.0, tenue=0.6, s_par_mot=0.3, max_s=8.0):
     """Surlignage PAR LIGNE, robuste aux erreurs de reconnaissance de Whisper.
     * chaque lecture continue (« run » de l'étape 3) est traitée séparément ;
@@ -317,6 +350,10 @@ def main():
 
     p1, p2 = dars['pages']
     mots = [m for m in timing['mots'] if p1 <= m['page'] <= p2]
+    mots, n_formules = retirer_formules(mots)
+    if n_formules:
+        print(f"  filtre formules : {n_formules} passage(s) court(s) de formule écarté(s) "
+              f"(clôture, invocation — pas une lecture du livre)")
     if not mots:
         raise SystemExit(f"Aucun mot calé pour « {args.dars} » — lancez les "
                          f"étapes 1→3 d'abord.")
